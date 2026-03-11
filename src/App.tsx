@@ -2,6 +2,8 @@ import { motion } from "motion/react";
 import logo from "./assets/understack-logo.png";
 import type { ReactNode } from "react";
 
+const GASTROAPP_URL = "https://gastroapp.dk";
+
 function ReactIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -182,6 +184,64 @@ function StrategyIcon() {
   );
 }
 
+function PrecisionIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="7.5" stroke="#7DD3FC" strokeWidth="1.5" />
+      <circle cx="12" cy="12" r="2.2" fill="#38BDF8" />
+      <path d="M12 4.5v3M12 16.5v3M4.5 12h3M16.5 12h3" stroke="#7DD3FC" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function EngineeringIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path
+        d="M7 7h10v10H7z"
+        stroke="#93C5FD"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M12 3v3M12 18v3M3 12h3M18 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"
+        stroke="#60A5FA"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function WorkflowIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <rect x="4" y="5" width="6" height="4" rx="1.5" stroke="#67E8F9" strokeWidth="1.5" />
+      <rect x="14" y="10" width="6" height="4" rx="1.5" stroke="#67E8F9" strokeWidth="1.5" />
+      <rect x="4" y="15" width="6" height="4" rx="1.5" stroke="#67E8F9" strokeWidth="1.5" />
+      <path
+        d="M10 7h2a2 2 0 0 1 2 2v1M14 14v1a2 2 0 0 1-2 2h-2"
+        stroke="#22D3EE"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function PremiumIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path
+        d="m12 4 2.2 4.5 5 .7-3.6 3.5.9 4.9L12 15.2 7.5 17.6l.9-4.9-3.6-3.5 5-.7L12 4Z"
+        stroke="#A78BFA"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+      <circle cx="12" cy="12" r="1.2" fill="#C4B5FD" />
+    </svg>
+  );
+}
+
 const services: {
   title: string;
   description: string;
@@ -299,22 +359,35 @@ const technologies: {
   },
 ];
 
-const reasons = [
+const reasons: {
+  title: string;
+  text: string;
+  icon: ReactNode;
+  iconBg: string;
+}[] = [
   {
     title: "Design-led execution",
     text: "We care about visual precision, spacing, interaction quality and product polish from the start.",
+    icon: <PrecisionIcon />,
+    iconBg: "bg-[rgba(56,189,248,0.10)] border-[rgba(56,189,248,0.18)]",
   },
   {
     title: "Engineering discipline",
     text: "We build with structure, maintainability and long-term scalability in mind.",
+    icon: <EngineeringIcon />,
+    iconBg: "bg-[rgba(96,165,250,0.10)] border-[rgba(96,165,250,0.18)]",
   },
   {
     title: "Operational thinking",
     text: "Our products are shaped around real workflows, real teams and real business needs.",
+    icon: <WorkflowIcon />,
+    iconBg: "bg-[rgba(34,211,238,0.10)] border-[rgba(34,211,238,0.18)]",
   },
   {
     title: "Premium positioning",
     text: "Everything is designed to feel sharp, modern, credible and enterprise-ready.",
+    icon: <PremiumIcon />,
+    iconBg: "bg-[rgba(167,139,250,0.10)] border-[rgba(167,139,250,0.18)]",
   },
 ];
 
@@ -522,6 +595,11 @@ function App() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 className="glass-panel neon-border rounded-2xl p-6"
               >
+                <div
+                  className={`mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border ${reason.iconBg}`}
+                >
+                  {reason.icon}
+                </div>
                 <h3 className="text-lg font-semibold text-white">{reason.title}</h3>
                 <p className="mt-3 text-slate-300">{reason.text}</p>
               </motion.div>
@@ -589,6 +667,15 @@ function App() {
                   operations through better structure, visibility and workflow control.
                 </p>
               </div>
+
+              <a
+                href={GASTROAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-8 inline-flex rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 px-5 py-3 text-sm font-medium text-white shadow-[0_12px_40px_rgba(37,99,235,0.28)] transition hover:-translate-y-0.5"
+              >
+                Open GastroApp
+              </a>
             </motion.div>
 
             <motion.div
@@ -803,6 +890,23 @@ function App() {
                   business tools with a strong focus on clarity, performance and
                   refined user experience.
                 </p>
+
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <a
+                    href="mailto:hello@understack.dev"
+                    className="rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 px-6 py-3 text-sm font-medium text-white shadow-[0_12px_40px_rgba(37,99,235,0.28)] transition hover:-translate-y-0.5"
+                  >
+                    Discuss a project
+                  </a>
+                  <a
+                    href={GASTROAPP_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-full border border-white/10 px-6 py-3 text-sm text-white transition hover:bg-white/5"
+                  >
+                    Visit GastroApp
+                  </a>
+                </div>
               </div>
 
               <div className="grid gap-4">

@@ -51,9 +51,11 @@ img {
   0% {
     transform: translate3d(0, 0, 0) scale(1);
   }
+
   50% {
     transform: translate3d(0, 18px, 0) scale(1.03);
   }
+
   100% {
     transform: translate3d(0, 0, 0) scale(1);
   }
@@ -63,6 +65,7 @@ img {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(80px);
   }
