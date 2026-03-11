@@ -299,6 +299,25 @@ const technologies: {
   },
 ];
 
+const reasons = [
+  {
+    title: "Design-led execution",
+    text: "We care about visual precision, spacing, interaction quality and product polish from the start.",
+  },
+  {
+    title: "Engineering discipline",
+    text: "We build with structure, maintainability and long-term scalability in mind.",
+  },
+  {
+    title: "Operational thinking",
+    text: "Our products are shaped around real workflows, real teams and real business needs.",
+  },
+  {
+    title: "Premium positioning",
+    text: "Everything is designed to feel sharp, modern, credible and enterprise-ready.",
+  },
+];
+
 function SectionHeader({
   eyebrow,
   title,
@@ -425,9 +444,7 @@ function App() {
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-5">
                   <p className="text-sm text-slate-400">Location</p>
-                  <p className="mt-1 text-lg text-white">
-                    Aarhus, Denmark
-                  </p>
+                  <p className="mt-1 text-lg text-white">Aarhus, Denmark</p>
                 </div>
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-5">
@@ -487,6 +504,32 @@ function App() {
         </div>
       </section>
 
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-7xl">
+          <SectionHeader
+            eyebrow="Why UnderStack"
+            title="Built with product taste, systems thinking and technical discipline"
+            description="We combine modern interface standards with structured engineering and a strong operational mindset."
+          />
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {reasons.map((reason, index) => (
+              <motion.div
+                key={reason.title}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="glass-panel neon-border rounded-2xl p-6"
+              >
+                <h3 className="text-lg font-semibold text-white">{reason.title}</h3>
+                <p className="mt-3 text-slate-300">{reason.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="products" className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
@@ -495,7 +538,7 @@ function App() {
             description="Software products developed within the UnderStack ecosystem."
           />
 
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
             <motion.div
               initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -538,6 +581,14 @@ function App() {
                   </div>
                 ))}
               </div>
+
+              <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
+                <p className="text-sm text-slate-400">Why it matters</p>
+                <p className="mt-2 text-slate-200">
+                  GastroApp is built to reduce friction in real restaurant
+                  operations through better structure, visibility and workflow control.
+                </p>
+              </div>
             </motion.div>
 
             <motion.div
@@ -554,107 +605,141 @@ function App() {
                   <span className="h-3 w-3 rounded-full bg-indigo-500/80" />
                 </div>
 
-                <div className="grid gap-4 lg:grid-cols-[1.15fr_0.85fr]">
-                  <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-5">
-                    <div className="flex items-center justify-between">
-                      <div className="h-4 w-28 rounded-full bg-white/10" />
-                      <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] text-emerald-300">
-                        Active
+                <div className="grid gap-4 lg:grid-cols-[0.28fr_0.72fr]">
+                  <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-4">
+                    <div className="h-4 w-16 rounded-full bg-white/10" />
+                    <div className="mt-4 space-y-3">
+                      <div className="rounded-xl bg-cyan-400/10 px-3 py-3 text-xs text-cyan-300">
+                        Dashboard
                       </div>
-                    </div>
-
-                    <div className="mt-5 space-y-3">
-                      <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <span className="h-2.5 w-2.5 rounded-full bg-cyan-400" />
-                          <span className="text-xs text-slate-200">Prep list</span>
-                        </div>
-                        <span className="text-[10px] text-cyan-300">12 items</span>
+                      <div className="rounded-xl bg-white/6 px-3 py-3 text-xs text-slate-300">
+                        Recipes
                       </div>
-
-                      <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <span className="h-2.5 w-2.5 rounded-full bg-violet-400" />
-                          <span className="text-xs text-slate-200">Stock alerts</span>
-                        </div>
-                        <span className="text-[10px] text-violet-300">3 alerts</span>
+                      <div className="rounded-xl bg-white/6 px-3 py-3 text-xs text-slate-300">
+                        Items
                       </div>
-
-                      <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                          <span className="text-xs text-slate-200">Team status</span>
-                        </div>
-                        <span className="text-[10px] text-emerald-300">Online</span>
+                      <div className="rounded-xl bg-white/6 px-3 py-3 text-xs text-slate-300">
+                        Stock
                       </div>
-
-                      <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
-                        <div className="flex items-center gap-3">
-                          <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
-                          <span className="text-xs text-slate-200">Orders queue</span>
-                        </div>
-                        <span className="text-[10px] text-amber-300">8 pending</span>
+                      <div className="rounded-xl bg-white/6 px-3 py-3 text-xs text-slate-300">
+                        Reports
                       </div>
                     </div>
                   </div>
 
                   <div className="grid gap-4">
-                    <div className="rounded-[1.3rem] border border-sky-400/12 bg-sky-400/[0.06] p-5">
+                    <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-5">
                       <div className="flex items-center justify-between">
-                        <div className="h-4 w-20 rounded-full bg-sky-300/15" />
-                        <div className="text-[10px] text-sky-300">Overview</div>
+                        <div>
+                          <div className="h-4 w-28 rounded-full bg-white/10" />
+                          <div className="mt-2 h-3 w-40 rounded-full bg-white/6" />
+                        </div>
+                        <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] text-emerald-300">
+                          Service live
+                        </div>
                       </div>
 
-                      <div className="mt-4 grid grid-cols-3 gap-2">
-                        <div className="rounded-xl bg-cyan-400/12 px-2 py-3 text-center">
-                          <div className="text-[10px] text-cyan-300">Runs</div>
-                          <div className="mt-1 text-xs text-white">24</div>
+                      <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                        <div className="rounded-2xl bg-cyan-400/12 p-4">
+                          <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-300">
+                            Runs
+                          </div>
+                          <div className="mt-2 text-2xl text-white">24</div>
                         </div>
-                        <div className="rounded-xl bg-violet-400/12 px-2 py-3 text-center">
-                          <div className="text-[10px] text-violet-300">Items</div>
-                          <div className="mt-1 text-xs text-white">186</div>
+                        <div className="rounded-2xl bg-violet-400/12 p-4">
+                          <div className="text-[10px] uppercase tracking-[0.2em] text-violet-300">
+                            Items
+                          </div>
+                          <div className="mt-2 text-2xl text-white">186</div>
                         </div>
-                        <div className="rounded-xl bg-emerald-400/12 px-2 py-3 text-center">
-                          <div className="text-[10px] text-emerald-300">Team</div>
-                          <div className="mt-1 text-xs text-white">11</div>
+                        <div className="rounded-2xl bg-emerald-400/12 p-4">
+                          <div className="text-[10px] uppercase tracking-[0.2em] text-emerald-300">
+                            Staff
+                          </div>
+                          <div className="mt-2 text-2xl text-white">11</div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-5">
-                      <div className="flex items-center justify-between">
-                        <div className="h-4 w-24 rounded-full bg-white/10" />
-                        <div className="text-[10px] text-slate-400">Today</div>
+                    <div className="grid gap-4 lg:grid-cols-[1fr_0.95fr]">
+                      <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-5">
+                        <div className="flex items-center justify-between">
+                          <div className="h-4 w-24 rounded-full bg-white/10" />
+                          <div className="text-[10px] text-slate-400">Today</div>
+                        </div>
+
+                        <div className="mt-5 space-y-3">
+                          <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
+                            <div className="flex items-center gap-3">
+                              <span className="h-2.5 w-2.5 rounded-full bg-cyan-400" />
+                              <span className="text-xs text-slate-200">Prep list</span>
+                            </div>
+                            <span className="text-[10px] text-cyan-300">12 items</span>
+                          </div>
+
+                          <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
+                            <div className="flex items-center gap-3">
+                              <span className="h-2.5 w-2.5 rounded-full bg-violet-400" />
+                              <span className="text-xs text-slate-200">Stock alerts</span>
+                            </div>
+                            <span className="text-[10px] text-violet-300">3 alerts</span>
+                          </div>
+
+                          <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
+                            <div className="flex items-center gap-3">
+                              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+                              <span className="text-xs text-slate-200">Team status</span>
+                            </div>
+                            <span className="text-[10px] text-emerald-300">Online</span>
+                          </div>
+                        </div>
                       </div>
 
-                      <div className="mt-4 space-y-3">
-                        <div>
-                          <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
-                            <span>Kitchen completion</span>
-                            <span>82%</span>
-                          </div>
-                          <div className="h-2 rounded-full bg-white/8">
-                            <div className="h-2 w-[82%] rounded-full bg-cyan-400" />
-                          </div>
+                      <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-5">
+                        <div className="flex items-center justify-between">
+                          <div className="h-4 w-24 rounded-full bg-white/10" />
+                          <div className="text-[10px] text-slate-400">Performance</div>
                         </div>
 
-                        <div>
-                          <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
-                            <span>Inventory sync</span>
-                            <span>67%</span>
+                        <div className="mt-5 space-y-4">
+                          <div>
+                            <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
+                              <span>Kitchen completion</span>
+                              <span>82%</span>
+                            </div>
+                            <div className="h-2 rounded-full bg-white/8">
+                              <div className="h-2 w-[82%] rounded-full bg-cyan-400" />
+                            </div>
                           </div>
-                          <div className="h-2 rounded-full bg-white/8">
-                            <div className="h-2 w-[67%] rounded-full bg-violet-400" />
-                          </div>
-                        </div>
 
-                        <div>
-                          <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
-                            <span>Shift coverage</span>
-                            <span>91%</span>
+                          <div>
+                            <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
+                              <span>Inventory sync</span>
+                              <span>67%</span>
+                            </div>
+                            <div className="h-2 rounded-full bg-white/8">
+                              <div className="h-2 w-[67%] rounded-full bg-violet-400" />
+                            </div>
                           </div>
-                          <div className="h-2 rounded-full bg-white/8">
-                            <div className="h-2 w-[91%] rounded-full bg-emerald-400" />
+
+                          <div>
+                            <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
+                              <span>Shift coverage</span>
+                              <span>91%</span>
+                            </div>
+                            <div className="h-2 rounded-full bg-white/8">
+                              <div className="h-2 w-[91%] rounded-full bg-emerald-400" />
+                            </div>
+                          </div>
+
+                          <div>
+                            <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
+                              <span>Orders queue</span>
+                              <span>58%</span>
+                            </div>
+                            <div className="h-2 rounded-full bg-white/8">
+                              <div className="h-2 w-[58%] rounded-full bg-amber-400" />
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -749,9 +834,48 @@ function App() {
       </section>
 
       <footer className="border-t border-white/10 px-6 py-10 text-sm text-slate-400">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <span>© 2026 UnderStack</span>
-          <span>Aarhus, Denmark</span>
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.2fr_1fr_1fr]">
+          <div>
+            <p className="text-white">UnderStack</p>
+            <p className="mt-2 max-w-sm leading-7 text-slate-400">
+              Premium software systems, refined interfaces and modern digital products.
+            </p>
+          </div>
+
+          <div>
+            <p className="text-white">Navigation</p>
+            <div className="mt-3 flex flex-col gap-2">
+              <a className="transition hover:text-white" href="#about">
+                About
+              </a>
+              <a className="transition hover:text-white" href="#services">
+                Services
+              </a>
+              <a className="transition hover:text-white" href="#products">
+                Products
+              </a>
+              <a className="transition hover:text-white" href="#technology">
+                Technology
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-white">Contact</p>
+            <div className="mt-3 flex flex-col gap-2">
+              <a className="transition hover:text-white" href="mailto:hello@understack.dev">
+                hello@understack.dev
+              </a>
+              <span>Aarhus, Denmark</span>
+              <a className="transition hover:text-white" href="#contact">
+                Contact us
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-8 max-w-7xl border-t border-white/8 pt-6 text-sm text-slate-500">
+          © 2026 UnderStack. All rights reserved.
         </div>
       </footer>
     </div>
