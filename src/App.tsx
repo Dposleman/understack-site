@@ -2,31 +2,15 @@ import { motion } from "motion/react";
 import logo from "./assets/understack-logo.png";
 import type { ReactNode } from "react";
 
-const GASTROAPP_URL = "https://gastroapp.dk";
+const GASTROAPP_URL = "https://TU-URL-DE-GASTROAPP";
 
 function ReactIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
       <circle cx="12" cy="12" r="1.8" fill="#61DAFB" />
       <ellipse cx="12" cy="12" rx="9" ry="3.9" stroke="#61DAFB" strokeWidth="1.5" />
-      <ellipse
-        cx="12"
-        cy="12"
-        rx="9"
-        ry="3.9"
-        stroke="#61DAFB"
-        strokeWidth="1.5"
-        transform="rotate(60 12 12)"
-      />
-      <ellipse
-        cx="12"
-        cy="12"
-        rx="9"
-        ry="3.9"
-        stroke="#61DAFB"
-        strokeWidth="1.5"
-        transform="rotate(120 12 12)"
-      />
+      <ellipse cx="12" cy="12" rx="9" ry="3.9" stroke="#61DAFB" strokeWidth="1.5" transform="rotate(60 12 12)" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.9" stroke="#61DAFB" strokeWidth="1.5" transform="rotate(120 12 12)" />
     </svg>
   );
 }
@@ -53,11 +37,7 @@ function ViteIcon() {
         d="M4.8 6.2 11.5 20c.2.4.8.4 1 0l6.7-13.8c.2-.4-.1-.8-.6-.8H5.4c-.5 0-.8.4-.6.8Z"
         fill="url(#vite-grad)"
       />
-      <path
-        d="m12 8.1-3.1 6h2.3L12 12l.8 2.1h2.3L12 8.1Z"
-        fill="#fff"
-        fillOpacity=".95"
-      />
+      <path d="m12 8.1-3.1 6h2.3L12 12l.8 2.1h2.3L12 8.1Z" fill="#fff" fillOpacity=".95" />
       <defs>
         <linearGradient id="vite-grad" x1="4.5" y1="4.5" x2="19.5" y2="20">
           <stop stopColor="#41D1FF" />
@@ -71,10 +51,7 @@ function ViteIcon() {
 function NodeIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path
-        d="M12 3.5 18.8 7.4v9.2L12 20.5 5.2 16.6V7.4L12 3.5Z"
-        fill="#539E43"
-      />
+      <path d="M12 3.5 18.8 7.4v9.2L12 20.5 5.2 16.6V7.4L12 3.5Z" fill="#539E43" />
       <path
         d="M9.2 9.3v5.4m5.6-5.1c-.6-.4-1.3-.5-2-.5-1.5 0-2.5.8-2.5 2 0 1 .6 1.5 2 1.8 1 .2 1.3.4 1.3.8 0 .4-.4.7-1 .7-.7 0-1.4-.3-2-.8"
         stroke="white"
@@ -114,12 +91,7 @@ function CloudIcon() {
         stroke="#38BDF8"
         strokeWidth="1.5"
       />
-      <path
-        d="M9 14.5h6M12 11.5v6"
-        stroke="#7DD3FC"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
+      <path d="M9 14.5h6M12 11.5v6" stroke="#7DD3FC" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -144,12 +116,7 @@ function UiUxIcon() {
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
       <rect x="4" y="4" width="16" height="16" rx="4" stroke="#A78BFA" strokeWidth="1.5" />
       <circle cx="9" cy="9" r="1.6" fill="#C4B5FD" />
-      <path
-        d="M13 8h3M13 11h4M8 15h8"
-        stroke="#C4B5FD"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
+      <path d="M13 8h3M13 11h4M8 15h8" stroke="#C4B5FD" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -197,11 +164,7 @@ function PrecisionIcon() {
 function EngineeringIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path
-        d="M7 7h10v10H7z"
-        stroke="#93C5FD"
-        strokeWidth="1.5"
-      />
+      <path d="M7 7h10v10H7z" stroke="#93C5FD" strokeWidth="1.5" />
       <path
         d="M12 3v3M12 18v3M3 12h3M18 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"
         stroke="#60A5FA"
@@ -255,8 +218,7 @@ const services: {
     description:
       "Operational systems, internal tools and business platforms engineered for clarity, speed and long-term scale.",
     icon: <SoftwareIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(96,165,250,0.10),0_0_30px_rgba(96,165,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(96,165,250,0.10),0_0_30px_rgba(96,165,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(96,165,250,0.46),rgba(96,165,250,0.08),rgba(147,197,253,0.24))]",
     iconBg: "bg-[rgba(96,165,250,0.10)] border-[rgba(96,165,250,0.18)]",
@@ -266,8 +228,7 @@ const services: {
     description:
       "Premium digital interfaces with refined interactions and strong visual hierarchy.",
     icon: <UiUxIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(167,139,250,0.10),0_0_30px_rgba(167,139,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(167,139,250,0.10),0_0_30px_rgba(167,139,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(167,139,250,0.46),rgba(167,139,250,0.08),rgba(196,181,253,0.24))]",
     iconBg: "bg-[rgba(167,139,250,0.10)] border-[rgba(167,139,250,0.18)]",
@@ -277,8 +238,7 @@ const services: {
     description:
       "Modern web applications built for performance, scalability and technical credibility.",
     icon: <WebIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_30px_rgba(34,211,238,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_30px_rgba(34,211,238,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(34,211,238,0.46),rgba(34,211,238,0.08),rgba(103,232,249,0.24))]",
     iconBg: "bg-[rgba(34,211,238,0.10)] border-[rgba(34,211,238,0.18)]",
@@ -288,8 +248,7 @@ const services: {
     description:
       "Product thinking focused on real operational value and long-term product structure.",
     icon: <StrategyIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(52,211,153,0.10),0_0_30px_rgba(52,211,153,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(52,211,153,0.10),0_0_30px_rgba(52,211,153,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(52,211,153,0.46),rgba(52,211,153,0.08),rgba(110,231,183,0.24))]",
     iconBg: "bg-[rgba(52,211,153,0.10)] border-[rgba(52,211,153,0.18)]",
@@ -306,8 +265,7 @@ const technologies: {
   {
     name: "React",
     icon: <ReactIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(97,218,251,0.12),0_0_34px_rgba(97,218,251,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(97,218,251,0.12),0_0_34px_rgba(97,218,251,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(97,218,251,0.55),rgba(97,218,251,0.08),rgba(97,218,251,0.32))]",
     iconBg: "bg-[rgba(97,218,251,0.10)] border-[rgba(97,218,251,0.18)]",
@@ -315,8 +273,7 @@ const technologies: {
   {
     name: "TypeScript",
     icon: <TypeScriptIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(49,120,198,0.12),0_0_34px_rgba(49,120,198,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(49,120,198,0.12),0_0_34px_rgba(49,120,198,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(49,120,198,0.55),rgba(49,120,198,0.08),rgba(125,211,252,0.28))]",
     iconBg: "bg-[rgba(49,120,198,0.10)] border-[rgba(49,120,198,0.18)]",
@@ -324,8 +281,7 @@ const technologies: {
   {
     name: "Vite",
     icon: <ViteIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(189,52,254,0.10),0_0_34px_rgba(189,52,254,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(189,52,254,0.10),0_0_34px_rgba(189,52,254,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(65,209,255,0.48),rgba(189,52,254,0.12),rgba(189,52,254,0.36))]",
     iconBg: "bg-[rgba(189,52,254,0.08)] border-[rgba(189,52,254,0.16)]",
@@ -333,8 +289,7 @@ const technologies: {
   {
     name: "Node.js",
     icon: <NodeIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(83,158,67,0.12),0_0_34px_rgba(83,158,67,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(83,158,67,0.12),0_0_34px_rgba(83,158,67,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(83,158,67,0.48),rgba(83,158,67,0.10),rgba(134,239,172,0.24))]",
     iconBg: "bg-[rgba(83,158,67,0.10)] border-[rgba(83,158,67,0.18)]",
@@ -342,8 +297,7 @@ const technologies: {
   {
     name: "PostgreSQL",
     icon: <PostgresIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(51,103,145,0.12),0_0_34px_rgba(51,103,145,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(51,103,145,0.12),0_0_34px_rgba(51,103,145,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(51,103,145,0.52),rgba(51,103,145,0.10),rgba(125,211,252,0.24))]",
     iconBg: "bg-[rgba(51,103,145,0.10)] border-[rgba(51,103,145,0.18)]",
@@ -351,8 +305,7 @@ const technologies: {
   {
     name: "Cloud infrastructure",
     icon: <CloudIcon />,
-    glow:
-      "shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_0_34px_rgba(56,189,248,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow: "shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_0_34px_rgba(56,189,248,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(56,189,248,0.52),rgba(56,189,248,0.10),rgba(125,211,252,0.28))]",
     iconBg: "bg-[rgba(56,189,248,0.10)] border-[rgba(56,189,248,0.18)]",
@@ -423,6 +376,12 @@ function App() {
       <div className="grid-overlay" />
       <div className="noise-overlay" />
 
+      <section className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[46rem] overflow-hidden">
+        <div className="aurora-mesh aurora-mesh-1" />
+        <div className="aurora-mesh aurora-mesh-2" />
+        <div className="aurora-mesh aurora-mesh-3" />
+      </section>
+
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="hero-orb absolute left-1/2 top-[-10rem] h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-blue-500/20" />
         <div className="hero-orb absolute left-[8%] top-[24rem] h-[22rem] w-[22rem] rounded-full bg-cyan-400/10" />
@@ -459,7 +418,7 @@ function App() {
         </div>
       </header>
 
-      <section id="home" className="px-6 pb-28 pt-24">
+      <section id="home" className="relative z-10 px-6 pb-28 pt-24">
         <div className="mx-auto grid max-w-7xl items-center gap-20 lg:grid-cols-[1.05fr_0.95fr]">
           <motion.div
             initial={{ opacity: 0, y: 26 }}

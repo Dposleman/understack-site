@@ -71,6 +71,42 @@ img {
   }
 }
 
+@keyframes auroraDriftOne {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(3%, -4%, 0) rotate(8deg) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes auroraDriftTwo {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-4%, 3%, 0) rotate(-7deg) scale(1.06);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes auroraDriftThree {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(2%, 4%, 0) scale(1.04);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
 @layer utilities {
   .glass-panel {
     background: linear-gradient(
@@ -118,6 +154,48 @@ img {
     opacity: 0.85;
     animation: floatSlow 12s ease-in-out infinite;
   }
+}
+
+.aurora-mesh {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  opacity: 0.32;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.aurora-mesh-1 {
+  left: 8%;
+  top: 2rem;
+  width: 34rem;
+  height: 20rem;
+  background:
+    radial-gradient(circle at 30% 50%, rgba(34, 211, 238, 0.32), transparent 58%),
+    radial-gradient(circle at 70% 50%, rgba(59, 130, 246, 0.26), transparent 62%);
+  animation: auroraDriftOne 18s ease-in-out infinite;
+}
+
+.aurora-mesh-2 {
+  right: 6%;
+  top: 4rem;
+  width: 30rem;
+  height: 18rem;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.22), transparent 58%),
+    radial-gradient(circle at 75% 35%, rgba(56, 189, 248, 0.18), transparent 60%);
+  animation: auroraDriftTwo 20s ease-in-out infinite;
+}
+
+.aurora-mesh-3 {
+  left: 34%;
+  top: 10rem;
+  width: 28rem;
+  height: 16rem;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.18), transparent 56%),
+    radial-gradient(circle at 35% 55%, rgba(125, 211, 252, 0.14), transparent 60%);
+  animation: auroraDriftThree 16s ease-in-out infinite;
 }
 
 .grid-overlay {
