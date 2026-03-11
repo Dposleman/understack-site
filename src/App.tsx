@@ -145,13 +145,55 @@ function CloudIcon() {
   );
 }
 
-const technologies: { name: string; icon: ReactNode }[] = [
-  { name: "React", icon: <ReactIcon /> },
-  { name: "TypeScript", icon: <TypeScriptIcon /> },
-  { name: "Vite", icon: <ViteIcon /> },
-  { name: "Node.js", icon: <NodeIcon /> },
-  { name: "PostgreSQL", icon: <PostgresIcon /> },
-  { name: "Cloud infrastructure", icon: <CloudIcon /> },
+const technologies: {
+  name: string;
+  icon: ReactNode;
+  glow: string;
+  border: string;
+  iconBg: string;
+}[] = [
+  {
+    name: "React",
+    icon: <ReactIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(97,218,251,0.12),0_0_34px_rgba(97,218,251,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    border: "before:bg-[linear-gradient(135deg,rgba(97,218,251,0.55),rgba(97,218,251,0.08),rgba(97,218,251,0.32))]",
+    iconBg: "bg-[rgba(97,218,251,0.10)] border-[rgba(97,218,251,0.18)]",
+  },
+  {
+    name: "TypeScript",
+    icon: <TypeScriptIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(49,120,198,0.12),0_0_34px_rgba(49,120,198,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    border: "before:bg-[linear-gradient(135deg,rgba(49,120,198,0.55),rgba(49,120,198,0.08),rgba(125,211,252,0.28))]",
+    iconBg: "bg-[rgba(49,120,198,0.10)] border-[rgba(49,120,198,0.18)]",
+  },
+  {
+    name: "Vite",
+    icon: <ViteIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(189,52,254,0.10),0_0_34px_rgba(189,52,254,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    border: "before:bg-[linear-gradient(135deg,rgba(65,209,255,0.48),rgba(189,52,254,0.12),rgba(189,52,254,0.36))]",
+    iconBg: "bg-[rgba(189,52,254,0.08)] border-[rgba(189,52,254,0.16)]",
+  },
+  {
+    name: "Node.js",
+    icon: <NodeIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(83,158,67,0.12),0_0_34px_rgba(83,158,67,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    border: "before:bg-[linear-gradient(135deg,rgba(83,158,67,0.48),rgba(83,158,67,0.10),rgba(134,239,172,0.24))]",
+    iconBg: "bg-[rgba(83,158,67,0.10)] border-[rgba(83,158,67,0.18)]",
+  },
+  {
+    name: "PostgreSQL",
+    icon: <PostgresIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(51,103,145,0.12),0_0_34px_rgba(51,103,145,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    border: "before:bg-[linear-gradient(135deg,rgba(51,103,145,0.52),rgba(51,103,145,0.10),rgba(125,211,252,0.24))]",
+    iconBg: "bg-[rgba(51,103,145,0.10)] border-[rgba(51,103,145,0.18)]",
+  },
+  {
+    name: "Cloud infrastructure",
+    icon: <CloudIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_0_34px_rgba(56,189,248,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    border: "before:bg-[linear-gradient(135deg,rgba(56,189,248,0.52),rgba(56,189,248,0.10),rgba(125,211,252,0.28))]",
+    iconBg: "bg-[rgba(56,189,248,0.10)] border-[rgba(56,189,248,0.18)]",
+  },
 ];
 
 function SectionHeader({
@@ -454,10 +496,12 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.35, delay: index * 0.04 }}
-                className="glass-panel neon-border rounded-xl px-5 py-4"
+                className={`glass-panel neon-border ${tech.border} ${tech.glow} rounded-xl px-5 py-4 transition-transform duration-300 hover:-translate-y-0.5`}
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex h-6 w-6 items-center justify-center">
+                  <span
+                    className={`flex h-8 w-8 items-center justify-center rounded-lg border ${tech.iconBg}`}
+                  >
                     {tech.icon}
                   </span>
                   <span className="text-sm font-medium text-slate-100">
