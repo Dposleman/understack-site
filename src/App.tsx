@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import logo from "./assets/understack-logo.png";
+import type { ReactNode } from "react";
 
 const services = [
   {
@@ -24,13 +25,133 @@ const services = [
   },
 ];
 
-const technologies = [
-  "React",
-  "TypeScript",
-  "Vite",
-  "Node.js",
-  "PostgreSQL",
-  "Cloud infrastructure",
+function ReactIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="1.8" fill="#61DAFB" />
+      <ellipse cx="12" cy="12" rx="9" ry="3.9" stroke="#61DAFB" strokeWidth="1.5" />
+      <ellipse
+        cx="12"
+        cy="12"
+        rx="9"
+        ry="3.9"
+        stroke="#61DAFB"
+        strokeWidth="1.5"
+        transform="rotate(60 12 12)"
+      />
+      <ellipse
+        cx="12"
+        cy="12"
+        rx="9"
+        ry="3.9"
+        stroke="#61DAFB"
+        strokeWidth="1.5"
+        transform="rotate(120 12 12)"
+      />
+    </svg>
+  );
+}
+
+function TypeScriptIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="4" fill="#3178C6" />
+      <path
+        d="M8 9.2h8M11 9.2v7.6M14.8 12.2c.9 0 1.7.2 2.2.6.5.4.8 1 .8 1.7 0 1.3-1.1 2.2-2.8 2.2-1.2 0-2.2-.4-3-1.1l.9-1.1c.6.5 1.3.8 2 .8.7 0 1.1-.2 1.1-.7 0-.4-.3-.6-1.3-.8-1.8-.4-2.5-1-2.5-2.2 0-1.3 1.1-2.2 2.7-2.2 1.1 0 2 .3 2.8.9l-.8 1.2c-.6-.4-1.2-.6-1.9-.6-.6 0-1 .3-1 .6 0 .4.3.6 1.4.9"
+        stroke="white"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ViteIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path
+        d="M4.8 6.2 11.5 20c.2.4.8.4 1 0l6.7-13.8c.2-.4-.1-.8-.6-.8H5.4c-.5 0-.8.4-.6.8Z"
+        fill="url(#vite-grad)"
+      />
+      <path
+        d="m12 8.1-3.1 6h2.3L12 12l.8 2.1h2.3L12 8.1Z"
+        fill="#fff"
+        fillOpacity=".95"
+      />
+      <defs>
+        <linearGradient id="vite-grad" x1="4.5" y1="4.5" x2="19.5" y2="20">
+          <stop stopColor="#41D1FF" />
+          <stop offset="1" stopColor="#BD34FE" />
+        </linearGradient>
+      </defs>
+    </svg>
+  );
+}
+
+function NodeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path
+        d="M12 3.5 18.8 7.4v9.2L12 20.5 5.2 16.6V7.4L12 3.5Z"
+        fill="#539E43"
+      />
+      <path
+        d="M9.2 9.3v5.4m5.6-5.1c-.6-.4-1.3-.5-2-.5-1.5 0-2.5.8-2.5 2 0 1 .6 1.5 2 1.8 1 .2 1.3.4 1.3.8 0 .4-.4.7-1 .7-.7 0-1.4-.3-2-.8"
+        stroke="white"
+        strokeWidth="1.35"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function PostgresIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path
+        d="M9.4 18.2c-1.8.2-2.5-.6-2.7-1.6-.3-1.6.1-3.5.3-5.2.3-2.5 1.6-4.6 4.2-4.8 2.2-.2 4.4 1.1 5 3.2.5 1.7.7 4.4.5 6.2-.1 1.2-.9 2.3-2.5 2.1l-.2 2c0 .3-.3.5-.6.4l-1.1-.2c-.2 0-.4-.2-.4-.5v-1.8c-.7.1-1.5.2-2.5.2Z"
+        fill="#336791"
+      />
+      <path
+        d="M10 10.3c.4-.5 1-.8 1.8-.8 1.1 0 1.9.6 2.3 1.5m-4.9 2.2c.5.5 1.2.8 2 .8.9 0 1.7-.3 2.2-.9m-4.3-1.4h.01m4.2 0h.01"
+        stroke="white"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function CloudIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path
+        d="M8.5 18.5h8a3.5 3.5 0 0 0 .4-7 5 5 0 0 0-9.7-1.3A3.2 3.2 0 0 0 8.5 18.5Z"
+        fill="#38BDF8"
+        fillOpacity=".2"
+        stroke="#38BDF8"
+        strokeWidth="1.5"
+      />
+      <path
+        d="M9 14.5h6M12 11.5v6"
+        stroke="#7DD3FC"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+const technologies: { name: string; icon: ReactNode }[] = [
+  { name: "React", icon: <ReactIcon /> },
+  { name: "TypeScript", icon: <TypeScriptIcon /> },
+  { name: "Vite", icon: <ViteIcon /> },
+  { name: "Node.js", icon: <NodeIcon /> },
+  { name: "PostgreSQL", icon: <PostgresIcon /> },
+  { name: "Cloud infrastructure", icon: <CloudIcon /> },
 ];
 
 function SectionHeader({
@@ -47,11 +168,9 @@ function SectionHeader({
       <p className="mb-3 text-xs tracking-[0.32em] text-sky-300 uppercase">
         {eyebrow}
       </p>
-
       <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
         {title}
       </h2>
-
       <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
         {description}
       </p>
@@ -330,14 +449,21 @@ function App() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {technologies.map((tech, index) => (
               <motion.div
-                key={tech}
+                key={tech.name}
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.35, delay: index * 0.04 }}
                 className="glass-panel neon-border rounded-xl px-5 py-4"
               >
-                {tech}
+                <div className="flex items-center gap-3">
+                  <span className="flex h-6 w-6 items-center justify-center">
+                    {tech.icon}
+                  </span>
+                  <span className="text-sm font-medium text-slate-100">
+                    {tech.name}
+                  </span>
+                </div>
               </motion.div>
             ))}
           </div>
