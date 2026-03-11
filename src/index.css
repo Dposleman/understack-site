@@ -4,7 +4,7 @@
   color-scheme: dark;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
-  background: #030712;
+  background: #020617;
   color: #f8fafc;
 }
 
@@ -16,10 +16,10 @@ body {
   margin: 0;
   min-width: 320px;
   background:
-    radial-gradient(circle at 50% 18%, rgba(59, 130, 246, 0.22), transparent 24%),
-    radial-gradient(circle at 18% 78%, rgba(34, 211, 238, 0.12), transparent 24%),
-    radial-gradient(circle at 82% 72%, rgba(99, 102, 241, 0.14), transparent 22%),
-    linear-gradient(180deg, #020617 0%, #030712 38%, #020617 100%);
+    radial-gradient(circle at 50% 16%, rgba(59, 130, 246, 0.18), transparent 24%),
+    radial-gradient(circle at 18% 75%, rgba(34, 211, 238, 0.08), transparent 24%),
+    radial-gradient(circle at 82% 70%, rgba(99, 102, 241, 0.1), transparent 24%),
+    linear-gradient(180deg, #010409 0%, #020617 35%, #030712 65%, #010409 100%);
   color: #f8fafc;
   overflow-x: hidden;
 }
@@ -37,29 +37,47 @@ button {
   font: inherit;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 ::selection {
-  background: rgba(96, 165, 250, 0.25);
+  background: rgba(96, 165, 250, 0.24);
   color: white;
 }
 
-@layer utilities {
-  .bg-grid {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 42px 42px;
-    background-position: center center;
+@keyframes floatSlow {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
   }
+  50% {
+    transform: translate3d(0, 18px, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
 
+@keyframes driftStars {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(80px);
+  }
+}
+
+@layer utilities {
   .glass-panel {
     background: linear-gradient(
       180deg,
       rgba(10, 18, 35, 0.78) 0%,
-      rgba(6, 12, 24, 0.66) 100%
+      rgba(6, 12, 24, 0.68) 100%
     );
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.35),
+      0 24px 80px rgba(0, 0, 0, 0.38),
       inset 0 1px 0 rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
@@ -70,38 +88,89 @@ button {
   }
 
   .neon-border::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      135deg,
-      rgba(56, 189, 248, 0.5),
-      rgba(59, 130, 246, 0.12),
-      rgba(99, 102, 241, 0.45)
-    );
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.45),
+    rgba(59, 130, 246, 0.12),
+    rgba(99, 102, 241, 0.42)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
 
   .soft-glow {
     box-shadow:
       0 0 0 1px rgba(96, 165, 250, 0.12),
-      0 0 32px rgba(59, 130, 246, 0.18),
+      0 0 36px rgba(59, 130, 246, 0.22),
       0 18px 50px rgba(2, 6, 23, 0.42);
   }
 
   .hero-orb {
-    filter: blur(80px);
-    opacity: 0.8;
+    filter: blur(90px);
+    opacity: 0.85;
+    animation: floatSlow 12s ease-in-out infinite;
   }
 
   .text-glow {
-    text-shadow: 0 0 24px rgba(96, 165, 250, 0.18);
+    text-shadow:
+      0 0 24px rgba(96, 165, 250, 0.14),
+      0 0 44px rgba(59, 130, 246, 0.08);
   }
+}
+
+.grid-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 42px 42px;
+  background-position: center center;
+  opacity: 0.32;
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image:
+    radial-gradient(circle at 20% 20%, white 0.5px, transparent 1px),
+    radial-gradient(circle at 80% 30%, white 0.5px, transparent 1px),
+    radial-gradient(circle at 60% 80%, white 0.5px, transparent 1px);
+  background-size: 120px 120px, 160px 160px, 200px 200px;
+}
+
+.stars-layer,
+.stars-layer-2 {
+  position: fixed;
+  inset: -10%;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.85) 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(125, 211, 252, 0.7) 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.55) 1px, transparent 1.3px);
+  background-size: 180px 180px, 260px 260px, 320px 320px;
+  background-position: 0 0, 40px 70px, 130px 190px;
+  animation: driftStars 22s linear infinite alternate;
+}
+
+.stars-layer-2 {
+  opacity: 0.16;
+  transform: scale(1.08);
+  animation-duration: 30s;
 }
