@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import logo from "./assets/understack-logo.png";
 import type { ReactNode } from "react";
 
-const GASTROAPP_URL = "https://TU-URL-DE-GASTROAPP";
+const GASTROAPP_URL = "https://gasrtoapp.dk";
 
 function ReactIcon() {
   return (
@@ -461,12 +461,43 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="glass-panel neon-border rounded-3xl p-8">
-              <p className="text-xs tracking-[0.24em] text-sky-300 uppercase">
-                Company overview
-              </p>
+            <div className="glass-panel neon-border overflow-hidden rounded-3xl p-8">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs tracking-[0.24em] text-sky-300 uppercase">
+                    Company overview
+                  </p>
+                  <h3 className="mt-3 text-2xl font-semibold text-white">
+                    UnderStack
+                  </h3>
+                </div>
+                <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-emerald-300">
+                  Active
+                </span>
+              </div>
 
-              <div className="mt-6 grid gap-5">
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                <div className="rounded-2xl border border-cyan-400/12 bg-cyan-400/[0.06] p-4">
+                  <div className="text-[10px] uppercase tracking-[0.18em] text-cyan-300">
+                    Products
+                  </div>
+                  <div className="mt-2 text-2xl text-white">1</div>
+                </div>
+                <div className="rounded-2xl border border-violet-400/12 bg-violet-400/[0.06] p-4">
+                  <div className="text-[10px] uppercase tracking-[0.18em] text-violet-300">
+                    Services
+                  </div>
+                  <div className="mt-2 text-2xl text-white">4</div>
+                </div>
+                <div className="rounded-2xl border border-emerald-400/12 bg-emerald-400/[0.06] p-4">
+                  <div className="text-[10px] uppercase tracking-[0.18em] text-emerald-300">
+                    Location
+                  </div>
+                  <div className="mt-2 text-lg text-white">Aarhus</div>
+                </div>
+              </div>
+
+              <div className="mt-5 grid gap-5">
                 <div className="rounded-xl border border-white/10 bg-white/5 p-5">
                   <p className="text-sm text-slate-400">Focus</p>
                   <p className="mt-1 text-lg text-white">
@@ -475,15 +506,35 @@ function App() {
                 </div>
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm text-slate-400">Location</p>
-                  <p className="mt-1 text-lg text-white">Aarhus, Denmark</p>
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-sm text-slate-400">Current product</p>
+                      <p className="mt-1 text-lg text-white">GastroApp</p>
+                    </div>
+                    <a
+                      href={GASTROAPP_URL}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-sky-300 transition hover:bg-sky-400/15"
+                    >
+                      Open
+                    </a>
+                  </div>
                 </div>
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm text-slate-400">Product ecosystem</p>
-                  <p className="mt-1 text-lg text-white">
-                    Software platforms & digital tools
-                  </p>
+                  <p className="text-sm text-slate-400">Core strengths</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <span className="rounded-full bg-white/7 px-3 py-1 text-xs text-slate-200">
+                      Design-led
+                    </span>
+                    <span className="rounded-full bg-white/7 px-3 py-1 text-xs text-slate-200">
+                      Scalable systems
+                    </span>
+                    <span className="rounded-full bg-white/7 px-3 py-1 text-xs text-slate-200">
+                      Product thinking
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
