@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import logo from "./assets/understack-logo.png";
 
 const services = [
   {
@@ -65,6 +64,29 @@ function SectionHeader({
   );
 }
 
+function BrandMark({
+  size = "md",
+  rounded = "rounded-3xl",
+}: {
+  size?: "sm" | "md" | "lg";
+  rounded?: string;
+}) {
+  const sizeClass =
+    size === "sm"
+      ? "h-11 w-11 text-base"
+      : size === "lg"
+        ? "h-40 w-40 text-6xl"
+        : "h-24 w-24 text-3xl md:h-28 md:w-28 md:text-4xl";
+
+  return (
+    <div
+      className={`flex ${sizeClass} items-center justify-center ${rounded} border border-cyan-300/15 bg-[linear-gradient(135deg,rgba(34,211,238,0.95)_0%,rgba(59,130,246,0.95)_52%,rgba(99,102,241,0.95)_100%)] font-bold text-white shadow-[0_0_24px_rgba(56,189,248,0.25),0_0_70px_rgba(59,130,246,0.18)]`}
+    >
+      U
+    </div>
+  );
+}
+
 function App() {
   return (
     <div className="relative min-h-screen bg-transparent text-white">
@@ -79,11 +101,7 @@ function App() {
       <header className="sticky top-0 z-50 border-b border-white/6 bg-slate-950/55 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-10">
           <a href="#home" className="flex items-center gap-3">
-            <img
-              src={logo}
-              alt="UnderStack logo"
-              className="h-11 w-11 rounded-xl object-cover shadow-[0_0_24px_rgba(56,189,248,0.22)]"
-            />
+            <BrandMark size="sm" rounded="rounded-xl" />
             <div>
               <p className="text-[0.72rem] font-medium tracking-[0.32em] text-sky-200/75 uppercase">
                 UnderStack
@@ -129,11 +147,7 @@ function App() {
               </div>
 
               <div className="mt-8 flex items-center gap-5">
-                <img
-                  src={logo}
-                  alt="UnderStack brand"
-                  className="h-24 w-24 rounded-3xl object-cover shadow-[0_0_40px_rgba(56,189,248,0.25)] md:h-28 md:w-28"
-                />
+                <BrandMark size="md" />
                 <div>
                   <p className="text-sm font-medium tracking-[0.34em] text-sky-300/75 uppercase">
                     UnderStack
@@ -193,11 +207,7 @@ function App() {
                   </div>
 
                   <div className="mt-6 flex items-center justify-center rounded-[1.4rem] border border-white/8 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.22),transparent_58%),linear-gradient(180deg,rgba(15,23,42,0.82)_0%,rgba(2,6,23,0.92)_100%)] p-8">
-                    <img
-                      src={logo}
-                      alt="UnderStack logo showcase"
-                      className="w-full max-w-[18rem] drop-shadow-[0_0_40px_rgba(56,189,248,0.28)]"
-                    />
+                    <BrandMark size="lg" rounded="rounded-[2rem]" />
                   </div>
 
                   <div className="mt-6 grid gap-4">
