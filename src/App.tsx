@@ -10,12 +10,12 @@ const services = [
   {
     title: "UI / UX design",
     description:
-      "Premium digital interfaces with strong visual hierarchy, refined interactions and modern product taste.",
+      "Premium digital interfaces with refined interactions, strong hierarchy and a high-end product feel.",
   },
   {
     title: "Web platforms",
     description:
-      "Fast, high-end websites and applications built to communicate trust, capability and technical maturity.",
+      "Fast, modern websites and applications built to communicate trust, capability and technical maturity.",
   },
   {
     title: "Product strategy",
@@ -30,7 +30,22 @@ const products = [
     status: "Live product",
     description:
       "A restaurant operations platform designed to improve kitchen workflows, inventory control, staff coordination and daily execution.",
+    highlights: [
+      "Kitchen workflow structure",
+      "Inventory control",
+      "Staff coordination",
+      "Operational clarity",
+    ],
   },
+];
+
+const technologies = [
+  "React",
+  "TypeScript",
+  "Vite",
+  "Node.js",
+  "PostgreSQL",
+  "Cloud infrastructure",
 ];
 
 const pipeline = [
@@ -92,9 +107,7 @@ function App() {
               <p className="text-[0.72rem] font-medium tracking-[0.34em] text-sky-200 uppercase">
                 UNDERSTACK
               </p>
-              <p className="text-sm text-slate-300">
-                Premium software systems
-              </p>
+              <p className="text-sm text-slate-300">Premium software systems</p>
             </div>
           </a>
 
@@ -107,6 +120,9 @@ function App() {
             </a>
             <a className="transition hover:text-white" href="#products">
               Products
+            </a>
+            <a className="transition hover:text-white" href="#technology">
+              Technology
             </a>
             <a className="transition hover:text-white" href="#pipeline">
               In development
@@ -127,7 +143,7 @@ function App() {
 
       <main id="home" className="relative z-10">
         <section className="relative px-6 pb-24 pt-16 md:px-10 md:pb-32 md:pt-24">
-          <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.02fr_0.98fr]">
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
@@ -146,14 +162,13 @@ function App() {
               </div>
 
               <h1 className="text-glow mt-8 max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight text-white md:text-7xl">
-                We build digital products with technological depth and premium
-                design precision.
+                We build digital products with technological depth and premium design precision.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300 md:text-xl">
-                UnderStack creates software systems, business platforms and
-                refined digital experiences inspired by architecture, clarity and
-                a modern infrastructure-grade visual identity.
+                UnderStack creates software systems, business platforms and refined
+                digital experiences inspired by architecture, clarity and a modern
+                infrastructure-grade visual identity.
               </p>
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -206,16 +221,14 @@ function App() {
                     <div className="rounded-[1.2rem] border border-white/8 bg-white/[0.04] p-5">
                       <p className="text-sm text-slate-400">Visual language</p>
                       <p className="mt-2 text-lg font-medium text-white">
-                        Dark infrastructure aesthetic, electric blue glow and
-                        layered glass surfaces
+                        Dark infrastructure aesthetic, electric blue glow and layered glass surfaces
                       </p>
                     </div>
 
                     <div className="rounded-[1.2rem] border border-white/8 bg-white/[0.04] p-5">
                       <p className="text-sm text-slate-400">Positioning</p>
                       <p className="mt-2 text-lg font-medium text-white">
-                        Premium software company with a high-end technological
-                        identity
+                        Premium software company with a high-end technological identity
                       </p>
                     </div>
 
@@ -239,17 +252,15 @@ function App() {
                 About
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white md:text-5xl">
-                Software built with architectural thinking and a premium product
-                mindset.
+                Software built with architectural thinking and a premium product mindset.
               </h2>
             </div>
 
             <div className="glass-panel rounded-[2rem] p-8 text-lg leading-8 text-slate-300">
               UnderStack is a software and product design company focused on
               creating elegant, reliable and scalable digital systems. We combine
-              engineering structure, visual precision and product thinking to
-              build software that feels intentional, advanced and ready for
-              serious modern businesses.
+              engineering structure, visual precision and product thinking to build
+              software that feels intentional, advanced and ready for serious modern businesses.
             </div>
           </div>
         </section>
@@ -323,6 +334,17 @@ function App() {
                     {product.description}
                   </p>
 
+                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                    {product.highlights.map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-2xl border border-white/8 bg-white/[0.04] px-4 py-3 text-sm text-slate-200"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+
                   <div className="mt-8 rounded-[1.6rem] border border-white/8 bg-[linear-gradient(180deg,rgba(15,23,42,0.75)_0%,rgba(2,6,23,0.95)_100%)] p-6">
                     <div className="mb-4 flex gap-2">
                       <span className="h-3 w-3 rounded-full bg-sky-400/70" />
@@ -367,8 +389,7 @@ function App() {
                   UnderStack identity
                 </h3>
                 <p className="mt-6 max-w-2xl text-base leading-8 text-slate-300">
-                  A software brand built around depth, precision, systems
-                  thinking and a distinctly premium technological presence.
+                  A software brand built around depth, precision, systems thinking and a distinctly premium technological presence.
                 </p>
 
                 <div className="mt-8 flex items-center justify-center rounded-[1.6rem] border border-white/8 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.12),transparent_50%),linear-gradient(180deg,rgba(15,23,42,0.8)_0%,rgba(2,6,23,1)_100%)] p-8">
@@ -379,6 +400,31 @@ function App() {
                   />
                 </div>
               </motion.article>
+            </div>
+          </div>
+        </section>
+
+        <section id="technology" className="px-6 py-20 md:px-10 md:py-28">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              eyebrow="Technology"
+              title="Built with modern tools and scalable foundations"
+              description="Our products are shaped with current frontend standards, typed systems and infrastructure-minded execution."
+            />
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {technologies.map((tech, index) => (
+                <motion.div
+                  key={tech}
+                  initial={{ opacity: 0, y: 18 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                  className="glass-panel neon-border rounded-[1.6rem] px-5 py-4"
+                >
+                  <span className="text-base font-medium text-white">{tech}</span>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
@@ -429,9 +475,7 @@ function App() {
                 Based in Copenhagen, building premium digital systems with global ambition.
               </h2>
               <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                UnderStack operates from Copenhagen, Denmark, with a product and
-                design mindset oriented toward modern companies that value
-                elegance, structure, speed and technological depth.
+                UnderStack operates from Copenhagen, Denmark, with a product and design mindset oriented toward modern companies that value elegance, structure, speed and technological depth.
               </p>
             </div>
           </div>
@@ -439,19 +483,50 @@ function App() {
       </main>
 
       <footer className="relative z-10 px-6 pb-10 pt-6 md:px-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-4 border-t border-white/8 pt-6 text-sm text-slate-400 md:flex-row md:items-center">
-          <p>© 2026 UnderStack. All rights reserved.</p>
-          <div className="flex flex-wrap gap-5">
-            <a
-              className="transition hover:text-white"
-              href="mailto:hello@understack.dev"
-            >
-              hello@understack.dev
-            </a>
-            <a className="transition hover:text-white" href="#home">
-              Back to top
-            </a>
+        <div className="mx-auto grid max-w-7xl gap-8 border-t border-white/8 pt-6 text-sm text-slate-400 md:grid-cols-[1.2fr_1fr_1fr]">
+          <div>
+            <p className="text-white">UnderStack</p>
+            <p className="mt-2 max-w-sm leading-7 text-slate-400">
+              Premium software systems, refined interfaces and modern digital products.
+            </p>
           </div>
+
+          <div>
+            <p className="text-white">Navigation</p>
+            <div className="mt-3 flex flex-col gap-2">
+              <a className="transition hover:text-white" href="#about">
+                About
+              </a>
+              <a className="transition hover:text-white" href="#services">
+                Services
+              </a>
+              <a className="transition hover:text-white" href="#products">
+                Products
+              </a>
+              <a className="transition hover:text-white" href="#technology">
+                Technology
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <p className="text-white">Contact</p>
+            <div className="mt-3 flex flex-col gap-2">
+              <a className="transition hover:text-white" href="mailto:hello@understack.dev">
+                hello@understack.dev
+              </a>
+              <a className="transition hover:text-white" href="#location">
+                Copenhagen, Denmark
+              </a>
+              <a className="transition hover:text-white" href="#home">
+                Back to top
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-8 max-w-7xl border-t border-white/8 pt-6 text-sm text-slate-500">
+          © 2026 UnderStack. All rights reserved.
         </div>
       </footer>
     </div>
