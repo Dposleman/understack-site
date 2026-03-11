@@ -67,6 +67,13 @@ function App() {
       <div className="grid-overlay" />
       <div className="noise-overlay" />
 
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="hero-orb absolute left-1/2 top-[-10rem] h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-blue-500/20" />
+        <div className="hero-orb absolute left-[8%] top-[24rem] h-[22rem] w-[22rem] rounded-full bg-cyan-400/10" />
+        <div className="hero-orb absolute right-[6%] top-[34rem] h-[24rem] w-[24rem] rounded-full bg-indigo-500/10" />
+        <div className="hero-orb absolute left-[30%] bottom-[8rem] h-[18rem] w-[18rem] rounded-full bg-sky-400/8" />
+      </div>
+
       <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/60 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <a href="#home" className="flex items-center gap-3">
@@ -117,7 +124,7 @@ function App() {
             <div className="mt-10 flex gap-4">
               <a
                 href="#products"
-                className="rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 px-6 py-3 text-sm font-medium text-white"
+                className="rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 px-6 py-3 text-sm font-medium text-white shadow-[0_12px_40px_rgba(37,99,235,0.35)] transition hover:-translate-y-0.5"
               >
                 View products
               </a>
@@ -136,7 +143,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <div className="glass-panel rounded-3xl p-8">
+            <div className="glass-panel neon-border rounded-3xl p-8">
               <p className="text-xs tracking-[0.24em] text-sky-300 uppercase">
                 Company overview
               </p>
@@ -194,7 +201,7 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="glass-panel rounded-2xl p-6"
+                className="glass-panel neon-border rounded-2xl p-6"
               >
                 <div className="mb-5 h-10 w-10 rounded-2xl border border-sky-400/20 bg-sky-400/10" />
                 <h3 className="text-xl font-semibold text-white">
@@ -222,7 +229,7 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.45 }}
-              className="glass-panel rounded-3xl p-8"
+              className="glass-panel neon-border rounded-3xl p-8"
             >
               <div className="flex items-center justify-between gap-4">
                 <div>
@@ -266,7 +273,7 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: 0.08 }}
-              className="glass-panel rounded-3xl p-5"
+              className="glass-panel neon-border rounded-3xl p-5"
             >
               <div className="rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.9)_0%,rgba(2,6,23,0.96)_100%)] p-5">
                 <div className="mb-5 flex gap-2">
@@ -328,7 +335,7 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.35, delay: index * 0.04 }}
-                className="glass-panel rounded-xl px-5 py-4"
+                className="glass-panel neon-border rounded-xl px-5 py-4"
               >
                 {tech}
               </motion.div>
