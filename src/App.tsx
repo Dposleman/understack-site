@@ -2,29 +2,6 @@ import { motion } from "motion/react";
 import logo from "./assets/understack-logo.png";
 import type { ReactNode } from "react";
 
-const services = [
-  {
-    title: "Custom software",
-    description:
-      "Operational systems, internal tools and business platforms engineered for clarity, speed and long-term scale.",
-  },
-  {
-    title: "UI / UX design",
-    description:
-      "Premium digital interfaces with refined interactions and strong visual hierarchy.",
-  },
-  {
-    title: "Web platforms",
-    description:
-      "Modern web applications built for performance, scalability and technical credibility.",
-  },
-  {
-    title: "Product strategy",
-    description:
-      "Product thinking focused on real operational value and long-term product structure.",
-  },
-];
-
 function ReactIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
@@ -145,6 +122,116 @@ function CloudIcon() {
   );
 }
 
+function SoftwareIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="3" stroke="#60A5FA" strokeWidth="1.5" />
+      <path
+        d="M8.5 10 6.5 12l2 2M15.5 10l2 2-2 2M13 9.5 11 14.5"
+        stroke="#93C5FD"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function UiUxIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <rect x="4" y="4" width="16" height="16" rx="4" stroke="#A78BFA" strokeWidth="1.5" />
+      <circle cx="9" cy="9" r="1.6" fill="#C4B5FD" />
+      <path
+        d="M13 8h3M13 11h4M8 15h8"
+        stroke="#C4B5FD"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function WebIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="3" stroke="#22D3EE" strokeWidth="1.5" />
+      <path
+        d="M3.8 9h16.4M9 5.8c1.3 1.5 2.1 3.8 2.1 6.2 0 2.4-.8 4.7-2.1 6.2M15 5.8c-1.3 1.5-2.1 3.8-2.1 6.2 0 2.4.8 4.7 2.1 6.2"
+        stroke="#67E8F9"
+        strokeWidth="1.35"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function StrategyIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path
+        d="M6 18V7.5M6 7.5h8.5l-1.8 2.5 1.8 2.5H6"
+        stroke="#34D399"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="17.5" cy="16.5" r="2.5" stroke="#6EE7B7" strokeWidth="1.5" />
+      <path d="m19.3 18.3 1.7 1.7" stroke="#6EE7B7" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+const services: {
+  title: string;
+  description: string;
+  icon: ReactNode;
+  glow: string;
+  border: string;
+  iconBg: string;
+}[] = [
+  {
+    title: "Custom software",
+    description:
+      "Operational systems, internal tools and business platforms engineered for clarity, speed and long-term scale.",
+    icon: <SoftwareIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(96,165,250,0.10),0_0_30px_rgba(96,165,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(96,165,250,0.46),rgba(96,165,250,0.08),rgba(147,197,253,0.24))]",
+    iconBg: "bg-[rgba(96,165,250,0.10)] border-[rgba(96,165,250,0.18)]",
+  },
+  {
+    title: "UI / UX design",
+    description:
+      "Premium digital interfaces with refined interactions and strong visual hierarchy.",
+    icon: <UiUxIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(167,139,250,0.10),0_0_30px_rgba(167,139,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(167,139,250,0.46),rgba(167,139,250,0.08),rgba(196,181,253,0.24))]",
+    iconBg: "bg-[rgba(167,139,250,0.10)] border-[rgba(167,139,250,0.18)]",
+  },
+  {
+    title: "Web platforms",
+    description:
+      "Modern web applications built for performance, scalability and technical credibility.",
+    icon: <WebIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_30px_rgba(34,211,238,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(34,211,238,0.46),rgba(34,211,238,0.08),rgba(103,232,249,0.24))]",
+    iconBg: "bg-[rgba(34,211,238,0.10)] border-[rgba(34,211,238,0.18)]",
+  },
+  {
+    title: "Product strategy",
+    description:
+      "Product thinking focused on real operational value and long-term product structure.",
+    icon: <StrategyIcon />,
+    glow: "shadow-[0_0_0_1px_rgba(52,211,153,0.10),0_0_30px_rgba(52,211,153,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(52,211,153,0.46),rgba(52,211,153,0.08),rgba(110,231,183,0.24))]",
+    iconBg: "bg-[rgba(52,211,153,0.10)] border-[rgba(52,211,153,0.18)]",
+  },
+];
+
 const technologies: {
   name: string;
   icon: ReactNode;
@@ -155,43 +242,55 @@ const technologies: {
   {
     name: "React",
     icon: <ReactIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(97,218,251,0.12),0_0_34px_rgba(97,218,251,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
-    border: "before:bg-[linear-gradient(135deg,rgba(97,218,251,0.55),rgba(97,218,251,0.08),rgba(97,218,251,0.32))]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(97,218,251,0.12),0_0_34px_rgba(97,218,251,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(97,218,251,0.55),rgba(97,218,251,0.08),rgba(97,218,251,0.32))]",
     iconBg: "bg-[rgba(97,218,251,0.10)] border-[rgba(97,218,251,0.18)]",
   },
   {
     name: "TypeScript",
     icon: <TypeScriptIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(49,120,198,0.12),0_0_34px_rgba(49,120,198,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
-    border: "before:bg-[linear-gradient(135deg,rgba(49,120,198,0.55),rgba(49,120,198,0.08),rgba(125,211,252,0.28))]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(49,120,198,0.12),0_0_34px_rgba(49,120,198,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(49,120,198,0.55),rgba(49,120,198,0.08),rgba(125,211,252,0.28))]",
     iconBg: "bg-[rgba(49,120,198,0.10)] border-[rgba(49,120,198,0.18)]",
   },
   {
     name: "Vite",
     icon: <ViteIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(189,52,254,0.10),0_0_34px_rgba(189,52,254,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
-    border: "before:bg-[linear-gradient(135deg,rgba(65,209,255,0.48),rgba(189,52,254,0.12),rgba(189,52,254,0.36))]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(189,52,254,0.10),0_0_34px_rgba(189,52,254,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(65,209,255,0.48),rgba(189,52,254,0.12),rgba(189,52,254,0.36))]",
     iconBg: "bg-[rgba(189,52,254,0.08)] border-[rgba(189,52,254,0.16)]",
   },
   {
     name: "Node.js",
     icon: <NodeIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(83,158,67,0.12),0_0_34px_rgba(83,158,67,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
-    border: "before:bg-[linear-gradient(135deg,rgba(83,158,67,0.48),rgba(83,158,67,0.10),rgba(134,239,172,0.24))]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(83,158,67,0.12),0_0_34px_rgba(83,158,67,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(83,158,67,0.48),rgba(83,158,67,0.10),rgba(134,239,172,0.24))]",
     iconBg: "bg-[rgba(83,158,67,0.10)] border-[rgba(83,158,67,0.18)]",
   },
   {
     name: "PostgreSQL",
     icon: <PostgresIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(51,103,145,0.12),0_0_34px_rgba(51,103,145,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
-    border: "before:bg-[linear-gradient(135deg,rgba(51,103,145,0.52),rgba(51,103,145,0.10),rgba(125,211,252,0.24))]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(51,103,145,0.12),0_0_34px_rgba(51,103,145,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(51,103,145,0.52),rgba(51,103,145,0.10),rgba(125,211,252,0.24))]",
     iconBg: "bg-[rgba(51,103,145,0.10)] border-[rgba(51,103,145,0.18)]",
   },
   {
     name: "Cloud infrastructure",
     icon: <CloudIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_0_34px_rgba(56,189,248,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
-    border: "before:bg-[linear-gradient(135deg,rgba(56,189,248,0.52),rgba(56,189,248,0.10),rgba(125,211,252,0.28))]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_0_34px_rgba(56,189,248,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    border:
+      "before:bg-[linear-gradient(135deg,rgba(56,189,248,0.52),rgba(56,189,248,0.10),rgba(125,211,252,0.28))]",
     iconBg: "bg-[rgba(56,189,248,0.10)] border-[rgba(56,189,248,0.18)]",
   },
 ];
@@ -362,9 +461,14 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.35 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="glass-panel neon-border rounded-2xl p-6"
+                className={`glass-panel neon-border ${service.border} ${service.glow} rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-0.5`}
               >
-                <div className="mb-5 h-10 w-10 rounded-2xl border border-sky-400/20 bg-sky-400/10" />
+                <div
+                  className={`mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border ${service.iconBg}`}
+                >
+                  {service.icon}
+                </div>
+
                 <h3 className="text-xl font-semibold text-white">
                   {service.title}
                 </h3>
