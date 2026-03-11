@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import logo from "./assets/understack-logo.png";
 import type { ReactNode } from "react";
+import { useState } from "react";
 
 const GASTROAPP_URL = "https://gastroapp.dk";
 const CONTACT_EMAIL = "gg.posleman@gmail.com";
@@ -369,7 +370,24 @@ function SectionHeader({
   );
 }
 
-function App() {
+export default function App() {
+  const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
+
+  function handleHeroMove(event: React.MouseEvent<HTMLElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const px = (event.clientX - rect.left) / rect.width;
+    const py = (event.clientY - rect.top) / rect.height;
+
+    const rotateY = (px - 0.5) * 8;
+    const rotateX = (0.5 - py) * 8;
+
+    setHeroTilt({ x: rotateX, y: rotateY });
+  }
+
+  function resetHeroMove() {
+    setHeroTilt({ x: 0, y: 0 });
+  }
+
   return (
     <div className="relative min-h-screen overflow-hidden text-white">
       <div className="stars-layer" />
@@ -423,12 +441,21 @@ function App() {
         </div>
       </header>
 
-      <section id="home" className="relative z-10 px-6 pb-28 pt-24">
+      <section
+        id="home"
+        className="relative z-10 px-6 pb-28 pt-24"
+        onMouseMove={handleHeroMove}
+        onMouseLeave={resetHeroMove}
+      >
         <div className="mx-auto grid max-w-7xl items-center gap-20 lg:grid-cols-[1.05fr_0.95fr]">
           <motion.div
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            style={{
+              transform: `translate3d(${heroTilt.y * -1.2}px, ${heroTilt.x * -1.2}px, 0)`,
+              transition: "transform 180ms ease-out",
+            }}
           >
             <p className="mb-6 text-xs tracking-[0.34em] text-sky-300 uppercase">
               Advanced software systems
@@ -466,6 +493,10 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
             className="hero-card-3d"
+            style={{
+              transform: `perspective(1400px) rotateX(${6 + heroTilt.x * 0.55}deg) rotateY(${-6 + heroTilt.y * 0.55}deg) translate3d(${heroTilt.y * 1.1}px, ${heroTilt.x * -1.1}px, 0)`,
+              transition: "transform 180ms ease-out",
+            }}
           >
             <div className="glass-panel neon-border overflow-hidden rounded-3xl p-8">
               <div className="flex items-start justify-between gap-4">
@@ -1011,5 +1042,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
