@@ -2,7 +2,8 @@ import { motion } from "motion/react";
 import logo from "./assets/understack-logo.png";
 import type { ReactNode } from "react";
 
-const GASTROAPP_URL = "https://gasrtoapp.dk";
+const GASTROAPP_URL = "https://gastroapp.dk";
+const CONTACT_EMAIL = "gg.posleman@gmail.com";
 
 function ReactIcon() {
   return (
@@ -380,6 +381,10 @@ function App() {
         <div className="aurora-mesh aurora-mesh-1" />
         <div className="aurora-mesh aurora-mesh-2" />
         <div className="aurora-mesh aurora-mesh-3" />
+        <div className="cinematic-beam cinematic-beam-1" />
+        <div className="cinematic-beam cinematic-beam-2" />
+        <div className="depth-ring depth-ring-1" />
+        <div className="depth-ring depth-ring-2" />
       </section>
 
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -460,6 +465,7 @@ function App() {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
+            className="hero-card-3d"
           >
             <div className="glass-panel neon-border overflow-hidden rounded-3xl p-8">
               <div className="flex items-start justify-between gap-4">
@@ -520,6 +526,16 @@ function App() {
                       Open
                     </a>
                   </div>
+                </div>
+
+                <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+                  <p className="text-sm text-slate-400">Contact</p>
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="mt-1 block text-lg text-white transition hover:text-sky-300"
+                  >
+                    {CONTACT_EMAIL}
+                  </a>
                 </div>
 
                 <div className="rounded-xl border border-white/10 bg-white/5 p-5">
@@ -903,7 +919,7 @@ function App() {
 
                 <div className="mt-8 flex flex-wrap gap-4">
                   <a
-                    href="mailto:hello@understack.dev"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 px-6 py-3 text-sm font-medium text-white shadow-[0_12px_40px_rgba(37,99,235,0.28)] transition hover:-translate-y-0.5"
                   >
                     Discuss a project
@@ -923,10 +939,10 @@ function App() {
                 <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
                   <p className="text-sm text-slate-400">Email</p>
                   <a
-                    href="mailto:hello@understack.dev"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="mt-1 block text-lg text-white transition hover:text-sky-300"
                   >
-                    hello@understack.dev
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
 
@@ -977,8 +993,8 @@ function App() {
           <div>
             <p className="text-white">Contact</p>
             <div className="mt-3 flex flex-col gap-2">
-              <a className="transition hover:text-white" href="mailto:hello@understack.dev">
-                hello@understack.dev
+              <a className="transition hover:text-white" href={`mailto:${CONTACT_EMAIL}`}>
+                {CONTACT_EMAIL}
               </a>
               <span>Aarhus, Denmark</span>
               <a className="transition hover:text-white" href="#contact">
