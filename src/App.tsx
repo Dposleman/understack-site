@@ -195,7 +195,8 @@ const services: {
     description:
       "Operational systems, internal tools and business platforms engineered for clarity, speed and long-term scale.",
     icon: <SoftwareIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(96,165,250,0.10),0_0_30px_rgba(96,165,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(96,165,250,0.10),0_0_30px_rgba(96,165,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(96,165,250,0.46),rgba(96,165,250,0.08),rgba(147,197,253,0.24))]",
     iconBg: "bg-[rgba(96,165,250,0.10)] border-[rgba(96,165,250,0.18)]",
@@ -205,7 +206,8 @@ const services: {
     description:
       "Premium digital interfaces with refined interactions and strong visual hierarchy.",
     icon: <UiUxIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(167,139,250,0.10),0_0_30px_rgba(167,139,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(167,139,250,0.10),0_0_30px_rgba(167,139,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(167,139,250,0.46),rgba(167,139,250,0.08),rgba(196,181,253,0.24))]",
     iconBg: "bg-[rgba(167,139,250,0.10)] border-[rgba(167,139,250,0.18)]",
@@ -215,7 +217,8 @@ const services: {
     description:
       "Modern web applications built for performance, scalability and technical credibility.",
     icon: <WebIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_30px_rgba(34,211,238,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_30px_rgba(34,211,238,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(34,211,238,0.46),rgba(34,211,238,0.08),rgba(103,232,249,0.24))]",
     iconBg: "bg-[rgba(34,211,238,0.10)] border-[rgba(34,211,238,0.18)]",
@@ -225,7 +228,8 @@ const services: {
     description:
       "Product thinking focused on real operational value and long-term product structure.",
     icon: <StrategyIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(52,211,153,0.10),0_0_30px_rgba(52,211,153,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(52,211,153,0.10),0_0_30px_rgba(52,211,153,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(52,211,153,0.46),rgba(52,211,153,0.08),rgba(110,231,183,0.24))]",
     iconBg: "bg-[rgba(52,211,153,0.10)] border-[rgba(52,211,153,0.18)]",
