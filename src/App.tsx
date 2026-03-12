@@ -1,10 +1,13 @@
 import { motion } from "motion/react";
 import logo from "./assets/understack-logo.png";
 import type { ReactNode } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const GASTROAPP_URL = "https://gastroapp.dk";
 const CONTACT_EMAIL = "gg.posleman@gmail.com";
+const VISIT_COUNTER_NAMESPACE = "understack-site";
+const VISIT_COUNTER_KEY = "homepage-visits";
+const VISIT_COUNTER_SESSION_KEY = "understack-homepage-visit-counted";
 
 function ReactIcon() {
   return (
@@ -372,6 +375,48 @@ function SectionHeader({
 
 export default function App() {
   const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
+  const [visitCount, setVisitCount] = useState<number | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadVisits() {
+      try {
+        const alreadyCounted =
+          typeof window !== "undefined" &&
+          window.sessionStorage.getItem(VISIT_COUNTER_SESSION_KEY) === "1";
+
+        const endpoint = alreadyCounted
+          ? `https://api.countapi.xyz/get/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}`
+          : `https://api.countapi.xyz/hit/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}`;
+
+        const response = await fetch(endpoint);
+        if (!response.ok) {
+          throw new Error("Failed to load visit counter");
+        }
+
+        const data: { value?: number } = await response.json();
+
+        if (!cancelled && typeof data.value === "number") {
+          setVisitCount(data.value);
+        }
+
+        if (!alreadyCounted && typeof window !== "undefined") {
+          window.sessionStorage.setItem(VISIT_COUNTER_SESSION_KEY, "1");
+        }
+      } catch {
+        if (!cancelled) {
+          setVisitCount(null);
+        }
+      }
+    }
+
+    loadVisits();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   function handleHeroMove(event: React.MouseEvent<HTMLElement>) {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -513,7 +558,7 @@ export default function App() {
                 </span>
               </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              <div className="mt-6 grid gap-4 sm:grid-cols-4">
                 <div className="rounded-2xl border border-cyan-400/12 bg-cyan-400/[0.06] p-4">
                   <div className="text-[10px] uppercase tracking-[0.18em] text-cyan-300">
                     Products
@@ -531,6 +576,14 @@ export default function App() {
                     Location
                   </div>
                   <div className="mt-2 text-lg text-white">Aarhus</div>
+                </div>
+                <div className="rounded-2xl border border-sky-400/12 bg-sky-400/[0.06] p-4">
+                  <div className="text-[10px] uppercase tracking-[0.18em] text-sky-300">
+                    Visits
+                  </div>
+                  <div className="mt-2 text-2xl text-white">
+                    {visitCount !== null ? visitCount.toLocaleString() : "—"}
+                  </div>
                 </div>
               </div>
 
