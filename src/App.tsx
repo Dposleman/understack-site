@@ -208,6 +208,195 @@ function PremiumIcon() {
   );
 }
 
+function PricingCard({
+  accent,
+  title,
+  subtitle,
+  price,
+  items,
+  extras,
+}: {
+  accent: "blue" | "cyan" | "purple";
+  title: string;
+  subtitle: string;
+  price: string;
+  items: string[];
+  extras: string[];
+}) {
+  const theme = {
+    blue: {
+      pill:
+        "border-cyan-300/35 bg-cyan-300/12 text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.18)]",
+      border:
+        "border-cyan-300/35 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_0_22px_rgba(34,211,238,0.16),0_0_70px_rgba(37,99,235,0.18),0_18px_60px_rgba(2,6,23,0.48)]",
+      glow:
+        "before:bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.22),transparent_55%)] after:bg-[radial-gradient(circle_at_bottom,rgba(34,211,238,0.10),transparent_55%)]",
+      price: "text-cyan-200",
+      bullet: "text-cyan-300",
+      extras: "text-cyan-200",
+      ring: "group-hover:shadow-[0_0_0_1px_rgba(34,211,238,0.20),0_0_32px_rgba(34,211,238,0.22),0_0_90px_rgba(37,99,235,0.22),0_24px_70px_rgba(2,6,23,0.55)]",
+    },
+    cyan: {
+      pill:
+        "border-cyan-300/45 bg-cyan-300/14 text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.22)]",
+      border:
+        "border-cyan-300/45 shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_26px_rgba(34,211,238,0.20),0_0_80px_rgba(6,182,212,0.20),0_18px_60px_rgba(2,6,23,0.48)]",
+      glow:
+        "before:bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.24),transparent_55%)] after:bg-[radial-gradient(circle_at_bottom,rgba(16,185,129,0.10),transparent_55%)]",
+      price: "text-cyan-200",
+      bullet: "text-cyan-300",
+      extras: "text-cyan-200",
+      ring: "group-hover:shadow-[0_0_0_1px_rgba(34,211,238,0.24),0_0_36px_rgba(34,211,238,0.24),0_0_95px_rgba(6,182,212,0.24),0_24px_70px_rgba(2,6,23,0.55)]",
+    },
+    purple: {
+      pill:
+        "border-fuchsia-300/40 bg-fuchsia-300/14 text-fuchsia-200 shadow-[0_0_18px_rgba(216,180,254,0.20)]",
+      border:
+        "border-fuchsia-300/40 shadow-[0_0_0_1px_rgba(216,180,254,0.14),0_0_26px_rgba(216,180,254,0.20),0_0_80px_rgba(168,85,247,0.22),0_18px_60px_rgba(2,6,23,0.48)]",
+      glow:
+        "before:bg-[radial-gradient(circle_at_top,rgba(216,180,254,0.24),transparent_55%)] after:bg-[radial-gradient(circle_at_bottom,rgba(168,85,247,0.12),transparent_55%)]",
+      price: "text-fuchsia-100",
+      bullet: "text-fuchsia-300",
+      extras: "text-fuchsia-200",
+      ring: "group-hover:shadow-[0_0_0_1px_rgba(216,180,254,0.22),0_0_36px_rgba(216,180,254,0.24),0_0_95px_rgba(168,85,247,0.26),0_24px_70px_rgba(2,6,23,0.55)]",
+    },
+  }[accent];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.42 }}
+      className="group"
+    >
+      <div
+        className={`relative overflow-hidden rounded-[2rem] border bg-[linear-gradient(180deg,rgba(8,15,30,0.94)_0%,rgba(3,7,18,0.98)_100%)] p-[2px] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 ${theme.border} ${theme.ring}`}
+      >
+        <div className={`pointer-events-none absolute inset-0 opacity-100 before:absolute before:inset-0 before:content-[''] after:absolute after:inset-0 after:content-[''] ${theme.glow}`} />
+        <div className="relative rounded-[calc(2rem-2px)] border border-white/8 bg-[linear-gradient(180deg,rgba(10,18,35,0.86)_0%,rgba(2,6,23,0.96)_100%)]">
+          <div className="px-6 pb-5 pt-5 text-center">
+            <span
+              className={`inline-flex rounded-full border px-5 py-2 text-[11px] font-medium uppercase tracking-[0.18em] ${theme.pill}`}
+            >
+              Website Package
+            </span>
+
+            <h3 className="mt-5 text-[2rem] font-semibold leading-tight text-white">
+              {title}
+            </h3>
+
+            <p className="mt-3 text-base text-slate-300">{subtitle}</p>
+          </div>
+
+          <div className="border-y border-white/10 bg-white/[0.03] px-6 py-5 text-center">
+            <div className="text-[3.25rem] font-semibold leading-none tracking-tight text-white md:text-[3.6rem]">
+              {price} <span className={`text-[1.6rem] align-middle ${theme.price}`}>DKK</span>
+            </div>
+          </div>
+
+          <div className="px-8 py-6">
+            <ul className="space-y-3 text-lg text-slate-200">
+              {items.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span className={`mt-[0.45rem] text-xs ${theme.bullet}`}>●</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="border-t border-white/10 bg-white/[0.025] px-6 py-4 text-center">
+            <p className="text-[11px] uppercase tracking-[0.18em] text-slate-300">Optional Extras</p>
+          </div>
+
+          <div className="px-8 py-5">
+            <ul className="space-y-3 text-lg text-white">
+              {extras.map((extra) => {
+                const [first, ...rest] = extra.split(" ");
+                return (
+                  <li key={extra} className="flex items-start gap-3">
+                    <span className={`mt-[0.45rem] text-xs ${theme.bullet}`}>●</span>
+                    <span>
+                      <span className={`font-semibold ${theme.extras}`}>{first}</span>{" "}
+                      {rest.join(" ")}
+                    </span>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function PricingCards() {
+  return (
+    <section id="pricing" className="px-6 py-24">
+      <div className="mx-auto max-w-[92rem]">
+        <div className="mx-auto mb-14 max-w-4xl text-center">
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+            UnderStack — Web Development Pricing <span className="text-slate-300">(Denmark)</span>
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-lg text-slate-300">
+            Clear, premium websites for freelancers, small businesses and growing companies.
+          </p>
+        </div>
+
+        <div className="grid gap-8 xl:grid-cols-3">
+          <PricingCard
+            accent="blue"
+            title="Basic Landing Website"
+            subtitle="Ideal for freelancers & small businesses"
+            price="4,500"
+            items={[
+              "Professional landing page",
+              "Responsive design",
+              "Contact form",
+              "Google Maps integration",
+              ".vercel.app domain",
+              "Basic SEO setup",
+            ]}
+            extras={["900 DKK / Year Hosting", "1,200 DKK / Month SEO"]}
+          />
+
+          <PricingCard
+            accent="cyan"
+            title="Business Website"
+            subtitle="For small companies"
+            price="7,500"
+            items={[
+              "Up to 5 pages",
+              "Professional UI design",
+              "Mobile optimized",
+              "Social Media integration",
+              ".vercel.app domain",
+            ]}
+            extras={["900 DKK / Year Hosting", "1,500 DKK / Month SEO"]}
+          />
+
+          <PricingCard
+            accent="purple"
+            title="Professional Website"
+            subtitle="For a complete web presence"
+            price="12,000"
+            items={[
+              "Up to 10 pages",
+              "Custom UX/UI design",
+              "Advanced speed optimization",
+              "Content management",
+              ".vercel.app domain",
+            ]}
+            extras={["900 DKK / Year Hosting", "2,000 DKK / Month SEO"]}
+          />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const services: {
   title: string;
   description: string;
@@ -358,7 +547,7 @@ function SectionHeader({
 }) {
   return (
     <div className="mx-auto mb-16 max-w-3xl text-center">
-      <p className="mb-3 text-xs tracking-[0.32em] text-sky-300 uppercase">
+      <p className="mb-3 text-xs uppercase tracking-[0.32em] text-sky-300">
         {eyebrow}
       </p>
       <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
@@ -458,7 +647,7 @@ export default function App() {
               transition: "transform 180ms ease-out",
             }}
           >
-            <p className="mb-6 text-xs tracking-[0.34em] text-sky-300 uppercase">
+            <p className="mb-6 text-xs uppercase tracking-[0.34em] text-sky-300">
               Advanced software systems
             </p>
 
@@ -502,7 +691,7 @@ export default function App() {
             <div className="glass-panel neon-border overflow-hidden rounded-3xl p-8">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs tracking-[0.24em] text-sky-300 uppercase">
+                  <p className="text-xs uppercase tracking-[0.24em] text-sky-300">
                     Company overview
                   </p>
                   <h3 className="mt-3 text-2xl font-semibold text-white">
@@ -643,6 +832,8 @@ export default function App() {
         </div>
       </section>
 
+      <PricingCards />
+
       <section className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
@@ -692,7 +883,7 @@ export default function App() {
             >
               <div className="flex items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs tracking-[0.24em] text-sky-300 uppercase">
+                  <p className="text-xs uppercase tracking-[0.24em] text-sky-300">
                     Featured product
                   </p>
                   <h3 className="mt-3 text-3xl font-semibold text-white">
@@ -942,7 +1133,7 @@ export default function App() {
       <section id="contact" className="px-6 py-24">
         <div className="mx-auto max-w-7xl">
           <div className="glass-panel neon-border rounded-[2rem] p-8 md:p-12">
-            <p className="text-xs tracking-[0.32em] text-sky-300 uppercase">
+            <p className="text-xs uppercase tracking-[0.32em] text-sky-300">
               Contact us
             </p>
 
