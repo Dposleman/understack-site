@@ -204,6 +204,44 @@ function PremiumIcon() {
   );
 }
 
+function ServiceIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <rect x="4" y="5" width="16" height="14" rx="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M8 9h8M8 12h5M8 15h7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function VoiceIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <rect x="9" y="4.5" width="6" height="10" rx="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M6.5 11.5a5.5 5.5 0 0 0 11 0M12 17v3M9 20h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function AnalyticsIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path d="M5 19.5h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="6" y="12" width="2.8" height="5.5" rx="1" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="10.6" y="9" width="2.8" height="8.5" rx="1" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="15.2" y="6" width="2.8" height="11.5" rx="1" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
+function MapIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
+      <path d="M8 5.5 4.5 7v11l3.5-1.5L12 18l4-1.5 3.5 1.5V7L16 5.5 12 7 8 5.5Z" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M8 5.5v11M12 7v11M16 5.5v11" stroke="currentColor" strokeWidth="1.5" />
+    </svg>
+  );
+}
+
 function PricingCard({
   accent,
   title,
@@ -225,36 +263,36 @@ function PricingCard({
       border:
         "border-cyan-300/35 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_0_22px_rgba(34,211,238,0.16),0_0_70px_rgba(37,99,235,0.18),0_18px_60px_rgba(2,6,23,0.48)]",
       glow:
-        "before:bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.22),transparent_55%)] after:bg-[radial-gradient(circle_at_bottom,rgba(34,211,238,0.10),transparent_55%)]",
+        "before:bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.20),transparent_55%)] after:bg-[radial-gradient(circle_at_bottom,rgba(34,211,238,0.10),transparent_55%)]",
       price: "text-cyan-200",
       bullet: "text-cyan-300",
       extras: "text-cyan-200",
-      ring:
-        "group-hover:shadow-[0_0_0_1px_rgba(34,211,238,0.20),0_0_32px_rgba(34,211,238,0.22),0_0_90px_rgba(37,99,235,0.22),0_24px_70px_rgba(2,6,23,0.55)]",
+      hover:
+        "hover:-translate-y-1 hover:border-cyan-300/45 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.18),0_0_44px_rgba(34,211,238,0.16),0_0_120px_rgba(37,99,235,0.16),0_28px_80px_rgba(2,6,23,0.58)]",
     },
     cyan: {
       pill: "border-cyan-300/45 bg-cyan-300/14 text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.22)]",
       border:
         "border-cyan-300/45 shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_26px_rgba(34,211,238,0.20),0_0_80px_rgba(6,182,212,0.20),0_18px_60px_rgba(2,6,23,0.48)]",
       glow:
-        "before:bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.24),transparent_55%)] after:bg-[radial-gradient(circle_at_bottom,rgba(16,185,129,0.10),transparent_55%)]",
+        "before:bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.22),transparent_55%)] after:bg-[radial-gradient(circle_at_bottom,rgba(16,185,129,0.10),transparent_55%)]",
       price: "text-cyan-200",
       bullet: "text-cyan-300",
       extras: "text-cyan-200",
-      ring:
-        "group-hover:shadow-[0_0_0_1px_rgba(34,211,238,0.24),0_0_36px_rgba(34,211,238,0.24),0_0_95px_rgba(6,182,212,0.24),0_24px_70px_rgba(2,6,23,0.55)]",
+      hover:
+        "hover:-translate-y-1 hover:border-cyan-300/55 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.22),0_0_48px_rgba(34,211,238,0.20),0_0_128px_rgba(6,182,212,0.18),0_28px_80px_rgba(2,6,23,0.58)]",
     },
     purple: {
       pill: "border-fuchsia-300/40 bg-fuchsia-300/14 text-fuchsia-200 shadow-[0_0_18px_rgba(216,180,254,0.20)]",
       border:
         "border-fuchsia-300/40 shadow-[0_0_0_1px_rgba(216,180,254,0.14),0_0_26px_rgba(216,180,254,0.20),0_0_80px_rgba(168,85,247,0.22),0_18px_60px_rgba(2,6,23,0.48)]",
       glow:
-        "before:bg-[radial-gradient(circle_at_top,rgba(216,180,254,0.24),transparent_55%)] after:bg-[radial-gradient(circle_at_bottom,rgba(168,85,247,0.12),transparent_55%)]",
+        "before:bg-[radial-gradient(circle_at_top,rgba(216,180,254,0.22),transparent_55%)] after:bg-[radial-gradient(circle_at_bottom,rgba(168,85,247,0.10),transparent_55%)]",
       price: "text-fuchsia-100",
       bullet: "text-fuchsia-300",
       extras: "text-fuchsia-200",
-      ring:
-        "group-hover:shadow-[0_0_0_1px_rgba(216,180,254,0.22),0_0_36px_rgba(216,180,254,0.24),0_0_95px_rgba(168,85,247,0.26),0_24px_70px_rgba(2,6,23,0.55)]",
+      hover:
+        "hover:-translate-y-1 hover:border-fuchsia-300/52 hover:shadow-[0_0_0_1px_rgba(216,180,254,0.20),0_0_46px_rgba(216,180,254,0.18),0_0_124px_rgba(168,85,247,0.18),0_28px_80px_rgba(2,6,23,0.58)]",
     },
   }[accent];
 
@@ -264,7 +302,7 @@ function PricingCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.35 }}
       transition={{ duration: 0.55 }}
-      className={`group relative overflow-hidden rounded-[30px] border bg-[rgba(8,12,24,0.76)] p-7 backdrop-blur-2xl ${theme.border} ${theme.ring}`}
+      className={`group relative overflow-hidden rounded-[30px] border bg-[rgba(8,12,24,0.76)] p-7 backdrop-blur-2xl transition-all duration-300 ${theme.border} ${theme.hover}`}
     >
       <div className={`pointer-events-none absolute inset-0 opacity-90 before:absolute before:inset-0 after:absolute after:inset-0 ${theme.glow}`} />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
@@ -396,6 +434,7 @@ const services: {
   glow: string;
   border: string;
   iconBg: string;
+  hover: string;
 }[] = [
   {
     title: "Custom software",
@@ -405,8 +444,10 @@ const services: {
     glow:
       "shadow-[0_0_0_1px_rgba(96,165,250,0.10),0_0_30px_rgba(96,165,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(96,165,250,0.46),rgba(96,165,250,0.08),rgba(147,197,253,0.24))]",
+      "before:bg-[linear-gradient(135deg,rgba(96,165,250,0.44),rgba(96,165,250,0.08),rgba(147,197,253,0.24))]",
     iconBg: "bg-[rgba(96,165,250,0.10)] border-[rgba(96,165,250,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-blue-300/25 hover:shadow-[0_0_0_1px_rgba(96,165,250,0.14),0_0_42px_rgba(96,165,250,0.16),0_0_110px_rgba(59,130,246,0.14),0_28px_80px_rgba(2,6,23,0.58)]",
   },
   {
     title: "UI / UX design",
@@ -416,8 +457,10 @@ const services: {
     glow:
       "shadow-[0_0_0_1px_rgba(167,139,250,0.10),0_0_30px_rgba(167,139,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(167,139,250,0.46),rgba(167,139,250,0.08),rgba(196,181,253,0.24))]",
+      "before:bg-[linear-gradient(135deg,rgba(167,139,250,0.44),rgba(167,139,250,0.08),rgba(196,181,253,0.24))]",
     iconBg: "bg-[rgba(167,139,250,0.10)] border-[rgba(167,139,250,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-fuchsia-300/25 hover:shadow-[0_0_0_1px_rgba(167,139,250,0.14),0_0_42px_rgba(167,139,250,0.16),0_0_110px_rgba(168,85,247,0.14),0_28px_80px_rgba(2,6,23,0.58)]",
   },
   {
     title: "Web platforms",
@@ -427,8 +470,10 @@ const services: {
     glow:
       "shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_30px_rgba(34,211,238,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(34,211,238,0.46),rgba(34,211,238,0.08),rgba(103,232,249,0.24))]",
+      "before:bg-[linear-gradient(135deg,rgba(34,211,238,0.44),rgba(34,211,238,0.08),rgba(103,232,249,0.24))]",
     iconBg: "bg-[rgba(34,211,238,0.10)] border-[rgba(34,211,238,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-cyan-300/28 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_42px_rgba(34,211,238,0.16),0_0_110px_rgba(6,182,212,0.14),0_28px_80px_rgba(2,6,23,0.58)]",
   },
   {
     title: "Product strategy",
@@ -438,8 +483,10 @@ const services: {
     glow:
       "shadow-[0_0_0_1px_rgba(52,211,153,0.10),0_0_30px_rgba(52,211,153,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(52,211,153,0.46),rgba(52,211,153,0.08),rgba(110,231,183,0.24))]",
+      "before:bg-[linear-gradient(135deg,rgba(52,211,153,0.44),rgba(52,211,153,0.08),rgba(110,231,183,0.24))]",
     iconBg: "bg-[rgba(52,211,153,0.10)] border-[rgba(52,211,153,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-emerald-300/25 hover:shadow-[0_0_0_1px_rgba(52,211,153,0.14),0_0_42px_rgba(52,211,153,0.16),0_0_110px_rgba(16,185,129,0.14),0_28px_80px_rgba(2,6,23,0.58)]",
   },
 ];
 
@@ -449,6 +496,7 @@ const technologies: {
   glow: string;
   border: string;
   iconBg: string;
+  hover: string;
 }[] = [
   {
     name: "React",
@@ -456,8 +504,10 @@ const technologies: {
     glow:
       "shadow-[0_0_0_1px_rgba(97,218,251,0.12),0_0_34px_rgba(97,218,251,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(97,218,251,0.55),rgba(97,218,251,0.08),rgba(97,218,251,0.32))]",
+      "before:bg-[linear-gradient(135deg,rgba(97,218,251,0.50),rgba(97,218,251,0.08),rgba(97,218,251,0.30))]",
     iconBg: "bg-[rgba(97,218,251,0.10)] border-[rgba(97,218,251,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-cyan-300/25 hover:shadow-[0_0_0_1px_rgba(97,218,251,0.14),0_0_40px_rgba(97,218,251,0.16),0_0_100px_rgba(34,211,238,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
   {
     name: "TypeScript",
@@ -465,8 +515,10 @@ const technologies: {
     glow:
       "shadow-[0_0_0_1px_rgba(49,120,198,0.12),0_0_34px_rgba(49,120,198,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(49,120,198,0.55),rgba(49,120,198,0.08),rgba(125,211,252,0.28))]",
+      "before:bg-[linear-gradient(135deg,rgba(49,120,198,0.52),rgba(49,120,198,0.08),rgba(125,211,252,0.28))]",
     iconBg: "bg-[rgba(49,120,198,0.10)] border-[rgba(49,120,198,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-blue-300/25 hover:shadow-[0_0_0_1px_rgba(49,120,198,0.14),0_0_40px_rgba(49,120,198,0.16),0_0_100px_rgba(59,130,246,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
   {
     name: "Vite",
@@ -474,8 +526,10 @@ const technologies: {
     glow:
       "shadow-[0_0_0_1px_rgba(189,52,254,0.10),0_0_34px_rgba(189,52,254,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(65,209,255,0.48),rgba(189,52,254,0.12),rgba(189,52,254,0.36))]",
+      "before:bg-[linear-gradient(135deg,rgba(65,209,255,0.46),rgba(189,52,254,0.12),rgba(189,52,254,0.34))]",
     iconBg: "bg-[rgba(189,52,254,0.08)] border-[rgba(189,52,254,0.16)]",
+    hover:
+      "hover:-translate-y-1 hover:border-fuchsia-300/25 hover:shadow-[0_0_0_1px_rgba(189,52,254,0.14),0_0_40px_rgba(189,52,254,0.16),0_0_100px_rgba(168,85,247,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
   {
     name: "Node.js",
@@ -483,8 +537,10 @@ const technologies: {
     glow:
       "shadow-[0_0_0_1px_rgba(83,158,67,0.12),0_0_34px_rgba(83,158,67,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(83,158,67,0.48),rgba(83,158,67,0.10),rgba(134,239,172,0.24))]",
+      "before:bg-[linear-gradient(135deg,rgba(83,158,67,0.46),rgba(83,158,67,0.10),rgba(134,239,172,0.24))]",
     iconBg: "bg-[rgba(83,158,67,0.10)] border-[rgba(83,158,67,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-emerald-300/25 hover:shadow-[0_0_0_1px_rgba(83,158,67,0.14),0_0_40px_rgba(83,158,67,0.16),0_0_100px_rgba(16,185,129,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
   {
     name: "PostgreSQL",
@@ -492,8 +548,10 @@ const technologies: {
     glow:
       "shadow-[0_0_0_1px_rgba(51,103,145,0.12),0_0_34px_rgba(51,103,145,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(51,103,145,0.52),rgba(51,103,145,0.10),rgba(125,211,252,0.24))]",
+      "before:bg-[linear-gradient(135deg,rgba(51,103,145,0.50),rgba(51,103,145,0.10),rgba(125,211,252,0.24))]",
     iconBg: "bg-[rgba(51,103,145,0.10)] border-[rgba(51,103,145,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-sky-300/25 hover:shadow-[0_0_0_1px_rgba(51,103,145,0.14),0_0_40px_rgba(51,103,145,0.16),0_0_100px_rgba(56,189,248,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
   {
     name: "Cloud infrastructure",
@@ -501,8 +559,10 @@ const technologies: {
     glow:
       "shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_0_34px_rgba(56,189,248,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
-      "before:bg-[linear-gradient(135deg,rgba(56,189,248,0.52),rgba(56,189,248,0.10),rgba(125,211,252,0.28))]",
+      "before:bg-[linear-gradient(135deg,rgba(56,189,248,0.50),rgba(56,189,248,0.10),rgba(125,211,252,0.28))]",
     iconBg: "bg-[rgba(56,189,248,0.10)] border-[rgba(56,189,248,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-cyan-300/25 hover:shadow-[0_0_0_1px_rgba(56,189,248,0.14),0_0_40px_rgba(56,189,248,0.16),0_0_100px_rgba(34,211,238,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
 ];
 
@@ -511,30 +571,112 @@ const reasons: {
   text: string;
   icon: ReactNode;
   iconBg: string;
+  hover: string;
 }[] = [
   {
     title: "Design-led execution",
     text: "We care about visual precision, spacing, interaction quality and product polish from the start.",
     icon: <PrecisionIcon />,
     iconBg: "bg-[rgba(56,189,248,0.10)] border-[rgba(56,189,248,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-cyan-300/24 hover:shadow-[0_0_0_1px_rgba(56,189,248,0.14),0_0_36px_rgba(56,189,248,0.14),0_0_90px_rgba(34,211,238,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
   {
     title: "Engineering discipline",
     text: "We build with structure, maintainability and long-term scalability in mind.",
     icon: <EngineeringIcon />,
     iconBg: "bg-[rgba(96,165,250,0.10)] border-[rgba(96,165,250,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-blue-300/24 hover:shadow-[0_0_0_1px_rgba(96,165,250,0.14),0_0_36px_rgba(96,165,250,0.14),0_0_90px_rgba(59,130,246,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
   {
     title: "Operational thinking",
     text: "Our products are shaped around real workflows, real teams and real business needs.",
     icon: <WorkflowIcon />,
     iconBg: "bg-[rgba(34,211,238,0.10)] border-[rgba(34,211,238,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-cyan-300/24 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_36px_rgba(34,211,238,0.14),0_0_90px_rgba(6,182,212,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
   {
     title: "Premium positioning",
     text: "Everything is designed to feel sharp, modern, credible and enterprise-ready.",
     icon: <PremiumIcon />,
     iconBg: "bg-[rgba(167,139,250,0.10)] border-[rgba(167,139,250,0.18)]",
+    hover:
+      "hover:-translate-y-1 hover:border-fuchsia-300/24 hover:shadow-[0_0_0_1px_rgba(167,139,250,0.14),0_0_36px_rgba(167,139,250,0.14),0_0_90px_rgba(168,85,247,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
+  },
+];
+
+const serviceOsPillars: {
+  title: string;
+  text: string;
+  icon: ReactNode;
+  tone: string;
+  hover: string;
+}[] = [
+  {
+    title: "AI Order Assistant",
+    text: "The app listens to the guest conversation and suggests items automatically based on the menu.",
+    icon: <ServiceIcon />,
+    tone: "border-cyan-300/18 bg-cyan-300/8 text-cyan-200",
+    hover:
+      "hover:-translate-y-1 hover:border-cyan-300/28 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_36px_rgba(34,211,238,0.14),0_0_90px_rgba(34,211,238,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
+  },
+  {
+    title: "AI Table Awareness",
+    text: "Knows which table is waiting, how long they have waited and whether they need attention.",
+    icon: <PrecisionIcon />,
+    tone: "border-blue-300/18 bg-blue-300/8 text-blue-200",
+    hover:
+      "hover:-translate-y-1 hover:border-blue-300/28 hover:shadow-[0_0_0_1px_rgba(96,165,250,0.14),0_0_36px_rgba(96,165,250,0.14),0_0_90px_rgba(59,130,246,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
+  },
+  {
+    title: "Smart Timing System",
+    text: "AI analyzes kitchen timing, restaurant flow and table status, then tells the server what to do next.",
+    icon: <WorkflowIcon />,
+    tone: "border-emerald-300/18 bg-emerald-300/8 text-emerald-200",
+    hover:
+      "hover:-translate-y-1 hover:border-emerald-300/28 hover:shadow-[0_0_0_1px_rgba(52,211,153,0.14),0_0_36px_rgba(52,211,153,0.14),0_0_90px_rgba(16,185,129,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
+  },
+  {
+    title: "AI Upselling Engine",
+    text: "Suggests upsells in real time while the service interaction is happening.",
+    icon: <StrategyIcon />,
+    tone: "border-fuchsia-300/18 bg-fuchsia-300/8 text-fuchsia-200",
+    hover:
+      "hover:-translate-y-1 hover:border-fuchsia-300/28 hover:shadow-[0_0_0_1px_rgba(167,139,250,0.14),0_0_36px_rgba(167,139,250,0.14),0_0_90px_rgba(168,85,247,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
+  },
+  {
+    title: "Table Memory System",
+    text: "Remembers returning guests and helps bring continuity to the dining experience.",
+    icon: <PremiumIcon />,
+    tone: "border-sky-300/18 bg-sky-300/8 text-sky-200",
+    hover:
+      "hover:-translate-y-1 hover:border-sky-300/28 hover:shadow-[0_0_0_1px_rgba(56,189,248,0.14),0_0_36px_rgba(56,189,248,0.14),0_0_90px_rgba(14,165,233,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
+  },
+  {
+    title: "Voice Interface",
+    text: "Servers can add items and interact with the system by voice while staying focused on the floor.",
+    icon: <VoiceIcon />,
+    tone: "border-violet-300/18 bg-violet-300/8 text-violet-200",
+    hover:
+      "hover:-translate-y-1 hover:border-violet-300/28 hover:shadow-[0_0_0_1px_rgba(139,92,246,0.14),0_0_36px_rgba(139,92,246,0.14),0_0_90px_rgba(124,58,237,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
+  },
+  {
+    title: "Performance Analytics",
+    text: "Structured analytics for waiter performance, service timing and floor execution.",
+    icon: <AnalyticsIcon />,
+    tone: "border-cyan-300/18 bg-cyan-300/8 text-cyan-200",
+    hover:
+      "hover:-translate-y-1 hover:border-cyan-300/28 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_36px_rgba(34,211,238,0.14),0_0_90px_rgba(34,211,238,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
+  },
+  {
+    title: "AI Planning Tables",
+    text: "Builds table plans from exact restaurant dimensions, reservations, time slots, party sizes and walk-in availability, with exportable floor plans.",
+    icon: <MapIcon />,
+    tone: "border-amber-300/18 bg-amber-300/8 text-amber-200",
+    hover:
+      "hover:-translate-y-1 hover:border-amber-300/28 hover:shadow-[0_0_0_1px_rgba(251,191,36,0.14),0_0_36px_rgba(251,191,36,0.14),0_0_90px_rgba(245,158,11,0.12),0_26px_70px_rgba(2,6,23,0.58)]",
   },
 ];
 
@@ -581,89 +723,15 @@ export default function App() {
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[#050816]" />
 
-        <motion.div
-          className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:72px_72px]"
-          animate={{
-            opacity: [0.12, 0.16, 0.12],
-            scale: [1, 1.015, 1],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <div className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:72px_72px]" />
 
-        <motion.div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(34,211,238,0.11),transparent_24%),radial-gradient(circle_at_82%_12%,rgba(59,130,246,0.09),transparent_22%),radial-gradient(circle_at_78%_62%,rgba(168,85,247,0.08),transparent_24%),radial-gradient(circle_at_22%_82%,rgba(16,185,129,0.06),transparent_20%)]"
-          animate={{
-            opacity: [0.78, 1, 0.82, 0.78],
-            scale: [1, 1.02, 1.015, 1],
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(34,211,238,0.10),transparent_24%),radial-gradient(circle_at_82%_12%,rgba(59,130,246,0.08),transparent_22%),radial-gradient(circle_at_78%_62%,rgba(168,85,247,0.07),transparent_24%),radial-gradient(circle_at_22%_82%,rgba(16,185,129,0.05),transparent_20%)]" />
 
-        <motion.div
-          className="absolute left-[-12rem] top-[-8rem] h-[32rem] w-[32rem] rounded-full bg-cyan-400/8 blur-[140px]"
-          animate={{
-            x: [0, 20, -10, 0],
-            y: [0, 16, 8, 0],
-            scale: [1, 1.08, 1.03, 1],
-            opacity: [0.5, 0.8, 0.6, 0.5],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <div className="absolute left-[-12rem] top-[-8rem] h-[32rem] w-[32rem] rounded-full bg-cyan-400/8 blur-[140px]" />
+        <div className="absolute right-[-10rem] top-[8rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/8 blur-[130px]" />
+        <div className="absolute bottom-[-8rem] left-[18%] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/7 blur-[130px]" />
 
-        <motion.div
-          className="absolute right-[-10rem] top-[8rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/8 blur-[130px]"
-          animate={{
-            x: [0, -16, 10, 0],
-            y: [0, 14, -10, 0],
-            scale: [1, 1.06, 1.02, 1],
-            opacity: [0.45, 0.7, 0.55, 0.45],
-          }}
-          transition={{
-            duration: 24,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        <motion.div
-          className="absolute bottom-[-8rem] left-[18%] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/7 blur-[130px]"
-          animate={{
-            x: [0, 12, -8, 0],
-            y: [0, -14, 10, 0],
-            scale: [1, 1.05, 1.02, 1],
-            opacity: [0.38, 0.6, 0.46, 0.38],
-          }}
-          transition={{
-            duration: 26,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
-        <motion.div
-          className="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),transparent_60%)]"
-          animate={{
-            opacity: [0.45, 0.62, 0.5, 0.45],
-          }}
-          transition={{
-            duration: 16,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-
+        <div className="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),transparent_60%)]" />
         <div className="absolute inset-x-0 bottom-0 h-[24rem] bg-[linear-gradient(180deg,transparent,rgba(3,7,18,0.42))]" />
       </div>
 
@@ -685,6 +753,7 @@ export default function App() {
             <a href="#pricing" className="transition hover:text-white">Pricing</a>
             <a href="#packages" className="transition hover:text-white">Packages</a>
             <a href="#products" className="transition hover:text-white">Products</a>
+            <a href="#pipeline" className="transition hover:text-white">In development</a>
             <a href="#technology" className="transition hover:text-white">Technology</a>
             <a href="#contact" className="transition hover:text-white">Contact</a>
           </nav>
@@ -693,18 +762,7 @@ export default function App() {
 
       <main id="top" className="relative z-10">
         <section className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-14 sm:px-8 lg:px-10 lg:pb-24 lg:pt-20">
-          <motion.div
-            className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-[36rem] w-[90%] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.08),transparent_58%)] blur-3xl"
-            animate={{
-              opacity: [0.45, 0.72, 0.52, 0.45],
-              scale: [1, 1.04, 1.02, 1],
-            }}
-            transition={{
-              duration: 14,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
+          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-[36rem] w-[90%] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.08),transparent_58%)] blur-3xl" />
 
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
@@ -750,10 +808,10 @@ export default function App() {
                   View products
                 </a>
                 <a
-                  href="#contact"
+                  href="#pipeline"
                   className="inline-flex items-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 transition hover:bg-white/8"
                 >
-                  Contact us
+                  Explore what’s next
                 </a>
               </motion.div>
 
@@ -761,7 +819,7 @@ export default function App() {
                 {[
                   { label: "Status", value: "Active" },
                   { label: "Products", value: "1" },
-                  { label: "Services", value: "4" },
+                  { label: "Next project", value: "1" },
                 ].map((item, index) => (
                   <motion.div
                     key={item.label}
@@ -787,18 +845,7 @@ export default function App() {
               onMouseLeave={resetHeroMove}
               className="relative"
             >
-              <motion.div
-                className="pointer-events-none absolute inset-[-12%] -z-10 rounded-[40px] bg-[radial-gradient(circle,rgba(34,211,238,0.12),transparent_58%)] blur-3xl"
-                animate={{
-                  opacity: [0.4, 0.7, 0.48, 0.4],
-                  scale: [1, 1.06, 1.03, 1],
-                }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
+              <div className="pointer-events-none absolute inset-[-12%] -z-10 rounded-[40px] bg-[radial-gradient(circle,rgba(34,211,238,0.12),transparent_58%)] blur-3xl" />
 
               <div
                 className="relative overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-7"
@@ -807,73 +854,9 @@ export default function App() {
                   transition: "transform 140ms ease-out",
                 }}
               >
-                <motion.div
-                  className="pointer-events-none absolute -left-[18%] top-[-12%] h-[20rem] w-[20rem] rounded-full bg-cyan-400/10 blur-[90px]"
-                  animate={{
-                    x: [0, 18, -10, 0],
-                    y: [0, 12, -8, 0],
-                    opacity: [0.22, 0.36, 0.26, 0.22],
-                    scale: [1, 1.06, 1.03, 1],
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-
-                <motion.div
-                  className="pointer-events-none absolute right-[-14%] top-[12%] h-[16rem] w-[16rem] rounded-full bg-fuchsia-400/8 blur-[90px]"
-                  animate={{
-                    x: [0, -14, 8, 0],
-                    y: [0, 10, -6, 0],
-                    opacity: [0.14, 0.26, 0.18, 0.14],
-                    scale: [1, 1.05, 1.02, 1],
-                  }}
-                  transition={{
-                    duration: 13,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-
-                <motion.div
-                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(34,211,238,0.16),transparent_24%),radial-gradient(circle_at_82%_24%,rgba(168,85,247,0.10),transparent_24%),radial-gradient(circle_at_50%_100%,rgba(59,130,246,0.08),transparent_34%)]"
-                  animate={{
-                    opacity: [0.45, 0.7, 0.52, 0.45],
-                    scale: [1, 1.015, 1.008, 1],
-                  }}
-                  transition={{
-                    duration: 9,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-
-                <motion.div
-                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/40 to-transparent"
-                  animate={{
-                    opacity: [0.35, 0.8, 0.45, 0.35],
-                  }}
-                  transition={{
-                    duration: 7,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-
-                <motion.div
-                  className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-cyan-200/20 to-transparent"
-                  animate={{
-                    opacity: [0.18, 0.38, 0.22, 0.18],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_42%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.10),transparent_30%)]" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/40 to-transparent" />
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-cyan-200/20 to-transparent" />
                 <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),transparent_18%,transparent_82%,rgba(255,255,255,0.02))]" />
 
                 <div className="relative z-10">
@@ -917,6 +900,24 @@ export default function App() {
                     </p>
                   </div>
 
+                  <div className="mt-6 rounded-[24px] border border-fuchsia-300/12 bg-fuchsia-300/[0.06] p-5">
+                    <div className="flex items-center justify-between gap-4">
+                      <div>
+                        <div className="text-[11px] uppercase tracking-[0.22em] text-fuchsia-200/75">
+                          In development
+                        </div>
+                        <div className="mt-2 text-lg font-semibold text-white">ServiceOS</div>
+                      </div>
+                      <span className="rounded-full border border-fuchsia-300/18 bg-fuchsia-300/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-fuchsia-200">
+                        Next
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-white/72">
+                      AI-native service operating system for waitstaff: order assistance,
+                      table awareness, voice actions, upselling and floor intelligence.
+                    </p>
+                  </div>
+
                   <div className="mt-6">
                     <VisitCounter />
                   </div>
@@ -939,7 +940,7 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.55 }}
-              className="rounded-[30px] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-2xl"
+              className="rounded-[30px] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_0_36px_rgba(34,211,238,0.12),0_0_90px_rgba(34,211,238,0.10),0_24px_70px_rgba(2,6,23,0.58)]"
             >
               <h3 className="text-xl font-semibold text-white">What we build</h3>
               <p className="mt-4 text-sm leading-8 text-white/68">
@@ -955,7 +956,7 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.55, delay: 0.06 }}
-              className="rounded-[30px] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-2xl"
+              className="rounded-[30px] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-fuchsia-300/18 hover:shadow-[0_0_0_1px_rgba(167,139,250,0.12),0_0_36px_rgba(167,139,250,0.12),0_0_90px_rgba(168,85,247,0.10),0_24px_70px_rgba(2,6,23,0.58)]"
             >
               <h3 className="text-xl font-semibold text-white">How we approach it</h3>
               <p className="mt-4 text-sm leading-8 text-white/68">
@@ -982,7 +983,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.28 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className={`group relative overflow-hidden rounded-[30px] border border-white/8 bg-[rgba(8,12,24,0.76)] p-6 backdrop-blur-2xl ${service.glow}`}
+                className={`group relative overflow-hidden rounded-[30px] border border-white/8 bg-[rgba(8,12,24,0.76)] p-6 backdrop-blur-2xl transition-all duration-300 ${service.glow} ${service.hover}`}
               >
                 <div className={`pointer-events-none absolute inset-0 opacity-90 before:absolute before:inset-0 ${service.border}`} />
                 <div className="relative z-10">
@@ -1016,7 +1017,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.28 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="rounded-[28px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-2xl"
+                className={`rounded-[28px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-2xl transition-all duration-300 ${reason.hover}`}
               >
                 <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border ${reason.iconBg} text-white`}>
                   {reason.icon}
@@ -1040,7 +1041,7 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.28 }}
             transition={{ duration: 0.55 }}
-            className="mt-14 overflow-hidden rounded-[34px] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] p-7 shadow-[0_30px_90px_rgba(0,0,0,0.4)] backdrop-blur-2xl"
+            className="mt-14 overflow-hidden rounded-[34px] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] p-7 shadow-[0_30px_90px_rgba(0,0,0,0.4)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/24 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_40px_rgba(34,211,238,0.14),0_0_100px_rgba(6,182,212,0.12),0_28px_80px_rgba(2,6,23,0.58)]"
           >
             <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <div>
@@ -1092,7 +1093,7 @@ export default function App() {
                 ].map((item) => (
                   <div
                     key={item}
-                    className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 text-sm font-medium text-white/80 backdrop-blur-xl"
+                    className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 text-sm font-medium text-white/80 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_28px_rgba(34,211,238,0.10),0_0_70px_rgba(6,182,212,0.08),0_20px_60px_rgba(2,6,23,0.56)]"
                   >
                     {item}
                   </div>
@@ -1100,6 +1101,74 @@ export default function App() {
               </div>
             </div>
           </motion.div>
+        </section>
+
+        <section id="pipeline" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
+          <SectionHeader
+            eyebrow="In development"
+            title="ServiceOS — next generation service operating system"
+            description="A premium AI-first floor system for waitstaff, dining rooms and service operations."
+          />
+
+          <div className="mt-14 overflow-hidden rounded-[34px] border border-fuchsia-300/14 bg-[linear-gradient(180deg,rgba(12,14,30,0.94),rgba(7,10,22,0.84))] p-7 shadow-[0_30px_90px_rgba(0,0,0,0.42)] backdrop-blur-2xl">
+            <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+              <div>
+                <span className="inline-flex items-center rounded-full border border-fuchsia-300/18 bg-fuchsia-300/8 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-fuchsia-200">
+                  Upcoming product
+                </span>
+
+                <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white">
+                  ServiceOS
+                </h3>
+
+                <p className="mt-4 text-sm leading-8 text-white/70">
+                  ServiceOS is designed for the front of house: a real-time operating layer
+                  for service teams that combines AI assistance, table awareness, timing
+                  intelligence, floor planning and performance analytics.
+                </p>
+
+                <div className="mt-8 space-y-4">
+                  <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5">
+                    <div className="text-[11px] uppercase tracking-[0.22em] text-white/42">
+                      Core direction
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-white/72">
+                      ServiceOS is not just a waiter app. It is a service intelligence
+                      system designed to help staff know what to do, when to do it and
+                      how to improve the guest experience in real time.
+                    </p>
+                  </div>
+
+                  <div className="rounded-[24px] border border-cyan-300/12 bg-cyan-300/[0.06] p-5">
+                    <div className="text-[11px] uppercase tracking-[0.22em] text-cyan-200/76">
+                      High-value differentiators
+                    </div>
+                    <ul className="mt-3 space-y-2 text-sm leading-7 text-white/74">
+                      <li>• Real-time AI support during live service</li>
+                      <li>• Floor awareness instead of static POS logic</li>
+                      <li>• Voice-driven interaction for faster execution</li>
+                      <li>• Table planning with reservations, dimensions and walk-ins</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid gap-4 md:grid-cols-2">
+                {serviceOsPillars.map((item) => (
+                  <div
+                    key={item.title}
+                    className={`group rounded-[26px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl transition-all duration-300 ${item.hover}`}
+                  >
+                    <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border ${item.tone}`}>
+                      {item.icon}
+                    </div>
+                    <h4 className="mt-4 text-lg font-semibold text-white">{item.title}</h4>
+                    <p className="mt-3 text-sm leading-7 text-white/68">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="technology" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
@@ -1117,7 +1186,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.28 }}
                 transition={{ duration: 0.5, delay: index * 0.04 }}
-                className={`group relative overflow-hidden rounded-[28px] border border-white/8 bg-[rgba(8,12,24,0.76)] p-6 backdrop-blur-2xl ${tech.glow}`}
+                className={`group relative overflow-hidden rounded-[28px] border border-white/8 bg-[rgba(8,12,24,0.76)] p-6 backdrop-blur-2xl transition-all duration-300 ${tech.glow} ${tech.hover}`}
               >
                 <div className={`pointer-events-none absolute inset-0 opacity-90 before:absolute before:inset-0 ${tech.border}`} />
                 <div className="relative z-10 flex items-center gap-4">
@@ -1137,7 +1206,7 @@ export default function App() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.28 }}
             transition={{ duration: 0.55 }}
-            className="overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(10,14,28,0.94),rgba(6,10,22,0.86))] p-8 shadow-[0_30px_90px_rgba(0,0,0,0.44)] backdrop-blur-2xl sm:p-10"
+            className="overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(10,14,28,0.94),rgba(6,10,22,0.86))] p-8 shadow-[0_30px_90px_rgba(0,0,0,0.44)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_0_36px_rgba(34,211,238,0.12),0_0_100px_rgba(6,182,212,0.10),0_26px_70px_rgba(2,6,23,0.58)] sm:p-10"
           >
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>

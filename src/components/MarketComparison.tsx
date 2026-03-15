@@ -9,6 +9,8 @@ const comparisonData = [
     glow: "shadow-[0_0_28px_rgba(56,189,248,0.22)]",
     ring: "ring-1 ring-cyan-400/20",
     badge: "bg-cyan-400/10 text-cyan-200 border border-cyan-300/20",
+    hover:
+      "hover:-translate-y-1 hover:border-cyan-300/24 hover:shadow-[0_0_0_1px_rgba(56,189,248,0.14),0_0_40px_rgba(56,189,248,0.16),0_0_100px_rgba(14,165,233,0.12),0_24px_70px_rgba(2,6,23,0.58)]",
   },
   {
     label: "Freelancer",
@@ -18,6 +20,8 @@ const comparisonData = [
     glow: "shadow-[0_0_28px_rgba(168,85,247,0.18)]",
     ring: "ring-1 ring-violet-400/15",
     badge: "bg-violet-400/10 text-violet-200 border border-violet-300/20",
+    hover:
+      "hover:-translate-y-1 hover:border-violet-300/24 hover:shadow-[0_0_0_1px_rgba(168,85,247,0.14),0_0_40px_rgba(168,85,247,0.16),0_0_100px_rgba(147,51,234,0.12),0_24px_70px_rgba(2,6,23,0.58)]",
   },
   {
     label: "Agency",
@@ -27,6 +31,8 @@ const comparisonData = [
     glow: "shadow-[0_0_28px_rgba(251,146,60,0.18)]",
     ring: "ring-1 ring-orange-300/15",
     badge: "bg-orange-400/10 text-orange-200 border border-orange-300/20",
+    hover:
+      "hover:-translate-y-1 hover:border-orange-300/24 hover:shadow-[0_0_0_1px_rgba(251,146,60,0.14),0_0_40px_rgba(251,146,60,0.16),0_0_100px_rgba(249,115,22,0.12),0_24px_70px_rgba(2,6,23,0.58)]",
   },
 ];
 
@@ -102,7 +108,7 @@ export default function MarketComparison() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.35 }}
                   transition={{ duration: 0.45, delay: index * 0.08 }}
-                  className={`rounded-[24px] border border-white/8 bg-white/[0.03] p-4 sm:p-5 ${item.ring}`}
+                  className={`rounded-[24px] border border-white/8 bg-white/[0.03] p-4 transition-all duration-300 sm:p-5 ${item.ring} ${item.hover}`}
                 >
                   <div className="mb-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
@@ -136,7 +142,7 @@ export default function MarketComparison() {
           </div>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            <div className="rounded-2xl border border-white/8 bg-black/20 p-4 backdrop-blur-xl">
+            <div className="rounded-2xl border border-white/8 bg-black/20 p-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_28px_rgba(34,211,238,0.10),0_0_70px_rgba(14,165,233,0.08),0_20px_60px_rgba(2,6,23,0.56)]">
               <div className="text-[11px] uppercase tracking-[0.22em] text-white/40">
                 UnderStack
               </div>
@@ -145,7 +151,7 @@ export default function MarketComparison() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/8 bg-black/20 p-4 backdrop-blur-xl">
+            <div className="rounded-2xl border border-white/8 bg-black/20 p-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-violet-300/18 hover:shadow-[0_0_0_1px_rgba(168,85,247,0.10),0_0_28px_rgba(168,85,247,0.10),0_0_70px_rgba(147,51,234,0.08),0_20px_60px_rgba(2,6,23,0.56)]">
               <div className="text-[11px] uppercase tracking-[0.22em] text-white/40">
                 vs freelancer
               </div>
@@ -154,7 +160,7 @@ export default function MarketComparison() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-white/8 bg-black/20 p-4 backdrop-blur-xl">
+            <div className="rounded-2xl border border-white/8 bg-black/20 p-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-orange-300/18 hover:shadow-[0_0_0_1px_rgba(251,146,60,0.10),0_0_28px_rgba(251,146,60,0.10),0_0_70px_rgba(249,115,22,0.08),0_20px_60px_rgba(2,6,23,0.56)]">
               <div className="text-[11px] uppercase tracking-[0.22em] text-white/40">
                 vs agency
               </div>
@@ -165,7 +171,7 @@ export default function MarketComparison() {
           </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl sm:p-8">
+        <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/16 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_34px_rgba(34,211,238,0.10),0_0_90px_rgba(6,182,212,0.08),0_22px_64px_rgba(2,6,23,0.56)] sm:p-8">
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
           <p className="text-sm uppercase tracking-[0.24em] text-white/38">
@@ -192,7 +198,7 @@ export default function MarketComparison() {
             ].map((item) => (
               <div
                 key={item}
-                className="flex items-start gap-3 rounded-2xl border border-white/8 bg-black/20 px-4 py-3 backdrop-blur-xl"
+                className="flex items-start gap-3 rounded-2xl border border-white/8 bg-black/20 px-4 py-3 backdrop-blur-xl transition-all duration-300 hover:border-cyan-300/14 hover:bg-black/26"
               >
                 <span className="mt-1 h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_16px_rgba(103,232,249,0.7)]" />
                 <span className="text-sm leading-6 text-white/72">{item}</span>
