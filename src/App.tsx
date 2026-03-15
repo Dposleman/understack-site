@@ -821,11 +821,11 @@ export default function App() {
                   View products
                 </a>
                 <a
-                  href="#pipeline"
-                  className="inline-flex items-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 transition hover:bg-white/8"
-                >
-                  Explore what’s next
-                </a>
+  href="#pipeline"
+  className="inline-flex items-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 transition hover:bg-white/8"
+>
+  See ServiceOS
+</a>
               </motion.div>
 
               <div className="mt-10 grid max-w-xl gap-4 sm:grid-cols-3">
