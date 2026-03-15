@@ -1,7 +1,8 @@
 import { motion } from "motion/react";
-import logo from "./assets/understack-logo.png";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import logo from "./assets/understack-logo.png";
+import MarketComparison from "./components/MarketComparison";
 import VisitCounter from "./components/VisitCounter";
 
 const GASTROAPP_URL = "https://gastroapp.dk";
@@ -12,8 +13,24 @@ function ReactIcon() {
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
       <circle cx="12" cy="12" r="1.8" fill="#61DAFB" />
       <ellipse cx="12" cy="12" rx="9" ry="3.9" stroke="#61DAFB" strokeWidth="1.5" />
-      <ellipse cx="12" cy="12" rx="9" ry="3.9" stroke="#61DAFB" strokeWidth="1.5" transform="rotate(60 12 12)" />
-      <ellipse cx="12" cy="12" rx="9" ry="3.9" stroke="#61DAFB" strokeWidth="1.5" transform="rotate(120 12 12)" />
+      <ellipse
+        cx="12"
+        cy="12"
+        rx="9"
+        ry="3.9"
+        stroke="#61DAFB"
+        strokeWidth="1.5"
+        transform="rotate(60 12 12)"
+      />
+      <ellipse
+        cx="12"
+        cy="12"
+        rx="9"
+        ry="3.9"
+        stroke="#61DAFB"
+        strokeWidth="1.5"
+        transform="rotate(120 12 12)"
+      />
     </svg>
   );
 }
@@ -21,13 +38,11 @@ function ReactIcon() {
 function TypeScriptIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <rect x="3" y="3" width="18" height="18" rx="4" fill="#3178C6" />
+      <rect x="3.5" y="3.5" width="17" height="17" rx="3" fill="#3178C6" />
+      <path d="M8.2 9.2h7.6v1.8h-2.9v7.6h-1.9V11H8.2V9.2Z" fill="white" />
       <path
-        d="M8 9.2h8M11 9.2v7.6M14.8 12.2c.9 0 1.7.2 2.2.6.5.4.8 1 .8 1.7 0 1.3-1.1 2.2-2.8 2.2-1.2 0-2.2-.4-3-1.1l.9-1.1c.6.5 1.3.8 2 .8.7 0 1.1-.2 1.1-.7 0-.4-.3-.6-1.3-.8-1.8-.4-2.5-1-2.5-2.2 0-1.3 1.1-2.2 2.7-2.2 1.1 0 2 .3 2.8.9l-.8 1.2c-.6-.4-1.2-.6-1.9-.6-.6 0-1 .3-1 .6 0 .4.3.6 1.4.9"
-        stroke="white"
-        strokeWidth="1.4"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M16.1 15.8c.3.5.7.8 1.4.8.6 0 1-.3 1-.7 0-.5-.4-.7-1.1-1l-.4-.2c-1.1-.5-1.9-1.1-1.9-2.3 0-1.1.9-2 2.2-2 .9 0 1.6.3 2.1 1.2l-1.4.9c-.3-.5-.6-.7-.8-.7-.4 0-.7.2-.7.6 0 .4.2.5.8.8l.4.2c1.3.6 2 1.1 2 2.5 0 1.4-1.1 2.2-2.6 2.2-1.4 0-2.3-.6-2.7-1.6l1.5-.7Z"
+        fill="white"
       />
     </svg>
   );
@@ -36,13 +51,10 @@ function TypeScriptIcon() {
 function ViteIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path
-        d="M4.8 6.2 11.5 20c.2.4.8.4 1 0l6.7-13.8c.2-.4-.1-.8-.6-.8H5.4c-.5 0-.8.4-.6.8Z"
-        fill="url(#vite-grad)"
-      />
-      <path d="m12 8.1-3.1 6h2.3L12 12l.8 2.1h2.3L12 8.1Z" fill="#fff" fillOpacity=".95" />
+      <path d="M20.6 5.3 12.8 19a1 1 0 0 1-1.7 0L3.4 5.3a.7.7 0 0 1 .8-1l7.9 1.4a1 1 0 0 0 .4 0l7.3-1.4a.7.7 0 0 1 .8 1Z" fill="url(#vite-gradient)" />
+      <path d="m14.7 3.2-5.8 11 3.3-.7 5.2-8.9-2.7-1.4Z" fill="#FFD62E" />
       <defs>
-        <linearGradient id="vite-grad" x1="4.5" y1="4.5" x2="19.5" y2="20">
+        <linearGradient id="vite-gradient" x1="3" y1="3" x2="19" y2="19" gradientUnits="userSpaceOnUse">
           <stop stopColor="#41D1FF" />
           <stop offset="1" stopColor="#BD34FE" />
         </linearGradient>
@@ -54,14 +66,13 @@ function ViteIcon() {
 function NodeIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path d="M12 3.5 18.8 7.4v9.2L12 20.5 5.2 16.6V7.4L12 3.5Z" fill="#539E43" />
       <path
-        d="M9.2 9.3v5.4m5.6-5.1c-.6-.4-1.3-.5-2-.5-1.5 0-2.5.8-2.5 2 0 1 .6 1.5 2 1.8 1 .2 1.3.4 1.3.8 0 .4-.4.7-1 .7-.7 0-1.4-.3-2-.8"
-        stroke="white"
-        strokeWidth="1.35"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M12 2.8 19.3 7v10L12 21.2 4.7 17V7L12 2.8Z"
+        fill="#539E43"
+        stroke="#539E43"
+        strokeWidth="1.2"
       />
+      <path d="M12 6.4 8.1 8.6v4.6L12 15.4l3.9-2.2V8.6L12 6.4Z" fill="#0B1020" />
     </svg>
   );
 }
@@ -70,16 +81,11 @@ function PostgresIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
       <path
-        d="M9.4 18.2c-1.8.2-2.5-.6-2.7-1.6-.3-1.6.1-3.5.3-5.2.3-2.5 1.6-4.6 4.2-4.8 2.2-.2 4.4 1.1 5 3.2.5 1.7.7 4.4.5 6.2-.1 1.2-.9 2.3-2.5 2.1l-.2 2c0 .3-.3.5-.6.4l-1.1-.2c-.2 0-.4-.2-.4-.5v-1.8c-.7.1-1.5.2-2.5.2Z"
+        d="M12.6 3.4c3.8 0 5.7 2.8 5.7 6.4 0 4.7-2.5 8.8-5.4 8.8-.8 0-1.4-.2-1.9-.6-.5.5-1.1.8-1.9.8-1.6 0-2.9-1.7-2.9-4.1 0-4.3 2.8-11.3 6.4-11.3Z"
         fill="#336791"
       />
-      <path
-        d="M10 10.3c.4-.5 1-.8 1.8-.8 1.1 0 1.9.6 2.3 1.5m-4.9 2.2c.5.5 1.2.8 2 .8.9 0 1.7-.3 2.2-.9m-4.3-1.4h.01m4.2 0h.01"
-        stroke="white"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <circle cx="10.3" cy="9.2" r="1" fill="white" />
+      <path d="M14.6 8.4c1.2 1 1.5 2.4.8 3.7" stroke="white" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   );
 }
@@ -88,13 +94,11 @@ function CloudIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
       <path
-        d="M8.5 18.5h8a3.5 3.5 0 0 0 .4-7 5 5 0 0 0-9.7-1.3A3.2 3.2 0 0 0 8.5 18.5Z"
-        fill="#38BDF8"
-        fillOpacity=".2"
-        stroke="#38BDF8"
-        strokeWidth="1.5"
+        d="M8.4 18.3a4.3 4.3 0 1 1 .8-8.5 5.4 5.4 0 0 1 10.3 2.1v.2a3.1 3.1 0 0 1-.2 6.2H8.4Z"
+        stroke="#7DD3FC"
+        strokeWidth="1.6"
+        fill="rgba(125,211,252,0.08)"
       />
-      <path d="M9 14.5h6M12 11.5v6" stroke="#7DD3FC" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -102,14 +106,8 @@ function CloudIcon() {
 function SoftwareIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <rect x="3" y="5" width="18" height="14" rx="3" stroke="#60A5FA" strokeWidth="1.5" />
-      <path
-        d="M8.5 10 6.5 12l2 2M15.5 10l2 2-2 2M13 9.5 11 14.5"
-        stroke="#93C5FD"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <rect x="3.5" y="4.5" width="17" height="15" rx="3" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M7.5 9.5h9M7.5 13h6M7.5 16.5h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -117,9 +115,8 @@ function SoftwareIcon() {
 function UiUxIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <rect x="4" y="4" width="16" height="16" rx="4" stroke="#A78BFA" strokeWidth="1.5" />
-      <circle cx="9" cy="9" r="1.6" fill="#C4B5FD" />
-      <path d="M13 8h3M13 11h4M8 15h8" stroke="#C4B5FD" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M6 5.5h12v13H6z" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M9 8.5h6M9 12h6M9 15.5h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -127,13 +124,8 @@ function UiUxIcon() {
 function WebIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <rect x="3" y="5" width="18" height="14" rx="3" stroke="#22D3EE" strokeWidth="1.5" />
-      <path
-        d="M3.8 9h16.4M9 5.8c1.3 1.5 2.1 3.8 2.1 6.2 0 2.4-.8 4.7-2.1 6.2M15 5.8c-1.3 1.5-2.1 3.8-2.1 6.2 0 2.4.8 4.7 2.1 6.2"
-        stroke="#67E8F9"
-        strokeWidth="1.35"
-        strokeLinecap="round"
-      />
+      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M4 12h16M12 4c2.2 2.3 3.3 5 3.3 8S14.2 17.7 12 20c-2.2-2.3-3.3-5-3.3-8S9.8 6.3 12 4Z" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
@@ -141,15 +133,8 @@ function WebIcon() {
 function StrategyIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path
-        d="M6 18V7.5M6 7.5h8.5l-1.8 2.5 1.8 2.5H6"
-        stroke="#34D399"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="17.5" cy="16.5" r="2.5" stroke="#6EE7B7" strokeWidth="1.5" />
-      <path d="m19.3 18.3 1.7 1.7" stroke="#6EE7B7" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M5 18.5 10.2 13l3.2 2.8 5.6-7.3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M16.5 8.5H19v2.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -157,9 +142,9 @@ function StrategyIcon() {
 function PrecisionIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <circle cx="12" cy="12" r="7.5" stroke="#7DD3FC" strokeWidth="1.5" />
-      <circle cx="12" cy="12" r="2.2" fill="#38BDF8" />
-      <path d="M12 4.5v3M12 16.5v3M4.5 12h3M16.5 12h3" stroke="#7DD3FC" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="12" cy="12" r="7.5" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="12" cy="12" r="2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M12 2.8v2.4M12 18.8v2.4M21.2 12h-2.4M5.2 12H2.8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -167,13 +152,8 @@ function PrecisionIcon() {
 function EngineeringIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path d="M7 7h10v10H7z" stroke="#93C5FD" strokeWidth="1.5" />
-      <path
-        d="M12 3v3M12 18v3M3 12h3M18 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"
-        stroke="#60A5FA"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
+      <path d="m9.4 4.8 5.2 2.1v4.7l-5.2 2.1-5.2-2.1V6.9l5.2-2.1Z" stroke="currentColor" strokeWidth="1.5" />
+      <path d="m14.6 10.6 5.2 2.1v4.7l-5.2 2.1-5.2-2.1" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
@@ -181,15 +161,9 @@ function EngineeringIcon() {
 function WorkflowIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <rect x="4" y="5" width="6" height="4" rx="1.5" stroke="#67E8F9" strokeWidth="1.5" />
-      <rect x="14" y="10" width="6" height="4" rx="1.5" stroke="#67E8F9" strokeWidth="1.5" />
-      <rect x="4" y="15" width="6" height="4" rx="1.5" stroke="#67E8F9" strokeWidth="1.5" />
-      <path
-        d="M10 7h2a2 2 0 0 1 2 2v1M14 14v1a2 2 0 0 1-2 2h-2"
-        stroke="#22D3EE"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
+      <rect x="4" y="5" width="6" height="4.5" rx="1.2" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="14" y="14.5" width="6" height="4.5" rx="1.2" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M10 7.3h4a2 2 0 0 1 2 2v5.2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   );
 }
@@ -197,13 +171,7 @@ function WorkflowIcon() {
 function PremiumIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path
-        d="m12 4 2.2 4.5 5 .7-3.6 3.5.9 4.9L12 15.2 7.5 17.6l.9-4.9-3.6-3.5 5-.7L12 4Z"
-        stroke="#A78BFA"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="12" r="1.2" fill="#C4B5FD" />
+      <path d="m12 4 2.2 4.4 4.8.7-3.5 3.4.8 4.8L12 15l-4.3 2.3.8-4.8L5 9.1l4.8-.7L12 4Z" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
@@ -225,8 +193,7 @@ function PricingCard({
 }) {
   const theme = {
     blue: {
-      pill:
-        "border-cyan-300/35 bg-cyan-300/12 text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.18)]",
+      pill: "border-cyan-300/35 bg-cyan-300/12 text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.18)]",
       border:
         "border-cyan-300/35 shadow-[0_0_0_1px_rgba(34,211,238,0.12),0_0_22px_rgba(34,211,238,0.16),0_0_70px_rgba(37,99,235,0.18),0_18px_60px_rgba(2,6,23,0.48)]",
       glow:
@@ -234,11 +201,11 @@ function PricingCard({
       price: "text-cyan-200",
       bullet: "text-cyan-300",
       extras: "text-cyan-200",
-      ring: "group-hover:shadow-[0_0_0_1px_rgba(34,211,238,0.20),0_0_32px_rgba(34,211,238,0.22),0_0_90px_rgba(37,99,235,0.22),0_24px_70px_rgba(2,6,23,0.55)]",
+      ring:
+        "group-hover:shadow-[0_0_0_1px_rgba(34,211,238,0.20),0_0_32px_rgba(34,211,238,0.22),0_0_90px_rgba(37,99,235,0.22),0_24px_70px_rgba(2,6,23,0.55)]",
     },
     cyan: {
-      pill:
-        "border-cyan-300/45 bg-cyan-300/14 text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.22)]",
+      pill: "border-cyan-300/45 bg-cyan-300/14 text-cyan-200 shadow-[0_0_18px_rgba(34,211,238,0.22)]",
       border:
         "border-cyan-300/45 shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_26px_rgba(34,211,238,0.20),0_0_80px_rgba(6,182,212,0.20),0_18px_60px_rgba(2,6,23,0.48)]",
       glow:
@@ -246,11 +213,11 @@ function PricingCard({
       price: "text-cyan-200",
       bullet: "text-cyan-300",
       extras: "text-cyan-200",
-      ring: "group-hover:shadow-[0_0_0_1px_rgba(34,211,238,0.24),0_0_36px_rgba(34,211,238,0.24),0_0_95px_rgba(6,182,212,0.24),0_24px_70px_rgba(2,6,23,0.55)]",
+      ring:
+        "group-hover:shadow-[0_0_0_1px_rgba(34,211,238,0.24),0_0_36px_rgba(34,211,238,0.24),0_0_95px_rgba(6,182,212,0.24),0_24px_70px_rgba(2,6,23,0.55)]",
     },
     purple: {
-      pill:
-        "border-fuchsia-300/40 bg-fuchsia-300/14 text-fuchsia-200 shadow-[0_0_18px_rgba(216,180,254,0.20)]",
+      pill: "border-fuchsia-300/40 bg-fuchsia-300/14 text-fuchsia-200 shadow-[0_0_18px_rgba(216,180,254,0.20)]",
       border:
         "border-fuchsia-300/40 shadow-[0_0_0_1px_rgba(216,180,254,0.14),0_0_26px_rgba(216,180,254,0.20),0_0_80px_rgba(168,85,247,0.22),0_18px_60px_rgba(2,6,23,0.48)]",
       glow:
@@ -258,140 +225,137 @@ function PricingCard({
       price: "text-fuchsia-100",
       bullet: "text-fuchsia-300",
       extras: "text-fuchsia-200",
-      ring: "group-hover:shadow-[0_0_0_1px_rgba(216,180,254,0.22),0_0_36px_rgba(216,180,254,0.24),0_0_95px_rgba(168,85,247,0.26),0_24px_70px_rgba(2,6,23,0.55)]",
+      ring:
+        "group-hover:shadow-[0_0_0_1px_rgba(216,180,254,0.22),0_0_36px_rgba(216,180,254,0.24),0_0_95px_rgba(168,85,247,0.26),0_24px_70px_rgba(2,6,23,0.55)]",
     },
   }[accent];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 18 }}
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.42 }}
-      className="group"
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{ duration: 0.55 }}
+      className={`group relative overflow-hidden rounded-[30px] border bg-[rgba(8,12,24,0.76)] p-7 backdrop-blur-2xl ${theme.border} ${theme.ring}`}
     >
-      <div
-        className={`relative overflow-hidden rounded-[2rem] border bg-[linear-gradient(180deg,rgba(8,15,30,0.94)_0%,rgba(3,7,18,0.98)_100%)] p-[2px] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 ${theme.border} ${theme.ring}`}
-      >
-        <div className={`pointer-events-none absolute inset-0 opacity-100 before:absolute before:inset-0 before:content-[''] after:absolute after:inset-0 after:content-[''] ${theme.glow}`} />
-        <div className="relative rounded-[calc(2rem-2px)] border border-white/8 bg-[linear-gradient(180deg,rgba(10,18,35,0.86)_0%,rgba(2,6,23,0.96)_100%)]">
-          <div className="px-6 pb-5 pt-5 text-center">
-            <span
-              className={`inline-flex rounded-full border px-5 py-2 text-[11px] font-medium uppercase tracking-[0.18em] ${theme.pill}`}
-            >
-              Website Package
-            </span>
+      <div className={`pointer-events-none absolute inset-0 opacity-90 before:absolute before:inset-0 after:absolute after:inset-0 ${theme.glow}`} />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
 
-            <h3 className="mt-5 text-[2rem] font-semibold leading-tight text-white">
-              {title}
-            </h3>
+      <div className="relative z-10">
+        <span className={`inline-flex items-center rounded-full border px-3 py-1 text-[11px] font-medium uppercase tracking-[0.22em] ${theme.pill}`}>
+          Website Package
+        </span>
 
-            <p className="mt-3 text-base text-slate-300">{subtitle}</p>
-          </div>
+        <h3 className="mt-5 text-2xl font-semibold tracking-tight text-white">{title}</h3>
+        <p className="mt-3 text-sm leading-7 text-white/62">{subtitle}</p>
 
-          <div className="border-y border-white/10 bg-white/[0.03] px-6 py-5 text-center">
-            <div className="text-[3.25rem] font-semibold leading-none tracking-tight text-white md:text-[3.6rem]">
-              {price} <span className={`text-[1.6rem] align-middle ${theme.price}`}>DKK</span>
-            </div>
-          </div>
+        <div className={`mt-7 text-4xl font-semibold tracking-tight ${theme.price}`}>
+          {price} <span className="text-base font-medium text-white/55">DKK</span>
+        </div>
 
-          <div className="px-8 py-6">
-            <ul className="space-y-3 text-lg text-slate-200">
-              {items.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className={`mt-[0.45rem] text-xs ${theme.bullet}`}>●</span>
-                  <span>{item}</span>
+        <ul className="mt-7 space-y-3">
+          {items.map((item) => (
+            <li key={item} className="flex gap-3 text-sm text-white/76">
+              <span className={`mt-[2px] ${theme.bullet}`}>●</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8 rounded-[24px] border border-white/10 bg-white/[0.03] p-5">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-white/42">Optional Extras</p>
+          <ul className="mt-4 space-y-2.5 text-sm text-white/72">
+            {extras.map((extra) => {
+              const [first, ...rest] = extra.split(" ");
+              return (
+                <li key={extra} className="flex gap-3">
+                  <span className={`mt-[2px] ${theme.extras}`}>●</span>
+                  <span>
+                    <span className="font-medium text-white">{first}</span>{" "}
+                    {rest.join(" ")}
+                  </span>
                 </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="border-t border-white/10 bg-white/[0.025] px-6 py-4 text-center">
-            <p className="text-[11px] uppercase tracking-[0.18em] text-slate-300">Optional Extras</p>
-          </div>
-
-          <div className="px-8 py-5">
-            <ul className="space-y-3 text-lg text-white">
-              {extras.map((extra) => {
-                const [first, ...rest] = extra.split(" ");
-                return (
-                  <li key={extra} className="flex items-start gap-3">
-                    <span className={`mt-[0.45rem] text-xs ${theme.bullet}`}>●</span>
-                    <span>
-                      <span className={`font-semibold ${theme.extras}`}>{first}</span>{" "}
-                      {rest.join(" ")}
-                    </span>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+              );
+            })}
+          </ul>
         </div>
       </div>
-    </motion.div>
+    </motion.article>
   );
 }
 
 function PricingCards() {
   return (
-    <section id="pricing" className="px-6 py-24">
-      <div className="mx-auto max-w-[92rem]">
-        <div className="mx-auto mb-14 max-w-4xl text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
-            UnderStack — Web Development Pricing <span className="text-slate-300">(Denmark)</span>
-          </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg text-slate-300">
-            Clear, premium websites for freelancers, small businesses and growing companies.
-          </p>
-        </div>
+    <section id="packages" className="relative mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
+      <SectionHeader
+        eyebrow="Website packages"
+        title="UnderStack — Web Development Pricing (Denmark)"
+        description="Clear, premium websites for freelancers, small businesses and growing companies."
+      />
 
-        <div className="grid gap-8 xl:grid-cols-3">
-          <PricingCard
-            accent="blue"
-            title="Basic Landing Website"
-            subtitle="Ideal for freelancers & small businesses"
-            price="4,500"
-            items={[
-              "Professional landing page",
-              "Responsive design",
-              "Contact form",
-              "Google Maps integration",
-              ".vercel.app domain",
-              "Basic SEO setup",
-            ]}
-            extras={["900 DKK / Year Hosting", "1,200 DKK / Month SEO"]}
-          />
+      <div className="mt-14 grid gap-6 lg:grid-cols-3">
+        <PricingCard
+          accent="blue"
+          title="Basic Landing Website"
+          subtitle="Ideal for freelancers or small businesses that need a serious online presence without unnecessary complexity."
+          price="4,500"
+          items={[
+            "1 premium landing page",
+            "Responsive design for mobile and desktop",
+            "Contact form integration",
+            "Google Maps integration",
+            "Speed optimization",
+            "Deployment on Vercel",
+            "Basic technical SEO setup",
+          ]}
+          extras={[
+            "Extra page +1,250 DKK",
+            "Copywriting support +900 DKK",
+            "Advanced SEO setup +1,500 DKK",
+          ]}
+        />
 
-          <PricingCard
-            accent="cyan"
-            title="Business Website"
-            subtitle="For small companies"
-            price="7,500"
-            items={[
-              "Up to 5 pages",
-              "Professional UI design",
-              "Mobile optimized",
-              "Social Media integration",
-              ".vercel.app domain",
-            ]}
-            extras={["900 DKK / Year Hosting", "1,500 DKK / Month SEO"]}
-          />
+        <PricingCard
+          accent="cyan"
+          title="Business Website"
+          subtitle="For companies that want a stronger brand presence, multiple sections and more conversion-focused structure."
+          price="7,500"
+          items={[
+            "Up to 5 custom pages",
+            "Premium visual system and refined UI",
+            "Responsive layout across devices",
+            "Contact and lead capture flows",
+            "Basic analytics integration",
+            "Technical SEO foundation",
+            "Vercel deployment and launch support",
+          ]}
+          extras={[
+            "Extra page +1,000 DKK",
+            "Monthly SEO from 1,500 DKK",
+            "Hosting support custom quote",
+          ]}
+        />
 
-          <PricingCard
-            accent="purple"
-            title="Professional Website"
-            subtitle="For a complete web presence"
-            price="12,000"
-            items={[
-              "Up to 10 pages",
-              "Custom UX/UI design",
-              "Advanced speed optimization",
-              "Content management",
-              ".vercel.app domain",
-            ]}
-            extras={["900 DKK / Year Hosting", "2,000 DKK / Month SEO"]}
-          />
-        </div>
+        <PricingCard
+          accent="purple"
+          title="Custom Website / Platform"
+          subtitle="For brands or operators that need a more tailored structure, richer interactions or product-driven web presence."
+          price="12,500+"
+          items={[
+            "Custom architecture and page structure",
+            "Advanced interaction design",
+            "Scalable component-based frontend",
+            "Optional CMS or backend integration",
+            "Analytics and conversion structure",
+            "Premium QA and launch polish",
+            "Project-specific technical planning",
+          ]}
+          extras={[
+            "CMS integration custom quote",
+            "Backend features custom quote",
+            "Monthly iteration retainer custom quote",
+          ]}
+        />
       </div>
     </section>
   );
@@ -410,7 +374,8 @@ const services: {
     description:
       "Operational systems, internal tools and business platforms engineered for clarity, speed and long-term scale.",
     icon: <SoftwareIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(96,165,250,0.10),0_0_30px_rgba(96,165,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(96,165,250,0.10),0_0_30px_rgba(96,165,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(96,165,250,0.46),rgba(96,165,250,0.08),rgba(147,197,253,0.24))]",
     iconBg: "bg-[rgba(96,165,250,0.10)] border-[rgba(96,165,250,0.18)]",
@@ -420,7 +385,8 @@ const services: {
     description:
       "Premium digital interfaces with refined interactions and strong visual hierarchy.",
     icon: <UiUxIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(167,139,250,0.10),0_0_30px_rgba(167,139,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(167,139,250,0.10),0_0_30px_rgba(167,139,250,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(167,139,250,0.46),rgba(167,139,250,0.08),rgba(196,181,253,0.24))]",
     iconBg: "bg-[rgba(167,139,250,0.10)] border-[rgba(167,139,250,0.18)]",
@@ -430,7 +396,8 @@ const services: {
     description:
       "Modern web applications built for performance, scalability and technical credibility.",
     icon: <WebIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_30px_rgba(34,211,238,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_30px_rgba(34,211,238,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(34,211,238,0.46),rgba(34,211,238,0.08),rgba(103,232,249,0.24))]",
     iconBg: "bg-[rgba(34,211,238,0.10)] border-[rgba(34,211,238,0.18)]",
@@ -440,7 +407,8 @@ const services: {
     description:
       "Product thinking focused on real operational value and long-term product structure.",
     icon: <StrategyIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(52,211,153,0.10),0_0_30px_rgba(52,211,153,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(52,211,153,0.10),0_0_30px_rgba(52,211,153,0.12),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(52,211,153,0.46),rgba(52,211,153,0.08),rgba(110,231,183,0.24))]",
     iconBg: "bg-[rgba(52,211,153,0.10)] border-[rgba(52,211,153,0.18)]",
@@ -457,7 +425,8 @@ const technologies: {
   {
     name: "React",
     icon: <ReactIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(97,218,251,0.12),0_0_34px_rgba(97,218,251,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(97,218,251,0.12),0_0_34px_rgba(97,218,251,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(97,218,251,0.55),rgba(97,218,251,0.08),rgba(97,218,251,0.32))]",
     iconBg: "bg-[rgba(97,218,251,0.10)] border-[rgba(97,218,251,0.18)]",
@@ -465,7 +434,8 @@ const technologies: {
   {
     name: "TypeScript",
     icon: <TypeScriptIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(49,120,198,0.12),0_0_34px_rgba(49,120,198,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(49,120,198,0.12),0_0_34px_rgba(49,120,198,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(49,120,198,0.55),rgba(49,120,198,0.08),rgba(125,211,252,0.28))]",
     iconBg: "bg-[rgba(49,120,198,0.10)] border-[rgba(49,120,198,0.18)]",
@@ -473,7 +443,8 @@ const technologies: {
   {
     name: "Vite",
     icon: <ViteIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(189,52,254,0.10),0_0_34px_rgba(189,52,254,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(189,52,254,0.10),0_0_34px_rgba(189,52,254,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(65,209,255,0.48),rgba(189,52,254,0.12),rgba(189,52,254,0.36))]",
     iconBg: "bg-[rgba(189,52,254,0.08)] border-[rgba(189,52,254,0.16)]",
@@ -481,7 +452,8 @@ const technologies: {
   {
     name: "Node.js",
     icon: <NodeIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(83,158,67,0.12),0_0_34px_rgba(83,158,67,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(83,158,67,0.12),0_0_34px_rgba(83,158,67,0.14),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(83,158,67,0.48),rgba(83,158,67,0.10),rgba(134,239,172,0.24))]",
     iconBg: "bg-[rgba(83,158,67,0.10)] border-[rgba(83,158,67,0.18)]",
@@ -489,7 +461,8 @@ const technologies: {
   {
     name: "PostgreSQL",
     icon: <PostgresIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(51,103,145,0.12),0_0_34px_rgba(51,103,145,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(51,103,145,0.12),0_0_34px_rgba(51,103,145,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(51,103,145,0.52),rgba(51,103,145,0.10),rgba(125,211,252,0.24))]",
     iconBg: "bg-[rgba(51,103,145,0.10)] border-[rgba(51,103,145,0.18)]",
@@ -497,7 +470,8 @@ const technologies: {
   {
     name: "Cloud infrastructure",
     icon: <CloudIcon />,
-    glow: "shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_0_34px_rgba(56,189,248,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
+    glow:
+      "shadow-[0_0_0_1px_rgba(56,189,248,0.12),0_0_34px_rgba(56,189,248,0.16),0_18px_50px_rgba(2,6,23,0.42)]",
     border:
       "before:bg-[linear-gradient(135deg,rgba(56,189,248,0.52),rgba(56,189,248,0.10),rgba(125,211,252,0.28))]",
     iconBg: "bg-[rgba(56,189,248,0.10)] border-[rgba(56,189,248,0.18)]",
@@ -546,16 +520,14 @@ function SectionHeader({
   description: string;
 }) {
   return (
-    <div className="mx-auto mb-16 max-w-3xl text-center">
-      <p className="mb-3 text-xs uppercase tracking-[0.32em] text-sky-300">
+    <div className="mx-auto max-w-3xl text-center">
+      <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-white/55 backdrop-blur-xl">
         {eyebrow}
-      </p>
-      <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
+      </span>
+      <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
         {title}
       </h2>
-      <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-300">
-        {description}
-      </p>
+      <p className="mt-4 text-base leading-7 text-white/62 sm:text-lg">{description}</p>
     </div>
   );
 }
@@ -563,14 +535,12 @@ function SectionHeader({
 export default function App() {
   const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
 
-  function handleHeroMove(event: React.MouseEvent<HTMLElement>) {
+  function handleHeroMove(event: React.MouseEvent<HTMLDivElement>) {
     const rect = event.currentTarget.getBoundingClientRect();
     const px = (event.clientX - rect.left) / rect.width;
     const py = (event.clientY - rect.top) / rect.height;
-
     const rotateY = (px - 0.5) * 8;
     const rotateX = (0.5 - py) * 8;
-
     setHeroTilt({ x: rotateX, y: rotateY });
   }
 
@@ -579,666 +549,416 @@ export default function App() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden text-white">
-      <div className="stars-layer" />
-      <div className="stars-layer stars-layer-2" />
-      <div className="grid-overlay" />
-      <div className="noise-overlay" />
-
-      <section className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[46rem] overflow-hidden">
-        <div className="aurora-mesh aurora-mesh-1" />
-        <div className="aurora-mesh aurora-mesh-2" />
-        <div className="aurora-mesh aurora-mesh-3" />
-        <div className="cinematic-beam cinematic-beam-1" />
-        <div className="cinematic-beam cinematic-beam-2" />
-        <div className="depth-ring depth-ring-1" />
-        <div className="depth-ring depth-ring-2" />
-      </section>
-
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="hero-orb absolute left-1/2 top-[-10rem] h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-blue-500/20" />
-        <div className="hero-orb absolute left-[8%] top-[24rem] h-[22rem] w-[22rem] rounded-full bg-cyan-400/10" />
-        <div className="hero-orb absolute right-[6%] top-[34rem] h-[24rem] w-[24rem] rounded-full bg-indigo-500/10" />
-        <div className="hero-orb absolute left-[30%] bottom-[8rem] h-[18rem] w-[18rem] rounded-full bg-sky-400/8" />
+    <div className="min-h-screen bg-[#050816] text-white">
+      <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.10),transparent_34%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.10),transparent_28%),radial-gradient(circle_at_bottom,rgba(34,211,238,0.08),transparent_36%)]" />
+        <div className="absolute left-1/2 top-0 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-cyan-400/8 blur-[140px]" />
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/60 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <a href="#home" className="flex items-center gap-3">
-            <img src={logo} alt="UnderStack" className="h-9 w-auto" />
-            <span className="text-sm font-medium tracking-wide text-slate-200">
-              UnderStack
-            </span>
+      <header className="sticky top-0 z-50 border-b border-white/8 bg-[#050816]/70 backdrop-blur-2xl">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 sm:px-8 lg:px-10">
+          <a href="#top" className="flex items-center gap-3">
+            <img src={logo} alt="UnderStack" className="h-10 w-auto object-contain" />
+            <div>
+              <div className="text-sm font-semibold tracking-[0.2em] text-white">UnderStack</div>
+              <div className="text-[11px] uppercase tracking-[0.28em] text-white/40">
+                AI Systems · Software Engineering
+              </div>
+            </div>
           </a>
 
-          <nav className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-            <a href="#about" className="transition hover:text-white">
-              About
-            </a>
-            <a href="#services" className="transition hover:text-white">
-              Services
-            </a>
-            <a href="#products" className="transition hover:text-white">
-              Products
-            </a>
-            <a href="#technology" className="transition hover:text-white">
-              Technology
-            </a>
-            <a href="#contact" className="transition hover:text-white">
-              Contact
-            </a>
+          <nav className="hidden items-center gap-7 text-sm text-white/65 md:flex">
+            <a href="#about" className="transition hover:text-white">About</a>
+            <a href="#services" className="transition hover:text-white">Services</a>
+            <a href="#pricing" className="transition hover:text-white">Pricing</a>
+            <a href="#packages" className="transition hover:text-white">Packages</a>
+            <a href="#products" className="transition hover:text-white">Products</a>
+            <a href="#technology" className="transition hover:text-white">Technology</a>
+            <a href="#contact" className="transition hover:text-white">Contact</a>
           </nav>
         </div>
       </header>
 
-      <section
-        id="home"
-        className="relative z-10 px-6 pb-28 pt-24"
-        onMouseMove={handleHeroMove}
-        onMouseLeave={resetHeroMove}
-      >
-        <div className="mx-auto grid max-w-7xl items-center gap-20 lg:grid-cols-[1.05fr_0.95fr]">
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            style={{
-              transform: `translate3d(${heroTilt.y * -1.2}px, ${heroTilt.x * -1.2}px, 0)`,
-              transition: "transform 180ms ease-out",
-            }}
-          >
-            <p className="mb-6 text-xs uppercase tracking-[0.34em] text-sky-300">
-              Advanced software systems
-            </p>
-
-            <h1 className="text-5xl font-semibold leading-tight md:text-7xl">
-              We build premium digital products for modern companies.
-            </h1>
-
-            <p className="mt-6 max-w-xl text-lg text-slate-300">
-              UnderStack creates high-quality software systems, operational
-              platforms and refined digital products with strong engineering
-              foundations and modern interface design.
-            </p>
-
-            <div className="mt-10 flex gap-4">
-              <a
-                href="#products"
-                className="rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 px-6 py-3 text-sm font-medium text-white shadow-[0_12px_40px_rgba(37,99,235,0.35)] transition hover:-translate-y-0.5"
+      <main id="top">
+        <section className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-14 sm:px-8 lg:px-10 lg:pb-24 lg:pt-20">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+            <div>
+              <motion.span
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.55 }}
+                className="inline-flex items-center rounded-full border border-cyan-300/15 bg-cyan-300/8 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.3em] text-cyan-200"
               >
-                View products
-              </a>
+                Advanced software systems
+              </motion.span>
 
-              <a
-                href="#contact"
-                className="rounded-full border border-white/10 px-6 py-3 text-sm text-white transition hover:bg-white/5"
+              <motion.h1
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.05 }}
+                className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
               >
-                Contact us
-              </a>
-            </div>
-          </motion.div>
+                We build premium digital products for modern companies.
+              </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="hero-card-3d"
-            style={{
-              transform: `perspective(1400px) rotateX(${6 + heroTilt.x * 0.55}deg) rotateY(${-6 + heroTilt.y * 0.55}deg) translate3d(${heroTilt.y * 1.1}px, ${heroTilt.x * -1.1}px, 0)`,
-              transition: "transform 180ms ease-out",
-            }}
-          >
-            <div className="glass-panel neon-border overflow-hidden rounded-3xl p-8">
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.24em] text-sky-300">
-                    Company overview
-                  </p>
-                  <h3 className="mt-3 text-2xl font-semibold text-white">
-                    UnderStack
-                  </h3>
-                </div>
-                <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.18em] text-emerald-300">
-                  Active
-                </span>
+              <motion.p
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.12 }}
+                className="mt-6 max-w-2xl text-base leading-8 text-white/65 sm:text-lg"
+              >
+                UnderStack creates high-quality software systems, operational platforms and
+                refined digital products with strong engineering foundations and modern
+                interface design.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.18 }}
+                className="mt-8 flex flex-wrap gap-4"
+              >
+                <a
+                  href="#products"
+                  className="inline-flex items-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-6 py-3 text-sm font-medium text-cyan-100 transition hover:border-cyan-300/35 hover:bg-cyan-300/14"
+                >
+                  View products
+                </a>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 transition hover:bg-white/8"
+                >
+                  Contact us
+                </a>
+              </motion.div>
+
+              <div className="mt-10 grid max-w-xl gap-4 sm:grid-cols-3">
+                {[
+                  { label: "Status", value: "Active" },
+                  { label: "Products", value: "1" },
+                  { label: "Services", value: "4" },
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.label}
+                    initial={{ opacity: 0, y: 18 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.55, delay: 0.24 + index * 0.06 }}
+                    className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl"
+                  >
+                    <div className="text-[11px] uppercase tracking-[0.24em] text-white/40">
+                      {item.label}
+                    </div>
+                    <div className="mt-3 text-2xl font-semibold text-white">{item.value}</div>
+                  </motion.div>
+                ))}
               </div>
+            </div>
 
-              <div className="mt-6 grid gap-4 sm:grid-cols-4">
-                <div className="rounded-2xl border border-cyan-400/12 bg-cyan-400/[0.06] p-4">
-                  <div className="text-[10px] uppercase tracking-[0.18em] text-cyan-300">
-                    Products
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              onMouseMove={handleHeroMove}
+              onMouseLeave={resetHeroMove}
+              className="relative"
+            >
+              <div
+                className="relative overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-7"
+                style={{
+                  transform: `perspective(1400px) rotateX(${heroTilt.x}deg) rotateY(${heroTilt.y}deg)`,
+                  transition: "transform 140ms ease-out",
+                }}
+              >
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_42%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.10),transparent_30%)]" />
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-[11px] uppercase tracking-[0.22em] text-white/38">
+                        Company overview
+                      </p>
+                      <h3 className="mt-2 text-2xl font-semibold text-white">UnderStack</h3>
+                    </div>
+                    <span className="rounded-full border border-emerald-300/18 bg-emerald-300/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-emerald-200">
+                      Live
+                    </span>
                   </div>
-                  <div className="mt-2 text-2xl text-white">1</div>
-                </div>
-                <div className="rounded-2xl border border-violet-400/12 bg-violet-400/[0.06] p-4">
-                  <div className="text-[10px] uppercase tracking-[0.18em] text-violet-300">
-                    Services
+
+                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5">
+                      <div className="text-[11px] uppercase tracking-[0.22em] text-white/38">
+                        Focus
+                      </div>
+                      <div className="mt-3 text-lg font-medium text-white">
+                        AI systems, software engineering, modern infrastructure
+                      </div>
+                    </div>
+                    <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5">
+                      <div className="text-[11px] uppercase tracking-[0.22em] text-white/38">
+                        Product
+                      </div>
+                      <div className="mt-3 text-lg font-medium text-white">GastroApp</div>
+                    </div>
                   </div>
-                  <div className="mt-2 text-2xl text-white">4</div>
-                </div>
-                <div className="rounded-2xl border border-emerald-400/12 bg-emerald-400/[0.06] p-4">
-                  <div className="text-[10px] uppercase tracking-[0.18em] text-emerald-300">
-                    Location
+
+                  <div className="mt-6 rounded-[24px] border border-cyan-300/14 bg-cyan-300/8 p-5">
+                    <div className="text-[11px] uppercase tracking-[0.22em] text-cyan-200/76">
+                      Positioning
+                    </div>
+                    <p className="mt-3 text-sm leading-7 text-white/74">
+                      Premium execution, leaner structure, sharper delivery. UnderStack is
+                      built to give companies a more sophisticated result without the
+                      overhead of a traditional agency model.
+                    </p>
                   </div>
-                  <div className="mt-2 text-lg text-white">Aarhus</div>
-                </div>
-                <div className="rounded-2xl border border-sky-400/12 bg-sky-400/[0.06] p-4">
-                  <div className="text-[10px] uppercase tracking-[0.18em] text-sky-300">
-                    Visits
-                  </div>
-                  <div className="mt-2 text-2xl text-white">
+
+                  <div className="mt-6">
                     <VisitCounter />
                   </div>
                 </div>
               </div>
+            </motion.div>
+          </div>
+        </section>
 
-              <div className="mt-5 grid gap-5">
-                <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm text-slate-400">Focus</p>
-                  <p className="mt-1 text-lg text-white">
-                    Premium software systems
-                  </p>
-                </div>
-
-                <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-sm text-slate-400">Current product</p>
-                      <p className="mt-1 text-lg text-white">GastroApp</p>
-                    </div>
-                    <a
-                      href={GASTROAPP_URL}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-full border border-sky-400/20 bg-sky-400/10 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-sky-300 transition hover:bg-sky-400/15"
-                    >
-                      Open
-                    </a>
-                  </div>
-                </div>
-
-                <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm text-slate-400">Contact</p>
-                  <a
-                    href={`mailto:${CONTACT_EMAIL}`}
-                    className="mt-1 block text-lg text-white transition hover:text-sky-300"
-                  >
-                    {CONTACT_EMAIL}
-                  </a>
-                </div>
-
-                <div className="rounded-xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm text-slate-400">Core strengths</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-white/7 px-3 py-1 text-xs text-slate-200">
-                      Design-led
-                    </span>
-                    <span className="rounded-full bg-white/7 px-3 py-1 text-xs text-slate-200">
-                      Scalable systems
-                    </span>
-                    <span className="rounded-full bg-white/7 px-3 py-1 text-xs text-slate-200">
-                      Product thinking
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <section id="about" className="px-6 py-24">
-        <div className="mx-auto max-w-5xl text-center">
+        <section id="about" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
           <SectionHeader
             eyebrow="About"
-            title="Engineering-driven software with refined product design"
-            description="UnderStack builds digital systems focused on clarity, performance and long-term product architecture."
+            title="A software studio built around clarity and execution"
+            description="UnderStack focuses on software products, premium web experiences and operational systems that feel modern, credible and commercially sharp."
           />
-        </div>
-      </section>
 
-      <section id="services" className="px-6 py-24">
-        <div className="mx-auto max-w-7xl">
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.55 }}
+              className="rounded-[30px] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-2xl"
+            >
+              <h3 className="text-xl font-semibold text-white">What we build</h3>
+              <p className="mt-4 text-sm leading-8 text-white/68">
+                We design and engineer products that combine robust frontend execution,
+                structured systems thinking and premium visual quality. The goal is not
+                just software that works, but software that looks trustworthy and feels
+                strategically positioned.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.55, delay: 0.06 }}
+              className="rounded-[30px] border border-white/10 bg-white/[0.04] p-7 backdrop-blur-2xl"
+            >
+              <h3 className="text-xl font-semibold text-white">How we approach it</h3>
+              <p className="mt-4 text-sm leading-8 text-white/68">
+                UnderStack keeps process lean and quality high. That means better
+                communication, more precise design decisions, stronger product direction
+                and technical implementation that scales cleanly over time.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        <section id="services" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
           <SectionHeader
             eyebrow="Services"
-            title="What we do"
-            description="We design and build software systems for serious operational use."
+            title="Built for companies that want more than a generic website"
+            description="We help brands and operators create digital products that are useful internally, credible externally and structured for long-term growth."
           />
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {services.map((service, index) => (
-              <motion.div
+              <motion.article
                 key={service.title}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className={`glass-panel neon-border ${service.border} ${service.glow} rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-0.5`}
+                viewport={{ once: true, amount: 0.28 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className={`group relative overflow-hidden rounded-[30px] border border-white/8 bg-[rgba(8,12,24,0.76)] p-6 backdrop-blur-2xl ${service.glow}`}
               >
-                <div
-                  className={`mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border ${service.iconBg}`}
-                >
-                  {service.icon}
+                <div className={`pointer-events-none absolute inset-0 opacity-90 before:absolute before:inset-0 ${service.border}`} />
+                <div className="relative z-10">
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border ${service.iconBg} text-white`}>
+                    {service.icon}
+                  </div>
+                  <h3 className="mt-5 text-xl font-semibold text-white">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-white/64">{service.description}</p>
                 </div>
-
-                <h3 className="text-xl font-semibold text-white">
-                  {service.title}
-                </h3>
-
-                <p className="mt-3 text-slate-300">{service.description}</p>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <PricingCards />
+        <MarketComparison />
 
-      <section className="px-6 py-24">
-        <div className="mx-auto max-w-7xl">
+        <PricingCards />
+
+        <section className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
           <SectionHeader
             eyebrow="Why UnderStack"
-            title="Built with product taste, systems thinking and technical discipline"
-            description="We combine modern interface standards with structured engineering and a strong operational mindset."
+            title="Premium quality with stronger price-to-value ratio"
+            description="We are not trying to imitate a big agency. We are building a sharper model: more direct, more disciplined and more commercially efficient."
           />
 
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {reasons.map((reason, index) => (
-              <motion.div
+              <motion.article
                 key={reason.title}
-                initial={{ opacity: 0, y: 18 }}
+                initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="glass-panel neon-border rounded-2xl p-6"
+                viewport={{ once: true, amount: 0.28 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="rounded-[28px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-2xl"
               >
-                <div
-                  className={`mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border ${reason.iconBg}`}
-                >
+                <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border ${reason.iconBg} text-white`}>
                   {reason.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-white">{reason.title}</h3>
-                <p className="mt-3 text-slate-300">{reason.text}</p>
-              </motion.div>
+                <h3 className="mt-5 text-lg font-semibold text-white">{reason.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-white/64">{reason.text}</p>
+              </motion.article>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="products" className="px-6 py-24">
-        <div className="mx-auto max-w-7xl">
+        <section id="products" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
           <SectionHeader
             eyebrow="Products"
-            title="Selected work"
-            description="Software products developed within the UnderStack ecosystem."
+            title="Current flagship product"
+            description="UnderStack is already building software products for real operational environments."
           />
 
-          <div className="grid gap-8 lg:grid-cols-[0.88fr_1.12fr]">
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.45 }}
-              className="glass-panel neon-border rounded-3xl p-8"
-            >
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.24em] text-sky-300">
-                    Featured product
-                  </p>
-                  <h3 className="mt-3 text-3xl font-semibold text-white">
-                    GastroApp
-                  </h3>
-                </div>
-
-                <span className="rounded-full bg-sky-400/10 px-3 py-1 text-xs text-sky-300">
-                  Live product
-                </span>
-              </div>
-
-              <p className="mt-6 text-slate-300">
-                A restaurant operations platform designed to structure kitchen
-                workflows, inventory, production tracking and staff coordination.
-              </p>
-
-              <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {[
-                  "Kitchen workflow structure",
-                  "Inventory control",
-                  "Staff coordination",
-                  "Operational visibility",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-5">
-                <p className="text-sm text-slate-400">Why it matters</p>
-                <p className="mt-2 text-slate-200">
-                  GastroApp is built to reduce friction in real restaurant
-                  operations through better structure, visibility and workflow control.
-                </p>
-              </div>
-
-              <a
-                href={GASTROAPP_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-8 inline-flex rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 px-5 py-3 text-sm font-medium text-white shadow-[0_12px_40px_rgba(37,99,235,0.28)] transition hover:-translate-y-0.5"
-              >
-                Open GastroApp
-              </a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: 0.08 }}
-              className="glass-panel neon-border rounded-3xl p-5"
-            >
-              <div className="rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.92)_0%,rgba(2,6,23,0.98)_100%)] p-5">
-                <div className="mb-5 flex gap-2">
-                  <span className="h-3 w-3 rounded-full bg-sky-400/80" />
-                  <span className="h-3 w-3 rounded-full bg-blue-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-indigo-500/80" />
-                </div>
-
-                <div className="grid gap-4 lg:grid-cols-[0.28fr_0.72fr]">
-                  <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-4">
-                    <div className="h-4 w-16 rounded-full bg-white/10" />
-                    <div className="mt-4 space-y-3">
-                      <div className="rounded-xl bg-cyan-400/10 px-3 py-3 text-xs text-cyan-300">
-                        Dashboard
-                      </div>
-                      <div className="rounded-xl bg-white/6 px-3 py-3 text-xs text-slate-300">
-                        Recipes
-                      </div>
-                      <div className="rounded-xl bg-white/6 px-3 py-3 text-xs text-slate-300">
-                        Items
-                      </div>
-                      <div className="rounded-xl bg-white/6 px-3 py-3 text-xs text-slate-300">
-                        Stock
-                      </div>
-                      <div className="rounded-xl bg-white/6 px-3 py-3 text-xs text-slate-300">
-                        Reports
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-4">
-                    <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-5">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="h-4 w-28 rounded-full bg-white/10" />
-                          <div className="mt-2 h-3 w-40 rounded-full bg-white/6" />
-                        </div>
-                        <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] text-emerald-300">
-                          Service live
-                        </div>
-                      </div>
-
-                      <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                        <div className="rounded-2xl bg-cyan-400/12 p-4">
-                          <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-300">
-                            Runs
-                          </div>
-                          <div className="mt-2 text-2xl text-white">24</div>
-                        </div>
-                        <div className="rounded-2xl bg-violet-400/12 p-4">
-                          <div className="text-[10px] uppercase tracking-[0.2em] text-violet-300">
-                            Items
-                          </div>
-                          <div className="mt-2 text-2xl text-white">186</div>
-                        </div>
-                        <div className="rounded-2xl bg-emerald-400/12 p-4">
-                          <div className="text-[10px] uppercase tracking-[0.2em] text-emerald-300">
-                            Staff
-                          </div>
-                          <div className="mt-2 text-2xl text-white">11</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="grid gap-4 lg:grid-cols-[1fr_0.95fr]">
-                      <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-5">
-                        <div className="flex items-center justify-between">
-                          <div className="h-4 w-24 rounded-full bg-white/10" />
-                          <div className="text-[10px] text-slate-400">Today</div>
-                        </div>
-
-                        <div className="mt-5 space-y-3">
-                          <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
-                            <div className="flex items-center gap-3">
-                              <span className="h-2.5 w-2.5 rounded-full bg-cyan-400" />
-                              <span className="text-xs text-slate-200">Prep list</span>
-                            </div>
-                            <span className="text-[10px] text-cyan-300">12 items</span>
-                          </div>
-
-                          <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
-                            <div className="flex items-center gap-3">
-                              <span className="h-2.5 w-2.5 rounded-full bg-violet-400" />
-                              <span className="text-xs text-slate-200">Stock alerts</span>
-                            </div>
-                            <span className="text-[10px] text-violet-300">3 alerts</span>
-                          </div>
-
-                          <div className="flex items-center justify-between rounded-2xl border border-white/8 bg-white/6 px-4 py-3">
-                            <div className="flex items-center gap-3">
-                              <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
-                              <span className="text-xs text-slate-200">Team status</span>
-                            </div>
-                            <span className="text-[10px] text-emerald-300">Online</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="rounded-[1.3rem] border border-white/10 bg-white/5 p-5">
-                        <div className="flex items-center justify-between">
-                          <div className="h-4 w-24 rounded-full bg-white/10" />
-                          <div className="text-[10px] text-slate-400">Performance</div>
-                        </div>
-
-                        <div className="mt-5 space-y-4">
-                          <div>
-                            <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
-                              <span>Kitchen completion</span>
-                              <span>82%</span>
-                            </div>
-                            <div className="h-2 rounded-full bg-white/8">
-                              <div className="h-2 w-[82%] rounded-full bg-cyan-400" />
-                            </div>
-                          </div>
-
-                          <div>
-                            <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
-                              <span>Inventory sync</span>
-                              <span>67%</span>
-                            </div>
-                            <div className="h-2 rounded-full bg-white/8">
-                              <div className="h-2 w-[67%] rounded-full bg-violet-400" />
-                            </div>
-                          </div>
-
-                          <div>
-                            <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
-                              <span>Shift coverage</span>
-                              <span>91%</span>
-                            </div>
-                            <div className="h-2 rounded-full bg-white/8">
-                              <div className="h-2 w-[91%] rounded-full bg-emerald-400" />
-                            </div>
-                          </div>
-
-                          <div>
-                            <div className="mb-1 flex items-center justify-between text-[10px] text-slate-400">
-                              <span>Orders queue</span>
-                              <span>58%</span>
-                            </div>
-                            <div className="h-2 rounded-full bg-white/8">
-                              <div className="h-2 w-[58%] rounded-full bg-amber-400" />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section id="technology" className="px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="Technology"
-            title="Built with modern tools"
-            description="We work with modern technologies and scalable architectures."
-          />
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.35 }}
-                transition={{ duration: 0.35, delay: index * 0.04 }}
-                className={`glass-panel neon-border ${tech.border} ${tech.glow} rounded-xl px-5 py-4 transition-transform duration-300 hover:-translate-y-0.5`}
-              >
-                <div className="flex items-center gap-3">
-                  <span
-                    className={`flex h-8 w-8 items-center justify-center rounded-lg border ${tech.iconBg}`}
-                  >
-                    {tech.icon}
-                  </span>
-                  <span className="text-sm font-medium text-slate-100">
-                    {tech.name}
-                  </span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="px-6 py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="glass-panel neon-border rounded-[2rem] p-8 md:p-12">
-            <p className="text-xs uppercase tracking-[0.32em] text-sky-300">
-              Contact us
-            </p>
-
-            <div className="mt-4 grid gap-8 md:grid-cols-[1.1fr_0.9fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.28 }}
+            transition={{ duration: 0.55 }}
+            className="mt-14 overflow-hidden rounded-[34px] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] p-7 shadow-[0_30px_90px_rgba(0,0,0,0.4)] backdrop-blur-2xl"
+          >
+            <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <div>
-                <h2 className="text-3xl font-semibold tracking-tight text-white md:text-5xl">
-                  Let’s build something solid, useful and premium.
-                </h2>
-                <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                  UnderStack works on software systems, digital products and modern
-                  business tools with a strong focus on clarity, performance and
-                  refined user experience.
+                <span className="inline-flex items-center rounded-full border border-cyan-300/18 bg-cyan-300/8 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-cyan-200">
+                  Featured product
+                </span>
+                <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white">
+                  GastroApp
+                </h3>
+                <p className="mt-4 text-sm leading-8 text-white/68">
+                  GastroApp is an operational platform for restaurants covering kitchen
+                  management, inventory, production structure, internal workflow clarity
+                  and team coordination.
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-4">
-                  <a
-                    href={`mailto:${CONTACT_EMAIL}`}
-                    className="rounded-full bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-500 px-6 py-3 text-sm font-medium text-white shadow-[0_12px_40px_rgba(37,99,235,0.28)] transition hover:-translate-y-0.5"
-                  >
-                    Discuss a project
-                  </a>
+                <ul className="mt-6 space-y-3 text-sm text-white/74">
+                  <li className="flex gap-3">
+                    <span className="text-cyan-300">●</span>
+                    <span>Kitchen operations and production planning</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-cyan-300">●</span>
+                    <span>Inventory visibility and workflow structure</span>
+                  </li>
+                  <li className="flex gap-3">
+                    <span className="text-cyan-300">●</span>
+                    <span>Designed for real-world hospitality operations</span>
+                  </li>
+                </ul>
+
+                <div className="mt-8">
                   <a
                     href={GASTROAPP_URL}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full border border-white/10 px-6 py-3 text-sm text-white transition hover:bg-white/5"
+                    className="inline-flex items-center rounded-full border border-cyan-300/18 bg-cyan-300/10 px-6 py-3 text-sm font-medium text-cyan-100 transition hover:border-cyan-300/35 hover:bg-cyan-300/14"
                   >
                     Visit GastroApp
                   </a>
                 </div>
               </div>
 
-              <div className="grid gap-4">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm text-slate-400">Email</p>
-                  <a
-                    href={`mailto:${CONTACT_EMAIL}`}
-                    className="mt-1 block text-lg text-white transition hover:text-sky-300"
+              <div className="grid gap-4 sm:grid-cols-2">
+                {[
+                  "Restaurant operations",
+                  "Inventory structure",
+                  "Production planning",
+                  "Team coordination",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 text-sm font-medium text-white/80 backdrop-blur-xl"
                   >
-                    {CONTACT_EMAIL}
-                  </a>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm text-slate-400">Location</p>
-                  <p className="mt-1 text-lg text-white">Aarhus, Denmark</p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                  <p className="text-sm text-slate-400">Focus</p>
-                  <p className="mt-1 text-lg text-white">
-                    Software systems, UI / UX and product development
-                  </p>
-                </div>
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        </section>
 
-      <footer className="border-t border-white/10 px-6 py-10 text-sm text-slate-400">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.2fr_1fr_1fr]">
-          <div>
-            <p className="text-white">UnderStack</p>
-            <p className="mt-2 max-w-sm leading-7 text-slate-400">
-              Premium software systems, refined interfaces and modern digital products.
-            </p>
-          </div>
+        <section id="technology" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
+          <SectionHeader
+            eyebrow="Technology"
+            title="Modern stack, serious execution"
+            description="We build with proven tools that support maintainability, speed, scalability and modern product development."
+          />
 
-          <div>
-            <p className="text-white">Navigation</p>
-            <div className="mt-3 flex flex-col gap-2">
-              <a className="transition hover:text-white" href="#about">
-                About
-              </a>
-              <a className="transition hover:text-white" href="#services">
-                Services
-              </a>
-              <a className="transition hover:text-white" href="#products">
-                Products
-              </a>
-              <a className="transition hover:text-white" href="#technology">
-                Technology
-              </a>
-            </div>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            {technologies.map((tech, index) => (
+              <motion.article
+                key={tech.name}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.28 }}
+                transition={{ duration: 0.5, delay: index * 0.04 }}
+                className={`group relative overflow-hidden rounded-[28px] border border-white/8 bg-[rgba(8,12,24,0.76)] p-6 backdrop-blur-2xl ${tech.glow}`}
+              >
+                <div className={`pointer-events-none absolute inset-0 opacity-90 before:absolute before:inset-0 ${tech.border}`} />
+                <div className="relative z-10 flex items-center gap-4">
+                  <div className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border ${tech.iconBg}`}>
+                    {tech.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-white">{tech.name}</h3>
+                </div>
+              </motion.article>
+            ))}
           </div>
+        </section>
 
-          <div>
-            <p className="text-white">Contact</p>
-            <div className="mt-3 flex flex-col gap-2">
-              <a className="transition hover:text-white" href={`mailto:${CONTACT_EMAIL}`}>
+        <section id="contact" className="mx-auto w-full max-w-7xl px-6 pb-28 pt-24 sm:px-8 lg:px-10">
+          <motion.div
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.28 }}
+            transition={{ duration: 0.55 }}
+            className="overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(10,14,28,0.94),rgba(6,10,22,0.86))] p-8 shadow-[0_30px_90px_rgba(0,0,0,0.44)] backdrop-blur-2xl sm:p-10"
+          >
+            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div>
+                <span className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-white/55">
+                  Contact
+                </span>
+                <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                  Let’s build something sharp.
+                </h2>
+                <p className="mt-4 max-w-2xl text-base leading-8 text-white/64">
+                  If you want a premium site, a custom platform or a product with stronger
+                  strategic positioning, UnderStack is built for that conversation.
+                </p>
+              </div>
+
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="inline-flex items-center justify-center rounded-full border border-cyan-300/18 bg-cyan-300/10 px-7 py-3.5 text-sm font-medium text-cyan-100 transition hover:border-cyan-300/35 hover:bg-cyan-300/14"
+              >
                 {CONTACT_EMAIL}
               </a>
-              <span>Aarhus, Denmark</span>
-              <a className="transition hover:text-white" href="#contact">
-                Contact us
-              </a>
             </div>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-8 max-w-7xl border-t border-white/8 pt-6 text-sm text-slate-500">
-          © 2026 UnderStack. All rights reserved.
-        </div>
-      </footer>
+          </motion.div>
+        </section>
+      </main>
     </div>
   );
 }
