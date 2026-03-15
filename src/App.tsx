@@ -807,8 +807,74 @@ export default function App() {
                   transition: "transform 140ms ease-out",
                 }}
               >
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.12),transparent_42%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.10),transparent_30%)]" />
-                <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+                <motion.div
+                  className="pointer-events-none absolute -left-[18%] top-[-12%] h-[20rem] w-[20rem] rounded-full bg-cyan-400/10 blur-[90px]"
+                  animate={{
+                    x: [0, 18, -10, 0],
+                    y: [0, 12, -8, 0],
+                    opacity: [0.22, 0.36, 0.26, 0.22],
+                    scale: [1, 1.06, 1.03, 1],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+
+                <motion.div
+                  className="pointer-events-none absolute right-[-14%] top-[12%] h-[16rem] w-[16rem] rounded-full bg-fuchsia-400/8 blur-[90px]"
+                  animate={{
+                    x: [0, -14, 8, 0],
+                    y: [0, 10, -6, 0],
+                    opacity: [0.14, 0.26, 0.18, 0.14],
+                    scale: [1, 1.05, 1.02, 1],
+                  }}
+                  transition={{
+                    duration: 13,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+
+                <motion.div
+                  className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_22%_18%,rgba(34,211,238,0.16),transparent_24%),radial-gradient(circle_at_82%_24%,rgba(168,85,247,0.10),transparent_24%),radial-gradient(circle_at_50%_100%,rgba(59,130,246,0.08),transparent_34%)]"
+                  animate={{
+                    opacity: [0.45, 0.7, 0.52, 0.45],
+                    scale: [1, 1.015, 1.008, 1],
+                  }}
+                  transition={{
+                    duration: 9,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+
+                <motion.div
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/40 to-transparent"
+                  animate={{
+                    opacity: [0.35, 0.8, 0.45, 0.35],
+                  }}
+                  transition={{
+                    duration: 7,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+
+                <motion.div
+                  className="pointer-events-none absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-cyan-200/20 to-transparent"
+                  animate={{
+                    opacity: [0.18, 0.38, 0.22, 0.18],
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.02),transparent_18%,transparent_82%,rgba(255,255,255,0.02))]" />
 
                 <div className="relative z-10">
                   <div className="flex items-center justify-between">
