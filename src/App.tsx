@@ -581,15 +581,89 @@ export default function App() {
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[#050816]" />
 
-        <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:72px_72px]" />
+        <motion.div
+          className="absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:72px_72px]"
+          animate={{
+            opacity: [0.12, 0.16, 0.12],
+            scale: [1, 1.015, 1],
+          }}
+          transition={{
+            duration: 18,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
 
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(34,211,238,0.11),transparent_24%),radial-gradient(circle_at_82%_12%,rgba(59,130,246,0.09),transparent_22%),radial-gradient(circle_at_78%_62%,rgba(168,85,247,0.08),transparent_24%),radial-gradient(circle_at_22%_82%,rgba(16,185,129,0.06),transparent_20%)]" />
+        <motion.div
+          className="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(34,211,238,0.11),transparent_24%),radial-gradient(circle_at_82%_12%,rgba(59,130,246,0.09),transparent_22%),radial-gradient(circle_at_78%_62%,rgba(168,85,247,0.08),transparent_24%),radial-gradient(circle_at_22%_82%,rgba(16,185,129,0.06),transparent_20%)]"
+          animate={{
+            opacity: [0.78, 1, 0.82, 0.78],
+            scale: [1, 1.02, 1.015, 1],
+          }}
+          transition={{
+            duration: 22,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
 
-        <div className="absolute left-[-12rem] top-[-8rem] h-[32rem] w-[32rem] rounded-full bg-cyan-400/8 blur-[140px]" />
-        <div className="absolute right-[-10rem] top-[8rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/8 blur-[130px]" />
-        <div className="absolute bottom-[-8rem] left-[18%] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/7 blur-[130px]" />
+        <motion.div
+          className="absolute left-[-12rem] top-[-8rem] h-[32rem] w-[32rem] rounded-full bg-cyan-400/8 blur-[140px]"
+          animate={{
+            x: [0, 20, -10, 0],
+            y: [0, 16, 8, 0],
+            scale: [1, 1.08, 1.03, 1],
+            opacity: [0.5, 0.8, 0.6, 0.5],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
 
-        <div className="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),transparent_60%)]" />
+        <motion.div
+          className="absolute right-[-10rem] top-[8rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/8 blur-[130px]"
+          animate={{
+            x: [0, -16, 10, 0],
+            y: [0, 14, -10, 0],
+            scale: [1, 1.06, 1.02, 1],
+            opacity: [0.45, 0.7, 0.55, 0.45],
+          }}
+          transition={{
+            duration: 24,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        <motion.div
+          className="absolute bottom-[-8rem] left-[18%] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/7 blur-[130px]"
+          animate={{
+            x: [0, 12, -8, 0],
+            y: [0, -14, 10, 0],
+            scale: [1, 1.05, 1.02, 1],
+            opacity: [0.38, 0.6, 0.46, 0.38],
+          }}
+          transition={{
+            duration: 26,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
+        <motion.div
+          className="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),transparent_60%)]"
+          animate={{
+            opacity: [0.45, 0.62, 0.5, 0.45],
+          }}
+          transition={{
+            duration: 16,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+
         <div className="absolute inset-x-0 bottom-0 h-[24rem] bg-[linear-gradient(180deg,transparent,rgba(3,7,18,0.42))]" />
       </div>
 
@@ -619,7 +693,18 @@ export default function App() {
 
       <main id="top" className="relative z-10">
         <section className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-14 sm:px-8 lg:px-10 lg:pb-24 lg:pt-20">
-          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-[36rem] w-[90%] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.08),transparent_58%)] blur-3xl" />
+          <motion.div
+            className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-[36rem] w-[90%] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.08),transparent_58%)] blur-3xl"
+            animate={{
+              opacity: [0.45, 0.72, 0.52, 0.45],
+              scale: [1, 1.04, 1.02, 1],
+            }}
+            transition={{
+              duration: 14,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
 
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
@@ -702,7 +787,18 @@ export default function App() {
               onMouseLeave={resetHeroMove}
               className="relative"
             >
-              <div className="pointer-events-none absolute inset-[-12%] -z-10 rounded-[40px] bg-[radial-gradient(circle,rgba(34,211,238,0.12),transparent_58%)] blur-3xl" />
+              <motion.div
+                className="pointer-events-none absolute inset-[-12%] -z-10 rounded-[40px] bg-[radial-gradient(circle,rgba(34,211,238,0.12),transparent_58%)] blur-3xl"
+                animate={{
+                  opacity: [0.4, 0.7, 0.48, 0.4],
+                  scale: [1, 1.06, 1.03, 1],
+                }}
+                transition={{
+                  duration: 12,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
 
               <div
                 className="relative overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-7"
