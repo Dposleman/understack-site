@@ -51,7 +51,10 @@ function TypeScriptIcon() {
 function ViteIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path d="M20.6 5.3 12.8 19a1 1 0 0 1-1.7 0L3.4 5.3a.7.7 0 0 1 .8-1l7.9 1.4a1 1 0 0 0 .4 0l7.3-1.4a.7.7 0 0 1 .8 1Z" fill="url(#vite-gradient)" />
+      <path
+        d="M20.6 5.3 12.8 19a1 1 0 0 1-1.7 0L3.4 5.3a.7.7 0 0 1 .8-1l7.9 1.4a1 1 0 0 0 .4 0l7.3-1.4a.7.7 0 0 1 .8 1Z"
+        fill="url(#vite-gradient)"
+      />
       <path d="m14.7 3.2-5.8 11 3.3-.7 5.2-8.9-2.7-1.4Z" fill="#FFD62E" />
       <defs>
         <linearGradient id="vite-gradient" x1="3" y1="3" x2="19" y2="19" gradientUnits="userSpaceOnUse">
@@ -125,7 +128,11 @@ function WebIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
       <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M4 12h16M12 4c2.2 2.3 3.3 5 3.3 8S14.2 17.7 12 20c-2.2-2.3-3.3-5-3.3-8S9.8 6.3 12 4Z" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M4 12h16M12 4c2.2 2.3 3.3 5 3.3 8S14.2 17.7 12 20c-2.2-2.3-3.3-5-3.3-8S9.8 6.3 12 4Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </svg>
   );
 }
@@ -133,8 +140,20 @@ function WebIcon() {
 function StrategyIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path d="M5 18.5 10.2 13l3.2 2.8 5.6-7.3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M16.5 8.5H19v2.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M5 18.5 10.2 13l3.2 2.8 5.6-7.3"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16.5 8.5H19v2.5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
@@ -144,7 +163,12 @@ function PrecisionIcon() {
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
       <circle cx="12" cy="12" r="7.5" stroke="currentColor" strokeWidth="1.5" />
       <circle cx="12" cy="12" r="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M12 2.8v2.4M12 18.8v2.4M21.2 12h-2.4M5.2 12H2.8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M12 2.8v2.4M12 18.8v2.4M21.2 12h-2.4M5.2 12H2.8"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
     </svg>
   );
 }
@@ -171,7 +195,11 @@ function WorkflowIcon() {
 function PremiumIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden="true">
-      <path d="m12 4 2.2 4.4 4.8.7-3.5 3.4.8 4.8L12 15l-4.3 2.3.8-4.8L5 9.1l4.8-.7L12 4Z" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="m12 4 2.2 4.4 4.8.7-3.5 3.4.8 4.8L12 15l-4.3 2.3.8-4.8L5 9.1l4.8-.7L12 4Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </svg>
   );
 }
@@ -549,10 +577,20 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-[#050816] text-white">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#050816] text-white">
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(14,165,233,0.10),transparent_34%),radial-gradient(circle_at_80%_20%,rgba(168,85,247,0.10),transparent_28%),radial-gradient(circle_at_bottom,rgba(34,211,238,0.08),transparent_36%)]" />
-        <div className="absolute left-1/2 top-0 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-cyan-400/8 blur-[140px]" />
+        <div className="absolute inset-0 bg-[#050816]" />
+
+        <div className="absolute inset-0 opacity-[0.16] [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:72px_72px]" />
+
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(34,211,238,0.11),transparent_24%),radial-gradient(circle_at_82%_12%,rgba(59,130,246,0.09),transparent_22%),radial-gradient(circle_at_78%_62%,rgba(168,85,247,0.08),transparent_24%),radial-gradient(circle_at_22%_82%,rgba(16,185,129,0.06),transparent_20%)]" />
+
+        <div className="absolute left-[-12rem] top-[-8rem] h-[32rem] w-[32rem] rounded-full bg-cyan-400/8 blur-[140px]" />
+        <div className="absolute right-[-10rem] top-[8rem] h-[28rem] w-[28rem] rounded-full bg-blue-500/8 blur-[130px]" />
+        <div className="absolute bottom-[-8rem] left-[18%] h-[24rem] w-[24rem] rounded-full bg-fuchsia-500/7 blur-[130px]" />
+
+        <div className="absolute inset-x-0 top-0 h-[38rem] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.05),transparent_60%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-[24rem] bg-[linear-gradient(180deg,transparent,rgba(3,7,18,0.42))]" />
       </div>
 
       <header className="sticky top-0 z-50 border-b border-white/8 bg-[#050816]/70 backdrop-blur-2xl">
@@ -579,8 +617,10 @@ export default function App() {
         </div>
       </header>
 
-      <main id="top">
+      <main id="top" className="relative z-10">
         <section className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-14 sm:px-8 lg:px-10 lg:pb-24 lg:pt-20">
+          <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-[36rem] w-[90%] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.08),transparent_58%)] blur-3xl" />
+
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <motion.span
@@ -662,6 +702,8 @@ export default function App() {
               onMouseLeave={resetHeroMove}
               className="relative"
             >
+              <div className="pointer-events-none absolute inset-[-12%] -z-10 rounded-[40px] bg-[radial-gradient(circle,rgba(34,211,238,0.12),transparent_58%)] blur-3xl" />
+
               <div
                 className="relative overflow-hidden rounded-[34px] border border-white/10 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur-2xl sm:p-7"
                 style={{
