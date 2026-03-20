@@ -11,6 +11,7 @@ import MarketplacePage from "./pages/MarketplacePage";
 const GASTROAPP_URL = "https://gastroapp.dk";
 const CONTACT_EMAIL = "gg.posleman@gmail.com";
 const COMPANY_CVR = "46327608";
+const UNDERSTACK_URL = "https://understack.vercel.app";
 
 function ReactIcon() {
   return (
@@ -684,6 +685,69 @@ const serviceOsPillars: {
   },
 ];
 
+const productCards = [
+  {
+    badge: "Flagship SaaS",
+    title: "GastroApp",
+    description:
+      "Operational platform for restaurants covering kitchen management, inventory, production structure and team coordination.",
+    bullets: [
+      "Kitchen operations and production planning",
+      "Inventory visibility and workflow structure",
+      "Designed for real-world hospitality operations",
+    ],
+    accent:
+      "border-cyan-300/14 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] hover:border-cyan-300/24 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_40px_rgba(34,211,238,0.14),0_0_100px_rgba(6,182,212,0.12),0_28px_80px_rgba(2,6,23,0.58)]",
+    badgeTone: "border-cyan-300/18 bg-cyan-300/8 text-cyan-200",
+    bulletTone: "text-cyan-300",
+    cta: {
+      label: "Visit GastroApp",
+      href: GASTROAPP_URL,
+      external: true,
+    },
+  },
+  {
+    badge: "Marketplace asset",
+    title: "Food Cost Calculator",
+    description:
+      "Premium restaurant utility app template for food costing, recipe calculation and operational pricing workflows.",
+    bullets: [
+      "Production-ready MVP structure",
+      "UnderStack premium dark/glass UI",
+      "Built to be sold and reused",
+    ],
+    accent:
+      "border-blue-300/14 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] hover:border-blue-300/24 hover:shadow-[0_0_0_1px_rgba(96,165,250,0.14),0_0_40px_rgba(96,165,250,0.14),0_0_100px_rgba(59,130,246,0.12),0_28px_80px_rgba(2,6,23,0.58)]",
+    badgeTone: "border-blue-300/18 bg-blue-300/8 text-blue-200",
+    bulletTone: "text-blue-300",
+    cta: {
+      label: "View marketplace",
+      href: "/marketplace",
+      external: false,
+    },
+  },
+  {
+    badge: "Marketplace asset",
+    title: "WasteTrackr",
+    description:
+      "Waste tracking product for kitchens and restaurants with dashboard, history, insights and filters, packaged for marketplace distribution.",
+    bullets: [
+      "Waste logging and history management",
+      "Insights and date-range analysis",
+      "Codester-ready commercial packaging",
+    ],
+    accent:
+      "border-fuchsia-300/14 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] hover:border-fuchsia-300/24 hover:shadow-[0_0_0_1px_rgba(167,139,250,0.14),0_0_40px_rgba(167,139,250,0.14),0_0_100px_rgba(168,85,247,0.12),0_28px_80px_rgba(2,6,23,0.58)]",
+    badgeTone: "border-fuchsia-300/18 bg-fuchsia-300/8 text-fuchsia-200",
+    bulletTone: "text-fuchsia-300",
+    cta: {
+      label: "View marketplace",
+      href: "/marketplace",
+      external: false,
+    },
+  },
+];
+
 function SectionHeader({
   eyebrow,
   title,
@@ -780,7 +844,7 @@ function HomePage() {
       </header>
 
       <main id="top" className="relative z-10">
-        <section className="relative mx-auto w-full max-w-7xl px-6 pb-20 pt-14 sm:px-8 lg:px-10 lg:pb-24 lg:pt-20">
+        <section className="relative mx-auto w-full max-w-7xl px-6 pb-12 pt-14 sm:px-8 lg:px-10 lg:pb-14 lg:pt-20">
           <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 mx-auto h-[36rem] w-[90%] rounded-full bg-[radial-gradient(circle,rgba(34,211,238,0.08),transparent_58%)] blur-3xl" />
 
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
@@ -862,8 +926,8 @@ function HomePage() {
               <div className="mt-10 grid max-w-xl gap-4 sm:grid-cols-3">
                 {[
                   { label: "Status", value: "Active" },
-                  { label: "Products", value: "1" },
-                  { label: "Next project", value: "1" },
+                  { label: "Products", value: "3" },
+                  { label: "Next project", value: "ServiceOS" },
                 ].map((item, index) => (
                   <motion.div
                     key={item.label}
@@ -969,6 +1033,32 @@ function HomePage() {
               </div>
             </motion.div>
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.32 }}
+            className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4"
+          >
+            {[
+              { label: "CVR", value: COMPANY_CVR },
+              { label: "Email", value: CONTACT_EMAIL },
+              { label: "Website", value: "understack.vercel.app" },
+              { label: "Released items", value: "3 active products/assets" },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_28px_rgba(34,211,238,0.10),0_0_70px_rgba(6,182,212,0.08),0_20px_60px_rgba(2,6,23,0.56)]"
+              >
+                <div className="text-[11px] uppercase tracking-[0.22em] text-white/40">
+                  {item.label}
+                </div>
+                <div className="mt-3 break-words text-sm font-medium text-white/84 sm:text-base">
+                  {item.value}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </section>
 
         <section id="about" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
@@ -1076,75 +1166,63 @@ function HomePage() {
         <section id="products" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
           <SectionHeader
             eyebrow="Products"
-            title="Current flagship product"
-            description="UnderStack is already building software products for real operational environments."
+            title="Current products and released assets"
+            description="UnderStack is building SaaS products and also packaging production-ready software assets for marketplace distribution."
           />
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.28 }}
-            transition={{ duration: 0.55 }}
-            className="mt-14 overflow-hidden rounded-[34px] border border-cyan-300/14 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] p-7 shadow-[0_30px_90px_rgba(0,0,0,0.4)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/24 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.14),0_0_40px_rgba(34,211,238,0.14),0_0_100px_rgba(6,182,212,0.12),0_28px_80px_rgba(2,6,23,0.58)]"
-          >
-            <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-              <div>
-                <span className="inline-flex items-center rounded-full border border-cyan-300/18 bg-cyan-300/8 px-3 py-1 text-[11px] uppercase tracking-[0.22em] text-cyan-200">
-                  Featured product
+          <div className="mt-14 grid gap-6 xl:grid-cols-3">
+            {productCards.map((product, index) => (
+              <motion.article
+                key={product.title}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.28 }}
+                transition={{ duration: 0.55, delay: index * 0.06 }}
+                className={`overflow-hidden rounded-[34px] border p-7 shadow-[0_30px_90px_rgba(0,0,0,0.4)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 ${product.accent}`}
+              >
+                <span className={`inline-flex items-center rounded-full border px-3 py-1 text-[11px] uppercase tracking-[0.22em] ${product.badgeTone}`}>
+                  {product.badge}
                 </span>
+
                 <h3 className="mt-5 text-3xl font-semibold tracking-tight text-white">
-                  GastroApp
+                  {product.title}
                 </h3>
+
                 <p className="mt-4 text-sm leading-8 text-white/68">
-                  GastroApp is an operational platform for restaurants covering kitchen
-                  management, inventory, production structure, internal workflow clarity
-                  and team coordination.
+                  {product.description}
                 </p>
 
                 <ul className="mt-6 space-y-3 text-sm text-white/74">
-                  <li className="flex gap-3">
-                    <span className="text-cyan-300">●</span>
-                    <span>Kitchen operations and production planning</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-cyan-300">●</span>
-                    <span>Inventory visibility and workflow structure</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-cyan-300">●</span>
-                    <span>Designed for real-world hospitality operations</span>
-                  </li>
+                  {product.bullets.map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className={product.bulletTone}>●</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
 
                 <div className="mt-8">
-                  <a
-                    href={GASTROAPP_URL}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center rounded-full border border-cyan-300/18 bg-cyan-300/10 px-6 py-3 text-sm font-medium text-cyan-100 transition hover:border-cyan-300/35 hover:bg-cyan-300/14"
-                  >
-                    Visit GastroApp
-                  </a>
+                  {product.cta.external ? (
+                    <a
+                      href={product.cta.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-6 py-3 text-sm font-medium text-white/90 transition hover:bg-white/10"
+                    >
+                      {product.cta.label}
+                    </a>
+                  ) : (
+                    <Link
+                      to={product.cta.href}
+                      className="inline-flex items-center rounded-full border border-white/12 bg-white/6 px-6 py-3 text-sm font-medium text-white/90 transition hover:bg-white/10"
+                    >
+                      {product.cta.label}
+                    </Link>
+                  )}
                 </div>
-              </div>
-
-              <div className="grid gap-4 sm:grid-cols-2">
-                {[
-                  "Restaurant operations",
-                  "Inventory structure",
-                  "Production planning",
-                  "Team coordination",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 text-sm font-medium text-white/80 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/18 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.10),0_0_28px_rgba(34,211,238,0.10),0_0_70px_rgba(6,182,212,0.08),0_20px_60px_rgba(2,6,23,0.56)]"
-                  >
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+              </motion.article>
+            ))}
+          </div>
         </section>
 
         <section id="pipeline" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">

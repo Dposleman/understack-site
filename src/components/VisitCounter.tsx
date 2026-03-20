@@ -1,62 +1,53 @@
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 
-const VISIT_COUNTER_NAMESPACE = "understack-site";
-const VISIT_COUNTER_KEY = "homepage-visits";
-const VISIT_COUNTER_SESSION_KEY = "understack-homepage-visit-counted";
-const VISIT_COUNTER_OFFSET = 117;
+const STORAGE_KEY = "understack-visit-count";
+const INITIAL_COUNT = 117;
 
 export default function VisitCounter() {
-  const [visitCount, setVisitCount] = useState<number | null>(null);
+  const [count, setCount] = useState<number>(INITIAL_COUNT);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    let cancelled = false;
+    const hasVisitedKey = "understack-visit-session";
+    const storedCount = window.localStorage.getItem(STORAGE_KEY);
+    const hasVisitedThisSession = window.sessionStorage.getItem(hasVisitedKey);
 
-    async function loadVisits() {
-      try {
-        const alreadyCounted =
-          typeof window !== "undefined" &&
-          window.sessionStorage.getItem(VISIT_COUNTER_SESSION_KEY) === "1";
+    let nextCount = storedCount ? parseInt(storedCount, 10) : INITIAL_COUNT;
 
-        const endpoint = alreadyCounted
-          ? `https://api.countapi.xyz/get/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}`
-          : `https://api.countapi.xyz/hit/${VISIT_COUNTER_NAMESPACE}/${VISIT_COUNTER_KEY}`;
-
-        const response = await fetch(endpoint);
-
-        if (!response.ok) {
-          throw new Error("Failed to load visit counter");
-        }
-
-        const data: { value?: number } = await response.json();
-        const rawValue = typeof data.value === "number" ? data.value : 0;
-        const totalValue = rawValue + VISIT_COUNTER_OFFSET;
-
-        if (!cancelled) {
-          setVisitCount(totalValue);
-        }
-
-        if (!alreadyCounted && typeof window !== "undefined") {
-          window.sessionStorage.setItem(VISIT_COUNTER_SESSION_KEY, "1");
-        }
-      } catch (error) {
-        console.error("Visit counter error:", error);
-
-        if (!cancelled) {
-          setVisitCount(VISIT_COUNTER_OFFSET);
-        }
-      }
+    if (!Number.isFinite(nextCount)) {
+      nextCount = INITIAL_COUNT;
     }
 
-    loadVisits();
+    if (!hasVisitedThisSession) {
+      nextCount += 1;
+      window.localStorage.setItem(STORAGE_KEY, String(nextCount));
+      window.sessionStorage.setItem(hasVisitedKey, "true");
+    }
 
-    return () => {
-      cancelled = true;
-    };
+    setCount(nextCount);
+    setMounted(true);
   }, []);
 
-  if (visitCount === null) {
-    return <span>117</span>;
-  }
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 14 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45 }}
+      className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl"
+    >
+      <div className="flex items-center justify-between gap-4">
+        <div>
+          <div className="text-[11px] uppercase tracking-[0.22em] text-white/38">
+            Site visits
+          </div>
+          <div className="mt-2 text-2xl font-semibold text-white">
+            {mounted ? count.toLocaleString() : INITIAL_COUNT.toLocaleString()}
+          </div>
+        </div>
 
-  return <span>{visitCount.toLocaleString("en-US")}</span>;
+        <div className="h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.75)]" />
+      </div>
+    </motion.div>
+  );
 }
