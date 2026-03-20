@@ -1,53 +1,37 @@
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
 
-const STORAGE_KEY = "understack-visit-count";
-const INITIAL_COUNT = 117;
+const STORAGE_KEY_COUNT = "understack_visits_count";
+const STORAGE_KEY_SESSION = "understack_session_counted";
 
 export default function VisitCounter() {
-  const [count, setCount] = useState<number>(INITIAL_COUNT);
-  const [mounted, setMounted] = useState(false);
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
-    const hasVisitedKey = "understack-visit-session";
-    const storedCount = window.localStorage.getItem(STORAGE_KEY);
-    const hasVisitedThisSession = window.sessionStorage.getItem(hasVisitedKey);
+    const storedCount = localStorage.getItem(STORAGE_KEY_COUNT);
+    const sessionCounted = sessionStorage.getItem(STORAGE_KEY_SESSION);
 
-    let nextCount = storedCount ? parseInt(storedCount, 10) : INITIAL_COUNT;
+    let currentCount = storedCount ? parseInt(storedCount, 10) : 117; // base inicial
 
-    if (!Number.isFinite(nextCount)) {
-      nextCount = INITIAL_COUNT;
+    // Solo incrementa UNA vez por sesión
+    if (!sessionCounted) {
+      currentCount += 1;
+      localStorage.setItem(STORAGE_KEY_COUNT, currentCount.toString());
+      sessionStorage.setItem(STORAGE_KEY_SESSION, "true");
     }
 
-    if (!hasVisitedThisSession) {
-      nextCount += 1;
-      window.localStorage.setItem(STORAGE_KEY, String(nextCount));
-      window.sessionStorage.setItem(hasVisitedKey, "true");
-    }
-
-    setCount(nextCount);
-    setMounted(true);
+    setCount(currentCount);
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45 }}
-      className="rounded-[24px] border border-white/10 bg-white/[0.04] p-5 backdrop-blur-xl"
-    >
-      <div className="flex items-center justify-between gap-4">
-        <div>
-          <div className="text-[11px] uppercase tracking-[0.22em] text-white/38">
-            Site visits
-          </div>
-          <div className="mt-2 text-2xl font-semibold text-white">
-            {mounted ? count.toLocaleString() : INITIAL_COUNT.toLocaleString()}
-          </div>
-        </div>
-
-        <div className="h-3 w-3 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.75)]" />
+    <div className="flex items-center justify-center mt-6">
+      <div className="px-4 py-2 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10 shadow-lg">
+        <p className="text-sm text-white/70">
+          👀 Visits:{" "}
+          <span className="text-white font-semibold tracking-wide">
+            {count.toLocaleString()}
+          </span>
+        </p>
       </div>
-    </motion.div>
+    </div>
   );
 }
