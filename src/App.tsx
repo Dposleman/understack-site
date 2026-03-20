@@ -1,9 +1,11 @@
 import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
+import { Link, Route, Routes } from "react-router-dom";
 import logo from "./assets/understack-logo.png";
 import MarketComparison from "./components/MarketComparison";
 import VisitCounter from "./components/VisitCounter";
+import AppsPage from "./pages/AppsPage";
 
 const GASTROAPP_URL = "https://gastroapp.dk";
 const CONTACT_EMAIL = "gg.posleman@gmail.com";
@@ -702,7 +704,7 @@ function SectionHeader({
   );
 }
 
-export default function App() {
+function HomePage() {
   const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
 
   function handleHeroMove(event: React.MouseEvent<HTMLDivElement>) {
@@ -753,6 +755,7 @@ export default function App() {
             <a href="#pricing" className="transition hover:text-white">Pricing</a>
             <a href="#packages" className="transition hover:text-white">Packages</a>
             <a href="#products" className="transition hover:text-white">Products</a>
+            <Link to="/apps" className="transition hover:text-white">Apps</Link>
             <a href="#pipeline" className="transition hover:text-white">In development</a>
             <a href="#technology" className="transition hover:text-white">Technology</a>
             <a href="#contact" className="transition hover:text-white">Contact</a>
@@ -767,26 +770,26 @@ export default function App() {
           <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
             <div>
               <div className="flex flex-wrap items-center gap-3">
-  <motion.span
-    initial={{ opacity: 0, y: 18 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.55 }}
-    className="inline-flex items-center rounded-full border border-cyan-300/15 bg-cyan-300/8 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.3em] text-cyan-200"
-  >
-    Advanced software systems
-  </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55 }}
+                  className="inline-flex items-center rounded-full border border-cyan-300/15 bg-cyan-300/8 px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.3em] text-cyan-200"
+                >
+                  Advanced software systems
+                </motion.span>
 
-  <motion.a
-    initial={{ opacity: 0, y: 18 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.55, delay: 0.06 }}
-    href="#pipeline"
-    className="inline-flex items-center gap-2 rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.08] px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.24em] text-fuchsia-200 transition-all duration-300 hover:border-fuchsia-300/28 hover:bg-fuchsia-300/[0.12] hover:text-fuchsia-100 hover:shadow-[0_0_24px_rgba(168,85,247,0.14)]"
-  >
-    <span className="h-2 w-2 rounded-full bg-fuchsia-300 shadow-[0_0_14px_rgba(216,180,254,0.75)]" />
-    Now building ServiceOS
-  </motion.a>
-</div>
+                <motion.a
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.55, delay: 0.06 }}
+                  href="#pipeline"
+                  className="inline-flex items-center gap-2 rounded-full border border-fuchsia-300/16 bg-fuchsia-300/[0.08] px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.24em] text-fuchsia-200 transition-all duration-300 hover:border-fuchsia-300/28 hover:bg-fuchsia-300/[0.12] hover:text-fuchsia-100 hover:shadow-[0_0_24px_rgba(168,85,247,0.14)]"
+                >
+                  <span className="h-2 w-2 rounded-full bg-fuchsia-300 shadow-[0_0_14px_rgba(216,180,254,0.75)]" />
+                  Now building ServiceOS
+                </motion.a>
+              </div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 18 }}
@@ -820,12 +823,18 @@ export default function App() {
                 >
                   View products
                 </a>
+                <Link
+                  to="/apps"
+                  className="inline-flex items-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 transition hover:bg-white/8"
+                >
+                  View apps
+                </Link>
                 <a
-  href="#pipeline"
-  className="inline-flex items-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 transition hover:bg-white/8"
->
-  See ServiceOS
-</a>
+                  href="#pipeline"
+                  className="inline-flex items-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 transition hover:bg-white/8"
+                >
+                  See ServiceOS
+                </a>
               </motion.div>
 
               <div className="mt-10 grid max-w-xl gap-4 sm:grid-cols-3">
@@ -1246,5 +1255,14 @@ export default function App() {
         </section>
       </main>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/apps" element={<AppsPage />} />
+    </Routes>
   );
 }
