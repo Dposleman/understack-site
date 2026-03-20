@@ -11,7 +11,6 @@ import MarketplacePage from "./pages/MarketplacePage";
 const GASTROAPP_URL = "https://gastroapp.dk";
 const CONTACT_EMAIL = "gg.posleman@gmail.com";
 const COMPANY_CVR = "46327608";
-const UNDERSTACK_URL = "https://understack.vercel.app";
 
 function ReactIcon() {
   return (
