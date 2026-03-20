@@ -6,9 +6,11 @@ import logo from "./assets/understack-logo.png";
 import MarketComparison from "./components/MarketComparison";
 import VisitCounter from "./components/VisitCounter";
 import AppsPage from "./pages/AppsPage";
+import MarketplacePage from "./pages/MarketplacePage";
 
 const GASTROAPP_URL = "https://gastroapp.dk";
 const CONTACT_EMAIL = "gg.posleman@gmail.com";
+const COMPANY_CVR = "46327608";
 
 function ReactIcon() {
   return (
@@ -704,6 +706,19 @@ function SectionHeader({
   );
 }
 
+function Footer() {
+  return (
+    <footer className="relative z-10 border-t border-white/8 bg-[#050816]/70 backdrop-blur-2xl">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 px-6 py-6 text-sm text-white/48 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+        <div className="tracking-[0.18em] uppercase">
+          CVR-nummer: {COMPANY_CVR}
+        </div>
+        <div>© 2026 UnderStack. All rights reserved.</div>
+      </div>
+    </footer>
+  );
+}
+
 function HomePage() {
   const [heroTilt, setHeroTilt] = useState({ x: 0, y: 0 });
 
@@ -756,6 +771,7 @@ function HomePage() {
             <a href="#packages" className="transition hover:text-white">Packages</a>
             <a href="#products" className="transition hover:text-white">Products</a>
             <Link to="/apps" className="transition hover:text-white">Apps</Link>
+            <Link to="/marketplace" className="transition hover:text-white">Marketplace</Link>
             <a href="#pipeline" className="transition hover:text-white">In development</a>
             <a href="#technology" className="transition hover:text-white">Technology</a>
             <a href="#contact" className="transition hover:text-white">Contact</a>
@@ -828,6 +844,12 @@ function HomePage() {
                   className="inline-flex items-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 transition hover:bg-white/8"
                 >
                   View apps
+                </Link>
+                <Link
+                  to="/marketplace"
+                  className="inline-flex items-center rounded-full border border-white/12 bg-white/5 px-6 py-3 text-sm font-medium text-white/88 transition hover:bg-white/8"
+                >
+                  Developer assets
                 </Link>
                 <a
                   href="#pipeline"
@@ -1254,6 +1276,8 @@ function HomePage() {
           </motion.div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }
@@ -1263,6 +1287,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/apps" element={<AppsPage />} />
+      <Route path="/marketplace" element={<MarketplacePage />} />
     </Routes>
   );
 }
