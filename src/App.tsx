@@ -9,7 +9,7 @@ import AppsPage from "./pages/AppsPage";
 import MarketplacePage from "./pages/MarketplacePage";
 
 const GASTROAPP_URL = "https://gastroapp.dk";
-const CONTACT_EMAIL = "gg.posleman@gmail.com";
+const CONTACT_EMAIL = "info@understack.dk";
 const COMPANY_CVR = "46327608";
 
 function ReactIcon() {
@@ -1042,7 +1042,7 @@ function HomePage() {
             {[
               { label: "CVR", value: COMPANY_CVR },
               { label: "Email", value: CONTACT_EMAIL },
-              { label: "Website", value: "understack.vercel.app" },
+              { label: "Website", value: "understack.dk" },
               { label: "Released items", value: "3 active products/assets" },
             ].map((item) => (
               <div
