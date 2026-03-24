@@ -368,7 +368,7 @@ function PricingCards() {
           accent="blue"
           title="Basic Landing Website"
           subtitle="Ideal for freelancers or small businesses that need a serious online presence without unnecessary complexity."
-          price="4,500"
+          price="4,500 + moms"
           items={[
             "1 premium landing page",
             "Responsive design for mobile and desktop",
@@ -389,7 +389,7 @@ function PricingCards() {
           accent="cyan"
           title="Business Website"
           subtitle="For companies that want a stronger brand presence, multiple sections and more conversion-focused structure."
-          price="7,500"
+          price="7,500 + moms"
           items={[
             "Up to 5 custom pages",
             "Premium visual system and refined UI",
@@ -410,7 +410,7 @@ function PricingCards() {
           accent="purple"
           title="Custom Website / Platform"
           subtitle="For brands or operators that need a more tailored structure, richer interactions or product-driven web presence."
-          price="12,500+"
+          price="12,500+ + moms"
           items={[
             "Custom architecture and page structure",
             "Advanced interaction design",
