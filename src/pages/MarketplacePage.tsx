@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import PageMeta from "../components/PageMeta";
 
 const CODESTER_URL = "https://www.codester.com/UnderStack/";
 
@@ -84,6 +85,11 @@ function AssetCard({ item }: { item: AssetItem }) {
 export default function MarketplacePage() {
   return (
     <div className="min-h-screen bg-[#020617] text-white">
+      <PageMeta
+        title="Marketplace — UnderStack"
+        description="Premium code assets, templates and reusable developer products from UnderStack."
+        path="/marketplace"
+      />
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.16),transparent_30%),radial-gradient(circle_at_20%_80%,rgba(34,211,238,0.10),transparent_25%),radial-gradient(circle_at_80%_70%,rgba(168,85,247,0.12),transparent_28%),linear-gradient(180deg,#020617_0%,#050b17_100%)]" />
 
       <header className="sticky top-0 z-40 border-b border-white/8 bg-slate-950/55 backdrop-blur-xl">

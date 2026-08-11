@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import PageMeta from "../components/PageMeta";
 
 type AppItem = {
   name: string;
@@ -17,8 +18,6 @@ const releasedApps: AppItem[] = [
     status: "Released",
     description:
       "Professional food cost and pricing calculator for chefs, kitchens and food businesses.",
-    cta: "View details",
-    href: "#",
   },
   {
     name: "WasteTrackr",
@@ -26,8 +25,6 @@ const releasedApps: AppItem[] = [
     status: "Released",
     description:
       "Waste tracking app for kitchens and restaurants with dashboard, history and insights.",
-    cta: "View details",
-    href: "#",
   },
 ];
 
@@ -87,13 +84,15 @@ function AppCard({ item }: { item: AppItem }) {
         {item.href && item.cta ? (
           <a
             href={item.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-6 inline-flex items-center rounded-full border border-cyan-300/25 bg-cyan-300/10 px-4 py-2 text-sm font-medium text-cyan-100 transition hover:border-cyan-200/40 hover:bg-cyan-300/14"
           >
             {item.cta}
           </a>
         ) : (
           <div className="mt-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-white/60">
-            Coming soon
+            {isReleased ? "Public link coming soon" : "Coming soon"}
           </div>
         )}
       </div>
@@ -104,6 +103,11 @@ function AppCard({ item }: { item: AppItem }) {
 export default function AppsPage() {
   return (
     <div className="min-h-screen bg-[#020617] text-white">
+      <PageMeta
+        title="Apps — UnderStack"
+        description="Released UnderStack apps and products currently in development."
+        path="/apps"
+      />
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.16),transparent_30%),radial-gradient(circle_at_20%_80%,rgba(34,211,238,0.10),transparent_25%),radial-gradient(circle_at_80%_70%,rgba(168,85,247,0.12),transparent_28%),linear-gradient(180deg,#020617_0%,#050b17_100%)]" />
 
       <header className="sticky top-0 z-40 border-b border-white/8 bg-slate-950/55 backdrop-blur-xl">
@@ -121,6 +125,9 @@ export default function AppsPage() {
             </Link>
             <Link to="/apps" className="text-cyan-200">
               Apps
+            </Link>
+            <Link to="/marketplace" className="transition hover:text-white">
+              Marketplace
             </Link>
           </nav>
         </div>

@@ -1,12 +1,15 @@
 import { motion } from "motion/react";
+import { lazy, Suspense, useState } from "react";
 import type { ReactNode } from "react";
-import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import logo from "./assets/understack-logo.png";
 import MarketComparison from "./components/MarketComparison";
+import PageMeta from "./components/PageMeta";
 import VisitCounter from "./components/VisitCounter";
-import AppsPage from "./pages/AppsPage";
-import MarketplacePage from "./pages/MarketplacePage";
+import NotFoundPage from "./pages/NotFoundPage";
+
+const AppsPage = lazy(() => import("./pages/AppsPage"));
+const MarketplacePage = lazy(() => import("./pages/MarketplacePage"));
 
 const GASTROAPP_URL = "https://gastroapp.dk";
 const CONTACT_EMAIL = "info@understack.dk";
@@ -800,6 +803,11 @@ function HomePage() {
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-[#050816] text-white">
+      <PageMeta
+        title="UnderStack — Premium Software Systems"
+        description="UnderStack builds advanced software systems, premium digital products and modern web platforms for serious businesses."
+        path="/"
+      />
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <div className="absolute inset-0 bg-[#050816]" />
 
@@ -1361,10 +1369,13 @@ function HomePage() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/apps" element={<AppsPage />} />
-      <Route path="/marketplace" element={<MarketplacePage />} />
-    </Routes>
+    <Suspense fallback={<div className="min-h-screen bg-[#020617]" aria-label="Loading" />}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/apps" element={<AppsPage />} />
+        <Route path="/marketplace" element={<MarketplacePage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
   );
 }
