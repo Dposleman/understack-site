@@ -748,6 +748,26 @@ const productCards = [
       external: false,
     },
   },
+  {
+    badge: "Platform modernization",
+    title: "Peritar",
+    description:
+      "Insurance inspection and traffic-accident case management platform for insurers and professional assessment firms, currently being modernized from legacy PHP to TypeScript.",
+    bullets: [
+      "Accident case files, vehicle inspections and damage estimates",
+      "Policies, involved parties, evidence, reports and provider workflows",
+      "Incremental migration to React and NestJS with audited legacy parity",
+    ],
+    accent:
+      "border-emerald-300/14 bg-[linear-gradient(180deg,rgba(10,14,28,0.92),rgba(6,10,22,0.82))] hover:border-emerald-300/24 hover:shadow-[0_0_0_1px_rgba(52,211,153,0.14),0_0_40px_rgba(52,211,153,0.14),0_0_100px_rgba(16,185,129,0.12),0_28px_80px_rgba(2,6,23,0.58)]",
+    badgeTone: "border-emerald-300/18 bg-emerald-300/8 text-emerald-200",
+    bulletTone: "text-emerald-300",
+    cta: {
+      label: "Discuss the platform",
+      href: `mailto:${CONTACT_EMAIL}`,
+      external: true,
+    },
+  },
 ];
 
 function SectionHeader({
@@ -1173,8 +1193,8 @@ function HomePage() {
         <section id="products" className="mx-auto w-full max-w-7xl px-6 py-24 sm:px-8 lg:px-10">
           <SectionHeader
             eyebrow="Products"
-            title="Current products and released assets"
-            description="UnderStack is building SaaS products and also packaging production-ready software assets for marketplace distribution."
+            title="Current products and software platforms"
+            description="UnderStack builds SaaS products, modernizes operational platforms and packages production-ready software assets for marketplace distribution."
           />
 
           <div className="mt-14 grid gap-6 xl:grid-cols-3">
