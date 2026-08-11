@@ -953,7 +953,7 @@ function HomePage() {
               <div className="mt-10 grid max-w-xl gap-4 sm:grid-cols-3">
                 {[
                   { label: "Status", value: "Active" },
-                  { label: "Products", value: "3" },
+                  { label: "Products", value: "4" },
                   { label: "Next project", value: "ServiceOS" },
                 ].map((item, index) => (
                   <motion.div
