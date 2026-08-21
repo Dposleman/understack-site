@@ -1,0 +1,66 @@
+import { renderToString } from "react-dom/server";
+import { MemoryRouter } from "react-router-dom";
+import App, { schemaFor } from "./App";
+import { allPages, alternateFor, findPage, pagePath, SITE_URL, type Language } from "./seoContent";
+
+const IMAGE_URL = `${SITE_URL}/og-image-final-optimized.jpg`;
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function absolute(path: string) {
+  return new URL(path, SITE_URL).toString();
+}
+
+function headFor(pathname: string) {
+  const parts = pathname.replace(/^\//, "").split("/");
+  const lang: Language = parts[0] === "en" ? "en" : "dk";
+  const slug = parts.slice(1).join("/").replace(/\/$/, "");
+  const page = findPage(lang, slug) ?? findPage(lang, "")!;
+  const canonical = absolute(pagePath(page));
+  const title = escapeHtml(page.title);
+  const description = escapeHtml(page.description);
+  const alternates = [
+    ["da-DK", absolute(alternateFor(page, "dk"))],
+    ["en", absolute(alternateFor(page, "en"))],
+    ["x-default", absolute(alternateFor(page, "dk"))],
+  ];
+
+  return {
+    lang: lang === "dk" ? "da-DK" : "en",
+    head: [
+      `<title>${title}</title>`,
+      `<meta name="description" content="${description}" />`,
+      `<link rel="canonical" href="${canonical}" />`,
+      ...alternates.map(([hrefLang, href]) => `<link rel="alternate" hreflang="${hrefLang}" href="${href}" />`),
+      `<meta property="og:title" content="${title}" />`,
+      `<meta property="og:description" content="${description}" />`,
+      `<meta property="og:url" content="${canonical}" />`,
+      `<meta property="og:image" content="${IMAGE_URL}" />`,
+      `<meta property="og:image:secure_url" content="${IMAGE_URL}" />`,
+      `<meta name="twitter:title" content="${title}" />`,
+      `<meta name="twitter:description" content="${description}" />`,
+      `<meta name="twitter:image" content="${IMAGE_URL}" />`,
+      `<script type="application/ld+json" data-understack-schema="true">${JSON.stringify(schemaFor(page)).replaceAll("<", "\\u003c")}</script>`,
+    ].join("\n    "),
+  };
+}
+
+export function render(pathname: string) {
+  const metadata = headFor(pathname);
+  return {
+    html: renderToString(
+      <MemoryRouter initialEntries={[pathname]}>
+        <App />
+      </MemoryRouter>,
+    ),
+    ...metadata,
+  };
+}
+
+export const routes = allPages.map(pagePath);

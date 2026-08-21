@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://understack.dk/</loc></url>
-  <url><loc>https://understack.dk/apps</loc></url>
-  <url><loc>https://understack.dk/marketplace</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://understack.dk/dk/</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/"/><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://understack.dk/dk/"/></url>
+  <url><loc>https://understack.dk/en/</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/"/><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://understack.dk/dk/"/></url>
+  <url><loc>https://understack.dk/dk/webudvikling-aarhus</loc></url>
+  <url><loc>https://understack.dk/dk/webudvikling</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/web-development"/></url>
+  <url><loc>https://understack.dk/dk/softwareudvikling-aarhus</loc></url>
+  <url><loc>https://understack.dk/dk/softwareudvikling</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/software-development"/></url>
+  <url><loc>https://understack.dk/dk/app-udvikling</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/app-development"/></url>
+  <url><loc>https://understack.dk/dk/ai-loesninger</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/ai-development"/></url>
+  <url><loc>https://understack.dk/dk/restaurant-software</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/restaurant-software"/></url>
+  <url><loc>https://understack.dk/dk/custom-software</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/custom-software"/></url>
+  <url><loc>https://understack.dk/dk/webshop-udvikling</loc></url>
+  <url><loc>https://understack.dk/en/web-development</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/webudvikling"/></url>
+  <url><loc>https://understack.dk/en/software-development</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/softwareudvikling"/></url>
+  <url><loc>https://understack.dk/en/custom-software</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/custom-software"/></url>
+  <url><loc>https://understack.dk/en/app-development</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/app-udvikling"/></url>
+  <url><loc>https://understack.dk/en/ai-development</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/ai-loesninger"/></url>
+  <url><loc>https://understack.dk/en/restaurant-software</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/restaurant-software"/></url>
+  <url><loc>https://understack.dk/dk/cases/</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/cases/"/></url>
+  <url><loc>https://understack.dk/en/cases/</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/cases/"/></url>
+  <url><loc>https://understack.dk/dk/cases/gastroapp</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/cases/gastroapp"/></url>
+  <url><loc>https://understack.dk/en/cases/gastroapp</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/cases/gastroapp"/></url>
+  <url><loc>https://understack.dk/dk/cases/ai-schedule</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/cases/ai-schedule"/></url>
+  <url><loc>https://understack.dk/en/cases/ai-schedule</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/cases/ai-schedule"/></url>
+  <url><loc>https://understack.dk/dk/cases/serviceos</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/cases/serviceos"/></url>
+  <url><loc>https://understack.dk/en/cases/serviceos</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/cases/serviceos"/></url>
+  <url><loc>https://understack.dk/dk/insights/</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/insights/"/></url>
+  <url><loc>https://understack.dk/en/insights/</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/insights/"/></url>
+  <url><loc>https://understack.dk/dk/insights/hvad-koster-en-hjemmeside-i-danmark</loc></url>
+  <url><loc>https://understack.dk/dk/insights/hvad-koster-softwareudvikling-i-danmark</loc></url>
+  <url><loc>https://understack.dk/dk/insights/freelancer-vs-softwarebureau</loc></url>
+  <url><loc>https://understack.dk/dk/insights/hvad-koster-en-app-at-udvikle</loc></url>
+  <url><loc>https://understack.dk/dk/insights/ai-loesninger-til-danske-virksomheder</loc></url>
+  <url><loc>https://understack.dk/dk/insights/restaurant-software-i-danmark</loc></url>
+  <url><loc>https://understack.dk/dk/insights/hvordan-automatiserer-ai-restaurantdrift</loc></url>
+  <url><loc>https://understack.dk/en/insights/how-much-does-software-development-cost-in-denmark</loc></url>
+  <url><loc>https://understack.dk/en/insights/how-much-does-a-business-website-cost-in-denmark</loc></url>
+  <url><loc>https://understack.dk/en/insights/custom-software-vs-saas</loc></url>
+  <url><loc>https://understack.dk/en/insights/restaurant-management-software-in-denmark</loc></url>
+  <url><loc>https://understack.dk/en/insights/ai-automation-for-european-businesses</loc></url>
+  <url><loc>https://understack.dk/dk/apps</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/apps"/></url>
+  <url><loc>https://understack.dk/en/apps</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/apps"/></url>
+  <url><loc>https://understack.dk/dk/marketplace</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/marketplace"/></url>
+  <url><loc>https://understack.dk/en/marketplace</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/marketplace"/></url>
 </urlset>

@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+Disallow: /dist/
+
 Sitemap: https://understack.dk/sitemap.xml

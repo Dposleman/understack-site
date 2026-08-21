@@ -1,0 +1,17 @@
+{
+  "name": "UnderStack",
+  "short_name": "UnderStack",
+  "description": "Softwareudvikling, webudvikling, AI-løsninger og restaurant software fra Aarhus.",
+  "start_url": "/dk/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

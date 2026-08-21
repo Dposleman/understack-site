@@ -13,7 +13,7 @@
   ],
   "rewrites": [
     {
-      "source": "/((?!assets/|favicon|robots.txt|sitemap.xml|manifest.webmanifest).*)",
+      "source": "/((?!assets/|favicon|robots.txt|sitemap.xml|manifest.webmanifest|og-image-final-optimized.jpg).*)",
       "destination": "/index.html"
     }
   ]
