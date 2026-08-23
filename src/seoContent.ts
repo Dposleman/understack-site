@@ -619,6 +619,7 @@ export const portfolioProjects: PortfolioProject[] = [
     capabilities: ["Legacy PHP -> TypeScript modernization", "Frontend and backend modernization", "UI/UX modernization", "Maintainable code structure", "Scalable architecture preparation"],
     status: "Platform modernization in progress",
     location: "Mendoza, Argentina",
+    cta: { label: "View development preview", href: "https://178.104.199.153/" },
   },
   {
     name: "Service OS",
