@@ -10,7 +10,7 @@ const template = await readFile(path.join(distDir, "index.html"), "utf8");
 function removeDynamicHead(html) {
   return html
     .replace(/\s*<title>[\s\S]*?<\/title>/i, "")
-    .replace(/\s*<meta\s+(?:name="description"|property="og:(?:title|description|url)"|name="twitter:(?:title|description)")[^>]*>/gi, "")
+    .replace(/\s*<meta\s+(?:name="description"|property="og:(?:title|description|url|image|image:secure_url)"|name="twitter:(?:title|description|image)")[^>]*>/gi, "")
     .replace(/\s*<link\s+rel="canonical"[^>]*>/gi, "")
     .replace(/\s*<link\s+rel="alternate"[^>]*>/gi, "");
 }

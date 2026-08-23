@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { SITE_URL, SOCIAL_IMAGE_URL } from "../seoContent";
 
-const SITE_URL = "https://understack.dk";
-const IMAGE_URL = `${SITE_URL}/og-image-final-optimized.jpg`;
+const IMAGE_URL = SOCIAL_IMAGE_URL;
 
 type PageMetaProps = {
   title: string;

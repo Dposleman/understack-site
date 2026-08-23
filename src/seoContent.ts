@@ -2,9 +2,11 @@ export const SITE_URL = "https://understack.dk";
 export const CONTACT_EMAIL = "info@understack.dk";
 export const COMPANY_CVR = "46327608";
 export const GASTROAPP_URL = "https://gastroapp.dk";
+export const SOCIAL_IMAGE_PATH = "/understack-social-preview.png";
+export const SOCIAL_IMAGE_URL = `${SITE_URL}${SOCIAL_IMAGE_PATH}`;
 
 export type Language = "dk" | "en";
-export type PageKind = "home" | "service" | "case" | "caseIndex" | "insight" | "insightIndex" | "apps" | "marketplace";
+export type PageKind = "home" | "service" | "case" | "caseIndex" | "portfolio" | "insight" | "insightIndex" | "apps" | "marketplace";
 
 export type SeoPage = {
   lang: Language;
@@ -20,6 +22,19 @@ export type SeoPage = {
   related: { label: string; href: string }[];
   cta: string;
   keywords: string[];
+};
+
+export type PortfolioProject = {
+  name: string;
+  category: string;
+  description: string;
+  capabilities: string[];
+  status?: string;
+  location?: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
 };
 
 export const languageNames: Record<Language, string> = {
@@ -579,6 +594,105 @@ caseDetails.forEach((item) => {
   );
 });
 
+export const portfolioProjects: PortfolioProject[] = [
+  {
+    name: "GastroApp",
+    category: "Restaurant Operations SaaS",
+    description:
+      "A full restaurant operations platform developed by UnderStack to centralize recipes, food costing, inventory, production and multi-restaurant workflows.",
+    capabilities: ["Recipes & food costing", "Inventory and stock management", "Production and events", "Tasks and reports", "Kitchen operations"],
+    cta: { label: "Visit GastroApp", href: GASTROAPP_URL },
+  },
+  {
+    name: "AI Schedule",
+    category: "Intelligent Workforce Management",
+    description:
+      "An intelligent staff planning platform for restaurants and shift-based companies, focused on reducing admin time, planning errors and coverage issues.",
+    capabilities: ["Employee scheduling", "Availability and vacation management", "Automated shift generation", "Sick-leave replacement", "Location-aware shift controls"],
+    status: "Product currently in development",
+  },
+  {
+    name: "Peritar - ASEPCO",
+    category: "Business Platform Modernization",
+    description:
+      "A professional platform used in the context of expert assessment workflows for ASEPCO in Mendoza, Argentina, now undergoing a major technical modernization by UnderStack.",
+    capabilities: ["Legacy PHP -> TypeScript modernization", "Frontend and backend modernization", "UI/UX modernization", "Maintainable code structure", "Scalable architecture preparation"],
+    status: "Platform modernization in progress",
+    location: "Mendoza, Argentina",
+  },
+  {
+    name: "Service OS",
+    category: "Service Business Management SaaS",
+    description:
+      "An operating system for service businesses, turning customers, jobs, employees, scheduling, documents and internal workflows into one operational workspace.",
+    capabilities: ["Customers and service orders", "Employees and scheduling", "Tasks and documents", "Operational workflows", "Business overview"],
+    status: "UnderStack product in development",
+  },
+  {
+    name: "AI Visual Studio",
+    category: "AI Creative Platform",
+    description:
+      "An AI-powered creative platform for transforming, editing and animating visual content through advanced generative models.",
+    capabilities: ["Image-to-image workflows", "Image-to-video generation", "Creative editing workflows", "Multi-model architecture", "Personal media library"],
+    status: "UnderStack product in development",
+  },
+];
+
+export const portfolioPages: SeoPage[] = [
+  {
+    lang: "dk",
+    slug: "portfolio",
+    kind: "portfolio",
+    title: "Portfolio | UnderStack software systems and SaaS products",
+    description:
+      "Selected UnderStack work across SaaS development, custom software, AI solutions, restaurant software and business platform modernization in Denmark and beyond.",
+    h1: "Selected Work",
+    eyebrow: "Portfolio",
+    intro:
+      "From SaaS products to business-critical platform modernization, we design and build software focused on solving real operational problems.",
+    sections: [
+      {
+        title: "Software built for real-world operations.",
+        body:
+          "UnderStack designs, develops and modernizes full software systems: SaaS products, custom business platforms, AI solutions, restaurant operations software and internal management tools.",
+      },
+    ],
+    related: [
+      { label: "Software development", href: "/en/software-development" },
+      { label: "Restaurant software", href: "/en/restaurant-software" },
+      { label: "Contact", href: "mailto:info@understack.dk" },
+    ],
+    cta: "Discuss your project",
+    keywords: ["software development Denmark", "software development Aarhus", "SaaS development", "custom software development", "AI solutions", "restaurant software", "business software"],
+  },
+  {
+    lang: "en",
+    slug: "portfolio",
+    kind: "portfolio",
+    title: "Portfolio | UnderStack software systems and SaaS products",
+    description:
+      "Selected UnderStack work across SaaS development, custom software, AI solutions, restaurant software and business platform modernization in Denmark and beyond.",
+    h1: "Selected Work",
+    eyebrow: "Portfolio",
+    intro:
+      "From SaaS products to business-critical platform modernization, we design and build software focused on solving real operational problems.",
+    sections: [
+      {
+        title: "Software built for real-world operations.",
+        body:
+          "UnderStack designs, develops and modernizes full software systems: SaaS products, custom business platforms, AI solutions, restaurant operations software and internal management tools.",
+      },
+    ],
+    related: [
+      { label: "Software development", href: "/en/software-development" },
+      { label: "Restaurant software", href: "/en/restaurant-software" },
+      { label: "Contact", href: "mailto:info@understack.dk" },
+    ],
+    cta: "Discuss your project",
+    keywords: ["software development Denmark", "software development Aarhus", "SaaS development", "custom software development", "AI solutions", "restaurant software", "business software"],
+  },
+];
+
 const insights = [
   ["dk", "hvad-koster-en-hjemmeside-i-danmark", "Hvad koster en hjemmeside i Danmark?", "En realistisk guide til pris på virksomhedswebsites i Danmark, hvad der driver prisen, og hvornår custom udvikling giver mening.", "/dk/webudvikling"],
   ["dk", "hvad-koster-softwareudvikling-i-danmark", "Hvad koster softwareudvikling i Danmark?", "Softwareudvikling afhænger af scope, integrationer, design, data og drift. Artiklen forklarer, hvordan virksomheder kan budgettere uden falsk præcision.", "/dk/softwareudvikling"],
@@ -754,7 +868,7 @@ export const appsPages: SeoPage[] = [
   },
 ];
 
-export const allPages = [...pages, ...servicePages, ...casePages, ...insightPages, ...appsPages];
+export const allPages = [...pages, ...servicePages, ...casePages, ...portfolioPages, ...insightPages, ...appsPages];
 
 export function findPage(lang: Language, slug = "") {
   const normalized = slug.replace(/^\/|\/$/g, "");

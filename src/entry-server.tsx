@@ -1,9 +1,9 @@
 import { renderToString } from "react-dom/server";
 import { MemoryRouter } from "react-router-dom";
 import App, { schemaFor } from "./App";
-import { allPages, alternateFor, findPage, pagePath, SITE_URL, type Language } from "./seoContent";
+import { allPages, alternateFor, findPage, pagePath, SITE_URL, SOCIAL_IMAGE_URL, type Language } from "./seoContent";
 
-const IMAGE_URL = `${SITE_URL}/og-image-final-optimized.jpg`;
+const IMAGE_URL = SOCIAL_IMAGE_URL;
 
 function escapeHtml(value: string) {
   return value
