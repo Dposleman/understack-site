@@ -35,6 +35,7 @@ export type PortfolioProject = {
     label: string;
     href: string;
   };
+  localized?: Partial<Record<Language, Partial<Omit<PortfolioProject, "name" | "cta" | "localized">> & { cta?: PortfolioProject["cta"] }>>;
 };
 
 export const languageNames: Record<Language, string> = {
@@ -612,6 +613,78 @@ export const portfolioProjects: PortfolioProject[] = [
     status: "Product currently in development",
   },
   {
+    name: "UnderStack Pocket AI",
+    category: "Local-first Android AI Assistant",
+    description:
+      "A private Android assistant built around local models, approved on-device memory, selected files and permission-gated mobile actions.",
+    capabilities: [
+      "Local AI chat with downloaded models",
+      "Approved local memory stored on device",
+      "Selected files, PDF, DOCX and XLSX text workflows",
+      "Camera, image OCR and visual labeling",
+      "Calendar, reminders, contacts, email drafts, SMS, phone, maps and location with approval",
+      "Public web search and source reading when the user asks to go online",
+      "On-device image generation when a compatible local model is installed",
+      "Android app launcher and optional screen-control surfaces where the distribution permits it",
+    ],
+    status: "Market launch coming soon - Google Play release preparation",
+    localized: {
+      dk: {
+        category: "Local-first Android AI-assistent",
+        description:
+          "En privat Android-assistent bygget omkring lokale modeller, godkendt hukommelse på enheden, valgte filer og mobilhandlinger med tydelige tilladelser.",
+        capabilities: [
+          "Lokal AI-chat med downloadede modeller",
+          "Godkendt lokal hukommelse gemt på enheden",
+          "Arbejdsgange til valgte filer, PDF, DOCX og XLSX-tekst",
+          "Kamera, billed-OCR og visuel mærkning",
+          "Kalender, påmindelser, kontakter, email-kladder, SMS, telefon, kort og lokation med godkendelse",
+          "Offentlig websøgning og kildelæsning når brugeren beder om online research",
+          "Billedgenerering på enheden når en kompatibel lokal model er installeret",
+          "Android app launcher og valgfri skærmkontrol hvor distributionen tillader det",
+        ],
+        status: "Markedslancering snart - klargøres til Google Play",
+      },
+    },
+  },
+  {
+    name: "UnderStack AI Agent",
+    category: "Local-first Windows Desktop Agent",
+    description:
+      "A Windows desktop agent in development with a React interface, local Python daemon, task execution, project analysis, audit events and planned Tauri packaging.",
+    capabilities: [
+      "Local desktop dashboard for agent work",
+      "Local daemon on localhost APIs",
+      "Task creation, task state and execution flow",
+      "Project registration and repository analysis",
+      "Local SQLite storage for memory, audit logs and project profiles",
+      "Ollama model status, model selection and local chat",
+      "Whitelisted build diagnostics and command execution",
+      "Pocket pairing through a token-protected local or tunneled connection",
+      "Windows installer path prepared with Tauri",
+    ],
+    status: "Market launch coming soon - Windows desktop product in development",
+    localized: {
+      dk: {
+        category: "Local-first Windows desktop-agent",
+        description:
+          "En Windows desktop-agent under udvikling med React-interface, lokal Python-daemon, opgavestyring, projektanalyse, audit-events og planlagt Tauri-pakning.",
+        capabilities: [
+          "Lokalt desktop-dashboard til agentarbejde",
+          "Lokal daemon via localhost API'er",
+          "Oprettelse, status og eksekveringsflow for opgaver",
+          "Projektregistrering og repository-analyse",
+          "Lokal SQLite-lagring til hukommelse, audit logs og projektprofiler",
+          "Ollama modelstatus, modelvalg og lokal chat",
+          "Whitelisted build diagnostics og kommandokørsel",
+          "Pocket-parring via tokenbeskyttet lokal eller tunneled forbindelse",
+          "Windows installer-retning klargjort med Tauri",
+        ],
+        status: "Markedslancering snart - Windows desktop-produkt under udvikling",
+      },
+    },
+  },
+  {
     name: "Peritar - ASEPCO",
     category: "Business Platform Modernization",
     description:
@@ -646,25 +719,25 @@ export const portfolioPages: SeoPage[] = [
     kind: "portfolio",
     title: "Portfolio | UnderStack software systems and SaaS products",
     description:
-      "Selected UnderStack work across SaaS development, custom software, AI solutions, restaurant software and business platform modernization in Denmark and beyond.",
-    h1: "Selected Work",
+      "Udvalgt UnderStack-arbejde på tværs af SaaS-udvikling, custom software, AI-løsninger, restaurant software og platformmodernisering.",
+    h1: "Udvalgt arbejde",
     eyebrow: "Portfolio",
     intro:
-      "From SaaS products to business-critical platform modernization, we design and build software focused on solving real operational problems.",
+      "Fra SaaS-produkter til forretningskritisk platformmodernisering designer og bygger vi software, der løser konkrete operationelle problemer.",
     sections: [
       {
-        title: "Software built for real-world operations.",
+        title: "Software bygget til reel drift.",
         body:
-          "UnderStack designs, develops and modernizes full software systems: SaaS products, custom business platforms, AI solutions, restaurant operations software and internal management tools.",
+          "UnderStack designer, udvikler og moderniserer hele softwaresystemer: SaaS-produkter, custom business platforms, AI-løsninger, restaurant operations software og interne management tools.",
       },
     ],
     related: [
-      { label: "Software development", href: "/en/software-development" },
-      { label: "Restaurant software", href: "/en/restaurant-software" },
-      { label: "Contact", href: "mailto:info@understack.dk" },
+      { label: "Softwareudvikling", href: "/dk/softwareudvikling" },
+      { label: "Restaurant software", href: "/dk/restaurant-software" },
+      { label: "Kontakt", href: "mailto:info@understack.dk" },
     ],
-    cta: "Discuss your project",
-    keywords: ["software development Denmark", "software development Aarhus", "SaaS development", "custom software development", "AI solutions", "restaurant software", "business software"],
+    cta: "Diskuter dit projekt",
+    keywords: ["softwareudvikling Danmark", "softwareudvikling Aarhus", "SaaS udvikling", "custom software development", "AI løsninger", "restaurant software", "business software"],
   },
   {
     lang: "en",

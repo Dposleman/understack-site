@@ -254,34 +254,40 @@ function CardGrid({ page }: { page: SeoPage }) {
   );
 }
 
-function PortfolioCard({ project }: { project: PortfolioProject }) {
+function localizedProject(project: PortfolioProject, lang: Language) {
+  return { ...project, ...project.localized?.[lang] };
+}
+
+function PortfolioCard({ project, lang }: { project: PortfolioProject; lang: Language }) {
+  const content = localizedProject(project, lang);
+
   return (
     <article className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/64 p-6 shadow-2xl shadow-black/18 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/34 hover:bg-slate-950/76">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(34,211,238,0.16),transparent_34%),linear-gradient(135deg,rgba(59,130,246,0.08),rgba(99,102,241,0.04)_48%,rgba(14,165,233,0.1))] opacity-80 transition duration-300 group-hover:opacity-100" />
       <div className="relative">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/78">{project.category}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/78">{content.category}</p>
         <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{project.name}</h2>
-        <p className="mt-4 text-sm leading-7 text-white/66">{project.description}</p>
+        <p className="mt-4 text-sm leading-7 text-white/66">{content.description}</p>
 
         <div className="mt-5 flex flex-wrap gap-2">
-          {project.status ? <span className="rounded-full border border-cyan-300/18 bg-cyan-300/10 px-3 py-1 text-xs text-cyan-100">{project.status}</span> : null}
-          {project.location ? <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs text-white/64">{project.location}</span> : null}
+          {content.status ? <span className="rounded-full border border-cyan-300/18 bg-cyan-300/10 px-3 py-1 text-xs text-cyan-100">{content.status}</span> : null}
+          {content.location ? <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs text-white/64">{content.location}</span> : null}
         </div>
 
         <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-          {project.capabilities.map((capability) => (
+          {content.capabilities.map((capability) => (
             <li key={capability} className="rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-6 text-white/72">
               {capability}
             </li>
           ))}
         </ul>
 
-        {project.cta ? (
+        {content.cta ? (
           <a
-            href={project.cta.href}
+            href={content.cta.href}
             className="mt-7 inline-flex min-h-11 items-center rounded-full border border-cyan-300/24 bg-cyan-300/12 px-5 py-2 text-sm font-medium text-cyan-100 transition hover:bg-cyan-300/18"
           >
-            {project.cta.label} <span aria-hidden="true" className="ml-2">-&gt;</span>
+            {content.cta.label} <span aria-hidden="true" className="ml-2">-&gt;</span>
           </a>
         ) : null}
       </div>
@@ -294,17 +300,19 @@ function PortfolioGrid({ page }: { page: SeoPage }) {
     return null;
   }
 
+  const isDanish = page.lang === "dk";
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-12" aria-labelledby="portfolio-projects">
       <div className="max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/72">Software built for real-world operations.</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/72">{isDanish ? "Software bygget til reel drift." : "Software built for real-world operations."}</p>
         <h2 id="portfolio-projects" className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          Selected systems, products and platform modernization work.
+          {isDanish ? "Udvalgte systemer, produkter og platformmodernisering." : "Selected systems, products and platform modernization work."}
         </h2>
       </div>
       <div className="mt-8 grid gap-5 lg:grid-cols-2">
         {portfolioProjects.map((project) => (
-          <PortfolioCard key={project.name} project={project} />
+          <PortfolioCard key={project.name} project={project} lang={page.lang} />
         ))}
       </div>
     </section>
