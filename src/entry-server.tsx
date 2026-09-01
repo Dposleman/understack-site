@@ -18,6 +18,27 @@ function absolute(path: string) {
 }
 
 function headFor(pathname: string) {
+  if (pathname === "/privacy") {
+    const title = "Privacy Policy — UnderStack AI Pocket";
+    const description = "Privacy Policy for UnderStack AI Pocket, a local-first Android AI assistant.";
+    const canonical = absolute("/privacy");
+    return {
+      lang: "en",
+      head: [
+        `<title>${title}</title>`,
+        `<meta name="description" content="${description}" />`,
+        `<link rel="canonical" href="${canonical}" />`,
+        `<meta property="og:title" content="${title}" />`,
+        `<meta property="og:description" content="${description}" />`,
+        `<meta property="og:url" content="${canonical}" />`,
+        `<meta property="og:image" content="${IMAGE_URL}" />`,
+        `<meta property="og:image:secure_url" content="${IMAGE_URL}" />`,
+        `<meta name="twitter:title" content="${title}" />`,
+        `<meta name="twitter:description" content="${description}" />`,
+        `<meta name="twitter:image" content="${IMAGE_URL}" />`,
+      ].join("\n    "),
+    };
+  }
   const parts = pathname.replace(/^\//, "").split("/");
   const lang: Language = parts[0] === "en" ? "en" : "dk";
   const slug = parts.slice(1).join("/").replace(/\/$/, "");
@@ -63,4 +84,4 @@ export function render(pathname: string) {
   };
 }
 
-export const routes = allPages.map(pagePath);
+export const routes = ["/privacy", ...allPages.map(pagePath)];
