@@ -18,10 +18,13 @@ function absolute(path: string) {
 }
 
 function headFor(pathname: string) {
-  if (pathname === "/privacy") {
-    const title = "Privacy Policy — UnderStack AI Pocket";
-    const description = "Privacy Policy for UnderStack AI Pocket, a local-first Android AI assistant.";
-    const canonical = absolute("/privacy");
+  if (pathname === "/privacy" || pathname === "/life/privacy") {
+    const isLife = pathname === "/life/privacy";
+    const title = isLife ? "Privacy Policy — Life" : "Privacy Policy — UnderStack AI Pocket";
+    const description = isLife
+      ? "Privacy Policy for Life, UnderStack’s local-first personal organization app."
+      : "Privacy Policy for UnderStack AI Pocket, a local-first Android AI assistant.";
+    const canonical = absolute(pathname);
     return {
       lang: "en",
       head: [
@@ -84,4 +87,4 @@ export function render(pathname: string) {
   };
 }
 
-export const routes = ["/privacy", ...allPages.map(pagePath)];
+export const routes = ["/privacy", "/life/privacy", ...allPages.map(pagePath)];

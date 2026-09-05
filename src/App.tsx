@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
+import LifePrivacyPage from "./pages/LifePrivacyPage";
 import logo from "./assets/understack-logo.png";
 import PageMeta from "./components/PageMeta";
 import PocketPrivacyPage from "./pages/PocketPrivacyPage";
@@ -442,6 +443,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/dk/" replace />} />
       <Route path="/privacy" element={<PocketPrivacyPage />} />
+      <Route path="/life/privacy" element={<LifePrivacyPage />} />
       <Route path="/apps" element={<Navigate to="/en/apps" replace />} />
       <Route path="/marketplace" element={<Navigate to="/en/marketplace" replace />} />
       <Route path="/:lang/*" element={<RoutedPage />} />
