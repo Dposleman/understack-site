@@ -9,6 +9,7 @@ import {
   COMPANY_CVR,
   CONTACT_EMAIL,
   findPage,
+  GENERAL_EMAIL,
   languageNames,
   pagePath,
   portfolioProjects,
@@ -33,7 +34,7 @@ function organizationSchema() {
     name: "UnderStack",
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.png`,
-    email: CONTACT_EMAIL,
+    email: GENERAL_EMAIL,
     vatID: `DK${COMPANY_CVR}`,
     areaServed: ["Aarhus", "Denmark", "Nordics", "Europe"],
     knowsAbout: ["Software development", "Web development", "Custom software", "AI solutions", "Restaurant software"],
@@ -224,7 +225,12 @@ function Footer({ lang }: { lang: Language }) {
         </div>
         <div>
           <div className="text-xs uppercase tracking-[0.24em] text-white/42">Contact</div>
-          <a href={`mailto:${CONTACT_EMAIL}`} data-event="EMAIL_CLICK" className="mt-4 block text-sm text-cyan-100 hover:text-white">
+          <p className="mt-4 text-xs text-white/42">{lang === "dk" ? "Generelle henvendelser" : "General enquiries"}</p>
+          <a href={`mailto:${GENERAL_EMAIL}`} data-event="EMAIL_CLICK" className="mt-1 block text-sm text-cyan-100 hover:text-white">
+            {GENERAL_EMAIL}
+          </a>
+          <p className="mt-4 text-xs text-white/42">{lang === "dk" ? "Produkt og teknik" : "Product and technical"}</p>
+          <a href={`mailto:${CONTACT_EMAIL}`} data-event="EMAIL_CLICK" className="mt-1 block text-sm text-cyan-100 hover:text-white">
             {CONTACT_EMAIL}
           </a>
           <p className="mt-6 text-xs text-white/40">© 2026 UnderStack. All rights reserved.</p>

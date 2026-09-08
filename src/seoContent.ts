@@ -1,5 +1,6 @@
 export const SITE_URL = "https://understack.dk";
 export const CONTACT_EMAIL = "dev.team@understack.dk";
+export const GENERAL_EMAIL = "info@understack.dk";
 export const COMPANY_CVR = "46327608";
 export const GASTROAPP_URL = "https://gastroapp.dk";
 export const SOCIAL_IMAGE_PATH = "/understack-social-preview.png";
@@ -475,17 +476,17 @@ export const casePages: SeoPage[] = [
     slug: "cases",
     kind: "caseIndex",
     title: "Cases | UnderStack produkter og softwareprojekter",
-    description: "UnderStack cases: GastroApp, AI Schedule, ServiceOS og dokumenterede softwareprodukter uden opdigtede resultater.",
+    description: "UnderStack cases: GastroApp, AI Schedule, UnderStack AI Pocket, UnderStack AI Agent, Life, ServiceOS og dokumenterede softwareprodukter uden opdigtede resultater.",
     h1: "Cases og produktretninger fra UnderStack.",
     eyebrow: "Cases",
-    intro: "En oversigt over faktiske projekter og produktretninger dokumenteret i UnderStack-repoet.",
+    intro: "En oversigt over faktiske projekter og produktretninger, herunder færdige produkter, produkter i review og aktive udviklingsspor.",
     sections: [
       { title: "Dokumenterede produkter", body: "Vi bruger cases som SEO- og tillidsaktiver, men uden at opfinde kunder, metrics eller testimonials." },
     ],
     related: [
       { label: "GastroApp", href: "/dk/cases/gastroapp" },
-      { label: "AI Schedule", href: "/dk/cases/ai-schedule" },
-      { label: "ServiceOS", href: "/dk/cases/serviceos" },
+      { label: "UnderStack AI Pocket", href: "/dk/cases/understack-ai-pocket" },
+      { label: "UnderStack AI Agent", href: "/dk/cases/understack-ai-agent" },
     ],
     cta: "Se relevante løsninger",
     keywords: ["UnderStack cases", "software cases Danmark"],
@@ -495,17 +496,17 @@ export const casePages: SeoPage[] = [
     slug: "cases",
     kind: "caseIndex",
     title: "Cases | UnderStack software products",
-    description: "UnderStack cases: GastroApp, AI Schedule, ServiceOS and documented software product directions.",
+    description: "UnderStack cases: GastroApp, AI Schedule, UnderStack AI Pocket, UnderStack AI Agent, Life, ServiceOS and documented software products.",
     h1: "Cases and product directions from UnderStack.",
     eyebrow: "Cases",
-    intro: "A transparent view of real projects and product directions documented in the UnderStack repository.",
+    intro: "A transparent view of real projects and product directions, including completed products, products in review and active development tracks.",
     sections: [
       { title: "Documented products", body: "Cases are used as SEO and trust assets, without inventing customers, metrics, testimonials or commercial outcomes." },
     ],
     related: [
       { label: "GastroApp", href: "/en/cases/gastroapp" },
-      { label: "AI Schedule", href: "/en/cases/ai-schedule" },
-      { label: "ServiceOS", href: "/en/cases/serviceos" },
+      { label: "UnderStack AI Pocket", href: "/en/cases/understack-ai-pocket" },
+      { label: "UnderStack AI Agent", href: "/en/cases/understack-ai-agent" },
     ],
     cta: "Explore related services",
     keywords: ["software cases Denmark", "UnderStack products"],
@@ -521,15 +522,19 @@ const caseDetails = [
     serviceDk: "/dk/restaurant-software",
     serviceEn: "/en/restaurant-software",
     keywords: ["restaurant software Denmark", "food cost management", "kitchen management software"],
+    featuresDk: ["Food cost og cost coverage", "Opskrifter og batch-beregninger", "Inventory og stock alerts", "Produktion, prep og restaurant-rapportering"],
+    featuresEn: ["Food cost and cost coverage", "Recipes and batch calculations", "Inventory and stock alerts", "Production, prep and restaurant reporting"],
   },
   {
     slug: "ai-schedule",
     name: "AI Schedule",
-    dk: "AI-orienteret planlægningsprodukt fundet som eksisterende projektmappe på maskinen.",
-    en: "AI-oriented scheduling product found as an existing project directory on this machine.",
+    dk: "Færdigt planlægningsprodukt med tilgængelighed, kontrakter, ferie, bemandingsbehov, stedsspecifikke vagtplaner og fremmødeunderstøttelse.",
+    en: "Completed scheduling product covering availability, contracts, leave, staffing needs, location-specific rosters and attendance support.",
     serviceDk: "/dk/ai-loesninger",
     serviceEn: "/en/ai-development",
     keywords: ["AI scheduling software", "AI automation", "business scheduling software"],
+    featuresDk: ["Medarbejdertilgængelighed og kontrakter", "Ferie og fravær", "Vagtplaner på tværs af lokationer", "Fremmøde og rekrutteringsflow"],
+    featuresEn: ["Employee availability and contracts", "Leave and absence", "Rosters across locations", "Attendance and recruitment workflows"],
   },
   {
     slug: "serviceos",
@@ -539,6 +544,41 @@ const caseDetails = [
     serviceDk: "/dk/ai-loesninger",
     serviceEn: "/en/ai-development",
     keywords: ["AI restaurant software", "service operations software", "hospitality AI"],
+    featuresDk: ["Kunde- og jobstyring", "People, roles og vagter", "Service-workflows og dokumenter", "Floor intelligence under udvikling"],
+    featuresEn: ["Customer and job management", "People, roles and shifts", "Service workflows and documents", "Floor intelligence in development"],
+  },
+  {
+    slug: "understack-ai-pocket",
+    name: "UnderStack AI Pocket",
+    dk: "Færdig Android-assistent med local-first arkitektur, som er under Google Play-review. Produktet er designet til private, kontrollerbare AI-workflows på mobilen.",
+    en: "Completed Android assistant in Google Play review, built around a local-first architecture for private, controllable AI workflows on mobile.",
+    serviceDk: "/dk/ai-loesninger",
+    serviceEn: "/en/ai-development",
+    keywords: ["local-first Android AI", "private AI assistant", "mobile AI workflows"],
+    featuresDk: ["Local-first datahåndtering", "Vedvarende hukommelse og værktøjsrouting", "Per-app tilladelser", "Automatiseringer med auditability"],
+    featuresEn: ["Local-first data handling", "Persistent memory and tool routing", "Per-app permissions", "Automations with auditability"],
+  },
+  {
+    slug: "understack-ai-agent",
+    name: "UnderStack AI Agent",
+    dk: "Aktivt Windows-produktspor for en local-first coding- og operationsagent, som kan arbejde kontrolleret med repositories, patches, logs og verifikation.",
+    en: "Active Windows product track for a local-first coding and operations agent that can work in a controlled way with repositories, patches, logs and verification.",
+    serviceDk: "/dk/ai-loesninger",
+    serviceEn: "/en/ai-development",
+    keywords: ["local-first coding agent", "Windows AI agent", "developer operations agent"],
+    featuresDk: ["Repository-inspektion og debugging", "Kontrollerede patches", "Logs og container-workflows", "Compile, lint, test og run-verifikation"],
+    featuresEn: ["Repository inspection and debugging", "Controlled patches", "Logs and container workflows", "Compile, lint, test and run verification"],
+  },
+  {
+    slug: "life",
+    name: "Life",
+    dk: "Færdigt local-first personligt operating system til opgaver, noter, regninger, kvitteringer, dokumenter og hverdagsplanlægning. Produktet er under Google Play-review.",
+    en: "Completed local-first personal operating system for tasks, notes, bills, receipts, documents and everyday planning. The product is in Google Play review.",
+    serviceDk: "/dk/app-udvikling",
+    serviceEn: "/en/app-development",
+    keywords: ["personal operating system app", "local-first productivity app", "Android life organizer"],
+    featuresDk: ["Opgaver, noter og påmindelser", "Regninger, kvitteringer og OCR", "Abonnementer og dokumentarkiv", "Indkøbslister og ADHD-venligt overblik"],
+    featuresEn: ["Tasks, notes and reminders", "Bills, receipts and OCR", "Subscriptions and document archive", "Shopping lists and ADHD-friendly organisation"],
   },
 ];
 
@@ -557,7 +597,7 @@ caseDetails.forEach((item) => {
         { title: "Problem", body: "Projektet adresserer konkrete operationelle workflows, hvor manuelle processer eller generiske værktøjer skaber friktion." },
         { title: "Solution", body: "UnderStack arbejder med en produktorienteret løsning, hvor funktionalitet, UX og teknisk arkitektur kobles til praktisk brug." },
         { title: "Architecture", body: "Arkitekturen er web- og cloud-orienteret med fokus på komponentbaseret frontend, strukturerede dataflows og mulighed for integrationer." },
-        { title: "Features", body: "Funktioner dokumenteres kun, hvor de er nævnt i projektet eller produktretningen.", items: item.slug === "gastroapp" ? ["Food cost", "Recipes", "Inventory", "Kitchen operations"] : ["Workflow support", "Applied AI workflows", "Dashboards or operational UI"] },
+        { title: "Dokumenterede funktioner", body: "Funktionerne nedenfor er baseret på den nuværende produktretning og dokumenterede implementering.", items: item.featuresDk },
         { title: "Business value", body: "Værdien ligger i bedre overblik, mindre manuelt arbejde og et produkt, der kan udvikles videre uden at låse virksomheden til generiske værktøjer." },
       ],
       related: [
@@ -581,7 +621,7 @@ caseDetails.forEach((item) => {
         { title: "Problem", body: "The product direction addresses operational workflows where manual processes or generic tools create friction." },
         { title: "Solution", body: "UnderStack approaches the solution as a product, connecting functionality, UX and technical architecture to practical use." },
         { title: "Architecture", body: "The architecture is web and cloud oriented, with component-based frontend delivery, structured data flows and room for integrations." },
-        { title: "Features", body: "Features are documented only where they are present in the project or product direction.", items: item.slug === "gastroapp" ? ["Food cost", "Recipes", "Inventory", "Kitchen operations"] : ["Workflow support", "Applied AI workflows", "Dashboards or operational UI"] },
+        { title: "Documented capabilities", body: "The capabilities below reflect the current product direction and documented implementation.", items: item.featuresEn },
         { title: "Business value", body: "The value is better visibility, less manual work and a product foundation that can evolve without forcing the company into generic tools." },
       ],
       related: [
