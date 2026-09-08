@@ -298,18 +298,27 @@ function PortfolioCard({ project, lang }: { project: PortfolioProject; lang: Lan
 }
 
 function PortfolioGrid({ page }: { page: SeoPage }) {
-  if (page.kind !== "portfolio") {
+  if (page.kind !== "portfolio" && page.kind !== "apps") {
     return null;
   }
 
   const isDanish = page.lang === "dk";
+  const isApps = page.kind === "apps";
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-12" aria-labelledby="portfolio-projects">
       <div className="max-w-3xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/72">{isDanish ? "Software bygget til reel drift." : "Software built for real-world operations."}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/72">
+          {isApps ? (isDanish ? "Produkter og produktretninger" : "Products and product directions") : isDanish ? "Software bygget til reel drift." : "Software built for real-world operations."}
+        </p>
         <h2 id="portfolio-projects" className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          {isDanish ? "Udvalgte systemer, produkter og platformmodernisering." : "Selected systems, products and platform modernization work."}
+          {isApps
+            ? isDanish
+              ? "Produkter med tydelig status og dokumenterede funktioner."
+              : "Products with a clear status and documented capabilities."
+            : isDanish
+              ? "Udvalgte systemer, produkter og platformmodernisering."
+              : "Selected systems, products and platform modernization work."}
         </h2>
       </div>
       <div className="mt-8 grid gap-5 lg:grid-cols-2">

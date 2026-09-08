@@ -1,5 +1,5 @@
 export const SITE_URL = "https://understack.dk";
-export const CONTACT_EMAIL = "info@understack.dk";
+export const CONTACT_EMAIL = "dev.team@understack.dk";
 export const COMPANY_CVR = "46327608";
 export const GASTROAPP_URL = "https://gastroapp.dk";
 export const SOCIAL_IMAGE_PATH = "/understack-social-preview.png";
@@ -129,7 +129,7 @@ export const pages: SeoPage[] = [
       {
         title: "What we build",
         body:
-          "We build web platforms, internal systems, business software, app products and AI-assisted workflows. The work is aimed at practical value: better operations, stronger credibility and conversion-ready digital infrastructure.",
+          "We build web platforms, internal systems, business software, app products and applied AI workflows. The work is aimed at practical value: better operations, stronger credibility and conversion-ready digital infrastructure.",
         items: ["Custom software", "Web development", "App development", "AI solutions", "Restaurant software"],
       },
       {
@@ -428,7 +428,7 @@ const enServices: Omit<SeoPage, "lang" | "kind">[] = [
     description: "AI development for companies: automation, internal assistants, workflows and AI-enabled software systems.",
     h1: "AI development for companies that need practical automation, not hype.",
     eyebrow: "AI solutions for business",
-    intro: "UnderStack builds AI-assisted workflows, internal tools and product features where AI solves concrete operational tasks.",
+    intro: "UnderStack builds applied AI workflows, internal tools and product features where AI solves concrete operational tasks.",
     sections: [
       { title: "AI with business value", body: "We focus on automation, decision support, data structuring, internal assistants, restaurant operations and customer-facing workflows where AI can reduce friction." },
       enServiceSections.process,
@@ -445,10 +445,10 @@ const enServices: Omit<SeoPage, "lang" | "kind">[] = [
   {
     slug: "restaurant-software",
     title: "Restaurant software Denmark | Kitchen and AI operations",
-    description: "Restaurant software for Denmark and Europe: food cost, inventory, kitchen management, operations and AI-assisted restaurant workflows.",
+    description: "Restaurant software for Denmark and Europe: food cost, inventory, kitchen management, operations and practical AI workflows.",
     h1: "Restaurant software for modern kitchens, operators and hospitality teams.",
     eyebrow: "Restaurant software Denmark",
-    intro: "UnderStack builds restaurant software concepts and products around food cost, waste tracking, inventory, kitchen workflows and AI-assisted service.",
+    intro: "UnderStack builds restaurant software concepts and products around food cost, waste tracking, inventory, kitchen workflows and practical service support.",
     sections: [
       { title: "Operational problems we address", body: "Restaurants need better visibility into food cost, waste, pricing, inventory, service flow and day-to-day execution. Software should support the pace of the kitchen instead of adding admin load." },
       { title: "GastroApp and ServiceOS", body: "GastroApp is UnderStack's restaurant software direction for food cost, recipes, inventory and utility workflows. ServiceOS explores AI-first front-of-house operations." },
@@ -557,13 +557,13 @@ caseDetails.forEach((item) => {
         { title: "Problem", body: "Projektet adresserer konkrete operationelle workflows, hvor manuelle processer eller generiske værktøjer skaber friktion." },
         { title: "Solution", body: "UnderStack arbejder med en produktorienteret løsning, hvor funktionalitet, UX og teknisk arkitektur kobles til praktisk brug." },
         { title: "Architecture", body: "Arkitekturen er web- og cloud-orienteret med fokus på komponentbaseret frontend, strukturerede dataflows og mulighed for integrationer." },
-        { title: "Features", body: "Funktioner dokumenteres kun, hvor de er nævnt i projektet eller produktretningen.", items: item.slug === "gastroapp" ? ["Food cost", "Recipes", "Inventory", "Kitchen operations"] : ["Workflow support", "AI-assisted operations", "Dashboards or operational UI"] },
+        { title: "Features", body: "Funktioner dokumenteres kun, hvor de er nævnt i projektet eller produktretningen.", items: item.slug === "gastroapp" ? ["Food cost", "Recipes", "Inventory", "Kitchen operations"] : ["Workflow support", "Applied AI workflows", "Dashboards or operational UI"] },
         { title: "Business value", body: "Værdien ligger i bedre overblik, mindre manuelt arbejde og et produkt, der kan udvikles videre uden at låse virksomheden til generiske værktøjer." },
       ],
       related: [
         { label: "Relevant service", href: item.serviceDk },
         { label: "Alle cases", href: "/dk/cases/" },
-        { label: "Kontakt", href: "mailto:info@understack.dk" },
+        { label: "Kontakt", href: "mailto:dev.team@understack.dk" },
       ],
       cta: "Diskuter en lignende løsning",
       keywords: item.keywords,
@@ -581,13 +581,13 @@ caseDetails.forEach((item) => {
         { title: "Problem", body: "The product direction addresses operational workflows where manual processes or generic tools create friction." },
         { title: "Solution", body: "UnderStack approaches the solution as a product, connecting functionality, UX and technical architecture to practical use." },
         { title: "Architecture", body: "The architecture is web and cloud oriented, with component-based frontend delivery, structured data flows and room for integrations." },
-        { title: "Features", body: "Features are documented only where they are present in the project or product direction.", items: item.slug === "gastroapp" ? ["Food cost", "Recipes", "Inventory", "Kitchen operations"] : ["Workflow support", "AI-assisted operations", "Dashboards or operational UI"] },
+        { title: "Features", body: "Features are documented only where they are present in the project or product direction.", items: item.slug === "gastroapp" ? ["Food cost", "Recipes", "Inventory", "Kitchen operations"] : ["Workflow support", "Applied AI workflows", "Dashboards or operational UI"] },
         { title: "Business value", body: "The value is better visibility, less manual work and a product foundation that can evolve without forcing the company into generic tools." },
       ],
       related: [
         { label: "Related service", href: item.serviceEn },
         { label: "All cases", href: "/en/cases/" },
-        { label: "Contact", href: "mailto:info@understack.dk" },
+        { label: "Contact", href: "mailto:dev.team@understack.dk" },
       ],
       cta: "Discuss a similar system",
       keywords: item.keywords,
@@ -600,23 +600,24 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "GastroApp",
     category: "Restaurant Operations SaaS",
     description:
-      "A full restaurant operations platform developed by UnderStack to centralize recipes, food costing, inventory, production and multi-restaurant workflows.",
-    capabilities: ["Recipes & food costing", "Inventory and stock management", "Production and events", "Tasks and reports", "Kitchen operations"],
+      "A working multi-tenant operating system for restaurant teams, built around connected operational records rather than isolated tools.",
+    capabilities: ["Recipes and food costing", "Inventory, stock and purchasing", "Production, events and closeout", "Tasks, reports and operational analytics", "Company, restaurant and role-based access"],
+    status: "Working product",
     cta: { label: "Visit GastroApp", href: GASTROAPP_URL },
   },
   {
     name: "AI Schedule",
-    category: "Intelligent Workforce Management",
+    category: "Workforce Scheduling",
     description:
-      "An intelligent staff planning platform for restaurants and shift-based companies, focused on reducing admin time, planning errors and coverage issues.",
-    capabilities: ["Employee scheduling", "Availability and vacation management", "Automated shift generation", "Sick-leave replacement", "Location-aware shift controls"],
-    status: "Product currently in development",
+      "A completed scheduling product for multi-location businesses with availability, leave, contractual limits and practical attendance controls.",
+    capabilities: ["Employee scheduling", "Availability and vacation management", "Contractual hour limits", "Replacement workflows and notifications", "Geofenced attendance"],
+    status: "Completed",
   },
   {
     name: "UnderStack Pocket AI",
-    category: "Local-first Android AI Assistant",
+    category: "Local-first Mobile Assistant",
     description:
-      "A private Android assistant built around local models, approved on-device memory, selected files and permission-gated mobile actions.",
+      "A completed Android assistant designed around local execution, approved memory, explicit permissions and optional trusted-workstation delegation.",
     capabilities: [
       "Local AI chat with downloaded models",
       "Approved local memory stored on device",
@@ -627,7 +628,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "On-device image generation when a compatible local model is installed",
       "Android app launcher and optional screen-control surfaces where the distribution permits it",
     ],
-    status: "Market launch coming soon - Google Play release preparation",
+    status: "Completed - Google Play review",
     localized: {
       dk: {
         category: "Local-first Android AI-assistent",
@@ -643,7 +644,7 @@ export const portfolioProjects: PortfolioProject[] = [
           "Billedgenerering på enheden når en kompatibel lokal model er installeret",
           "Android app launcher og valgfri skærmkontrol hvor distributionen tillader det",
         ],
-        status: "Markedslancering snart - klargøres til Google Play",
+        status: "Færdig - Google Play-review",
       },
     },
   },
@@ -651,7 +652,7 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "UnderStack AI Agent",
     category: "Local-first Windows Desktop Agent",
     description:
-      "A Windows desktop agent in development with a React interface, local Python daemon, task execution, project analysis, audit events and planned Tauri packaging.",
+      "A local-first desktop agent in active development for controlled repository work, diagnostics, patching and verified engineering workflows.",
     capabilities: [
       "Local desktop dashboard for agent work",
       "Local daemon on localhost APIs",
@@ -663,7 +664,7 @@ export const portfolioProjects: PortfolioProject[] = [
       "Pocket pairing through a token-protected local or tunneled connection",
       "Windows installer path prepared with Tauri",
     ],
-    status: "Market launch coming soon - Windows desktop product in development",
+    status: "Active development - Windows",
     localized: {
       dk: {
         category: "Local-first Windows desktop-agent",
@@ -680,7 +681,7 @@ export const portfolioProjects: PortfolioProject[] = [
           "Pocket-parring via tokenbeskyttet lokal eller tunneled forbindelse",
           "Windows installer-retning klargjort med Tauri",
         ],
-        status: "Markedslancering snart - Windows desktop-produkt under udvikling",
+        status: "Aktiv udvikling - Windows",
       },
     },
   },
@@ -700,7 +701,7 @@ export const portfolioProjects: PortfolioProject[] = [
     description:
       "An operating system for service businesses, turning customers, jobs, employees, scheduling, documents and internal workflows into one operational workspace.",
     capabilities: ["Customers and service orders", "Employees and scheduling", "Tasks and documents", "Operational workflows", "Business overview"],
-    status: "UnderStack product in development",
+    status: "Active development",
   },
   {
     name: "AI Visual Studio",
@@ -708,7 +709,79 @@ export const portfolioProjects: PortfolioProject[] = [
     description:
       "An AI-powered creative platform for transforming, editing and animating visual content through advanced generative models.",
     capabilities: ["Image-to-image workflows", "Image-to-video generation", "Creative editing workflows", "Multi-model architecture", "Personal media library"],
-    status: "UnderStack product in development",
+    status: "Completed",
+  },
+  {
+    name: "Life",
+    category: "Local-first Personal OS",
+    description:
+      "A completed, local personal organization app for tasks, notes, bills, receipts, subscriptions, documents and focused everyday planning.",
+    capabilities: ["Tasks and notes", "Bills, receipts and OCR", "Subscriptions and documents", "Shopping and personal planning", "ADHD-friendly organization"],
+    status: "Completed - Google Play review",
+  },
+  {
+    name: "Meeting Copilot",
+    category: "Private Meeting Assistant",
+    description:
+      "A completed real-time meeting assistant designed for private use without retaining meeting recordings.",
+    capabilities: ["Microphone transcription", "Rolling context", "Question detection", "Short suggested answers", "Privacy-conscious session design"],
+    status: "Completed",
+  },
+  {
+    name: "CodeQuest",
+    category: "Inclusive Programming Education",
+    description:
+      "A programming education product for autistic children, designed with sensory settings, clear feedback and supported learning paths.",
+    capabilities: ["Sensory settings", "Focus mode", "Friendly error handling", "Code editor and guided tutor", "Parent mode and multilingual paths"],
+    status: "In development - Android and iOS",
+  },
+  {
+    name: "Food Cost Calculator",
+    category: "Restaurant Utility App",
+    description:
+      "A completed mobile tool for recipe cost, servings, selling price and margin calculations with local persistence.",
+    capabilities: ["Recipe cost calculation", "Servings and yield", "Selling price guidance", "Margin calculation", "Local persistence"],
+    status: "Completed",
+  },
+  {
+    name: "WasteTrackr",
+    category: "Restaurant Utility App",
+    description:
+      "A completed mobile waste logging tool for restaurant teams with a practical history and operational overview.",
+    capabilities: ["Waste logging", "Operational dashboard", "History and editing", "Date filters", "Team-facing insight"],
+    status: "Completed",
+  },
+  {
+    name: "Restaurant Micro-tools",
+    category: "Hospitality Operations",
+    description:
+      "A focused product line for inventory, recipe cost, menu engineering and accountable kitchen routines.",
+    capabilities: ["Inventory", "Recipe Cost", "Menu Engineering", "Shift Checklist", "Optional Pocket connection"],
+    status: "Active development",
+  },
+  {
+    name: "FollowUp, PingPerson and Recall",
+    category: "Local-first Utilities",
+    description:
+      "Android-first utility products for reply obligations, person-triggered context and intentional memory resurfacing.",
+    capabilities: ["Follow-up commitments", "Person-based talking points", "Intentional memory capture", "Explicit permissions", "Pocket-ready product direction"],
+    status: "In development - Android-first",
+  },
+  {
+    name: "Family Safety",
+    category: "Family Location and Safety",
+    description:
+      "A transparent family safety product with parent and child roles, clear location controls and privacy-first platform behavior.",
+    capabilities: ["Parent and child roles", "Live location", "Safe and restricted zones", "Alerts and SOS", "Device health and privacy controls"],
+    status: "In development - Android and iOS",
+  },
+  {
+    name: "UnderStack Product Ecosystem",
+    category: "Shared Platform Strategy",
+    description:
+      "An ongoing product foundation for identity, permission boundaries and audited cross-product workflows across web, mobile and desktop software.",
+    capabilities: ["Shared identity", "Capability manifests", "Permission boundaries", "Action routing", "Audited cross-product workflows"],
+    status: "Ongoing system",
   },
 ];
 
@@ -734,7 +807,7 @@ export const portfolioPages: SeoPage[] = [
     related: [
       { label: "Softwareudvikling", href: "/dk/softwareudvikling" },
       { label: "Restaurant software", href: "/dk/restaurant-software" },
-      { label: "Kontakt", href: "mailto:info@understack.dk" },
+      { label: "Kontakt", href: "mailto:dev.team@understack.dk" },
     ],
     cta: "Diskuter dit projekt",
     keywords: ["softwareudvikling Danmark", "softwareudvikling Aarhus", "SaaS udvikling", "custom software development", "AI løsninger", "restaurant software", "business software"],
@@ -760,7 +833,7 @@ export const portfolioPages: SeoPage[] = [
     related: [
       { label: "Software development", href: "/en/software-development" },
       { label: "Restaurant software", href: "/en/restaurant-software" },
-      { label: "Contact", href: "mailto:info@understack.dk" },
+      { label: "Contact", href: "mailto:dev.team@understack.dk" },
     ],
     cta: "Discuss your project",
     keywords: ["software development Denmark", "software development Aarhus", "SaaS development", "custom software development", "AI solutions", "restaurant software", "business software"],
@@ -850,7 +923,7 @@ export const insightPages: SeoPage[] = [
     related: [
       { label: lang === "dk" ? "Relevant service" : "Related service", href: target },
       { label: lang === "dk" ? "Cases" : "Cases", href: `/${lang}/cases/` },
-      { label: lang === "dk" ? "Kontakt" : "Contact", href: "mailto:info@understack.dk" },
+      { label: lang === "dk" ? "Kontakt" : "Contact", href: "mailto:dev.team@understack.dk" },
     ],
     cta: lang === "dk" ? "Tal med UnderStack" : "Talk to UnderStack",
     keywords: [title, "UnderStack", lang === "dk" ? "Danmark" : "Denmark"],
@@ -876,7 +949,7 @@ export const appsPages: SeoPage[] = [
       { label: "Restaurant software", href: "/dk/restaurant-software" },
       { label: "Marketplace", href: "/dk/marketplace" },
     ],
-    cta: "Se cases",
+    cta: "Kontakt produktteamet",
     keywords: ["UnderStack apps", "restaurant utility apps", "ServiceOS"],
   },
   {
@@ -897,7 +970,7 @@ export const appsPages: SeoPage[] = [
       { label: "Restaurant software", href: "/en/restaurant-software" },
       { label: "Marketplace", href: "/en/marketplace" },
     ],
-    cta: "View cases",
+    cta: "Contact the product team",
     keywords: ["UnderStack apps", "restaurant utility apps", "ServiceOS"],
   },
   {

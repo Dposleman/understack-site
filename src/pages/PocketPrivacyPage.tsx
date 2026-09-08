@@ -20,7 +20,7 @@ const sections = [
   },
   {
     title: "Contact",
-    body: "For privacy questions or support, email dev.team@understack.com.",
+    body: "For privacy questions or support, email dev.team@understack.dk.",
   },
 ];
 
