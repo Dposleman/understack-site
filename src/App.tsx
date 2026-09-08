@@ -264,21 +264,21 @@ function PortfolioCard({ project, lang }: { project: PortfolioProject; lang: Lan
   const content = localizedProject(project, lang);
 
   return (
-    <article className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/64 p-6 shadow-2xl shadow-black/18 transition duration-300 hover:-translate-y-1 hover:border-cyan-300/34 hover:bg-slate-950/76">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(34,211,238,0.16),transparent_34%),linear-gradient(135deg,rgba(59,130,246,0.08),rgba(99,102,241,0.04)_48%,rgba(14,165,233,0.1))] opacity-80 transition duration-300 group-hover:opacity-100" />
-      <div className="relative">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/78">{content.category}</p>
-        <h2 className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{project.name}</h2>
-        <p className="mt-4 text-sm leading-7 text-white/66">{content.description}</p>
-
-        <div className="mt-5 flex flex-wrap gap-2">
-          {content.status ? <span className="rounded-full border border-cyan-300/18 bg-cyan-300/10 px-3 py-1 text-xs text-cyan-100">{content.status}</span> : null}
-          {content.location ? <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-xs text-white/64">{content.location}</span> : null}
+    <article className="portfolio-card group relative overflow-hidden p-7 sm:p-8">
+      <div className="portfolio-card-sheen" aria-hidden="true" />
+      <div className="portfolio-card-content relative">
+        <div className="flex items-start justify-between gap-5">
+          <p className="portfolio-kicker">{content.category}</p>
+          {content.status ? <span className="portfolio-status">{content.status}</span> : null}
         </div>
+        <h2 className="mt-6 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{project.name}</h2>
+        <p className="mt-4 max-w-xl text-sm leading-7 text-white/64">{content.description}</p>
 
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+        {content.location ? <p className="portfolio-location mt-5">{content.location}</p> : null}
+
+        <ul className="portfolio-capabilities mt-7">
           {content.capabilities.map((capability) => (
-            <li key={capability} className="rounded-2xl border border-white/10 bg-white/[0.045] px-4 py-3 text-sm leading-6 text-white/72">
+            <li key={capability}>
               {capability}
             </li>
           ))}
@@ -287,9 +287,9 @@ function PortfolioCard({ project, lang }: { project: PortfolioProject; lang: Lan
         {content.cta ? (
           <a
             href={content.cta.href}
-            className="mt-7 inline-flex min-h-11 items-center rounded-full border border-cyan-300/24 bg-cyan-300/12 px-5 py-2 text-sm font-medium text-cyan-100 transition hover:bg-cyan-300/18"
+            className="portfolio-link mt-8 inline-flex min-h-11 items-center text-sm font-medium text-white"
           >
-            {content.cta.label} <span aria-hidden="true" className="ml-2">-&gt;</span>
+            {content.cta.label} <span aria-hidden="true" className="ml-3">-&gt;</span>
           </a>
         ) : null}
       </div>
