@@ -21,7 +21,8 @@ export type AnalyticsEvent =
   | "for_you_service_click"
   | "for_you_quote_start"
   | "for_you_quote_submit"
-  | "for_you_contact_click";
+  | "for_you_contact_click"
+  | "generate_lead";
 
 export type AnalyticsPayload = Record<string, string | number | boolean | undefined>;
 

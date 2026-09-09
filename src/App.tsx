@@ -612,6 +612,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
       const result = await response.json().catch(() => null);
       if (!response.ok || result?.ok !== true) throw new Error("Quote request failed");
       trackEvent("for_you_quote_submit", { service: String(fields.get("service") || "other") });
+      trackEvent("generate_lead", { source: "for_you_quote", service: String(fields.get("service") || "other") });
       form.reset();
       setService("");
       setBudget("");
