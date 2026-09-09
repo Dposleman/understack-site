@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://understack.dk/life/privacy</loc></url>
+  <url><loc>https://understack.dk/privacy</loc></url>
   <url><loc>https://understack.dk/dk/</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/"/><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://understack.dk/dk/"/></url>
   <url><loc>https://understack.dk/en/</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/"/><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://understack.dk/dk/"/></url>
   <url><loc>https://understack.dk/dk/for-you</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/for-you"/><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/for-you"/><xhtml:link rel="alternate" hreflang="x-default" href="https://understack.dk/dk/for-you"/></url>
@@ -28,6 +29,12 @@
   <url><loc>https://understack.dk/en/cases/ai-schedule</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/cases/ai-schedule"/></url>
   <url><loc>https://understack.dk/dk/cases/serviceos</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/cases/serviceos"/></url>
   <url><loc>https://understack.dk/en/cases/serviceos</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/cases/serviceos"/></url>
+  <url><loc>https://understack.dk/dk/cases/understack-ai-pocket</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/cases/understack-ai-pocket"/></url>
+  <url><loc>https://understack.dk/en/cases/understack-ai-pocket</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/cases/understack-ai-pocket"/></url>
+  <url><loc>https://understack.dk/dk/cases/understack-ai-agent</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/cases/understack-ai-agent"/></url>
+  <url><loc>https://understack.dk/en/cases/understack-ai-agent</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/cases/understack-ai-agent"/></url>
+  <url><loc>https://understack.dk/dk/cases/life</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/cases/life"/></url>
+  <url><loc>https://understack.dk/en/cases/life</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/cases/life"/></url>
   <url><loc>https://understack.dk/dk/portfolio</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/portfolio"/></url>
   <url><loc>https://understack.dk/en/portfolio</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/portfolio"/></url>
   <url><loc>https://understack.dk/dk/insights/</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/insights/"/></url>

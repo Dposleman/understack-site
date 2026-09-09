@@ -770,7 +770,6 @@ export const portfolioProjects: PortfolioProject[] = [
     capabilities: ["Legacy PHP -> TypeScript modernization", "Frontend and backend modernization", "UI/UX modernization", "Maintainable code structure", "Scalable architecture preparation"],
     status: "Platform modernization in progress",
     location: "Mendoza, Argentina",
-    cta: { label: "View development preview", href: "https://178.104.199.153/" },
   },
   {
     name: "Service OS",
@@ -890,7 +889,7 @@ export const portfolioPages: SeoPage[] = [
     lang: "dk",
     slug: "portfolio",
     kind: "portfolio",
-    title: "Portfolio | UnderStack software systems and SaaS products",
+    title: "Portfolio | UnderStack softwaresystemer og SaaS-produkter",
     description:
       "Udvalgt UnderStack-arbejde på tværs af SaaS-udvikling, custom software, AI-løsninger, restaurant software og platformmodernisering.",
     h1: "Udvalgt arbejde",
@@ -1124,5 +1123,15 @@ export function findPage(lang: Language, slug = "") {
 
 export function alternateFor(page: SeoPage, lang: Language) {
   const candidate = allPages.find((item) => item.lang === lang && item.kind === page.kind && item.slug.split("/").pop() === page.slug.split("/").pop());
-  return candidate ? pagePath(candidate) : `/${lang}/`;
+  if (candidate) return pagePath(candidate);
+
+  // Insight slugs are translated per-article and do not always have a 1:1
+  // counterpart in the other language. Falling through to the homepage in
+  // that case is misleading, so point to the insights index instead.
+  if (page.kind === "insight") {
+    const insightIndex = allPages.find((item) => item.lang === lang && item.kind === "insightIndex");
+    if (insightIndex) return pagePath(insightIndex);
+  }
+
+  return `/${lang}/`;
 }
