@@ -7,7 +7,7 @@ export const SOCIAL_IMAGE_PATH = "/understack-social-preview.png";
 export const SOCIAL_IMAGE_URL = `${SITE_URL}${SOCIAL_IMAGE_PATH}`;
 
 export type Language = "dk" | "en";
-export type PageKind = "home" | "service" | "case" | "caseIndex" | "portfolio" | "insight" | "insightIndex" | "apps" | "marketplace";
+export type PageKind = "home" | "service" | "case" | "caseIndex" | "portfolio" | "insight" | "insightIndex" | "apps" | "marketplace" | "forYou";
 
 export type SeoPage = {
   lang: Language;
@@ -146,6 +146,43 @@ export const pages: SeoPage[] = [
     ],
     cta: "Discuss your project",
     keywords: ["software company Aarhus", "web development Denmark", "custom software Denmark"],
+  },
+];
+
+export const forYouPages: SeoPage[] = [
+  {
+    lang: "dk",
+    slug: "for-you",
+    kind: "forYou",
+    title: "Websites og digitale projekter til dig | UnderStack",
+    description: "Personlige websites, portfolier, små virksomhedswebsites og digitale værktøjer fra UnderStack. Klar pris fra 1.500 DKK.",
+    h1: "Digitale løsninger, bygget til dig.",
+    eyebrow: "UnderStack For You",
+    intro: "Du behøver ikke være en stor virksomhed for at arbejde med UnderStack. Uanset om du har brug for et personligt website, portfolio, landing page eller et mindre digitalt værktøj, bygger vi præcis det, du har brug for - uden unødig kompleksitet.",
+    sections: [],
+    related: [
+      { label: "Webudvikling", href: "/dk/webudvikling" },
+      { label: "Softwareudvikling", href: "/dk/softwareudvikling" },
+    ],
+    cta: "Få et tilbud",
+    keywords: ["personlig hjemmeside Danmark", "portfolio hjemmeside", "freelancer hjemmeside", "webudvikler Aarhus"],
+  },
+  {
+    lang: "en",
+    slug: "for-you",
+    kind: "forYou",
+    title: "Websites & Digital Projects for Individuals | UnderStack",
+    description: "Personal websites, portfolios, small business websites and custom digital tools from UnderStack. Transparent pricing and projects starting from 1,500 DKK.",
+    h1: "Digital solutions, built for you.",
+    eyebrow: "UnderStack For You",
+    intro: "You do not need to be a large company to work with UnderStack. Whether you need a personal website, portfolio, landing page or a small custom tool, we build exactly what you need without unnecessary complexity.",
+    sections: [],
+    related: [
+      { label: "Web development", href: "/en/web-development" },
+      { label: "Software development", href: "/en/software-development" },
+    ],
+    cta: "Get a quote",
+    keywords: ["personal website Denmark", "portfolio website Denmark", "freelancer website Denmark", "web developer Aarhus"],
   },
 ];
 
@@ -1078,7 +1115,7 @@ export const appsPages: SeoPage[] = [
   },
 ];
 
-export const allPages = [...pages, ...servicePages, ...casePages, ...portfolioPages, ...insightPages, ...appsPages];
+export const allPages = [...pages, ...servicePages, ...casePages, ...portfolioPages, ...insightPages, ...appsPages, ...forYouPages];
 
 export function findPage(lang: Language, slug = "") {
   const normalized = slug.replace(/^\/|\/$/g, "");

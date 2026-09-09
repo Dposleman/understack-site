@@ -15,7 +15,12 @@ export type AnalyticsEvent =
   | "github_click"
   | "language_change"
   | "scroll_50"
-  | "scroll_90";
+  | "scroll_90"
+  | "for_you_view"
+  | "for_you_service_click"
+  | "for_you_quote_start"
+  | "for_you_quote_submit"
+  | "for_you_contact_click";
 
 export type AnalyticsPayload = Record<string, string | number | boolean | undefined>;
 
@@ -68,6 +73,7 @@ export function trackEvent(event: AnalyticsEvent, payload: AnalyticsPayload = {}
 }
 
 function pageContext(pathname: string) {
+  if (pathname.includes("/for-you")) return { event: "for_you_view" as const, page_type: "for_you" };
   if (pathname.includes("/portfolio")) return { event: "portfolio_view" as const, page_type: "portfolio" };
   if (pathname.includes("/cases/gastroapp")) return { event: "gastroapp_view" as const, page_type: "product", product: "GastroApp" };
   if (pathname.includes("/cases/serviceos")) return { event: "serviceos_view" as const, page_type: "product", product: "Service OS" };

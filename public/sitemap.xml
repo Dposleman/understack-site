@@ -3,6 +3,8 @@
   <url><loc>https://understack.dk/life/privacy</loc></url>
   <url><loc>https://understack.dk/dk/</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/"/><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://understack.dk/dk/"/></url>
   <url><loc>https://understack.dk/en/</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/"/><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://understack.dk/dk/"/></url>
+  <url><loc>https://understack.dk/dk/for-you</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/for-you"/><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/for-you"/><xhtml:link rel="alternate" hreflang="x-default" href="https://understack.dk/dk/for-you"/></url>
+  <url><loc>https://understack.dk/en/for-you</loc><xhtml:link rel="alternate" hreflang="da-DK" href="https://understack.dk/dk/for-you"/><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/for-you"/><xhtml:link rel="alternate" hreflang="x-default" href="https://understack.dk/dk/for-you"/></url>
   <url><loc>https://understack.dk/dk/webudvikling-aarhus</loc></url>
   <url><loc>https://understack.dk/dk/webudvikling</loc><xhtml:link rel="alternate" hreflang="en" href="https://understack.dk/en/web-development"/></url>
   <url><loc>https://understack.dk/dk/softwareudvikling-aarhus</loc></url>
