@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useEffect, useRef, useState } from "react";
 import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import { trackEvent } from "./lib/analytics";
 import LifePrivacyPage from "./pages/LifePrivacyPage";
@@ -469,10 +469,90 @@ function formatStartingPrice(value: number, lang: Language) {
   return lang === "dk" ? `Fra ${amount} DKK` : `Starting from ${amount} DKK`;
 }
 
+type GlassSelectOption = { value: string; label: string };
+
+function GlassSelect({
+  id,
+  name,
+  label,
+  value,
+  placeholder,
+  options,
+  onChange,
+}: {
+  id: string;
+  name: string;
+  label: string;
+  value: string;
+  placeholder: string;
+  options: GlassSelectOption[];
+  onChange: (value: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const selected = options.find((option) => option.value === value);
+
+  useEffect(() => {
+    function closeOnOutsidePress(event: PointerEvent) {
+      if (!containerRef.current?.contains(event.target as Node)) setOpen(false);
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsidePress);
+    return () => document.removeEventListener("pointerdown", closeOnOutsidePress);
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative">
+      <input type="hidden" name={name} value={value} />
+      <button
+        id={id}
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={label}
+        onClick={() => setOpen((current) => !current)}
+        onKeyDown={(event) => {
+          if (event.key === "Escape") setOpen(false);
+          if (event.key === "ArrowDown") {
+            event.preventDefault();
+            setOpen(true);
+          }
+        }}
+        className="flex w-full items-center justify-between rounded-xl border border-white/12 bg-[#151515]/92 px-4 py-3 text-left text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_12px_30px_rgba(0,0,0,0.18)] outline-none backdrop-blur-xl transition hover:border-white/22 focus:border-cyan-300/55"
+      >
+        <span className={selected ? "text-white" : "text-white/52"}>{selected?.label || placeholder}</span>
+        <span aria-hidden="true" className={`ml-4 text-sm text-white/70 transition ${open ? "rotate-180" : ""}`}>v</span>
+      </button>
+      {open && (
+        <div role="listbox" aria-labelledby={id} className="absolute z-30 mt-2 max-h-72 w-full overflow-auto rounded-xl border border-white/14 bg-[#202020]/96 p-1.5 shadow-[0_20px_50px_rgba(0,0,0,0.42),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-2xl">
+          {options.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              role="option"
+              aria-selected={option.value === value}
+              onClick={() => {
+                onChange(option.value);
+                setOpen(false);
+              }}
+              className={`block w-full rounded-lg px-3 py-2.5 text-left text-sm transition ${option.value === value ? "bg-cyan-300/16 text-cyan-50" : "text-white/82 hover:bg-white/10 hover:text-white"}`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ForYouPage({ page }: { page: SeoPage }) {
   const isDanish = page.lang === "dk";
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [quoteStarted, setQuoteStarted] = useState(false);
+  const [service, setService] = useState("");
+  const [budget, setBudget] = useState("");
+  const [formMessage, setFormMessage] = useState("");
   const alternates = [
     { hrefLang: "da-DK", href: localUrl("/dk/for-you") },
     { hrefLang: "en", href: localUrl("/en/for-you") },
@@ -496,8 +576,14 @@ function ForYouPage({ page }: { page: SeoPage }) {
     if (status === "submitting") return;
 
     const form = event.currentTarget;
+    if (!service || !budget) {
+      setFormMessage(isDanish ? "Udfyld venligst alle obligatoriske felter." : "Please complete all required fields.");
+      setStatus("error");
+      return;
+    }
     const fields = new FormData(form);
     setStatus("submitting");
+    setFormMessage("");
 
     try {
       const response = await fetch("/api/for-you-quote", {
@@ -510,8 +596,12 @@ function ForYouPage({ page }: { page: SeoPage }) {
       if (!response.ok || result?.ok !== true) throw new Error("Quote request failed");
       trackEvent("for_you_quote_submit", { service: String(fields.get("service") || "other") });
       form.reset();
+      setService("");
+      setBudget("");
+      setFormMessage(isDanish ? "Tak - vi har modtaget din forespørgsel. Vi gennemgår dit projekt og vender tilbage så snart som muligt." : "Thanks - we received your request. We will review your project and get back to you as soon as possible.");
       setStatus("success");
     } catch {
+      setFormMessage(isDanish ? "Din forespørgsel kunne ikke sendes. Prøv igen, eller skriv direkte til info@understack.dk." : "Your request could not be sent. Please try again or email info@understack.dk directly.");
       setStatus("error");
     }
   }
@@ -604,13 +694,13 @@ function ForYouPage({ page }: { page: SeoPage }) {
                 <label className="grid gap-2 text-sm font-medium text-white/78">Email<input required name="email" type="email" autoComplete="email" maxLength={254} className="rounded-xl border border-white/12 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-cyan-300/50" /></label>
               </div>
               <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                <label className="grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Hvad har du brug for?" : "What do you need?"}<select required name="service" defaultValue="" className="rounded-xl border border-white/12 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-cyan-300/50"><option value="" disabled>{isDanish ? "Vælg en type" : "Choose a type"}</option><option value="personal-website">{isDanish ? "Personligt website" : "Personal website"}</option><option value="portfolio">Portfolio</option><option value="freelancer-small-business">{isDanish ? "Freelancer eller mindre virksomhedswebsite" : "Freelancer or small business website"}</option><option value="custom-website">{isDanish ? "Skræddersyet website" : "Custom website"}</option><option value="web-app-custom-tool">{isDanish ? "Webapp eller custom værktøj" : "Web app or custom tool"}</option><option value="website-changes">{isDanish ? "Website-ændringer" : "Website changes"}</option><option value="other">{isDanish ? "Andet" : "Other"}</option></select></label>
-                <label className="grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Cirka budget" : "Approximate budget"}<select required name="budget" defaultValue="" className="rounded-xl border border-white/12 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-cyan-300/50"><option value="" disabled>{isDanish ? "Vælg et budget" : "Choose a budget"}</option><option value="under-2000">{isDanish ? "Under 2.000 DKK" : "Under 2,000 DKK"}</option><option value="2000-5000">2.000-5.000 DKK</option><option value="5000-10000">5.000-10.000 DKK</option><option value="10000-plus">10.000+ DKK</option><option value="not-sure">{isDanish ? "Ikke sikker endnu" : "Not sure"}</option></select></label>
+                <label className="grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Hvad har du brug for?" : "What do you need?"}<GlassSelect id="for-you-service" name="service" label={isDanish ? "Hvad har du brug for?" : "What do you need?"} value={service} placeholder={isDanish ? "Vælg en type" : "Choose a type"} options={[{ value: "personal-website", label: isDanish ? "Personligt website" : "Personal website" }, { value: "portfolio", label: "Portfolio" }, { value: "freelancer-small-business", label: isDanish ? "Freelancer eller mindre virksomhedswebsite" : "Freelancer or small business website" }, { value: "custom-website", label: isDanish ? "Skræddersyet website" : "Custom website" }, { value: "web-app-custom-tool", label: isDanish ? "Webapp eller custom værktøj" : "Web app or custom tool" }, { value: "website-changes", label: isDanish ? "Website-ændringer" : "Website changes" }, { value: "other", label: isDanish ? "Andet" : "Other" }]} onChange={(value) => { setService(value); trackEvent("for_you_service_click", { service: value, source: "quote_form" }); }} /></label>
+                <label className="grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Cirka budget" : "Approximate budget"}<GlassSelect id="for-you-budget" name="budget" label={isDanish ? "Cirka budget" : "Approximate budget"} value={budget} placeholder={isDanish ? "Vælg et budget" : "Choose a budget"} options={[{ value: "under-2000", label: isDanish ? "Under 2.000 DKK" : "Under 2,000 DKK" }, { value: "2000-5000", label: "2.000-5.000 DKK" }, { value: "5000-10000", label: "5.000-10.000 DKK" }, { value: "10000-plus", label: "10.000+ DKK" }, { value: "not-sure", label: isDanish ? "Ikke sikker endnu" : "Not sure" }]} onChange={setBudget} /></label>
               </div>
               <label className="mt-5 grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Fortæl os om dit projekt" : "Tell us about your project"}<textarea required name="message" rows={7} maxLength={5000} placeholder={isDanish ? "Beskriv kort, hvad du har brug for, hvad du vil opnå og eventuelle vigtige detaljer." : "Briefly describe what you need, what you want to achieve and any important details."} className="resize-y rounded-xl border border-white/12 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan-300/50" /></label>
               <label className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
               <button type="submit" disabled={status === "submitting"} className="mt-6 rounded-full border border-cyan-300/25 bg-cyan-300/12 px-6 py-3 text-sm font-medium text-cyan-100 transition hover:bg-cyan-300/18 disabled:cursor-not-allowed disabled:opacity-60">{status === "submitting" ? (isDanish ? "Sender..." : "Sending...") : (isDanish ? "Få mit tilbud" : "Get my quote")}</button>
-              <div className="mt-4 min-h-6 text-sm" aria-live="polite">{status === "success" && <p className="text-emerald-200">{isDanish ? "Tak - vi har modtaget din forespørgsel. Vi gennemgår dit projekt og vender tilbage så snart som muligt." : "Thanks - we received your request. We will review your project and get back to you as soon as possible."}</p>}{status === "error" && <p className="text-rose-200">{isDanish ? "Din forespørgsel kunne ikke sendes. Prøv igen, eller skriv direkte til info@understack.dk." : "Your request could not be sent. Please try again or email info@understack.dk directly."}</p>}</div>
+              <div className="mt-4 min-h-6 text-sm" aria-live="polite">{status === "success" && <p className="text-emerald-200">{formMessage}</p>}{status === "error" && <p className="text-rose-200">{formMessage}</p>}</div>
             </form>
           </div>
         </section>
