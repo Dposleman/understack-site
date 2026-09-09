@@ -348,7 +348,6 @@ function SeoPageView({ page }: { page: SeoPage }) {
   return (
     <div className="min-h-screen text-white">
       <PageMeta title={page.title} description={page.description} path={path} lang={isDanish ? "da-DK" : "en"} alternates={alternates} schema={schemaFor(page)} />
-      <div className="grid-overlay" />
       <div className="noise-overlay" />
       <Header page={page} />
 
