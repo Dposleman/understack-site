@@ -34,8 +34,11 @@ function currentLanguage(pathname = window.location.pathname) {
 }
 
 function gtag(...args: unknown[]) {
+  void args;
   window.dataLayer ??= [];
-  window.dataLayer.push(args);
+  // gtag.js consumes queued command arguments rather than array values.
+  // eslint-disable-next-line prefer-rest-params
+  window.dataLayer.push(arguments);
 }
 
 export function initializeAnalytics() {
