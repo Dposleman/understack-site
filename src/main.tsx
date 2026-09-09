@@ -1,6 +1,7 @@
 import React from "react";
 import { createRoot, hydrateRoot } from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
+import AnalyticsTracker from "./components/AnalyticsTracker";
 import App from "./App";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ScrollToTop from "./components/ScrollToTop";
@@ -11,6 +12,7 @@ const app = (
   <React.StrictMode>
     <BrowserRouter>
       <ErrorBoundary>
+        <AnalyticsTracker />
         <ScrollToTop />
         <App />
       </ErrorBoundary>
