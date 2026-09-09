@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import { trackEvent } from "./lib/analytics";
+import { CurrencyProvider, useCurrency } from "./lib/currency";
 import LifePrivacyPage from "./pages/LifePrivacyPage";
 import logo from "./assets/understack-logo.png";
 import PageMeta from "./components/PageMeta";
@@ -146,6 +147,7 @@ export function schemaFor(page: SeoPage) {
 function Header({ page }: { page: SeoPage }) {
   const currentPath = pagePath(page);
   const langLinks: Language[] = ["dk", "en"];
+  const { currency, currencyOptions, setCurrency } = useCurrency();
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/8 bg-slate-950/70 backdrop-blur-xl">
@@ -183,7 +185,7 @@ function Header({ page }: { page: SeoPage }) {
             {page.lang === "dk" ? "Kontakt" : "Contact"}
           </a>
         </nav>
-        <div className="flex items-center gap-2 text-xs text-white/58" aria-label="Language switcher">
+        <div className="flex items-center gap-2 text-xs text-white/58" aria-label="Language and currency preferences">
           {langLinks.map((lang) => {
             const href = alternateFor(page, lang);
             return (
@@ -198,6 +200,20 @@ function Header({ page }: { page: SeoPage }) {
               </a>
             );
           })}
+          <div className="w-48">
+            <GlassSelect
+              id="site-currency"
+              name="currency"
+              label={page.lang === "dk" ? "Valuta" : "Currency"}
+              value={currency}
+              placeholder={page.lang === "dk" ? "Vælg valuta" : "Choose currency"}
+              options={currencyOptions}
+              onChange={(nextCurrency) => {
+                setCurrency(nextCurrency as typeof currency);
+                trackEvent("currency_change", { currency: nextCurrency });
+              }}
+            />
+          </div>
         </div>
       </div>
     </header>
@@ -464,9 +480,9 @@ const forYouServices = [
   { id: "help", price: 750, en: "Small Changes & Digital Help", dk: "Mindre ændringer og digital hjælp", enDescription: "For customers who already have something and just need help improving or fixing it.", dkDescription: "Til dig, der allerede har noget og bare har brug for hjælp til at forbedre eller rette det.", enItems: ["Landing pages", "Website fixes", "Small integrations", "Forms", "Improvements", "Technical adjustments"], dkItems: ["Landing pages", "Website-rettelser", "Mindre integrationer", "Formularer", "Forbedringer", "Tekniske justeringer"] },
 ];
 
-function formatStartingPrice(value: number, lang: Language) {
-  const amount = new Intl.NumberFormat(lang === "dk" ? "da-DK" : "en-DK").format(value);
-  return lang === "dk" ? `Fra ${amount} DKK` : `Starting from ${amount} DKK`;
+function formatStartingPrice(value: number, lang: Language, formatPrice: (dkkAmount: number, language: Language) => string) {
+  const amount = formatPrice(value, lang);
+  return lang === "dk" ? `Fra ${amount}` : `Starting from ${amount}`;
 }
 
 type GlassSelectOption = { value: string; label: string };
@@ -548,6 +564,7 @@ function GlassSelect({
 
 function ForYouPage({ page }: { page: SeoPage }) {
   const isDanish = page.lang === "dk";
+  const { formatPrice } = useCurrency();
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [quoteStarted, setQuoteStarted] = useState(false);
   const [service, setService] = useState("");
@@ -638,7 +655,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
             <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {forYouServices.map((service) => (
                 <article key={service.id} className="rounded-[28px] border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-1 hover:border-cyan-300/24">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/72">{formatStartingPrice(service.price, page.lang)}</p>
+                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/72">{formatStartingPrice(service.price, page.lang, formatPrice)}</p>
                   <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">{isDanish ? service.dk : service.en}</h3>
                   <p className="mt-4 text-sm leading-7 text-white/60">{isDanish ? service.dkDescription : service.enDescription}</p>
                   <ul className="mt-5 grid gap-2 text-sm text-white/62">
@@ -650,7 +667,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
                 </article>
               ))}
             </div>
-            <p className="mt-8 max-w-2xl text-sm leading-7 text-white/54">{isDanish ? "Prisen afhænger af dit projekts scope og kompleksitet. Du får altid en klar pris, før arbejdet begynder." : "Pricing depends on the scope and complexity of your project. You will always receive a clear price before any work begins."}</p>
+            <p className="mt-8 max-w-2xl text-sm leading-7 text-white/54">{isDanish ? "Prisen afhænger af dit projekts scope og kompleksitet. DKK er den primære pris, og andre valutaer vises som omtrentlige omregninger. Du får altid en klar pris, før arbejdet begynder." : "Pricing depends on the scope and complexity of your project. DKK is the primary price and other currencies are shown as approximate conversions. You will always receive a clear price before any work begins."}</p>
           </div>
         </section>
 
@@ -695,7 +712,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
               </div>
               <div className="mt-5 grid gap-5 sm:grid-cols-2">
                 <label className="grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Hvad har du brug for?" : "What do you need?"}<GlassSelect id="for-you-service" name="service" label={isDanish ? "Hvad har du brug for?" : "What do you need?"} value={service} placeholder={isDanish ? "Vælg en type" : "Choose a type"} options={[{ value: "personal-website", label: isDanish ? "Personligt website" : "Personal website" }, { value: "portfolio", label: "Portfolio" }, { value: "freelancer-small-business", label: isDanish ? "Freelancer eller mindre virksomhedswebsite" : "Freelancer or small business website" }, { value: "custom-website", label: isDanish ? "Skræddersyet website" : "Custom website" }, { value: "web-app-custom-tool", label: isDanish ? "Webapp eller custom værktøj" : "Web app or custom tool" }, { value: "website-changes", label: isDanish ? "Website-ændringer" : "Website changes" }, { value: "other", label: isDanish ? "Andet" : "Other" }]} onChange={(value) => { setService(value); trackEvent("for_you_service_click", { service: value, source: "quote_form" }); }} /></label>
-                <label className="grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Cirka budget" : "Approximate budget"}<GlassSelect id="for-you-budget" name="budget" label={isDanish ? "Cirka budget" : "Approximate budget"} value={budget} placeholder={isDanish ? "Vælg et budget" : "Choose a budget"} options={[{ value: "under-2000", label: isDanish ? "Under 2.000 DKK" : "Under 2,000 DKK" }, { value: "2000-5000", label: "2.000-5.000 DKK" }, { value: "5000-10000", label: "5.000-10.000 DKK" }, { value: "10000-plus", label: "10.000+ DKK" }, { value: "not-sure", label: isDanish ? "Ikke sikker endnu" : "Not sure" }]} onChange={setBudget} /></label>
+                <label className="grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Cirka budget" : "Approximate budget"}<GlassSelect id="for-you-budget" name="budget" label={isDanish ? "Cirka budget" : "Approximate budget"} value={budget} placeholder={isDanish ? "Vælg et budget" : "Choose a budget"} options={[{ value: "under-2000", label: isDanish ? `Under ${formatPrice(2000, page.lang)}` : `Under ${formatPrice(2000, page.lang)}` }, { value: "2000-5000", label: `${formatPrice(2000, page.lang)} - ${formatPrice(5000, page.lang)}` }, { value: "5000-10000", label: `${formatPrice(5000, page.lang)} - ${formatPrice(10000, page.lang)}` }, { value: "10000-plus", label: `${formatPrice(10000, page.lang)}+` }, { value: "not-sure", label: isDanish ? "Ikke sikker endnu" : "Not sure" }]} onChange={setBudget} /></label>
               </div>
               <label className="mt-5 grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Fortæl os om dit projekt" : "Tell us about your project"}<textarea required name="message" rows={7} maxLength={5000} placeholder={isDanish ? "Beskriv kort, hvad du har brug for, hvad du vil opnå og eventuelle vigtige detaljer." : "Briefly describe what you need, what you want to achieve and any important details."} className="resize-y rounded-xl border border-white/12 bg-black/20 px-4 py-3 text-white outline-none transition placeholder:text-white/35 focus:border-cyan-300/50" /></label>
               <label className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">Website<input name="website" tabIndex={-1} autoComplete="off" /></label>
@@ -738,14 +755,16 @@ function RoutedPage() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Navigate to="/dk/" replace />} />
-      <Route path="/privacy" element={<PocketPrivacyPage />} />
-      <Route path="/life/privacy" element={<LifePrivacyPage />} />
-      <Route path="/apps" element={<Navigate to="/en/apps" replace />} />
-      <Route path="/marketplace" element={<Navigate to="/en/marketplace" replace />} />
-      <Route path="/:lang/for-you" element={<ForYouRoute />} />
-      <Route path="/:lang/*" element={<RoutedPage />} />
-    </Routes>
+    <CurrencyProvider>
+      <Routes>
+        <Route path="/" element={<Navigate to="/dk/" replace />} />
+        <Route path="/privacy" element={<PocketPrivacyPage />} />
+        <Route path="/life/privacy" element={<LifePrivacyPage />} />
+        <Route path="/apps" element={<Navigate to="/en/apps" replace />} />
+        <Route path="/marketplace" element={<Navigate to="/en/marketplace" replace />} />
+        <Route path="/:lang/for-you" element={<ForYouRoute />} />
+        <Route path="/:lang/*" element={<RoutedPage />} />
+      </Routes>
+    </CurrencyProvider>
   );
 }

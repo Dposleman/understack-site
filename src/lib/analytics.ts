@@ -14,6 +14,7 @@ export type AnalyticsEvent =
   | "outbound_click"
   | "github_click"
   | "language_change"
+  | "currency_change"
   | "scroll_50"
   | "scroll_90"
   | "for_you_view"

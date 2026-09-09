@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useCurrency } from "../lib/currency";
 
 const comparisonData = [
   {
@@ -38,15 +39,12 @@ const comparisonData = [
 
 const maxPrice = Math.max(...comparisonData.map((item) => item.price));
 
-function formatDKK(value: number) {
-  return new Intl.NumberFormat("en-DK").format(value) + " DKK";
-}
-
 function savingsVs(referencePrice: number, understackPrice: number) {
   return Math.round(((referencePrice - understackPrice) / referencePrice) * 100);
 }
 
 export default function MarketComparison() {
+  const { formatPrice } = useCurrency();
   const understackPrice = comparisonData[0].price;
   const freelancerSavings = savingsVs(comparisonData[1].price, understackPrice);
   const agencySavings = savingsVs(comparisonData[2].price, understackPrice);
@@ -92,7 +90,7 @@ export default function MarketComparison() {
                 UnderStack starts at
               </div>
               <div className="mt-1 text-lg font-semibold text-cyan-200">
-                {formatDKK(understackPrice)}
+                {formatPrice(understackPrice, "en")}
               </div>
             </div>
           </div>
@@ -123,7 +121,7 @@ export default function MarketComparison() {
                     </div>
 
                     <div className="text-lg font-semibold text-white">
-                      {formatDKK(item.price)}
+                      {formatPrice(item.price, "en")}
                     </div>
                   </div>
 
@@ -147,7 +145,7 @@ export default function MarketComparison() {
                 UnderStack
               </div>
               <div className="mt-2 text-2xl font-semibold text-white">
-                {formatDKK(understackPrice)}
+                {formatPrice(understackPrice, "en")}
               </div>
             </div>
 
