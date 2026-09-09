@@ -539,13 +539,13 @@ const caseDetails = [
   {
     slug: "serviceos",
     name: "ServiceOS",
-    dk: "AI-native service operating system under udvikling til waitstaff, serviceflow og floor intelligence.",
-    en: "AI-native service operating system in development for waitstaff, service flow and floor intelligence.",
+    dk: "AI-native restaurant service operating system under udvikling til floorplans, bordplanlægning, reservationer, serviceflow og struktureret ordreoptagelse.",
+    en: "AI-native restaurant service operating system in development for floor plans, table planning, reservations, service flow and structured order capture.",
     serviceDk: "/dk/ai-loesninger",
     serviceEn: "/en/ai-development",
     keywords: ["AI restaurant software", "service operations software", "hospitality AI"],
-    featuresDk: ["Kunde- og jobstyring", "People, roles og vagter", "Service-workflows og dokumenter", "Floor intelligence under udvikling"],
-    featuresEn: ["Customer and job management", "People, roles and shifts", "Service workflows and documents", "Floor intelligence in development"],
+    featuresDk: ["Floorplan-baseret bordplanlægning", "Reservationer og automatisk placering efter tid, bordkapacitet og tilgængelighed", "Event-layouts med gangarealer og uden overlappende borde", "Struktureret ordreoptagelse med retter, allergener, tilvalg, fravalg og drikkevarer"],
+    featuresEn: ["Floor-plan-based table planning", "Reservations and automatic seating by timing, table capacity and availability", "Event layouts that preserve walkways and prevent table conflicts", "Structured order capture for dishes, allergens, additions, removals and beverages"],
   },
   {
     slug: "understack-ai-pocket",
@@ -737,11 +737,34 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     name: "Service OS",
-    category: "Service Business Management SaaS",
+    category: "Restaurant Service Operations SaaS",
     description:
-      "An operating system for service businesses, turning customers, jobs, employees, scheduling, documents and internal workflows into one operational workspace.",
-    capabilities: ["Customers and service orders", "Employees and scheduling", "Tasks and documents", "Operational workflows", "Business overview"],
+      "An AI-native operating system in active development for restaurant front-of-house operations, connecting floor plans, table planning, reservations, order capture and service workflows in one workspace.",
+    capabilities: [
+      "Interactive restaurant floor plan and table map",
+      "Layout-aware table planning for events, special reservations and group sizes",
+      "Automatic seating that respects capacity, reservation timing, walkways and table conflicts",
+      "Daily reservation allocation across available tables and service times",
+      "Structured order interpretation for dishes, allergies, additions, removals and beverages",
+      "Service workflows, people, roles, tasks and operational visibility",
+    ],
     status: "Active development",
+    localized: {
+      dk: {
+        category: "Restaurant service operations SaaS",
+        description:
+          "Et AI-native operating system under udvikling til restaurantens front-of-house, som samler floorplan, bordplanlægning, reservationer, ordreoptagelse og service-workflows i ét workspace.",
+        capabilities: [
+          "Interaktiv floorplan og bordkort for restauranten",
+          "Layoutbevidst bordplanlægning til events, særlige reservationer og grupper",
+          "Automatisk placering med hensyn til kapacitet, reservationstid, gangarealer og bordkonflikter",
+          "Daglig fordeling af reservationer på tilgængelige borde og serviceperioder",
+          "Struktureret ordrefortolkning for retter, allergener, tilvalg, fravalg og drikkevarer",
+          "Service-workflows, people, roller, opgaver og operationelt overblik",
+        ],
+        status: "Aktiv udvikling",
+      },
+    },
   },
   {
     name: "AI Visual Studio",
