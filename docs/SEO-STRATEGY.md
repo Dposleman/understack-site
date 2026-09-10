@@ -17,8 +17,8 @@ The current implementation now targets acquisition from non-branded commercial s
 
 ## Critical Notes
 
-- The current stack is Vite + React Router with client-side rendering. This is workable for Google, but not ideal for SEO because page content is not fully present in the initial HTML.
-- A future SSG/SSR migration to Astro, Next.js, or prerendered Vite routes would materially improve crawl reliability and metadata rendering.
+- The current stack is Vite + React Router with a production prerender step. Public routes include their visible content, metadata and structured data in the initial HTML, improving crawl reliability without changing the existing interface.
+- Retain the prerender step for all new public routes. A framework migration is not necessary for SEO unless the site later needs server-side personalization or a content system that the current architecture cannot support.
 - No address, phone, staff count, reviews, awards, client names, revenue, or commercial performance metrics were invented.
 
 ## 90-Day Roadmap

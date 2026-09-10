@@ -14,6 +14,7 @@ import {
   findPage,
   GENERAL_EMAIL,
   languageNames,
+  pageAlternates,
   pagePath,
   portfolioProjects,
   SITE_URL,
@@ -60,6 +61,15 @@ export function schemaFor(page: SeoPage) {
       name: "UnderStack",
       url: SITE_URL,
       inLanguage: page.lang === "dk" ? "da-DK" : "en",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: page.h1,
+      description: page.description,
+      url: localUrl(path),
+      inLanguage: page.lang === "dk" ? "da-DK" : "en",
+      isPartOf: { "@type": "WebSite", name: "UnderStack", url: SITE_URL },
     },
     {
       "@context": "https://schema.org",
@@ -138,6 +148,18 @@ export function schemaFor(page: SeoPage) {
       publisher: { "@type": "Organization", name: "UnderStack", logo: { "@type": "ImageObject", url: `${SITE_URL}/favicon.png` } },
       mainEntityOfPage: localUrl(path),
       inLanguage: page.lang === "dk" ? "da-DK" : "en",
+    });
+  }
+
+  if (page.faqs?.length) {
+    base.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: page.faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
     });
   }
 
@@ -378,11 +400,7 @@ function PortfolioGrid({ page }: { page: SeoPage }) {
 function SeoPageView({ page }: { page: SeoPage }) {
   const path = pagePath(page);
   const isDanish = page.lang === "dk";
-  const alternates = [
-    { hrefLang: "da-DK", href: localUrl(alternateFor(page, "dk")) },
-    { hrefLang: "en", href: localUrl(alternateFor(page, "en")) },
-    { hrefLang: "x-default", href: localUrl(alternateFor(page, "dk")) },
-  ];
+  const alternates = pageAlternates(page).map((alternate) => ({ ...alternate, href: localUrl(alternate.href) }));
 
   return (
     <div className="min-h-screen text-white">

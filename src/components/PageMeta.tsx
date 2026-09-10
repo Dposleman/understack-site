@@ -53,6 +53,7 @@ export default function PageMeta({ title, description, path, lang = "en", altern
     setMeta('meta[name="twitter:title"]', title);
     setMeta('meta[name="twitter:description"]', description);
     setMeta('meta[name="twitter:image"]', IMAGE_URL);
+    setMeta('meta[name="twitter:url"]', url);
     document.querySelectorAll<HTMLScriptElement>('script[data-understack-schema="true"]').forEach((script) => script.remove());
 
     if (schema) {

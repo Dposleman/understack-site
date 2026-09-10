@@ -1,6 +1,12 @@
 {
   "headers": [
     {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex" }
+      ]
+    },
+    {
       "source": "/(.*)",
       "headers": [
         { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com; font-src 'self' data:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://region1.analytics.google.com; object-src 'none'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; upgrade-insecure-requests" },
@@ -11,9 +17,19 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.understack.dk" }
+      ],
+      "destination": "https://understack.dk/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
-      "source": "/((?!api/|assets/|favicon|robots.txt|sitemap.xml|manifest.webmanifest|og-image-final-optimized.jpg).*)",
+      "source": "/((?!api/|assets/|favicon|robots.txt|sitemap.xml|llms.txt|manifest.webmanifest|og-image-final-optimized.jpg).*)",
       "destination": "/index.html"
     }
   ]

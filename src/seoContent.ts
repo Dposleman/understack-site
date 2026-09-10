@@ -54,6 +54,20 @@ export function pagePath(page: SeoPage) {
   return `/${page.lang}/${page.slug}`;
 }
 
+export function pageAlternates(page: SeoPage) {
+  const localizedPages = (["dk", "en"] as Language[])
+    .map((lang) => allPages.find((item) => item.lang === lang && item.kind === page.kind && item.slug === page.slug))
+    .filter((item): item is SeoPage => Boolean(item));
+
+  const alternates = localizedPages.map((item) => ({
+    hrefLang: item.lang === "dk" ? "da-DK" : "en",
+    href: pagePath(item),
+  }));
+  const defaultPage = localizedPages.find((item) => item.lang === "dk");
+
+  return defaultPage ? [...alternates, { hrefLang: "x-default", href: pagePath(defaultPage) }] : alternates;
+}
+
 const dkServiceSections = {
   process: {
     title: "Sådan arbejder vi",

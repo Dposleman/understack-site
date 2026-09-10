@@ -1,7 +1,7 @@
 import { renderToString } from "react-dom/server";
 import { MemoryRouter } from "react-router-dom";
 import App, { schemaFor } from "./App";
-import { allPages, alternateFor, findPage, pagePath, SITE_URL, SOCIAL_IMAGE_URL, type Language } from "./seoContent";
+import { allPages, findPage, pageAlternates, pagePath, SITE_URL, SOCIAL_IMAGE_URL, type Language } from "./seoContent";
 
 const IMAGE_URL = SOCIAL_IMAGE_URL;
 
@@ -49,11 +49,7 @@ function headFor(pathname: string) {
   const canonical = absolute(pagePath(page));
   const title = escapeHtml(page.title);
   const description = escapeHtml(page.description);
-  const alternates = [
-    ["da-DK", absolute(alternateFor(page, "dk"))],
-    ["en", absolute(alternateFor(page, "en"))],
-    ["x-default", absolute(alternateFor(page, "dk"))],
-  ];
+  const alternates = pageAlternates(page).map((alternate) => [alternate.hrefLang, absolute(alternate.href)]);
 
   return {
     lang: lang === "dk" ? "da-DK" : "en",
@@ -70,6 +66,7 @@ function headFor(pathname: string) {
       `<meta name="twitter:title" content="${title}" />`,
       `<meta name="twitter:description" content="${description}" />`,
       `<meta name="twitter:image" content="${IMAGE_URL}" />`,
+      `<meta name="twitter:url" content="${canonical}" />`,
       `<script type="application/ld+json" data-understack-schema="true">${JSON.stringify(schemaFor(page)).replaceAll("<", "\\u003c")}</script>`,
     ].join("\n    "),
   };
@@ -88,3 +85,8 @@ export function render(pathname: string) {
 }
 
 export const routes = ["/privacy", "/life/privacy", ...allPages.map(pagePath)];
+export const sitemapEntries = [
+  { path: "/privacy", alternates: [] as { hrefLang: string; href: string }[] },
+  { path: "/life/privacy", alternates: [] as { hrefLang: string; href: string }[] },
+  ...allPages.map((page) => ({ path: pagePath(page), alternates: pageAlternates(page) })),
+];

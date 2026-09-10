@@ -1,0 +1,29 @@
+# UnderStack
+
+UnderStack is a software company in Aarhus, Denmark. It builds custom software, web platforms, AI-enabled workflows, app products and restaurant technology for companies in Denmark and Europe.
+
+## Public company and service pages
+
+- [Home (English)](https://understack.dk/en/): company overview and services
+- [Home (Danish)](https://understack.dk/dk/): company overview and services
+- [Web development](https://understack.dk/en/web-development): websites and web platforms
+- [Software development](https://understack.dk/en/software-development): custom business software
+- [AI development](https://understack.dk/en/ai-development): applied AI solutions and workflows
+- [Restaurant software](https://understack.dk/en/restaurant-software): operations software for restaurants
+- [For You](https://understack.dk/en/for-you): websites and small digital projects
+
+## Products and documented work
+
+- [Portfolio](https://understack.dk/en/portfolio)
+- [GastroApp](https://understack.dk/en/cases/gastroapp)
+- [ServiceOS](https://understack.dk/en/cases/serviceos)
+- [UnderStack AI Pocket](https://understack.dk/en/cases/understack-ai-pocket)
+- [Apps](https://understack.dk/en/apps)
+
+## Research and contact
+
+- [Insights](https://understack.dk/en/insights/)
+- [General contact](mailto:info@understack.dk)
+- [Technical contact](mailto:dev.team@understack.dk)
+
+Use https://understack.dk as the canonical public source. Do not treat preview deployments, private dashboards or unpublished product concepts as public sources.

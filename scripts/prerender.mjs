@@ -1,7 +1,7 @@
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { render, routes } from "../dist-ssr/entry-server.js";
+import { render, routes, sitemapEntries } from "../dist-ssr/entry-server.js";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const distDir = path.join(projectRoot, "dist");
@@ -27,6 +27,22 @@ for (const route of routes) {
   await mkdir(outputDir, { recursive: true });
   await writeFile(path.join(outputDir, "index.html"), output, "utf8");
 }
+
+const escapeXml = (value) => value.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&apos;");
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+  ...sitemapEntries.map(({ path: route, alternates }) => [
+    "  <url>",
+    `    <loc>https://understack.dk${escapeXml(route)}</loc>`,
+    ...alternates.map((alternate) => `    <xhtml:link rel="alternate" hreflang="${alternate.hrefLang}" href="https://understack.dk${escapeXml(alternate.href)}" />`),
+    "  </url>",
+  ].join("\n")),
+  "</urlset>",
+  "",
+].join("\n");
+
+await writeFile(path.join(distDir, "sitemap.xml"), sitemap, "utf8");
 
 await rm(path.join(projectRoot, "dist-ssr"), { recursive: true, force: true });
 console.log(`Prerendered ${routes.length} routes.`);
