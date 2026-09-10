@@ -206,6 +206,9 @@ function Header({ page }: { page: SeoPage }) {
           <a href={`/${page.lang}/insights/`} className="hover:text-white">
             Insights
           </a>
+          <a href={`mailto:${GENERAL_EMAIL}`} data-event="CTA_CLICK" data-analytics-label="Header contact" className="rounded-full border border-white/12 bg-white/6 px-4 py-2 text-white/80 hover:bg-white/10">
+            {page.lang === "dk" ? "Kontakt" : "Contact us"}
+          </a>
           <SmsContactLink language={page.lang} location="header" className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-cyan-100 hover:bg-cyan-300/15">
             {page.lang === "dk" ? "Skriv SMS" : "Send SMS"}
           </SmsContactLink>
@@ -295,7 +298,7 @@ function Footer({ lang }: { lang: Language }) {
           </SmsContactLink>
           <CopyPhoneButton language={lang} className="mt-2 text-xs text-white/58 transition hover:text-white" />
           <p className="mt-3 text-xs leading-5 text-white/42">
-            {lang === "dk" ? "Opkald aftales på forhånd. Skriv først, så vi kan forberede os." : "Calls are scheduled in advance. Message first so we can prepare."}
+            {lang === "dk" ? "Hvis du vil tale om flere detaljer, finder vi gerne et tidspunkt, der passer." : "If you would like to talk through more details, we can find a time that works."}
           </p>
           <p className="mt-4 text-xs text-white/42">{lang === "dk" ? "Generelle henvendelser" : "General enquiries"}</p>
           <a href={`mailto:${GENERAL_EMAIL}`} data-event="EMAIL_CLICK" className="mt-1 block text-sm text-cyan-100 hover:text-white">
@@ -443,7 +446,7 @@ function SeoPageView({ page }: { page: SeoPage }) {
                 </a>
               </div>
               <p className="mt-4 text-xs text-white/48">
-                {isDanish ? "Skriv til os først. Hvis et opkald er relevant, aftaler vi et tidspunkt." : "Message us first. If a call is useful, we will arrange a time."}
+                {isDanish ? "Hvis du foretrækker at tale om flere detaljer, finder vi gerne et tidspunkt, der passer." : "If you would prefer to talk through more details, we can find a time that works."}
               </p>
             </div>
           </div>
@@ -733,7 +736,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
               <p className="mt-5 max-w-lg text-base leading-8 text-white/62">{isDanish ? "Vi gennemgår din forespørgsel og vender tilbage, så snart vi kan." : "We will review your request and get back to you as soon as possible."}</p>
               <div className="mt-8 rounded-[24px] border border-white/10 bg-white/[0.035] p-6">
                 <h3 className="text-lg font-semibold text-white">{isDanish ? "Vil du afklare det først?" : "Want to clarify it first?"}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/58">{isDanish ? "Skriv en kort SMS om dit projekt. Hvis et opkald giver mening, aftaler vi det på forhånd." : "Send a short SMS about your project. If a call makes sense, we will arrange it in advance."}</p>
+                <p className="mt-3 text-sm leading-7 text-white/58">{isDanish ? "Skriv en kort SMS om dit projekt. Hvis du foretrækker at tale om flere detaljer, finder vi gerne et tidspunkt, der passer." : "Send a short SMS about your project. If you would prefer to talk through more details, we can find a time that works."}</p>
                 <SmsContactLink language={page.lang} location="for_you_contact_panel" className="mt-5 inline-flex text-sm font-semibold text-cyan-100 hover:text-white">
                   {isDanish ? "Skriv til UnderStack" : "Text UnderStack"}
                 </SmsContactLink>
