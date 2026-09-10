@@ -11,6 +11,10 @@ export type AnalyticsEvent =
   | "demo_click"
   | "contact_click"
   | "email_click"
+  | "sms_click"
+  | "phone_copy"
+  | "contact_form_start"
+  | "contact_form_submit"
   | "outbound_click"
   | "github_click"
   | "language_change"
@@ -117,6 +121,10 @@ export function trackLinkClick(target: EventTarget | null) {
   if (href.startsWith("mailto:")) {
     const event = explicitEvent === "CTA_CLICK" || /contact|kontakt/i.test(label) ? "contact_click" : "email_click";
     trackEvent(event, { label, destination: href.replace("mailto:", "") });
+    return;
+  }
+  if (href.startsWith("sms:")) {
+    trackEvent("sms_click", { label, location: anchor.dataset.analyticsLocation || "unknown" });
     return;
   }
 

@@ -99,6 +99,8 @@ Use this consistently in external listings:
 - **Website:** https://understack.dk/
 - **General contact:** info@understack.dk
 - **Technical/product contact:** dev.team@understack.dk
+- **SMS contact:** +45 91 40 67 22
+- **Call policy:** Calls are scheduled in advance; start with an SMS so UnderStack can prepare.
 - **CVR:** 46327608
 - **Primary market:** Aarhus and Denmark
 - **Broader market:** Europe

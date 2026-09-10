@@ -1,7 +1,9 @@
 import { type FormEvent, useEffect, useRef, useState } from "react";
 import { Navigate, Route, Routes, useLocation, useParams } from "react-router-dom";
 import { trackEvent } from "./lib/analytics";
+import { COMPANY_PHONE_DISPLAY, COMPANY_PHONE_INTERNATIONAL } from "./lib/contact";
 import { CurrencyProvider, useCurrency } from "./lib/currency";
+import { CopyPhoneButton, SmsContactLink } from "./components/SmsContact";
 import LifePrivacyPage from "./pages/LifePrivacyPage";
 import logo from "./assets/understack-logo.png";
 import PageMeta from "./components/PageMeta";
@@ -39,6 +41,7 @@ function organizationSchema() {
     url: SITE_URL,
     logo: `${SITE_URL}/favicon.png`,
     email: GENERAL_EMAIL,
+    telephone: COMPANY_PHONE_INTERNATIONAL,
     vatID: `DK${COMPANY_CVR}`,
     areaServed: ["Aarhus", "Denmark", "Nordics", "Europe"],
     knowsAbout: ["Software development", "Web development", "Custom software", "AI solutions", "Restaurant software"],
@@ -203,9 +206,9 @@ function Header({ page }: { page: SeoPage }) {
           <a href={`/${page.lang}/insights/`} className="hover:text-white">
             Insights
           </a>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-cyan-100 hover:bg-cyan-300/15">
-            {page.lang === "dk" ? "Kontakt" : "Contact"}
-          </a>
+          <SmsContactLink language={page.lang} location="header" className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-cyan-100 hover:bg-cyan-300/15">
+            {page.lang === "dk" ? "Skriv SMS" : "Send SMS"}
+          </SmsContactLink>
         </nav>
         <div className="flex items-center gap-2 text-xs text-white/58" aria-label="Language and currency preferences">
           {langLinks.map((lang) => {
@@ -286,6 +289,14 @@ function Footer({ lang }: { lang: Language }) {
         </div>
         <div>
           <div className="text-xs uppercase tracking-[0.24em] text-white/42">Contact</div>
+          <p className="mt-4 text-xs text-white/42">{lang === "dk" ? "SMS foretrækkes" : "SMS preferred"}</p>
+          <SmsContactLink language={lang} location="footer" className="mt-1 block text-sm text-cyan-100 hover:text-white">
+            {COMPANY_PHONE_DISPLAY}
+          </SmsContactLink>
+          <CopyPhoneButton language={lang} className="mt-2 text-xs text-white/58 transition hover:text-white" />
+          <p className="mt-3 text-xs leading-5 text-white/42">
+            {lang === "dk" ? "Opkald aftales på forhånd. Skriv først, så vi kan forberede os." : "Calls are scheduled in advance. Message first so we can prepare."}
+          </p>
           <p className="mt-4 text-xs text-white/42">{lang === "dk" ? "Generelle henvendelser" : "General enquiries"}</p>
           <a href={`mailto:${GENERAL_EMAIL}`} data-event="EMAIL_CLICK" className="mt-1 block text-sm text-cyan-100 hover:text-white">
             {GENERAL_EMAIL}
@@ -420,17 +431,20 @@ function SeoPageView({ page }: { page: SeoPage }) {
               <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-6xl">{page.h1}</h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 sm:text-lg">{page.intro}</p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href={`mailto:${CONTACT_EMAIL}`}
-                  data-event="CTA_CLICK"
+                <SmsContactLink
+                  language={page.lang}
+                  location="page_hero"
                   className="rounded-full border border-cyan-300/25 bg-cyan-300/12 px-6 py-3 text-sm font-medium text-cyan-100 transition hover:bg-cyan-300/18"
                 >
                   {page.cta}
-                </a>
+                </SmsContactLink>
                 <a href={`/${page.lang}/cases/`} className="rounded-full border border-white/12 bg-white/6 px-6 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10">
                   {isDanish ? "Se cases" : "View cases"}
                 </a>
               </div>
+              <p className="mt-4 text-xs text-white/48">
+                {isDanish ? "Skriv til os først. Hvis et opkald er relevant, aftaler vi et tidspunkt." : "Message us first. If a call is useful, we will arrange a time."}
+              </p>
             </div>
           </div>
         </section>
@@ -598,6 +612,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
     if (!quoteStarted) {
       setQuoteStarted(true);
       trackEvent("for_you_quote_start");
+      trackEvent("contact_form_start", { form: "for_you_quote" });
     }
   }
 
@@ -630,6 +645,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
       const result = await response.json().catch(() => null);
       if (!response.ok || result?.ok !== true) throw new Error("Quote request failed");
       trackEvent("for_you_quote_submit", { service: String(fields.get("service") || "other") });
+      trackEvent("contact_form_submit", { form: "for_you_quote", service: String(fields.get("service") || "other") });
       trackEvent("generate_lead", { source: "for_you_quote", service: String(fields.get("service") || "other") });
       form.reset();
       setService("");
@@ -660,9 +676,9 @@ function ForYouPage({ page }: { page: SeoPage }) {
               <button type="button" onClick={() => selectService("hero")} className="rounded-full border border-cyan-300/25 bg-cyan-300/12 px-6 py-3 text-sm font-medium text-cyan-100 transition hover:bg-cyan-300/18">
                 {isDanish ? "Få et tilbud" : "Get a quote"}
               </button>
-              <a href={`mailto:${GENERAL_EMAIL}`} data-event="CTA_CLICK" data-analytics-label="For You contact" className="rounded-full border border-white/12 bg-white/6 px-6 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10">
-                {isDanish ? "Kontakt os" : "Contact us"}
-              </a>
+              <SmsContactLink language={page.lang} location="for_you_hero" className="rounded-full border border-white/12 bg-white/6 px-6 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10">
+                {isDanish ? "Skriv SMS" : "Send SMS"}
+              </SmsContactLink>
             </div>
           </div>
         </section>
@@ -716,10 +732,13 @@ function ForYouPage({ page }: { page: SeoPage }) {
               <h2 id="for-you-quote-title" className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{isDanish ? "Fortæl os om dit projekt." : "Tell us about your project."}</h2>
               <p className="mt-5 max-w-lg text-base leading-8 text-white/62">{isDanish ? "Vi gennemgår din forespørgsel og vender tilbage, så snart vi kan." : "We will review your request and get back to you as soon as possible."}</p>
               <div className="mt-8 rounded-[24px] border border-white/10 bg-white/[0.035] p-6">
-                <h3 className="text-lg font-semibold text-white">{isDanish ? "Vil du hellere tale først?" : "Prefer to talk first?"}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/58">{isDanish ? "Intet problem. Skriv til os og fortæl, hvad du har i tankerne." : "No problem. Get in touch and tell us what you have in mind."}</p>
-                <a href={`mailto:${GENERAL_EMAIL}`} data-event="CTA_CLICK" data-analytics-label="For You secondary contact" onClick={() => trackEvent("for_you_contact_click")} className="mt-5 inline-flex text-sm font-semibold text-cyan-100 hover:text-white">
-                  {isDanish ? "Kontakt UnderStack" : "Contact UnderStack"}
+                <h3 className="text-lg font-semibold text-white">{isDanish ? "Vil du afklare det først?" : "Want to clarify it first?"}</h3>
+                <p className="mt-3 text-sm leading-7 text-white/58">{isDanish ? "Skriv en kort SMS om dit projekt. Hvis et opkald giver mening, aftaler vi det på forhånd." : "Send a short SMS about your project. If a call makes sense, we will arrange it in advance."}</p>
+                <SmsContactLink language={page.lang} location="for_you_contact_panel" className="mt-5 inline-flex text-sm font-semibold text-cyan-100 hover:text-white">
+                  {isDanish ? "Skriv til UnderStack" : "Text UnderStack"}
+                </SmsContactLink>
+                <a href={`mailto:${GENERAL_EMAIL}`} data-event="CTA_CLICK" data-analytics-label="For You email alternative" onClick={() => trackEvent("for_you_contact_click")} className="mt-3 block text-sm text-white/54 hover:text-white">
+                  {isDanish ? "Eller send en email" : "Or send an email"}
                 </a>
               </div>
             </div>
