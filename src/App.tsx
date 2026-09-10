@@ -176,12 +176,12 @@ function Header({ page }: { page: SeoPage }) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/8 bg-slate-950/70 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-6 py-4">
         <a href={`/${page.lang}/`} className="flex items-center gap-3">
           <img src={logo} alt="UnderStack logo" className="h-8 w-8" loading="eager" />
           <span className="text-sm font-semibold uppercase tracking-[0.28em] text-white/90">UnderStack</span>
         </a>
-        <nav className="flex flex-wrap items-center gap-5 text-sm text-white/68" aria-label="Primary navigation">
+        <nav className="order-3 flex w-full items-center gap-5 overflow-x-auto pb-1 text-sm text-white/68 lg:order-none lg:w-auto lg:overflow-visible lg:pb-0" aria-label="Primary navigation">
           <a href={`/${page.lang}/webudvikling-aarhus`} className={page.lang === "dk" ? "hover:text-white" : "hidden"}>
             Webudvikling
           </a>
@@ -197,17 +197,8 @@ function Header({ page }: { page: SeoPage }) {
           <a href={`/${page.lang}/cases/`} className="hover:text-white">
             Cases
           </a>
-          <a href={`/${page.lang}/portfolio`} className="hover:text-white">
-            Portfolio
-          </a>
           <a href={`/${page.lang}/for-you`} className="hover:text-white">
             For You
-          </a>
-          <a href={`/${page.lang}/insights/`} className="hover:text-white">
-            Insights
-          </a>
-          <a href={`mailto:${GENERAL_EMAIL}`} data-event="CTA_CLICK" data-analytics-label="Header contact" className="rounded-full border border-white/12 bg-white/6 px-4 py-2 text-white/80 hover:bg-white/10">
-            {page.lang === "dk" ? "Kontakt" : "Contact us"}
           </a>
           <SmsContactLink language={page.lang} location="header" className="rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-cyan-100 hover:bg-cyan-300/15">
             {page.lang === "dk" ? "Skriv SMS" : "Send SMS"}
@@ -423,17 +414,15 @@ function SeoPageView({ page }: { page: SeoPage }) {
       <Header page={page} />
 
       <main>
-        <section className="relative overflow-hidden px-6 py-20 sm:py-28">
-          <div className="aurora-mesh aurora-mesh-1" />
-          <div className="aurora-mesh aurora-mesh-2" />
+        <section className="page-hero px-6 py-16 sm:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="max-w-4xl">
-              <p className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">
+              <p className="eyebrow">
                 {page.eyebrow}
               </p>
-              <h1 className="mt-6 text-4xl font-semibold tracking-tight text-white sm:text-6xl">{page.h1}</h1>
+              <h1 className="mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl">{page.h1}</h1>
               <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 sm:text-lg">{page.intro}</p>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
                 <SmsContactLink
                   language={page.lang}
                   location="page_hero"
@@ -441,7 +430,7 @@ function SeoPageView({ page }: { page: SeoPage }) {
                 >
                   {page.cta}
                 </SmsContactLink>
-                <a href={`/${page.lang}/cases/`} className="rounded-full border border-white/12 bg-white/6 px-6 py-3 text-sm font-medium text-white/80 transition hover:bg-white/10">
+                <a href={`/${page.lang}/portfolio`} className="text-sm font-medium text-white/70 underline decoration-white/30 underline-offset-4 transition hover:text-white">
                   {isDanish ? "Se cases" : "View cases"}
                 </a>
               </div>
@@ -456,21 +445,25 @@ function SeoPageView({ page }: { page: SeoPage }) {
         <PortfolioGrid page={page} />
 
         {page.sections.map((section, index) => (
-          <section key={section.title} className="mx-auto max-w-7xl px-6 py-10">
-            <article className="rounded-[30px] border border-white/10 bg-white/[0.045] p-7 backdrop-blur-xl">
-              <p className="text-xs uppercase tracking-[0.22em] text-white/42">{index + 1 < 10 ? `0${index + 1}` : index + 1}</p>
-              <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{section.title}</h2>
-              <p className="mt-4 max-w-4xl text-sm leading-8 text-white/66">{section.body}</p>
+          <section key={section.title} className="content-section mx-auto max-w-7xl px-6 py-10">
+            <div className="grid gap-6 border-t border-white/12 pt-7 md:grid-cols-[minmax(12rem,0.55fr)_minmax(0,1fr)] md:gap-12">
+              <div>
+                <p className="section-number">{index + 1 < 10 ? `0${index + 1}` : index + 1}</p>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{section.title}</h2>
+              </div>
+              <div>
+                <p className="max-w-3xl text-base leading-8 text-white/66">{section.body}</p>
               {section.items ? (
-                <ul className="mt-6 grid gap-3 md:grid-cols-2">
+                <ul className="section-list mt-6 grid gap-x-8 gap-y-3 md:grid-cols-2">
                   {section.items.map((item) => (
-                    <li key={item} className="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white/72">
+                    <li key={item} className="border-t border-white/10 py-3 text-sm text-white/72">
                       {item}
                     </li>
                   ))}
                 </ul>
               ) : null}
-            </article>
+              </div>
+            </div>
           </section>
         ))}
 
@@ -668,12 +661,10 @@ function ForYouPage({ page }: { page: SeoPage }) {
       <Header page={page} />
 
       <main>
-        <section className="relative overflow-hidden px-6 py-20 sm:py-28">
-          <div className="aurora-mesh aurora-mesh-1" />
-          <div className="aurora-mesh aurora-mesh-2" />
+        <section className="page-hero px-6 py-16 sm:py-24">
           <div className="relative mx-auto max-w-7xl">
-            <p className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-200">{page.eyebrow}</p>
-            <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-6xl">{page.h1}</h1>
+            <p className="eyebrow">{page.eyebrow}</p>
+            <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">{page.h1}</h1>
             <p className="mt-6 max-w-3xl text-base leading-8 text-white/68 sm:text-lg">{page.intro}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <button type="button" onClick={() => selectService("hero")} className="rounded-full border border-cyan-300/25 bg-cyan-300/12 px-6 py-3 text-sm font-medium text-cyan-100 transition hover:bg-cyan-300/18">
@@ -690,16 +681,16 @@ function ForYouPage({ page }: { page: SeoPage }) {
           <div className="mx-auto max-w-7xl">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/72">{isDanish ? "Til mindre projekter" : "For smaller projects"}</p>
             <h2 id="for-you-services" className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">{isDanish ? "Det rigtige niveau af løsning, uden unødig kompleksitet." : "The right level of solution, without unnecessary complexity."}</h2>
-            <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-10 grid gap-x-10 gap-y-0 md:grid-cols-2 xl:grid-cols-3">
               {forYouServices.map((service) => (
-                <article key={service.id} className="rounded-[28px] border border-white/10 bg-white/[0.045] p-6 transition hover:-translate-y-1 hover:border-cyan-300/24">
-                  <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200/72">{formatStartingPrice(service.price, page.lang, formatPrice)}</p>
-                  <h3 className="mt-4 text-2xl font-semibold tracking-tight text-white">{isDanish ? service.dk : service.en}</h3>
+                <article key={service.id} className="border-t border-white/12 py-7 first:border-t-0 xl:[&:nth-child(3)]:border-t-0">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/48">{formatStartingPrice(service.price, page.lang, formatPrice)}</p>
+                  <h3 className="mt-3 text-xl font-semibold tracking-tight text-white">{isDanish ? service.dk : service.en}</h3>
                   <p className="mt-4 text-sm leading-7 text-white/60">{isDanish ? service.dkDescription : service.enDescription}</p>
                   <ul className="mt-5 grid gap-2 text-sm text-white/62">
                     {(isDanish ? service.dkItems : service.enItems).map((item) => <li key={item}>- {item}</li>)}
                   </ul>
-                  <button type="button" onClick={() => selectService(service.id)} className="mt-6 text-sm font-semibold text-cyan-100 transition hover:text-white">
+                  <button type="button" onClick={() => selectService(service.id)} className="mt-6 text-sm font-semibold text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white">
                     {service.id === "tool" ? (isDanish ? "Fortæl os om din idé" : "Tell us your idea") : service.id === "help" ? (isDanish ? "Kontakt os" : "Contact us") : (isDanish ? "Få et tilbud" : "Get a quote")}
                   </button>
                 </article>
@@ -713,14 +704,14 @@ function ForYouPage({ page }: { page: SeoPage }) {
           <div className="mx-auto max-w-7xl">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/72">{isDanish ? "Klar proces" : "Clear process"}</p>
             <h2 id="for-you-process" className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{isDanish ? "En enkel proces. Ingen overraskelser." : "Simple process. No surprises."}</h2>
-            <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <div className="mt-10 grid gap-0 border-y border-white/10 md:grid-cols-2 xl:grid-cols-4">
               {(isDanish
                 ? [["Fortæl os, hvad du har brug for", "Send en kort beskrivelse af dit projekt."], ["Vi gennemgår det", "Vi ser på scope og anbefaler den enkleste egnede løsning."], ["Du får et klart tilbud", "Du kender prisen, før udviklingen begynder."], ["Vi bygger det", "Når det er godkendt, håndterer UnderStack design, udvikling og levering."]]
                 : [["Tell us what you need", "Send a short description of your project."], ["We review it", "We look at the scope and recommend the simplest suitable solution."], ["You receive a clear quote", "You know the price before development begins."], ["We build it", "Once approved, UnderStack handles design, development and delivery."]]
               ).map(([title, body], index) => (
-                <article key={title} className="rounded-[24px] border border-white/10 bg-black/15 p-6">
-                  <p className="text-xs font-semibold tracking-[0.24em] text-cyan-200/72">0{index + 1}</p>
-                  <h3 className="mt-5 text-xl font-semibold text-white">{title}</h3>
+                <article key={title} className="border-b border-white/10 p-6 first:pl-0 md:border-r md:[&:nth-child(even)]:border-r-0 xl:border-b-0 xl:[&:nth-child(2)]:border-r xl:[&:nth-child(4)]:border-r-0 xl:[&:nth-child(4)]:pr-0">
+                  <p className="text-xs font-semibold tracking-[0.18em] text-white/48">0{index + 1}</p>
+                  <h3 className="mt-4 text-xl font-semibold text-white">{title}</h3>
                   <p className="mt-3 text-sm leading-7 text-white/58">{body}</p>
                 </article>
               ))}
