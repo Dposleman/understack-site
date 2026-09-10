@@ -335,38 +335,31 @@ function localizedProject(project: PortfolioProject, lang: Language) {
   return { ...project, ...project.localized?.[lang] };
 }
 
-function PortfolioCard({ project, lang }: { project: PortfolioProject; lang: Language }) {
+function PortfolioEntry({ project, lang }: { project: PortfolioProject; lang: Language }) {
   const content = localizedProject(project, lang);
 
   return (
-    <article className="portfolio-card group relative overflow-hidden p-7 sm:p-8">
-      <div className="portfolio-card-sheen" aria-hidden="true" />
-      <div className="portfolio-card-content relative">
-        <div className="flex items-start justify-between gap-5">
-          <p className="portfolio-kicker">{content.category}</p>
-          {content.status ? <span className="portfolio-status">{content.status}</span> : null}
-        </div>
-        <h2 className="mt-6 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{project.name}</h2>
-        <p className="mt-4 max-w-xl text-sm leading-7 text-white/64">{content.description}</p>
-
-        {content.location ? <p className="portfolio-location mt-5">{content.location}</p> : null}
-
-        <ul className="portfolio-capabilities mt-7">
-          {content.capabilities.map((capability) => (
-            <li key={capability}>
-              {capability}
-            </li>
-          ))}
-        </ul>
-
+    <article className="grid gap-5 border-t border-white/12 py-8 md:grid-cols-[minmax(11rem,0.55fr)_minmax(15rem,0.8fr)_minmax(0,1.25fr)] md:gap-10 md:py-10">
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/48">{content.category}</p>
+        {content.status ? <p className="mt-3 text-xs font-medium uppercase tracking-[0.12em] text-white/68">{content.status}</p> : null}
+        {content.location ? <p className="mt-3 text-xs uppercase tracking-[0.12em] text-white/42">{content.location}</p> : null}
+      </div>
+      <div>
+        <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">{project.name}</h2>
         {content.cta ? (
-          <a
-            href={content.cta.href}
-            className="portfolio-link mt-8 inline-flex min-h-11 items-center text-sm font-medium text-white"
-          >
+          <a href={content.cta.href} className="mt-6 inline-flex text-sm font-medium text-white/82 underline decoration-white/30 underline-offset-4 transition hover:text-white">
             {content.cta.label} <span aria-hidden="true" className="ml-3">-&gt;</span>
           </a>
         ) : null}
+      </div>
+      <div>
+        <p className="max-w-xl text-sm leading-7 text-white/64">{content.description}</p>
+        <ul className="mt-6 grid gap-x-6 gap-y-2 border-t border-white/10 pt-4 text-sm text-white/62 sm:grid-cols-2">
+          {content.capabilities.map((capability) => (
+            <li key={capability}>— {capability}</li>
+          ))}
+        </ul>
       </div>
     </article>
   );
@@ -396,9 +389,9 @@ function PortfolioGrid({ page }: { page: SeoPage }) {
               : "Selected systems, products and platform modernization work."}
         </h2>
       </div>
-      <div className="mt-8 grid gap-5 lg:grid-cols-2">
+      <div className="mt-8 border-b border-white/12">
         {portfolioProjects.map((project) => (
-          <PortfolioCard key={project.name} project={project} lang={page.lang} />
+          <PortfolioEntry key={project.name} project={project} lang={page.lang} />
         ))}
       </div>
     </section>
