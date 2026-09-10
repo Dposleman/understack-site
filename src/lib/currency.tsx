@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import { createContext, type ReactNode, useContext, useEffect, useMemo, useState } from "react";
 
-export type CurrencyCode = "DKK" | "SEK" | "NOK" | "EUR" | "USD";
+export type CurrencyCode = "DKK" | "SEK" | "NOK" | "EUR" | "GBP" | "USD";
 
 type CurrencyContextValue = {
   currency: CurrencyCode;
@@ -16,6 +16,7 @@ const currencyOptions = [
   { value: "SEK", label: "SEK - Swedish krona" },
   { value: "NOK", label: "NOK - Norwegian krone" },
   { value: "EUR", label: "EUR - Euro" },
+  { value: "GBP", label: "GBP - British pound" },
   { value: "USD", label: "USD - US dollar" },
 ] as const;
 
@@ -24,13 +25,14 @@ const fallbackRates: Record<CurrencyCode, number> = {
   EUR: 0.13378,
   NOK: 1.4311,
   SEK: 1.4916,
+  GBP: 0.11492,
   USD: 0.15588,
 };
 
 const CurrencyContext = createContext<CurrencyContextValue | null>(null);
 
 function isCurrencyCode(value: string | null): value is CurrencyCode {
-  return value === "DKK" || value === "SEK" || value === "NOK" || value === "EUR" || value === "USD";
+  return value === "DKK" || value === "SEK" || value === "NOK" || value === "EUR" || value === "GBP" || value === "USD";
 }
 
 function formatAmount(value: number, currency: CurrencyCode, language: "dk" | "en") {

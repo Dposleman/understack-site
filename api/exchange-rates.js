@@ -1,5 +1,5 @@
 const BASE_CURRENCY = "DKK";
-const SYMBOLS = ["EUR", "NOK", "SEK", "USD"];
+const SYMBOLS = ["EUR", "GBP", "NOK", "SEK", "USD"];
 
 function json(response, status, body) {
   response.statusCode = status;
