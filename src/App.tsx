@@ -335,18 +335,18 @@ function localizedProject(project: PortfolioProject, lang: Language) {
   return { ...project, ...project.localized?.[lang] };
 }
 
-function PortfolioEntry({ project, lang }: { project: PortfolioProject; lang: Language }) {
+function PortfolioEntry({ project, lang, featured = false }: { project: PortfolioProject; lang: Language; featured?: boolean }) {
   const content = localizedProject(project, lang);
 
   return (
-    <article className="grid gap-5 border-t border-white/12 py-8 md:grid-cols-[minmax(11rem,0.55fr)_minmax(15rem,0.8fr)_minmax(0,1.25fr)] md:gap-10 md:py-10">
+    <article className={`grid gap-5 border-t border-white/12 py-8 md:gap-10 ${featured ? "md:grid-cols-[minmax(11rem,0.45fr)_minmax(16rem,0.9fr)_minmax(0,1.4fr)] md:py-14" : "md:grid-cols-[minmax(11rem,0.55fr)_minmax(15rem,0.8fr)_minmax(0,1.25fr)] md:py-10"}`}>
       <div>
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-white/48">{content.category}</p>
         {content.status ? <p className="mt-3 text-xs font-medium uppercase tracking-[0.12em] text-white/68">{content.status}</p> : null}
         {content.location ? <p className="mt-3 text-xs uppercase tracking-[0.12em] text-white/42">{content.location}</p> : null}
       </div>
       <div>
-        <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">{project.name}</h2>
+        <h2 className={`${featured ? "text-3xl sm:text-4xl" : "text-2xl sm:text-3xl"} font-semibold tracking-tight text-white`}>{project.name}</h2>
         {content.cta ? (
           <a href={content.cta.href} className="mt-6 inline-flex text-sm font-medium text-white/82 underline decoration-white/30 underline-offset-4 transition hover:text-white">
             {content.cta.label} <span aria-hidden="true" className="ml-3">-&gt;</span>
@@ -372,6 +372,9 @@ function PortfolioGrid({ page }: { page: SeoPage }) {
 
   const isDanish = page.lang === "dk";
   const isApps = page.kind === "apps";
+  const featuredNames = ["GastroApp", "UnderStack Pocket AI", "AI Schedule", "Meeting Copilot", "AI Visual Studio", "Service OS"];
+  const featuredProjects = portfolioProjects.filter((project) => featuredNames.includes(project.name));
+  const otherProjects = portfolioProjects.filter((project) => !featuredNames.includes(project.name));
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-12" aria-labelledby="portfolio-projects">
@@ -389,10 +392,21 @@ function PortfolioGrid({ page }: { page: SeoPage }) {
               : "Selected systems, products and platform modernization work."}
         </h2>
       </div>
-      <div className="mt-8 border-b border-white/12">
-        {portfolioProjects.map((project) => (
-          <PortfolioEntry key={project.name} project={project} lang={page.lang} />
-        ))}
+      <div className="mt-10">
+        <p className="eyebrow">{isDanish ? "Udvalgte projekter" : "Selected projects"}</p>
+        <div className="mt-5 border-b border-white/12">
+          {featuredProjects.map((project) => (
+            <PortfolioEntry key={project.name} project={project} lang={page.lang} featured />
+          ))}
+        </div>
+      </div>
+      <div className="mt-16">
+        <p className="eyebrow">{isDanish ? "Flere produkter og systemer" : "More products and systems"}</p>
+        <div className="mt-5 border-b border-white/12">
+          {otherProjects.map((project) => (
+            <PortfolioEntry key={project.name} project={project} lang={page.lang} />
+          ))}
+        </div>
       </div>
     </section>
   );
