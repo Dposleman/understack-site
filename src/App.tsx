@@ -269,8 +269,8 @@ function Footer({ lang }: { lang: Language }) {
           <div className="text-sm font-semibold uppercase tracking-[0.28em] text-white">UnderStack</div>
           <p className="mt-4 max-w-md text-sm leading-7 text-white/58">
             {lang === "dk"
-              ? "Softwarefirma i Aarhus med fokus på premium webplatforme, custom software, AI-løsninger og restaurant software."
-              : "Software company in Aarhus, Denmark building premium web platforms, custom software, AI solutions and restaurant software."}
+              ? "Uafhængigt softwarestudio. Aarhus, Danmark."
+              : "Independent software studio. Aarhus, Denmark."}
           </p>
           <p className="mt-4 text-sm text-white/48">CVR: {COMPANY_CVR}</p>
         </div>

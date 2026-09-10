@@ -103,22 +103,22 @@ export const pages: SeoPage[] = [
     kind: "home",
     title: "UnderStack | Softwareudvikling og webudvikling i Aarhus",
     description:
-      "UnderStack er et softwarefirma i Aarhus, der bygger premium websites, custom software, AI-løsninger og digitale produkter for virksomheder i Danmark og Europa.",
-    h1: "Softwareudvikling og webudvikling i Aarhus for virksomheder, der vil bygge rigtigt.",
-    eyebrow: "Software company in Aarhus",
+      "UnderStack er et uafhængigt softwarestudio i Aarhus, der designer og udvikler websites, SaaS-produkter og custom software til virksomheder i Danmark og Europa.",
+    h1: "Software, websites og digitale produkter bygget i Aarhus.",
+    eyebrow: "Uafhængigt softwarestudio · Aarhus",
     intro:
-      "UnderStack bygger premium software systemer, moderne webplatforme og digitale produkter for virksomheder, der har brug for mere end en standard hjemmeside.",
+      "UnderStack designer og udvikler websites, SaaS-produkter og custom software til virksomheder i Danmark og resten af Europa.",
     sections: [
       {
-        title: "Hvad UnderStack bygger",
+        title: "Det vi bygger",
         body:
           "Vi hjælper virksomheder med webudvikling, softwareudvikling, app-udvikling, AI-løsninger og restaurant software. Fokus er klare produkter, høj teknisk kvalitet og løsninger, som kan bruges aktivt i salg, drift og vækst.",
         items: ["Websites og webplatforme", "Custom business software", "AI-assisterede arbejdsgange", "Restaurant- og hospitality software"],
       },
       {
-        title: "Aarhus først, Danmark næste",
+        title: "Bygget i Aarhus. Lille med vilje.",
         body:
-          "UnderStack er positioneret omkring Aarhus og Danmark, men bygger løsninger med europæisk standard for virksomheder, der ønsker en seriøs digital platform uden klassisk bureau-overhead.",
+          "UnderStack er et uafhængigt softwarestudio i Aarhus. Du arbejder direkte med den person, der designer og bygger dit produkt. Ingen account managers, unødige led eller lange kommunikationskæder. Målet er enkelt: forstå behovet, bygge det ordentligt og få det ud at leve.",
       },
     ],
     related: [
@@ -135,22 +135,22 @@ export const pages: SeoPage[] = [
     kind: "home",
     title: "UnderStack | Software company in Aarhus, Denmark",
     description:
-      "UnderStack is a software company based in Aarhus, Denmark, building premium software systems, digital products and modern web platforms for companies in Denmark and Europe.",
-    h1: "Premium software systems, web platforms and digital products from Aarhus, Denmark.",
-    eyebrow: "Software company in Denmark",
+      "UnderStack is an independent software studio in Aarhus, designing and developing websites, SaaS products and custom software for companies in Denmark and Europe.",
+    h1: "Software, websites and digital products built in Aarhus.",
+    eyebrow: "Independent software studio · Aarhus",
     intro:
-      "UnderStack builds custom software, modern web platforms, AI-enabled workflows and restaurant technology for companies that need commercially useful digital products.",
+      "UnderStack designs and develops websites, SaaS products and custom software for companies in Denmark and across Europe.",
     sections: [
       {
         title: "What we build",
         body:
-          "We build web platforms, internal systems, business software, app products and applied AI workflows. The work is aimed at practical value: better operations, stronger credibility and conversion-ready digital infrastructure.",
+          "Websites, web applications, SaaS products, internal tools and AI integrations for specific workflow problems.",
         items: ["Custom software", "Web development", "App development", "AI solutions", "Restaurant software"],
       },
       {
-        title: "Built in Aarhus for Denmark and Europe",
+        title: "Built in Aarhus. Small by design.",
         body:
-          "UnderStack is based in Aarhus and serves companies in Denmark and Europe that need a more precise alternative to generic agency delivery.",
+          "UnderStack is an independent software studio based in Aarhus. You work directly with the person designing and building your product. No account managers, unnecessary layers or long communication chains. The goal is simple: understand what you need, build it properly and ship it.",
       },
     ],
     related: [
@@ -170,9 +170,9 @@ export const forYouPages: SeoPage[] = [
     kind: "forYou",
     title: "Websites og digitale projekter til dig | UnderStack",
     description: "Personlige websites, portfolier, små virksomhedswebsites og digitale værktøjer fra UnderStack. Klar pris fra 1.500 DKK.",
-    h1: "Digitale løsninger, bygget til dig.",
+    h1: "Har du brug for et website eller et mindre custom værktøj?",
     eyebrow: "UnderStack For You",
-    intro: "Du behøver ikke være en stor virksomhed for at arbejde med UnderStack. Uanset om du har brug for et personligt website, portfolio, landing page eller et mindre digitalt værktøj, bygger vi præcis det, du har brug for - uden unødig kompleksitet.",
+    intro: "UnderStack arbejder også med privatpersoner, freelancere og mindre virksomheder. Fortæl, hvad du har brug for, dit omtrentlige budget og hvornår det skal være klar, så siger vi, hvad der giver mening at bygge.",
     sections: [],
     related: [
       { label: "Webudvikling", href: "/dk/webudvikling" },
@@ -187,9 +187,9 @@ export const forYouPages: SeoPage[] = [
     kind: "forYou",
     title: "Websites & Digital Projects for Individuals | UnderStack",
     description: "Personal websites, portfolios, small business websites and custom digital tools from UnderStack. Transparent pricing and projects starting from 1,500 DKK.",
-    h1: "Digital solutions, built for you.",
+    h1: "Need a website or a small custom tool?",
     eyebrow: "UnderStack For You",
-    intro: "You do not need to be a large company to work with UnderStack. Whether you need a personal website, portfolio, landing page or a small custom tool, we build exactly what you need without unnecessary complexity.",
+    intro: "UnderStack also works with individuals, freelancers and small businesses. Tell us what you need, your approximate budget and how soon you need it, and we will tell you what makes sense to build.",
     sections: [],
     related: [
       { label: "Web development", href: "/en/web-development" },
@@ -398,9 +398,9 @@ const enServices: Omit<SeoPage, "lang" | "kind">[] = [
     slug: "web-development",
     title: "Web development Denmark | Premium web platforms",
     description: "Modern web development in Denmark for companies that need fast, credible and conversion-focused websites and platforms.",
-    h1: "Web development in Denmark for companies that need more than a generic website.",
+    h1: "Websites that explain what you do and make it easy to contact you.",
     eyebrow: "Web development Denmark",
-    intro: "UnderStack builds premium websites and web platforms that combine technical quality, strong UX and commercial clarity.",
+    intro: "UnderStack builds company websites and web platforms with responsive design, technical SEO, analytics and the integrations your business actually needs.",
     sections: [
       { title: "What we solve", body: "Many business websites look acceptable but fail to explain the offer, build trust or convert qualified visitors. We build clear structure, performance, SEO foundations and conversion paths into the platform." },
       enServiceSections.process,
@@ -418,9 +418,9 @@ const enServices: Omit<SeoPage, "lang" | "kind">[] = [
     slug: "software-development",
     title: "Software development Denmark | UnderStack",
     description: "Software development in Denmark for custom business systems, internal tools, platforms and digital products.",
-    h1: "Software development in Denmark for companies with serious operational needs.",
+    h1: "Custom software for workflows that generic tools do not fit.",
     eyebrow: "Software development Denmark",
-    intro: "UnderStack builds custom software systems, internal tools, platforms and digital products for companies in Denmark and Europe.",
+    intro: "UnderStack builds internal systems, business software and product platforms around real workflows, data and integrations.",
     sections: [
       { title: "Built around real workflows", body: "We build dashboards, internal systems, API layers, integrations, SaaS products and web apps for teams that need software aligned with how they actually work." },
       enServiceSections.process,
@@ -568,13 +568,13 @@ const caseDetails = [
   {
     slug: "gastroapp",
     name: "GastroApp",
-    dk: "Restaurant software-retning for food cost, opskrifter, inventory og køkkenstyring.",
-    en: "Restaurant software direction for food cost, recipes, inventory and kitchen management.",
+    dk: "Restaurantdriftssoftware bygget på erfaring fra hospitality. Samler opskrifter, food cost, inventory, indkøb, produktion, rapporter og køkkendrift i ét system.",
+    en: "Restaurant operations software built from firsthand hospitality experience. Connects recipes, food cost, inventory, purchasing, production, reports and day-to-day kitchen operations in one system.",
     serviceDk: "/dk/restaurant-software",
     serviceEn: "/en/restaurant-software",
     keywords: ["restaurant software Denmark", "food cost management", "kitchen management software"],
-    featuresDk: ["Food cost og cost coverage", "Opskrifter og batch-beregninger", "Inventory og stock alerts", "Produktion, prep og restaurant-rapportering"],
-    featuresEn: ["Food cost and cost coverage", "Recipes and batch calculations", "Inventory and stock alerts", "Production, prep and restaurant reporting"],
+    featuresDk: ["Opskrifter og food cost", "Inventory, stock og indkøb", "Produktion, events og closeout", "Rapporter, roller og flere restauranter"],
+    featuresEn: ["Recipes and food costing", "Inventory, stock and purchasing", "Production, events and closeout", "Reports, role-based access and multi-restaurant management"],
   },
   {
     slug: "ai-schedule",
@@ -590,13 +590,13 @@ const caseDetails = [
   {
     slug: "serviceos",
     name: "ServiceOS",
-    dk: "AI-native restaurant service operating system under udvikling til floorplans, bordplanlægning, reservationer, serviceflow og struktureret ordreoptagelse.",
-    en: "AI-native restaurant service operating system in development for floor plans, table planning, reservations, service flow and structured order capture.",
+    dk: "Restaurantsoftware til service under udvikling.",
+    en: "Restaurant service software currently in development.",
     serviceDk: "/dk/ai-loesninger",
     serviceEn: "/en/ai-development",
     keywords: ["AI restaurant software", "service operations software", "hospitality AI"],
-    featuresDk: ["Floorplan-baseret bordplanlægning", "Reservationer og automatisk placering efter tid, bordkapacitet og tilgængelighed", "Event-layouts med gangarealer og uden overlappende borde", "Struktureret ordreoptagelse med retter, allergener, tilvalg, fravalg og drikkevarer"],
-    featuresEn: ["Floor-plan-based table planning", "Reservations and automatic seating by timing, table capacity and availability", "Event layouts that preserve walkways and prevent table conflicts", "Structured order capture for dishes, allergens, additions, removals and beverages"],
+    featuresDk: ["Bordoverblik og floorplan", "Reservationer og timing af service", "Koordinering for front-of-house teams"],
+    featuresEn: ["Table awareness and floor planning", "Reservation and service timing", "Operational coordination for front-of-house teams"],
   },
   {
     slug: "understack-ai-pocket",
@@ -691,8 +691,8 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "GastroApp",
     category: "Restaurant Operations SaaS",
     description:
-      "A working multi-tenant operating system for restaurant teams, built around connected operational records rather than isolated tools.",
-    capabilities: ["Recipes and food costing", "Inventory, stock and purchasing", "Production, events and closeout", "Tasks, reports and operational analytics", "Company, restaurant and role-based access"],
+      "Restaurant operations software that brings recipes, food cost, inventory, purchasing, production and reporting into one system.",
+    capabilities: ["Recipes and food costing", "Inventory, stock and purchasing", "Production, events and closeout", "Reports and operational analytics", "Role-based and multi-restaurant access"],
     status: "Working product",
     cta: { label: "Visit GastroApp", href: GASTROAPP_URL },
   },
@@ -789,28 +789,22 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "Service OS",
     category: "Restaurant Service Operations SaaS",
     description:
-      "An AI-native operating system in active development for restaurant front-of-house operations, connecting floor plans, table planning, reservations, order capture and service workflows in one workspace.",
+      "Restaurant service software currently in development for floor planning, reservations, service timing and front-of-house coordination.",
     capabilities: [
-      "Interactive restaurant floor plan and table map",
-      "Layout-aware table planning for events, special reservations and group sizes",
-      "Automatic seating that respects capacity, reservation timing, walkways and table conflicts",
-      "Daily reservation allocation across available tables and service times",
-      "Structured order interpretation for dishes, allergies, additions, removals and beverages",
-      "Service workflows, people, roles, tasks and operational visibility",
+      "Table awareness and floor planning",
+      "Reservation and service timing",
+      "Operational coordination for front-of-house teams",
     ],
     status: "Active development",
     localized: {
       dk: {
         category: "Restaurant service operations SaaS",
         description:
-          "Et AI-native operating system under udvikling til restaurantens front-of-house, som samler floorplan, bordplanlægning, reservationer, ordreoptagelse og service-workflows i ét workspace.",
+          "Restaurantsoftware til service under udvikling med fokus på floorplan, reservationer, timing og koordinering i front-of-house.",
         capabilities: [
-          "Interaktiv floorplan og bordkort for restauranten",
-          "Layoutbevidst bordplanlægning til events, særlige reservationer og grupper",
-          "Automatisk placering med hensyn til kapacitet, reservationstid, gangarealer og bordkonflikter",
-          "Daglig fordeling af reservationer på tilgængelige borde og serviceperioder",
-          "Struktureret ordrefortolkning for retter, allergener, tilvalg, fravalg og drikkevarer",
-          "Service-workflows, people, roller, opgaver og operationelt overblik",
+          "Bordoverblik og floorplan",
+          "Reservationer og timing af service",
+          "Koordinering for front-of-house teams",
         ],
         status: "Aktiv udvikling",
       },
