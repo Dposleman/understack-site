@@ -532,7 +532,7 @@ export const casePages: SeoPage[] = [
     eyebrow: "Cases",
     intro: "En oversigt over faktiske projekter og produktretninger, herunder færdige produkter, produkter i review og aktive udviklingsspor.",
     sections: [
-      { title: "Dokumenterede produkter", body: "Vi bruger cases som SEO- og tillidsaktiver, men uden at opfinde kunder, metrics eller testimonials." },
+      { title: "Dokumenterede produkter", body: "Her finder du produkter, der er færdige, i review eller under aktiv udvikling." },
     ],
     related: [
       { label: "GastroApp", href: "/dk/cases/gastroapp" },
@@ -552,7 +552,7 @@ export const casePages: SeoPage[] = [
     eyebrow: "Cases",
     intro: "A transparent view of real projects and product directions, including completed products, products in review and active development tracks.",
     sections: [
-      { title: "Documented products", body: "Cases are used as SEO and trust assets, without inventing customers, metrics, testimonials or commercial outcomes." },
+      { title: "Documented products", body: "These are products that are completed, in review or under active development." },
     ],
     related: [
       { label: "GastroApp", href: "/en/cases/gastroapp" },
@@ -575,6 +575,8 @@ const caseDetails = [
     keywords: ["restaurant software Denmark", "food cost management", "kitchen management software"],
     featuresDk: ["Opskrifter og food cost", "Inventory, stock og indkøb", "Produktion, events og closeout", "Rapporter, roller og flere restauranter"],
     featuresEn: ["Recipes and food costing", "Inventory, stock and purchasing", "Production, events and closeout", "Reports, role-based access and multi-restaurant management"],
+    technicalDk: "Et samlet driftsværktøj, hvor køkkenteamet arbejder med opskrifter, lager og indkøb i samme produkt.",
+    technicalEn: "One operations product where kitchen teams work with recipes, stock and purchasing in the same system.",
   },
   {
     slug: "ai-schedule",
@@ -586,6 +588,8 @@ const caseDetails = [
     keywords: ["AI scheduling software", "AI automation", "business scheduling software"],
     featuresDk: ["Medarbejdertilgængelighed og kontrakter", "Ferie og fravær", "Vagtplaner på tværs af lokationer", "Fremmøde og rekrutteringsflow"],
     featuresEn: ["Employee availability and contracts", "Leave and absence", "Rosters across locations", "Attendance and recruitment workflows"],
+    technicalDk: "Planlægningen samler kontrakter, tilgængelighed og lokationer, så vagtplanen kan bygges ud fra de samme data.",
+    technicalEn: "Scheduling brings contracts, availability and locations together so rosters are built from the same data.",
   },
   {
     slug: "serviceos",
@@ -597,6 +601,8 @@ const caseDetails = [
     keywords: ["AI restaurant software", "service operations software", "hospitality AI"],
     featuresDk: ["Bordoverblik og floorplan", "Reservationer og timing af service", "Koordinering for front-of-house teams"],
     featuresEn: ["Table awareness and floor planning", "Reservation and service timing", "Operational coordination for front-of-house teams"],
+    technicalDk: "Produktretningen er afgrænset til de centrale værktøjer, som et front-of-house-team bruger under service.",
+    technicalEn: "The product direction is limited to the core tools a front-of-house team uses during service.",
   },
   {
     slug: "understack-ai-pocket",
@@ -608,6 +614,8 @@ const caseDetails = [
     keywords: ["local-first Android AI", "private AI assistant", "mobile AI workflows"],
     featuresDk: ["Local-first datahåndtering", "Vedvarende hukommelse og værktøjsrouting", "Per-app tilladelser", "Automatiseringer med auditability"],
     featuresEn: ["Local-first data handling", "Persistent memory and tool routing", "Per-app permissions", "Automations with auditability"],
+    technicalDk: "Data og godkendelser håndteres på enheden, mens værktøjer og automatiseringer kræver eksplicitte tilladelser.",
+    technicalEn: "Data and approvals stay on the device, while tools and automations require explicit permissions.",
   },
   {
     slug: "understack-ai-agent",
@@ -619,6 +627,8 @@ const caseDetails = [
     keywords: ["local-first coding agent", "Windows AI agent", "developer operations agent"],
     featuresDk: ["Repository-inspektion og debugging", "Kontrollerede patches", "Logs og container-workflows", "Compile, lint, test og run-verifikation"],
     featuresEn: ["Repository inspection and debugging", "Controlled patches", "Logs and container workflows", "Compile, lint, test and run verification"],
+    technicalDk: "Agenten er afgrænset til kontrollerede repository- og driftsopgaver med verifikation før ændringer bruges.",
+    technicalEn: "The agent is limited to controlled repository and operations tasks, with verification before changes are used.",
   },
   {
     slug: "life",
@@ -630,6 +640,8 @@ const caseDetails = [
     keywords: ["personal operating system app", "local-first productivity app", "Android life organizer"],
     featuresDk: ["Opgaver, noter og påmindelser", "Regninger, kvitteringer og OCR", "Abonnementer og dokumentarkiv", "Indkøbslister og ADHD-venligt overblik"],
     featuresEn: ["Tasks, notes and reminders", "Bills, receipts and OCR", "Subscriptions and document archive", "Shopping lists and ADHD-friendly organisation"],
+    technicalDk: "Produktet samler private oplysninger lokalt på telefonen frem for at gøre hverdagsdata til et eksternt dashboard.",
+    technicalEn: "The product keeps personal information on the phone instead of turning everyday data into an external dashboard.",
   },
 ];
 
@@ -642,12 +654,12 @@ caseDetails.forEach((item) => {
       title: `${item.name} case | UnderStack`,
       description: `${item.name}: ${item.dk}`,
       h1: `${item.name}: produkt og status.`,
-      eyebrow: "Case study",
+      eyebrow: "Produkt",
       intro: item.dk,
       sections: [
         { title: "Produktet", body: item.dk },
         { title: "Funktioner", body: "Nedenfor er de funktioner, der er bygget eller er del af den nuværende produktretning.", items: item.featuresDk },
-        { title: "Teknisk retning", body: "Løsningen er bygget som et web- eller mobilprodukt med strukturerede data, tydelige brugerflows og mulighed for relevante integrationer." },
+        { title: "Teknisk retning", body: item.technicalDk },
       ],
       related: [
         { label: "Relevant service", href: item.serviceDk },
@@ -664,12 +676,12 @@ caseDetails.forEach((item) => {
       title: `${item.name} case | UnderStack`,
       description: `${item.name}: ${item.en}`,
       h1: `${item.name}: product and status.`,
-      eyebrow: "Case study",
+      eyebrow: "Product",
       intro: item.en,
       sections: [
         { title: "The product", body: item.en },
         { title: "Capabilities", body: "The capabilities below are built or part of the current product direction.", items: item.featuresEn },
-        { title: "Technical direction", body: "The system is built as a web or mobile product with structured data, clear user flows and room for relevant integrations." },
+        { title: "Technical direction", body: item.technicalEn },
       ],
       related: [
         { label: "Related service", href: item.serviceEn },
@@ -950,7 +962,7 @@ const insights = [
   ["dk", "hvad-koster-en-app-at-udvikle", "Hvad koster en app at udvikle?", "App-priser afhænger af platform, backend, design, brugerroller og integrationer. Start med scope og product risk før features.", "/dk/app-udvikling"],
   ["dk", "ai-loesninger-til-danske-virksomheder", "AI-løsninger til danske virksomheder", "Praktiske AI-løsninger handler om automatisering, workflows og beslutningsstøtte, ikke kun chatbots.", "/dk/ai-loesninger"],
   ["dk", "restaurant-software-i-danmark", "Restaurant software i Danmark", "Restaurant software skal hjælpe med food cost, inventory, spild, serviceflow og operationelt overblik.", "/dk/restaurant-software"],
-  ["dk", "hvordan-automatiserer-ai-restaurantdrift", "Hvordan automatiserer AI restaurantdrift?", "AI kan hjælpe restaurantdrift med planlægning, service-assistance, køkkenoverblik og smartere beslutninger.", "/dk/restaurant-software"],
+  ["dk", "hvordan-automatiserer-ai-restaurantdrift", "Hvordan automatiserer AI restaurantdrift?", "AI kan hjælpe restaurantdrift med planlægning, service-assistance, køkkenoverblik og beslutningsstøtte.", "/dk/restaurant-software"],
   ["en", "how-much-does-software-development-cost-in-denmark", "How much does software development cost in Denmark?", "A practical guide to the cost drivers behind software development in Denmark: scope, integrations, UX, data and maintenance.", "/en/software-development"],
   ["en", "how-much-does-a-business-website-cost-in-denmark", "How much does a business website cost in Denmark?", "Website pricing in Denmark depends on content, design, technical complexity, SEO and integrations. This guide explains the main tradeoffs.", "/en/web-development"],
   ["en", "custom-software-vs-saas", "Custom software vs SaaS", "When should a company choose custom software instead of SaaS? A practical comparison for operational systems and digital products.", "/en/custom-software"],

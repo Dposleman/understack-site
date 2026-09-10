@@ -719,7 +719,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
             <div className="mt-10 grid gap-0 border-y border-white/10 md:grid-cols-2 xl:grid-cols-4">
               {(isDanish
                 ? [["Fortæl os, hvad du har brug for", "Send en kort beskrivelse af dit projekt."], ["Vi gennemgår det", "Vi ser på scope og anbefaler den enkleste egnede løsning."], ["Du får et klart tilbud", "Du kender prisen, før udviklingen begynder."], ["Vi bygger det", "Når det er godkendt, håndterer UnderStack design, udvikling og levering."]]
-                : [["Tell us what you need", "Send a short description of your project."], ["We review it", "We look at the scope and recommend the simplest suitable solution."], ["You receive a clear quote", "You know the price before development begins."], ["We build it", "Once approved, UnderStack handles design, development and delivery."]]
+                : [["Tell us what you need", "Include your approximate budget and how soon you need it when you can."], ["We review it", "We look at the scope and recommend the simplest suitable solution."], ["You receive a clear quote", "You know the price before development begins."], ["We build it", "Once approved, UnderStack handles design, development and delivery."]]
               ).map(([title, body], index) => (
                 <article key={title} className="border-b border-white/10 p-6 first:pl-0 md:border-r md:[&:nth-child(even)]:border-r-0 xl:border-b-0 xl:[&:nth-child(2)]:border-r xl:[&:nth-child(4)]:border-r-0 xl:[&:nth-child(4)]:pr-0">
                   <p className="text-xs font-semibold tracking-[0.18em] text-white/48">0{index + 1}</p>
@@ -739,7 +739,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
               <p className="mt-5 max-w-lg text-base leading-8 text-white/62">{isDanish ? "Vi gennemgår din forespørgsel og vender tilbage, så snart vi kan." : "We will review your request and get back to you as soon as possible."}</p>
               <div className="mt-8 border-t border-white/12 pt-6">
                 <h3 className="text-lg font-semibold text-white">{isDanish ? "Vil du afklare det først?" : "Want to clarify it first?"}</h3>
-                <p className="mt-3 text-sm leading-7 text-white/58">{isDanish ? "Skriv en kort SMS om dit projekt. Hvis du foretrækker at tale om flere detaljer, finder vi gerne et tidspunkt, der passer." : "Send a short SMS about your project. If you would prefer to talk through more details, we can find a time that works."}</p>
+                <p className="mt-3 text-sm leading-7 text-white/58">{isDanish ? "Skriv kort, hvad du har brug for, dit omtrentlige budget og hvornår du skal bruge det. Hvis en samtale er nyttig, finder vi et tidspunkt." : "Send a short message with what you need, your approximate budget and how soon you need it. If a call would be useful, we can find a time."}</p>
                 <SmsContactLink language={page.lang} location="for_you_contact_panel" className="mt-5 inline-flex text-sm font-semibold text-cyan-100 hover:text-white">
                   {isDanish ? "Skriv til UnderStack" : "Text UnderStack"}
                 </SmsContactLink>
