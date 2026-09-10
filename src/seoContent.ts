@@ -78,7 +78,7 @@ const dkServiceSections = {
   stack: {
     title: "Teknologi og leverance",
     body:
-      "UnderStack bygger moderne webplatforme og softwareprodukter med React, TypeScript, Node.js, API-integrationer og cloud-ready arkitektur. Stacken vælges efter løsningens krav, ikke efter mode.",
+      "UnderStack bygger webplatforme og softwareprodukter med React, TypeScript, Node.js og API-integrationer. Stacken vælges efter løsningens krav.",
   },
 };
 
@@ -92,7 +92,7 @@ const enServiceSections = {
   stack: {
     title: "Technology and delivery",
     body:
-      "UnderStack builds modern web platforms and software systems with React, TypeScript, Node.js, API integrations and cloud-ready architecture. The stack is selected for the business problem, not for trend value.",
+      "UnderStack builds web platforms and software systems with React, TypeScript, Node.js and API integrations. The stack follows the requirements of the product.",
   },
 };
 
@@ -203,13 +203,13 @@ export const forYouPages: SeoPage[] = [
 const dkServices: Omit<SeoPage, "lang" | "kind">[] = [
   {
     slug: "webudvikling-aarhus",
-    title: "Webudvikling Aarhus | Premium hjemmesider og webplatforme",
+    title: "Webudvikling Aarhus | Hjemmesider og webplatforme",
     description:
       "Webudvikling i Aarhus for virksomheder, der har brug for en hurtig, professionel og konverterende hjemmeside eller webplatform.",
     h1: "Webudvikling i Aarhus for virksomheder med seriøse digitale ambitioner.",
     eyebrow: "Webudvikling Aarhus",
     intro:
-      "UnderStack hjælper virksomheder i Aarhus med hjemmesider, webplatforme og digitale oplevelser, der både ser premium ud og fungerer teknisk stærkt.",
+      "UnderStack hjælper virksomheder i Aarhus med hjemmesider og webplatforme, der forklarer ydelsen tydeligt og fungerer på tværs af enheder.",
     sections: [
       { title: "Problemet vi løser", body: "Mange virksomheder har websites, der ser pæne ud, men ikke forklarer tydeligt, hvad virksomheden leverer, hvem den hjælper, eller hvordan man tager næste skridt. Vi bygger struktur, performance og konvertering ind fra starten." },
       dkServiceSections.process,
@@ -229,7 +229,7 @@ const dkServices: Omit<SeoPage, "lang" | "kind">[] = [
   },
   {
     slug: "webudvikling",
-    title: "Webudvikling Danmark | Moderne websites og webplatforme",
+    title: "Webudvikling Danmark | Websites og webplatforme",
     description: "Webudvikling i Danmark med fokus på performance, SEO, UX og konvertering for virksomheder.",
     h1: "Webudvikling i Danmark med teknisk kvalitet og kommerciel retning.",
     eyebrow: "Webudvikling Danmark",
@@ -331,7 +331,7 @@ const dkServices: Omit<SeoPage, "lang" | "kind">[] = [
     slug: "restaurant-software",
     title: "Restaurant software Danmark | Drift, køkken og AI",
     description: "Restaurant software i Danmark til køkkenstyring, food cost, inventory, drift og AI-understøttede restaurant workflows.",
-    h1: "Restaurant software til moderne restauranter, køkkener og hospitality teams.",
+    h1: "Restaurant software til restauranter, køkkener og hospitality teams.",
     eyebrow: "Restaurant software Denmark",
     intro: "UnderStack bygger og dokumenterer software til restaurantdrift: fra food cost og waste tracking til AI-assisteret service og køkkenstyring.",
     sections: [
@@ -373,7 +373,7 @@ const dkServices: Omit<SeoPage, "lang" | "kind">[] = [
   },
   {
     slug: "webshop-udvikling",
-    title: "Webshop udvikling Danmark | Moderne commerce platforme",
+    title: "Webshop udvikling Danmark | Commerce platforme",
     description: "Webshop udvikling for virksomheder, der har brug for en hurtig, troværdig og skalerbar online salgsplatform.",
     h1: "Webshop udvikling med fokus på performance, UX og købsklar trafik.",
     eyebrow: "Webshop udvikling",
@@ -396,8 +396,8 @@ const dkServices: Omit<SeoPage, "lang" | "kind">[] = [
 const enServices: Omit<SeoPage, "lang" | "kind">[] = [
   {
     slug: "web-development",
-    title: "Web development Denmark | Premium web platforms",
-    description: "Modern web development in Denmark for companies that need fast, credible and conversion-focused websites and platforms.",
+    title: "Web development Denmark | Websites and web platforms",
+    description: "Web development in Denmark for companies that need clear, responsive websites and practical web platforms.",
     h1: "Websites that explain what you do and make it easy to contact you.",
     eyebrow: "Web development Denmark",
     intro: "UnderStack builds company websites and web platforms with responsive design, technical SEO, analytics and the integrations your business actually needs.",
@@ -482,7 +482,7 @@ const enServices: Omit<SeoPage, "lang" | "kind">[] = [
     eyebrow: "AI solutions for business",
     intro: "UnderStack builds applied AI workflows, internal tools and product features where AI solves concrete operational tasks.",
     sections: [
-      { title: "AI with business value", body: "We focus on automation, decision support, data structuring, internal assistants, restaurant operations and customer-facing workflows where AI can reduce friction." },
+      { title: "AI for specific tasks", body: "AI is useful for automation, document processing, search, classification and assistants when it solves a clear workflow problem." },
       enServiceSections.process,
       enServiceSections.stack,
     ],
@@ -498,7 +498,7 @@ const enServices: Omit<SeoPage, "lang" | "kind">[] = [
     slug: "restaurant-software",
     title: "Restaurant software Denmark | Kitchen and AI operations",
     description: "Restaurant software for Denmark and Europe: food cost, inventory, kitchen management, operations and practical AI workflows.",
-    h1: "Restaurant software for modern kitchens, operators and hospitality teams.",
+    h1: "Restaurant software for kitchens, operators and hospitality teams.",
     eyebrow: "Restaurant software Denmark",
     intro: "UnderStack builds restaurant software concepts and products around food cost, waste tracking, inventory, kitchen workflows and practical service support.",
     sections: [
@@ -641,15 +641,13 @@ caseDetails.forEach((item) => {
       kind: "case",
       title: `${item.name} case | UnderStack`,
       description: `${item.name}: ${item.dk}`,
-      h1: `${item.name}: problem, løsning, arkitektur og forretningsværdi.`,
+      h1: `${item.name}: produkt og status.`,
       eyebrow: "Case study",
       intro: item.dk,
       sections: [
-        { title: "Problem", body: "Projektet adresserer konkrete operationelle workflows, hvor manuelle processer eller generiske værktøjer skaber friktion." },
-        { title: "Solution", body: "UnderStack arbejder med en produktorienteret løsning, hvor funktionalitet, UX og teknisk arkitektur kobles til praktisk brug." },
-        { title: "Architecture", body: "Arkitekturen er web- og cloud-orienteret med fokus på komponentbaseret frontend, strukturerede dataflows og mulighed for integrationer." },
-        { title: "Dokumenterede funktioner", body: "Funktionerne nedenfor er baseret på den nuværende produktretning og dokumenterede implementering.", items: item.featuresDk },
-        { title: "Business value", body: "Værdien ligger i bedre overblik, mindre manuelt arbejde og et produkt, der kan udvikles videre uden at låse virksomheden til generiske værktøjer." },
+        { title: "Produktet", body: item.dk },
+        { title: "Funktioner", body: "Nedenfor er de funktioner, der er bygget eller er del af den nuværende produktretning.", items: item.featuresDk },
+        { title: "Teknisk retning", body: "Løsningen er bygget som et web- eller mobilprodukt med strukturerede data, tydelige brugerflows og mulighed for relevante integrationer." },
       ],
       related: [
         { label: "Relevant service", href: item.serviceDk },
@@ -665,15 +663,13 @@ caseDetails.forEach((item) => {
       kind: "case",
       title: `${item.name} case | UnderStack`,
       description: `${item.name}: ${item.en}`,
-      h1: `${item.name}: problem, solution, architecture and business value.`,
+      h1: `${item.name}: product and status.`,
       eyebrow: "Case study",
       intro: item.en,
       sections: [
-        { title: "Problem", body: "The product direction addresses operational workflows where manual processes or generic tools create friction." },
-        { title: "Solution", body: "UnderStack approaches the solution as a product, connecting functionality, UX and technical architecture to practical use." },
-        { title: "Architecture", body: "The architecture is web and cloud oriented, with component-based frontend delivery, structured data flows and room for integrations." },
-        { title: "Documented capabilities", body: "The capabilities below reflect the current product direction and documented implementation.", items: item.featuresEn },
-        { title: "Business value", body: "The value is better visibility, less manual work and a product foundation that can evolve without forcing the company into generic tools." },
+        { title: "The product", body: item.en },
+        { title: "Capabilities", body: "The capabilities below are built or part of the current product direction.", items: item.featuresEn },
+        { title: "Technical direction", body: "The system is built as a web or mobile product with structured data, clear user flows and room for relevant integrations." },
       ],
       related: [
         { label: "Related service", href: item.serviceEn },
@@ -1148,12 +1144,12 @@ export const appsPages: SeoPage[] = [
     slug: "marketplace",
     kind: "marketplace",
     title: "Marketplace | UnderStack code assets",
-    description: "Premium code assets, templates og reusable developer products fra UnderStack.",
+    description: "Kodeaktiver, templates og genanvendelige udviklerprodukter fra UnderStack.",
     h1: "Marketplace for code assets og reusable software.",
     eyebrow: "UnderStack Marketplace",
     intro: "UnderStack udvikler en marketplace-retning med templates, packaged apps og reusable software assets.",
     sections: [
-      { title: "Retning", body: "Codester-profilen og produktlinjen bruges til at distribuere premium developer assets uden at opfinde live resultater." },
+      { title: "Retning", body: "Codester-profilen bruges til at distribuere templates, apps og genanvendelige kodeaktiver." },
     ],
     related: [
       { label: "Apps", href: "/dk/apps" },
@@ -1168,12 +1164,12 @@ export const appsPages: SeoPage[] = [
     slug: "marketplace",
     kind: "marketplace",
     title: "Marketplace | UnderStack code assets",
-    description: "Premium code assets, templates and reusable developer products from UnderStack.",
+    description: "Code assets, templates and reusable developer products from UnderStack.",
     h1: "Marketplace for code assets and reusable software.",
     eyebrow: "UnderStack Marketplace",
     intro: "UnderStack is developing a marketplace direction with templates, packaged apps and reusable software assets.",
     sections: [
-      { title: "Direction", body: "The Codester profile and product line are used to distribute premium developer assets without inventing live commercial results." },
+      { title: "Direction", body: "The Codester profile is used to distribute templates, apps and reusable code assets." },
     ],
     related: [
       { label: "Apps", href: "/en/apps" },
