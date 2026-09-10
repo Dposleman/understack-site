@@ -197,6 +197,9 @@ function Header({ page }: { page: SeoPage }) {
           <a href={`/${page.lang}/cases/`} className="hover:text-white">
             Cases
           </a>
+          <a href={`/${page.lang}/portfolio`} className="hover:text-white">
+            Portfolio
+          </a>
           <a href={`/${page.lang}/for-you`} className="hover:text-white">
             For You
           </a>
@@ -681,16 +684,18 @@ function ForYouPage({ page }: { page: SeoPage }) {
           <div className="mx-auto max-w-7xl">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/72">{isDanish ? "Til mindre projekter" : "For smaller projects"}</p>
             <h2 id="for-you-services" className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">{isDanish ? "Det rigtige niveau af løsning, uden unødig kompleksitet." : "The right level of solution, without unnecessary complexity."}</h2>
-            <div className="mt-10 grid gap-x-10 gap-y-0 md:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-10 border-y border-white/12">
               {forYouServices.map((service) => (
-                <article key={service.id} className="border-t border-white/12 py-7 first:border-t-0 xl:[&:nth-child(3)]:border-t-0">
+                <article key={service.id} className="grid gap-5 border-t border-white/12 py-7 first:border-t-0 md:grid-cols-[10rem_minmax(12rem,0.8fr)_minmax(0,1.5fr)_auto] md:gap-8 md:py-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/48">{formatStartingPrice(service.price, page.lang, formatPrice)}</p>
-                  <h3 className="mt-3 text-xl font-semibold tracking-tight text-white">{isDanish ? service.dk : service.en}</h3>
-                  <p className="mt-4 text-sm leading-7 text-white/60">{isDanish ? service.dkDescription : service.enDescription}</p>
-                  <ul className="mt-5 grid gap-2 text-sm text-white/62">
-                    {(isDanish ? service.dkItems : service.enItems).map((item) => <li key={item}>- {item}</li>)}
-                  </ul>
-                  <button type="button" onClick={() => selectService(service.id)} className="mt-6 text-sm font-semibold text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white">
+                  <h3 className="text-xl font-semibold tracking-tight text-white">{isDanish ? service.dk : service.en}</h3>
+                  <div>
+                    <p className="text-sm leading-7 text-white/60">{isDanish ? service.dkDescription : service.enDescription}</p>
+                    <ul className="mt-4 grid gap-x-6 gap-y-2 text-sm text-white/62 sm:grid-cols-2">
+                      {(isDanish ? service.dkItems : service.enItems).map((item) => <li key={item}>— {item}</li>)}
+                    </ul>
+                  </div>
+                  <button type="button" onClick={() => selectService(service.id)} className="self-start text-left text-sm font-semibold text-white/85 underline decoration-white/30 underline-offset-4 transition hover:text-white md:whitespace-nowrap">
                     {service.id === "tool" ? (isDanish ? "Fortæl os om din idé" : "Tell us your idea") : service.id === "help" ? (isDanish ? "Kontakt os" : "Contact us") : (isDanish ? "Få et tilbud" : "Get a quote")}
                   </button>
                 </article>
@@ -725,7 +730,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
               <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cyan-200/72">{isDanish ? "Projektforespørgsel" : "Project enquiry"}</p>
               <h2 id="for-you-quote-title" className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{isDanish ? "Fortæl os om dit projekt." : "Tell us about your project."}</h2>
               <p className="mt-5 max-w-lg text-base leading-8 text-white/62">{isDanish ? "Vi gennemgår din forespørgsel og vender tilbage, så snart vi kan." : "We will review your request and get back to you as soon as possible."}</p>
-              <div className="mt-8 rounded-[24px] border border-white/10 bg-white/[0.035] p-6">
+              <div className="mt-8 border-t border-white/12 pt-6">
                 <h3 className="text-lg font-semibold text-white">{isDanish ? "Vil du afklare det først?" : "Want to clarify it first?"}</h3>
                 <p className="mt-3 text-sm leading-7 text-white/58">{isDanish ? "Skriv en kort SMS om dit projekt. Hvis du foretrækker at tale om flere detaljer, finder vi gerne et tidspunkt, der passer." : "Send a short SMS about your project. If you would prefer to talk through more details, we can find a time that works."}</p>
                 <SmsContactLink language={page.lang} location="for_you_contact_panel" className="mt-5 inline-flex text-sm font-semibold text-cyan-100 hover:text-white">
@@ -737,7 +742,7 @@ function ForYouPage({ page }: { page: SeoPage }) {
               </div>
             </div>
 
-            <form onSubmit={submitQuote} onFocus={focusQuoteForm} className="rounded-[28px] border border-white/10 bg-white/[0.045] p-6 sm:p-8">
+            <form onSubmit={submitQuote} onFocus={focusQuoteForm} className="border-t border-white/12 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
               <div className="grid gap-5 sm:grid-cols-2">
                 <label className="grid gap-2 text-sm font-medium text-white/78">{isDanish ? "Navn" : "Name"}<input required name="name" autoComplete="name" maxLength={120} className="rounded-xl border border-white/12 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-cyan-300/50" /></label>
                 <label className="grid gap-2 text-sm font-medium text-white/78">Email<input required name="email" type="email" autoComplete="email" maxLength={254} className="rounded-xl border border-white/12 bg-black/20 px-4 py-3 text-white outline-none transition focus:border-cyan-300/50" /></label>
