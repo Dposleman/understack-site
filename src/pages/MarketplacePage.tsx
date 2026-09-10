@@ -17,7 +17,7 @@ const featuredAssets: AssetItem[] = [
     category: "Mobile Templates",
     status: "Coming Soon",
     description:
-      "Production-ready Flutter app templates designed with premium UI, clean code structure and marketplace-ready packaging.",
+      "Flutter app templates with clear code structure and documentation for marketplace distribution.",
   },
   {
     name: "Restaurant Utility Apps",
@@ -31,7 +31,7 @@ const featuredAssets: AssetItem[] = [
     category: "Frontend Assets",
     status: "Coming Soon",
     description:
-      "Modern premium UI sections, landing blocks and reusable frontend assets for product sites and SaaS brands.",
+      "Reusable UI sections and frontend assets for product sites and SaaS teams.",
   },
   {
     name: "Business Tools & Internal Systems",
@@ -87,7 +87,7 @@ export default function MarketplacePage() {
     <div className="min-h-screen bg-[#020617] text-white">
       <PageMeta
         title="Marketplace — UnderStack"
-        description="Premium code assets, templates and reusable developer products from UnderStack."
+        description="Code assets, templates and reusable developer products from UnderStack."
         path="/marketplace"
       />
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.16),transparent_30%),radial-gradient(circle_at_20%_80%,rgba(34,211,238,0.10),transparent_25%),radial-gradient(circle_at_80%_70%,rgba(168,85,247,0.12),transparent_28%),linear-gradient(180deg,#020617_0%,#050b17_100%)]" />
@@ -122,12 +122,11 @@ export default function MarketplacePage() {
           </span>
 
           <h1 className="mt-6 text-5xl font-semibold tracking-tight text-white sm:text-6xl">
-            Premium code assets, templates and developer products.
+            Code assets, templates and developer products.
           </h1>
 
           <p className="mt-6 max-w-3xl text-base leading-8 text-white/68">
-            A marketplace-facing product line for developers, founders and teams
-            looking for polished templates, app products and reusable digital assets.
+            Templates, app products and reusable assets for developers, founders and teams.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
@@ -173,7 +172,7 @@ export default function MarketplacePage() {
             </p>
 
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white">
-              Built for sellable, reusable, premium digital products.
+              Products prepared for reuse and distribution.
             </h2>
 
             <p className="mt-4 max-w-3xl text-sm leading-8 text-white/68">
