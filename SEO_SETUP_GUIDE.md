@@ -116,7 +116,6 @@ Do not add an address, phone number, employee count, reviews, awards, clients or
 | --- | --- | --- | --- |
 | High | Google Business Profile | Local entity discovery in Aarhus | Verified business/service-area details, logo, real photos if available |
 | High | Bing Places | Bing and local discovery | Same verified company details and canonical URL |
-| High | LinkedIn Company | Brand authority and founder distribution | Logo, concise entity description, canonical URL |
 | High | GitHub | Developer trust and product engineering visibility | Clean public repositories and accurate READMEs |
 | Medium | Clutch | B2B service discovery | Real portfolio and only legitimate reviews |
 | Medium | GoodFirms | Software-service directory visibility | Accurate service categories and real work |

@@ -10,7 +10,6 @@ Backlinks should support credibility and commercial discovery. Avoid spam direct
 | GoodFirms | https://www.goodfirms.co/ | B2B research and review platform for software and IT services. | Create company profile, verify details, add real portfolio. |
 | Product Hunt | https://www.producthunt.com/ | Useful for GastroApp or standalone UnderStack products when launch-ready. | Real product page, screenshots, clear positioning. |
 | GitHub | https://github.com/ | Authority and developer trust if UnderStack publishes open-source utilities or examples. | Public repos, clean README, link back naturally. |
-| LinkedIn company page | https://www.linkedin.com/ | Brand entity, founder trust and distribution. | Complete profile, consistent CVR/name/site, regular posts. |
 
 ## Medium Priority
 

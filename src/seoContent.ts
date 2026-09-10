@@ -968,6 +968,63 @@ const insights = [
   ["en", "ai-automation-for-european-businesses", "AI automation for European businesses", "AI automation works best when it is tied to specific workflows, human review and measurable operational friction.", "/en/ai-development"],
 ] as const;
 
+const detailedInsightContent: Record<string, Pick<SeoPage, "sections" | "faqs">> = {
+  "en/how-much-does-a-business-website-cost-in-denmark": {
+    sections: [
+      {
+        title: "Start with the decision, not a template",
+        body:
+          "A useful website budget starts with the job the site needs to do. A focused brochure site, a content-heavy marketing platform and a customer-facing web application may all look like websites from the outside, but they require very different planning, design and engineering work.",
+      },
+      {
+        title: "What actually changes the scope?",
+        body:
+          "The largest cost drivers are usually not visual details. They are the number of user journeys, the quality and availability of content, integrations with existing systems, language requirements, performance expectations, accessibility, analytics and the amount of custom functionality required after launch.",
+        items: [
+          "Information architecture, content and conversion paths",
+          "Design depth and responsive behaviour",
+          "CMS, forms, booking, payments or CRM integrations",
+          "SEO migration, analytics and technical performance",
+          "Custom customer areas, workflows or data models",
+          "Ongoing ownership, maintenance and iteration",
+        ],
+      },
+      {
+        title: "A practical way to budget",
+        body:
+          "Rather than asking for a single price before the scope is clear, split the work into three decisions: what must be true at launch, what can be measured after launch, and what belongs in a later iteration. This creates a credible first release without hiding future technical or content work inside a vague fixed quote.",
+      },
+      {
+        title: "When a website becomes a web platform",
+        body:
+          "A project stops being a conventional website when it needs user accounts, operational workflows, structured data, permissions, internal tools or recurring integrations. At that point, the right comparison is not between visual packages but between a lightweight product architecture and the operational value it needs to support.",
+      },
+      {
+        title: "Questions worth answering before requesting a proposal",
+        body:
+          "A stronger brief helps both sides make better decisions. Define the business outcome, essential audience journeys, the content that exists today, systems that must connect, who owns decisions and what should be measurable after launch. That is more useful than selecting features from a generic checklist.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is a template website always the lower-cost option?",
+        answer:
+          "It can reduce the initial build effort, especially for a simple site with ready content. It becomes less efficient when the business needs a distinct conversion flow, reliable integrations, unusual content structure or functionality that the template was not designed to support.",
+      },
+      {
+        question: "Should SEO be part of the initial website scope?",
+        answer:
+          "Yes. Page structure, redirects, metadata, content migration, performance and analytics are easier to handle during the build than after a site has already been launched and indexed.",
+      },
+      {
+        question: "How should a business compare website proposals?",
+        answer:
+          "Compare the defined outcome, scope boundaries, content responsibilities, technical ownership, launch process and what happens after launch. A proposal with a lower headline figure can still create more work later if these points are unclear.",
+      },
+    ],
+  },
+};
+
 export const insightPages: SeoPage[] = [
   {
     lang: "dk",
@@ -997,16 +1054,9 @@ export const insightPages: SeoPage[] = [
     cta: "Read guides",
     keywords: ["software development Denmark guide", "AI automation Europe", "restaurant software guide"],
   },
-  ...insights.map(([lang, slug, title, description, target]) => ({
-    lang,
-    slug: `insights/${slug}`,
-    kind: "insight" as const,
-    title: `${title} | UnderStack`,
-    description,
-    h1: title,
-    eyebrow: lang === "dk" ? "Guide" : "Insight",
-    intro: description,
-    sections: [
+  ...insights.map(([lang, slug, title, description, target]) => {
+    const detailedContent = detailedInsightContent[`${lang}/${slug}`];
+    const defaultSections: SeoPage["sections"] = [
       {
         title: lang === "dk" ? "Kort svar" : "Short answer",
         body:
@@ -1032,15 +1082,28 @@ export const insightPages: SeoPage[] = [
             ? "Start med et lille, præcist scope og byg derefter videre baseret på reel brug. Det reducerer risiko og gør investeringen lettere at styre."
             : "Start with a small, precise scope and expand based on real use. That reduces risk and makes the investment easier to control.",
       },
-    ],
-    related: [
-      { label: lang === "dk" ? "Relevant service" : "Related service", href: target },
-      { label: lang === "dk" ? "Cases" : "Cases", href: `/${lang}/cases/` },
-      { label: lang === "dk" ? "Kontakt" : "Contact", href: "mailto:dev.team@understack.dk" },
-    ],
-    cta: lang === "dk" ? "Tal med UnderStack" : "Talk to UnderStack",
-    keywords: [title, "UnderStack", lang === "dk" ? "Danmark" : "Denmark"],
-  })),
+    ];
+
+    return {
+      lang,
+      slug: `insights/${slug}`,
+      kind: "insight" as const,
+      title: `${title} | UnderStack`,
+      description,
+      h1: title,
+      eyebrow: lang === "dk" ? "Guide" : "Insight",
+      intro: description,
+      sections: detailedContent?.sections ?? defaultSections,
+      faqs: detailedContent?.faqs,
+      related: [
+        { label: lang === "dk" ? "Relevant service" : "Related service", href: target },
+        { label: lang === "dk" ? "Cases" : "Cases", href: `/${lang}/cases/` },
+        { label: lang === "dk" ? "Kontakt" : "Contact", href: "mailto:dev.team@understack.dk" },
+      ],
+      cta: lang === "dk" ? "Tal med UnderStack" : "Talk to UnderStack",
+      keywords: [title, "UnderStack", lang === "dk" ? "Danmark" : "Denmark"],
+    };
+  }),
 ];
 
 export const appsPages: SeoPage[] = [
