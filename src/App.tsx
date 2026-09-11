@@ -8,6 +8,8 @@ import LifePrivacyPage from "./pages/LifePrivacyPage";
 import logo from "./assets/understack-logo.png";
 import PageMeta from "./components/PageMeta";
 import PocketPrivacyPage from "./pages/PocketPrivacyPage";
+import ProductScreenshotGallery from "./components/ProductScreenshotGallery";
+import { productScreenshots } from "./lib/productAssets";
 import {
   allPages,
   alternateFor,
@@ -25,8 +27,6 @@ import {
   type PortfolioProject,
   type SeoPage,
 } from "./seoContent";
-import ProductScreenshotGallery from "./components/ProductScreenshotGallery";
-import { productScreenshots } from "./lib/productAssets";
 
 function isLanguage(value: string | undefined): value is Language {
   return value === "dk" || value === "en";
@@ -348,6 +348,15 @@ function localizedProject(project: PortfolioProject, lang: Language) {
 
 function PortfolioEntry({ project, lang, featured = false }: { project: PortfolioProject; lang: Language; featured?: boolean }) {
   const content = localizedProject(project, lang);
+  const screenshots = productScreenshots[
+    project.name === "GastroApp"
+      ? "gastroapp"
+      : project.name === "UnderStack Pocket AI"
+        ? "understack-ai-pocket"
+      : project.name === "Peritar - ASEPCO"
+          ? "peritar-asepco"
+          : project.name.toLowerCase()
+  ] ?? [];
 
   return (
     <article className={`grid gap-5 border-t border-white/12 py-8 md:gap-10 ${featured ? "md:grid-cols-[minmax(11rem,0.45fr)_minmax(16rem,0.9fr)_minmax(0,1.4fr)] md:py-14" : "md:grid-cols-[minmax(11rem,0.55fr)_minmax(15rem,0.8fr)_minmax(0,1.25fr)] md:py-10"}`}>
@@ -371,6 +380,9 @@ function PortfolioEntry({ project, lang, featured = false }: { project: Portfoli
             <li key={capability}>— {capability}</li>
           ))}
         </ul>
+        <div className="mt-6 max-w-xl">
+          <ProductScreenshotGallery screenshots={screenshots} label={`${project.name} screenshots`} />
+        </div>
       </div>
     </article>
   );
