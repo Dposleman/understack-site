@@ -3,7 +3,7 @@ export const CONTACT_EMAIL = "dev.team@understack.dk";
 export const GENERAL_EMAIL = "info@understack.dk";
 export const COMPANY_CVR = "46327608";
 export const GASTROAPP_URL = "https://gastroapp.dk";
-export const SOCIAL_IMAGE_PATH = "/understack-social-preview.png";
+export const SOCIAL_IMAGE_PATH = "/og-image.jpg";
 export const SOCIAL_IMAGE_URL = `${SITE_URL}${SOCIAL_IMAGE_PATH}`;
 
 export type Language = "dk" | "en";
@@ -103,7 +103,7 @@ export const pages: SeoPage[] = [
     kind: "home",
     title: "UnderStack | Softwareudvikling og webudvikling i Aarhus",
     description:
-      "UnderStack er et uafhængigt softwarestudio i Aarhus, der designer og udvikler websites, SaaS-produkter og custom software til virksomheder i Danmark og Europa.",
+      "UnderStack er et uafhængigt softwarestudio i Aarhus, der designer og udvikler websites, SaaS-produkter og custom software til virksomheder i Danmark.",
     h1: "Software, websites og digitale produkter bygget i Aarhus.",
     eyebrow: "Uafhængigt softwarestudio · Aarhus",
     intro:
@@ -135,7 +135,7 @@ export const pages: SeoPage[] = [
     kind: "home",
     title: "UnderStack | Software company in Aarhus, Denmark",
     description:
-      "UnderStack is an independent software studio in Aarhus, designing and developing websites, SaaS products and custom software for companies in Denmark and Europe.",
+      "UnderStack is an independent software studio in Aarhus, designing websites, SaaS products and custom software for companies in Denmark and Europe.",
     h1: "Software, websites and digital products built in Aarhus.",
     eyebrow: "Independent software studio · Aarhus",
     intro:

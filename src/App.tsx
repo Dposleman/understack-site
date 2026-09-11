@@ -194,7 +194,7 @@ function Header({ page }: { page: SeoPage }) {
           <a href={`/${page.lang}/${page.lang === "dk" ? "softwareudvikling" : "software-development"}`} className="hover:text-white">
             Software
           </a>
-          <a href={`/${page.lang}/${page.lang === "dk" ? "restaurant-software" : "restaurant-software"}`} className="hover:text-white">
+          <a href={`/${page.lang}/restaurant-software`} className="hover:text-white">
             Restaurant
           </a>
           <a href={`/${page.lang}/cases/`} className="hover:text-white">

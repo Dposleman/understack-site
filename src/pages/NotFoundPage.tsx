@@ -3,7 +3,7 @@ import PageMeta from "../components/PageMeta";
 
 export default function NotFoundPage() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#020617] px-6 text-center text-white">
+    <main className="flex min-h-screen items-center justify-center px-6 text-center text-white">
       <PageMeta title="Page not found — UnderStack" description="The requested UnderStack page could not be found." path="/404" />
       <div>
         <p className="text-sm font-semibold uppercase tracking-[0.28em] text-cyan-200">404</p>
