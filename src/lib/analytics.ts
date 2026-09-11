@@ -3,7 +3,7 @@ export type AnalyticsEvent =
   | "portfolio_view"
   | "product_view"
   | "gastroapp_view"
-  | "serviceos_view"
+  | "peritar_view"
   | "life_view"
   | "pocket_view"
   | "service_view"
@@ -82,7 +82,7 @@ function pageContext(pathname: string) {
   if (pathname.includes("/for-you")) return { event: "for_you_view" as const, page_type: "for_you" };
   if (pathname.includes("/portfolio")) return { event: "portfolio_view" as const, page_type: "portfolio" };
   if (pathname.includes("/cases/gastroapp")) return { event: "gastroapp_view" as const, page_type: "product", product: "GastroApp" };
-  if (pathname.includes("/cases/serviceos")) return { event: "serviceos_view" as const, page_type: "product", product: "Service OS" };
+  if (pathname.includes("/cases/peritar-asepco")) return { event: "peritar_view" as const, page_type: "product", product: "Peritar - ASEPCO" };
   if (pathname.includes("/cases/life")) return { event: "life_view" as const, page_type: "product", product: "Life" };
   if (pathname.includes("/cases/pocket")) return { event: "pocket_view" as const, page_type: "product", product: "Pocket" };
   if (pathname.includes("/cases/")) return { event: "case_view" as const, page_type: "case" };
