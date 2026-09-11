@@ -11,6 +11,7 @@ import PocketPrivacyPage from "./pages/PocketPrivacyPage";
 import {
   allPages,
   alternateFor,
+  archivedProjects,
   COMPANY_CVR,
   CONTACT_EMAIL,
   findPage,
@@ -24,6 +25,8 @@ import {
   type PortfolioProject,
   type SeoPage,
 } from "./seoContent";
+import ProductScreenshotGallery from "./components/ProductScreenshotGallery";
+import { productScreenshots } from "./lib/productAssets";
 
 function isLanguage(value: string | undefined): value is Language {
   return value === "dk" || value === "en";
@@ -269,9 +272,17 @@ function Footer({ lang }: { lang: Language }) {
           <div className="text-sm font-semibold uppercase tracking-[0.28em] text-white">UnderStack</div>
           <p className="mt-4 max-w-md text-sm leading-7 text-white/58">
             {lang === "dk"
-              ? "Uafhængigt softwarestudio. Aarhus, Danmark."
-              : "Independent software studio. Aarhus, Denmark."}
+              ? "Uafhængigt softwarestudio drevet af Diego Posleman. Aarhus, Danmark."
+              : "Independent software studio run by Diego Posleman. Aarhus, Denmark."}
           </p>
+          <a
+            href="https://github.com/Dposleman"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 inline-block text-sm text-cyan-100 hover:text-white"
+          >
+            github.com/Dposleman
+          </a>
           <p className="mt-4 text-sm text-white/48">CVR: {COMPANY_CVR}</p>
         </div>
         <div>
@@ -372,9 +383,6 @@ function PortfolioGrid({ page }: { page: SeoPage }) {
 
   const isDanish = page.lang === "dk";
   const isApps = page.kind === "apps";
-  const featuredNames = ["GastroApp", "UnderStack Pocket AI", "AI Schedule", "Meeting Copilot", "AI Visual Studio", "Service OS"];
-  const featuredProjects = portfolioProjects.filter((project) => featuredNames.includes(project.name));
-  const otherProjects = portfolioProjects.filter((project) => !featuredNames.includes(project.name));
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-12" aria-labelledby="portfolio-projects">
@@ -388,26 +396,81 @@ function PortfolioGrid({ page }: { page: SeoPage }) {
               ? "Produkter med tydelig status og dokumenterede funktioner."
               : "Products with a clear status and documented capabilities."
             : isDanish
-              ? "Udvalgte systemer, produkter og platformmodernisering."
-              : "Selected systems, products and platform modernization work."}
+              ? "Fire projekter, jeg kan stå inde for."
+              : "Four projects I can stand behind."}
         </h2>
       </div>
       <div className="mt-10">
-        <p className="eyebrow">{isDanish ? "Udvalgte projekter" : "Selected projects"}</p>
-        <div className="mt-5 border-b border-white/12">
-          {featuredProjects.map((project) => (
+        <div className="border-b border-white/12">
+          {portfolioProjects.map((project) => (
             <PortfolioEntry key={project.name} project={project} lang={page.lang} featured />
           ))}
         </div>
       </div>
-      <div className="mt-16">
-        <p className="eyebrow">{isDanish ? "Flere produkter og systemer" : "More products and systems"}</p>
-        <div className="mt-5 border-b border-white/12">
-          {otherProjects.map((project) => (
-            <PortfolioEntry key={project.name} project={project} lang={page.lang} />
-          ))}
-        </div>
+      {!isApps ? (
+        <p className="mt-8 text-sm text-white/58">
+          {isDanish ? (
+            <>
+              Flere koncepter under udvikling —{" "}
+              <a href="/dk/andre-projekter" className="text-cyan-100 underline decoration-white/30 underline-offset-4 hover:text-white">
+                se andre projekter
+              </a>
+              .
+            </>
+          ) : (
+            <>
+              More concepts in development —{" "}
+              <a href="/en/other-projects" className="text-cyan-100 underline decoration-white/30 underline-offset-4 hover:text-white">
+                see other projects
+              </a>
+              .
+            </>
+          )}
+        </p>
+      ) : null}
+    </section>
+  );
+}
+
+function ArchiveGrid({ page }: { page: SeoPage }) {
+  if (page.kind !== "archive") {
+    return null;
+  }
+
+  const isDanish = page.lang === "dk";
+
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-12" aria-labelledby="archive-projects">
+      <h2 id="archive-projects" className="sr-only">
+        {isDanish ? "Andre projekter under udvikling" : "Other projects in development"}
+      </h2>
+      <div className="border-b border-white/12">
+        {archivedProjects.map((project) => (
+          <PortfolioEntry key={project.name} project={project} lang={page.lang} />
+        ))}
       </div>
+    </section>
+  );
+}
+
+function CaseScreenshots({ page }: { page: SeoPage }) {
+  if (page.kind !== "case") {
+    return null;
+  }
+
+  const caseSlug = page.slug.split("/").pop() ?? "";
+  const screenshots = productScreenshots[caseSlug] ?? [];
+  const isDanish = page.lang === "dk";
+
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-6" aria-label={isDanish ? "Skærmbilleder" : "Screenshots"}>
+      {screenshots.length ? (
+        <ProductScreenshotGallery screenshots={screenshots} />
+      ) : (
+        <p className="rounded-[24px] border border-white/10 bg-white/[0.03] px-6 py-5 text-sm text-white/48">
+          {isDanish ? "Skærmbilleder tilføjes snart." : "Screenshots coming soon."}
+        </p>
+      )}
     </section>
   );
 }
@@ -453,6 +516,8 @@ function SeoPageView({ page }: { page: SeoPage }) {
 
         <CardGrid page={page} />
         <PortfolioGrid page={page} />
+        <ArchiveGrid page={page} />
+        <CaseScreenshots page={page} />
 
         {page.sections.map((section, index) => (
           <section key={section.title} className="content-section mx-auto max-w-7xl px-6 py-10">

@@ -7,7 +7,7 @@ export const SOCIAL_IMAGE_PATH = "/understack-social-preview.png";
 export const SOCIAL_IMAGE_URL = `${SITE_URL}${SOCIAL_IMAGE_PATH}`;
 
 export type Language = "dk" | "en";
-export type PageKind = "home" | "service" | "case" | "caseIndex" | "portfolio" | "insight" | "insightIndex" | "apps" | "marketplace" | "forYou";
+export type PageKind = "home" | "service" | "case" | "caseIndex" | "portfolio" | "archive" | "insight" | "insightIndex" | "apps" | "marketplace" | "forYou";
 
 export type SeoPage = {
   lang: Language;
@@ -112,13 +112,13 @@ export const pages: SeoPage[] = [
       {
         title: "Det vi bygger",
         body:
-          "Vi hjælper virksomheder med webudvikling, softwareudvikling, app-udvikling, AI-løsninger og restaurant software. Fokus er klare produkter, høj teknisk kvalitet og løsninger, som kan bruges aktivt i salg, drift og vækst.",
+          "Websites, custom business software og AI-assisterede arbejdsgange bygget med React, TypeScript og moderne webteknologi. Kodebasen for dette site er selv offentlig på GitHub, så du kan se kvaliteten før du skriver under på noget.",
         items: ["Websites og webplatforme", "Custom business software", "AI-assisterede arbejdsgange", "Restaurant- og hospitality software"],
       },
       {
         title: "Bygget i Aarhus. Lille med vilje.",
         body:
-          "UnderStack er et uafhængigt softwarestudio i Aarhus. Du arbejder direkte med den person, der designer og bygger dit produkt. Ingen account managers, unødige led eller lange kommunikationskæder. Målet er enkelt: forstå behovet, bygge det ordentligt og få det ud at leve.",
+          "UnderStack er Diego Posleman — et uafhængigt softwarestudio i Aarhus. Du arbejder direkte med den person, der designer og bygger dit produkt: ingen account managers, unødige led eller lange kommunikationskæder. Se koden på GitHub (github.com/Dposleman) eller skriv direkte, hvis du vil tale om et projekt.",
       },
     ],
     related: [
@@ -144,13 +144,13 @@ export const pages: SeoPage[] = [
       {
         title: "What we build",
         body:
-          "Websites, web applications, SaaS products, internal tools and AI integrations for specific workflow problems.",
+          "Websites, custom business software and AI-assisted workflows, built with React, TypeScript and modern web tooling. This site's own codebase is public on GitHub, so you can see the quality before you sign anything.",
         items: ["Custom software", "Web development", "App development", "AI solutions", "Restaurant software"],
       },
       {
         title: "Built in Aarhus. Small by design.",
         body:
-          "UnderStack is an independent software studio based in Aarhus. You work directly with the person designing and building your product. No account managers, unnecessary layers or long communication chains. The goal is simple: understand what you need, build it properly and ship it.",
+          "UnderStack is Diego Posleman — an independent software studio based in Aarhus. You work directly with the person designing and building your product: no account managers, unnecessary layers or long communication chains. See the code on GitHub (github.com/Dposleman) or reach out directly to talk about a project.",
       },
     ],
     related: [
@@ -321,7 +321,7 @@ const dkServices: Omit<SeoPage, "lang" | "kind">[] = [
     ],
     related: [
       { label: "AI til danske virksomheder", href: "/dk/insights/ai-loesninger-til-danske-virksomheder" },
-      { label: "ServiceOS case", href: "/dk/cases/serviceos" },
+      { label: "Cases", href: "/dk/cases/" },
       { label: "Restaurant software", href: "/dk/restaurant-software" },
     ],
     cta: "Book en AI-samtale",
@@ -336,11 +336,11 @@ const dkServices: Omit<SeoPage, "lang" | "kind">[] = [
     intro: "UnderStack bygger og dokumenterer software til restaurantdrift: fra food cost og waste tracking til AI-assisteret service og køkkenstyring.",
     sections: [
       { title: "Hvad restaurant software skal løse", body: "Restauranter har brug for bedre overblik over vareforbrug, priser, spild, serviceflow og daglig drift. Software skal passe til køkkenets tempo og give bedre beslutninger uden at skabe ekstra administration." },
-      { title: "GastroApp som produktretning", body: "GastroApp er UnderStacks restaurant software-retning med fokus på food cost, opskrifter, inventory og operationelle værktøjer. Derudover udvikles ServiceOS som AI-first service operating system." },
+      { title: "GastroApp som produktretning", body: "GastroApp er UnderStacks restaurant software-retning med fokus på food cost, opskrifter, inventory og operationelle værktøjer i køkkenet." },
       dkServiceSections.stack,
     ],
     faqs: [
-      { question: "Bygger UnderStack restaurant management software?", answer: "Ja, UnderStack arbejder med restaurant utility apps, GastroApp og ServiceOS-relaterede koncepter. Vi opfinder ikke resultater eller kundedata, men produktretningen er dokumenteret i sitet." },
+      { question: "Bygger UnderStack restaurant management software?", answer: "Ja. GastroApp dækker food cost, opskrifter, inventory og indkøb i ét system. Se GastroApp-casen for detaljer og et direkte link til produktet." },
       { question: "Kan løsningerne tilpasses en restaurant?", answer: "Ja. Custom restaurant software kan bygges omkring konkrete workflows som food cost, waste tracking, service, inventory eller rapportering." },
     ],
     related: [
@@ -366,7 +366,7 @@ const dkServices: Omit<SeoPage, "lang" | "kind">[] = [
     related: [
       { label: "Softwareudvikling", href: "/dk/softwareudvikling" },
       { label: "Custom software vs SaaS", href: "/en/insights/custom-software-vs-saas" },
-      { label: "ServiceOS", href: "/dk/cases/serviceos" },
+      { label: "Peritar - ASEPCO case", href: "/dk/cases/peritar-asepco" },
     ],
     cta: "Diskuter custom software",
     keywords: ["custom software Denmark", "custom business software Europe", "specialudviklet software"],
@@ -449,7 +449,7 @@ const enServices: Omit<SeoPage, "lang" | "kind">[] = [
     related: [
       { label: "Custom software vs SaaS", href: "/en/insights/custom-software-vs-saas" },
       { label: "Software development", href: "/en/software-development" },
-      { label: "ServiceOS", href: "/en/cases/serviceos" },
+      { label: "Cases", href: "/en/cases/" },
     ],
     cta: "Plan your system",
     keywords: ["custom software Denmark", "custom business software Europe", "software company Denmark"],
@@ -488,7 +488,7 @@ const enServices: Omit<SeoPage, "lang" | "kind">[] = [
     ],
     related: [
       { label: "AI automation article", href: "/en/insights/ai-automation-for-european-businesses" },
-      { label: "ServiceOS", href: "/en/cases/serviceos" },
+      { label: "Cases", href: "/en/cases/" },
       { label: "Restaurant software", href: "/en/restaurant-software" },
     ],
     cta: "Plan an AI workflow",
@@ -503,7 +503,7 @@ const enServices: Omit<SeoPage, "lang" | "kind">[] = [
     intro: "UnderStack builds restaurant software concepts and products around food cost, waste tracking, inventory, kitchen workflows and practical service support.",
     sections: [
       { title: "Operational problems we address", body: "Restaurants need better visibility into food cost, waste, pricing, inventory, service flow and day-to-day execution. Software should support the pace of the kitchen instead of adding admin load." },
-      { title: "GastroApp and ServiceOS", body: "GastroApp is UnderStack's restaurant software direction for food cost, recipes, inventory and utility workflows. ServiceOS explores AI-first front-of-house operations." },
+      { title: "GastroApp", body: "GastroApp is UnderStack's restaurant software direction for food cost, recipes, inventory and utility workflows in the kitchen." },
       enServiceSections.stack,
     ],
     related: [
@@ -527,17 +527,17 @@ export const casePages: SeoPage[] = [
     slug: "cases",
     kind: "caseIndex",
     title: "Cases | UnderStack produkter og softwareprojekter",
-    description: "UnderStack cases: GastroApp, AI Schedule, UnderStack AI Pocket, UnderStack AI Agent, Life, ServiceOS og dokumenterede softwareprodukter uden opdigtede resultater.",
-    h1: "Cases og produktretninger fra UnderStack.",
+    description: "UnderStack cases: GastroApp, UnderStack Pocket AI, Life og platformmodernisering for Peritar (ASEPCO).",
+    h1: "Cases fra UnderStack.",
     eyebrow: "Cases",
-    intro: "En oversigt over faktiske projekter og produktretninger, herunder færdige produkter, produkter i review og aktive udviklingsspor.",
+    intro: "Et lille udvalg af projekter — hvert med kode, en URL eller en navngiven kunde bag, i stedet for en lang liste.",
     sections: [
-      { title: "Dokumenterede produkter", body: "Her finder du produkter, der er færdige, i review eller under aktiv udvikling." },
+      { title: "Dokumenterede produkter", body: "Diego Posleman bygger og driver hvert af disse produkter selv. Du kan se koden på GitHub eller besøge produktet direkte via linkene nedenfor." },
     ],
     related: [
       { label: "GastroApp", href: "/dk/cases/gastroapp" },
-      { label: "UnderStack AI Pocket", href: "/dk/cases/understack-ai-pocket" },
-      { label: "UnderStack AI Agent", href: "/dk/cases/understack-ai-agent" },
+      { label: "UnderStack Pocket AI", href: "/dk/cases/understack-ai-pocket" },
+      { label: "Life", href: "/dk/cases/life" },
     ],
     cta: "Se relevante løsninger",
     keywords: ["UnderStack cases", "software cases Danmark"],
@@ -547,17 +547,17 @@ export const casePages: SeoPage[] = [
     slug: "cases",
     kind: "caseIndex",
     title: "Cases | UnderStack software products",
-    description: "UnderStack cases: GastroApp, AI Schedule, UnderStack AI Pocket, UnderStack AI Agent, Life, ServiceOS and documented software products.",
-    h1: "Cases and product directions from UnderStack.",
+    description: "UnderStack cases: GastroApp, UnderStack Pocket AI, Life and platform modernization for Peritar (ASEPCO).",
+    h1: "Cases from UnderStack.",
     eyebrow: "Cases",
-    intro: "A transparent view of real projects and product directions, including completed products, products in review and active development tracks.",
+    intro: "A small set of projects — each backed by code, a live URL or a named client, instead of a long list.",
     sections: [
-      { title: "Documented products", body: "These are products that are completed, in review or under active development." },
+      { title: "Documented products", body: "Diego Posleman builds and runs each of these products himself. You can see the code on GitHub or visit the product directly through the links below." },
     ],
     related: [
       { label: "GastroApp", href: "/en/cases/gastroapp" },
-      { label: "UnderStack AI Pocket", href: "/en/cases/understack-ai-pocket" },
-      { label: "UnderStack AI Agent", href: "/en/cases/understack-ai-agent" },
+      { label: "UnderStack Pocket AI", href: "/en/cases/understack-ai-pocket" },
+      { label: "Life", href: "/en/cases/life" },
     ],
     cta: "Explore related services",
     keywords: ["software cases Denmark", "UnderStack products"],
@@ -579,32 +579,6 @@ const caseDetails = [
     technicalEn: "One operations product where kitchen teams work with recipes, stock and purchasing in the same system.",
   },
   {
-    slug: "ai-schedule",
-    name: "AI Schedule",
-    dk: "Færdigt planlægningsprodukt med tilgængelighed, kontrakter, ferie, bemandingsbehov, stedsspecifikke vagtplaner og fremmødeunderstøttelse.",
-    en: "Completed scheduling product covering availability, contracts, leave, staffing needs, location-specific rosters and attendance support.",
-    serviceDk: "/dk/ai-loesninger",
-    serviceEn: "/en/ai-development",
-    keywords: ["AI scheduling software", "AI automation", "business scheduling software"],
-    featuresDk: ["Medarbejdertilgængelighed og kontrakter", "Ferie og fravær", "Vagtplaner på tværs af lokationer", "Fremmøde og rekrutteringsflow"],
-    featuresEn: ["Employee availability and contracts", "Leave and absence", "Rosters across locations", "Attendance and recruitment workflows"],
-    technicalDk: "Planlægningen samler kontrakter, tilgængelighed og lokationer, så vagtplanen kan bygges ud fra de samme data.",
-    technicalEn: "Scheduling brings contracts, availability and locations together so rosters are built from the same data.",
-  },
-  {
-    slug: "serviceos",
-    name: "ServiceOS",
-    dk: "Restaurantsoftware til service under udvikling.",
-    en: "Restaurant service software currently in development.",
-    serviceDk: "/dk/ai-loesninger",
-    serviceEn: "/en/ai-development",
-    keywords: ["AI restaurant software", "service operations software", "hospitality AI"],
-    featuresDk: ["Bordoverblik og floorplan", "Reservationer og timing af service", "Koordinering for front-of-house teams"],
-    featuresEn: ["Table awareness and floor planning", "Reservation and service timing", "Operational coordination for front-of-house teams"],
-    technicalDk: "Produktretningen er afgrænset til de centrale værktøjer, som et front-of-house-team bruger under service.",
-    technicalEn: "The product direction is limited to the core tools a front-of-house team uses during service.",
-  },
-  {
     slug: "understack-ai-pocket",
     name: "UnderStack AI Pocket",
     dk: "Færdig Android-assistent med local-first arkitektur, som er under Google Play-review. Produktet er designet til private, kontrollerbare AI-workflows på mobilen.",
@@ -618,19 +592,6 @@ const caseDetails = [
     technicalEn: "Data and approvals stay on the device, while tools and automations require explicit permissions.",
   },
   {
-    slug: "understack-ai-agent",
-    name: "UnderStack AI Agent",
-    dk: "Aktivt Windows-produktspor for en local-first coding- og operationsagent, som kan arbejde kontrolleret med repositories, patches, logs og verifikation.",
-    en: "Active Windows product track for a local-first coding and operations agent that can work in a controlled way with repositories, patches, logs and verification.",
-    serviceDk: "/dk/ai-loesninger",
-    serviceEn: "/en/ai-development",
-    keywords: ["local-first coding agent", "Windows AI agent", "developer operations agent"],
-    featuresDk: ["Repository-inspektion og debugging", "Kontrollerede patches", "Logs og container-workflows", "Compile, lint, test og run-verifikation"],
-    featuresEn: ["Repository inspection and debugging", "Controlled patches", "Logs and container workflows", "Compile, lint, test and run verification"],
-    technicalDk: "Agenten er afgrænset til kontrollerede repository- og driftsopgaver med verifikation før ændringer bruges.",
-    technicalEn: "The agent is limited to controlled repository and operations tasks, with verification before changes are used.",
-  },
-  {
     slug: "life",
     name: "Life",
     dk: "Færdigt local-first personligt operating system til opgaver, noter, regninger, kvitteringer, dokumenter og hverdagsplanlægning. Produktet er under Google Play-review.",
@@ -642,6 +603,19 @@ const caseDetails = [
     featuresEn: ["Tasks, notes and reminders", "Bills, receipts and OCR", "Subscriptions and document archive", "Shopping lists and ADHD-friendly organisation"],
     technicalDk: "Produktet samler private oplysninger lokalt på telefonen frem for at gøre hverdagsdata til et eksternt dashboard.",
     technicalEn: "The product keeps personal information on the phone instead of turning everyday data into an external dashboard.",
+  },
+  {
+    slug: "peritar-asepco",
+    name: "Peritar - ASEPCO",
+    dk: "Professionel platform til ekspertvurderingsarbejde for ASEPCO i Mendoza, Argentina. UnderStack gennemfører en større teknisk modernisering af platformen for en navngiven kunde.",
+    en: "A professional platform used for expert assessment workflows for ASEPCO in Mendoza, Argentina, now undergoing a major technical modernization by UnderStack for a named client.",
+    serviceDk: "/dk/custom-software",
+    serviceEn: "/en/custom-software",
+    keywords: ["legacy system modernization", "PHP to TypeScript migration", "custom platform Argentina"],
+    featuresDk: ["Migrering fra legacy PHP til TypeScript", "Modernisering af frontend og backend", "Opdateret UI/UX", "Vedligeholdbar kodestruktur", "Forberedelse til skalerbar arkitektur"],
+    featuresEn: ["Legacy PHP to TypeScript modernization", "Frontend and backend modernization", "UI/UX modernization", "Maintainable code structure", "Scalable architecture preparation"],
+    technicalDk: "Moderniseringen sker løbende for en aktiv kunde og er dokumenteret som et igangværende projekt, ikke et afsluttet resultat.",
+    technicalEn: "The modernization is ongoing for an active client and is documented as work in progress, not a finished result.",
   },
 ];
 
@@ -705,14 +679,6 @@ export const portfolioProjects: PortfolioProject[] = [
     cta: { label: "Visit GastroApp", href: GASTROAPP_URL },
   },
   {
-    name: "AI Schedule",
-    category: "Workforce Scheduling",
-    description:
-      "A completed scheduling product for multi-location businesses with availability, leave, contractual limits and practical attendance controls.",
-    capabilities: ["Employee scheduling", "Availability and vacation management", "Contractual hour limits", "Replacement workflows and notifications", "Geofenced attendance"],
-    status: "Completed",
-  },
-  {
     name: "UnderStack Pocket AI",
     category: "Local-first Mobile Assistant",
     description:
@@ -746,6 +712,38 @@ export const portfolioProjects: PortfolioProject[] = [
         status: "Færdig - Google Play-review",
       },
     },
+  },
+  {
+    name: "Peritar - ASEPCO",
+    category: "Business Platform Modernization",
+    description:
+      "A professional platform used in the context of expert assessment workflows for ASEPCO in Mendoza, Argentina, now undergoing a major technical modernization by UnderStack.",
+    capabilities: ["Legacy PHP -> TypeScript modernization", "Frontend and backend modernization", "UI/UX modernization", "Maintainable code structure", "Scalable architecture preparation"],
+    status: "Platform modernization in progress",
+    location: "Mendoza, Argentina",
+  },
+  {
+    name: "Life",
+    category: "Local-first Personal OS",
+    description:
+      "A completed, local personal organization app for tasks, notes, bills, receipts, subscriptions, documents and focused everyday planning.",
+    capabilities: ["Tasks and notes", "Bills, receipts and OCR", "Subscriptions and documents", "Shopping and personal planning", "ADHD-friendly organization"],
+    status: "Completed - Google Play review",
+  },
+];
+
+// Earlier-stage concepts that do not yet have public evidence (a repo, a live
+// URL, a named client) to stand next to the projects above. Kept out of the
+// main portfolio and shown only on the "other projects" page so the main
+// portfolio stays limited to what can actually be verified.
+export const archivedProjects: PortfolioProject[] = [
+  {
+    name: "AI Schedule",
+    category: "Workforce Scheduling",
+    description:
+      "A scheduling product concept for multi-location businesses with availability, leave, contractual limits and practical attendance controls.",
+    capabilities: ["Employee scheduling", "Availability and vacation management", "Contractual hour limits", "Replacement workflows and notifications", "Geofenced attendance"],
+    status: "Concept",
   },
   {
     name: "UnderStack AI Agent",
@@ -785,15 +783,6 @@ export const portfolioProjects: PortfolioProject[] = [
     },
   },
   {
-    name: "Peritar - ASEPCO",
-    category: "Business Platform Modernization",
-    description:
-      "A professional platform used in the context of expert assessment workflows for ASEPCO in Mendoza, Argentina, now undergoing a major technical modernization by UnderStack.",
-    capabilities: ["Legacy PHP -> TypeScript modernization", "Frontend and backend modernization", "UI/UX modernization", "Maintainable code structure", "Scalable architecture preparation"],
-    status: "Platform modernization in progress",
-    location: "Mendoza, Argentina",
-  },
-  {
     name: "Service OS",
     category: "Restaurant Service Operations SaaS",
     description:
@@ -822,25 +811,17 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "AI Visual Studio",
     category: "AI Creative Platform",
     description:
-      "An AI-powered creative platform for transforming, editing and animating visual content through advanced generative models.",
+      "An AI-powered creative platform concept for transforming, editing and animating visual content through generative models.",
     capabilities: ["Image-to-image workflows", "Image-to-video generation", "Creative editing workflows", "Multi-model architecture", "Personal media library"],
-    status: "Completed",
-  },
-  {
-    name: "Life",
-    category: "Local-first Personal OS",
-    description:
-      "A completed, local personal organization app for tasks, notes, bills, receipts, subscriptions, documents and focused everyday planning.",
-    capabilities: ["Tasks and notes", "Bills, receipts and OCR", "Subscriptions and documents", "Shopping and personal planning", "ADHD-friendly organization"],
-    status: "Completed - Google Play review",
+    status: "Concept",
   },
   {
     name: "Meeting Copilot",
     category: "Private Meeting Assistant",
     description:
-      "A completed real-time meeting assistant designed for private use without retaining meeting recordings.",
+      "A real-time meeting assistant concept designed for private use without retaining meeting recordings.",
     capabilities: ["Microphone transcription", "Rolling context", "Question detection", "Short suggested answers", "Privacy-conscious session design"],
-    status: "Completed",
+    status: "Concept",
   },
   {
     name: "CodeQuest",
@@ -854,23 +835,23 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "Food Cost Calculator",
     category: "Restaurant Utility App",
     description:
-      "A completed mobile tool for recipe cost, servings, selling price and margin calculations with local persistence.",
+      "A mobile tool concept for recipe cost, servings, selling price and margin calculations with local persistence.",
     capabilities: ["Recipe cost calculation", "Servings and yield", "Selling price guidance", "Margin calculation", "Local persistence"],
-    status: "Completed",
+    status: "Concept",
   },
   {
     name: "WasteTrackr",
     category: "Restaurant Utility App",
     description:
-      "A completed mobile waste logging tool for restaurant teams with a practical history and operational overview.",
+      "A mobile waste logging tool concept for restaurant teams with a practical history and operational overview.",
     capabilities: ["Waste logging", "Operational dashboard", "History and editing", "Date filters", "Team-facing insight"],
-    status: "Completed",
+    status: "Concept",
   },
   {
     name: "Restaurant Micro-tools",
     category: "Hospitality Operations",
     description:
-      "A focused product line for inventory, recipe cost, menu engineering and accountable kitchen routines.",
+      "A focused product line concept for inventory, recipe cost, menu engineering and accountable kitchen routines.",
     capabilities: ["Inventory", "Recipe Cost", "Menu Engineering", "Shift Checklist", "Optional Pocket connection"],
     status: "Active development",
   },
@@ -878,7 +859,7 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "FollowUp, PingPerson and Recall",
     category: "Local-first Utilities",
     description:
-      "Android-first utility products for reply obligations, person-triggered context and intentional memory resurfacing.",
+      "Android-first utility product concepts for reply obligations, person-triggered context and intentional memory resurfacing.",
     capabilities: ["Follow-up commitments", "Person-based talking points", "Intentional memory capture", "Explicit permissions", "Pocket-ready product direction"],
     status: "In development - Android-first",
   },
@@ -886,7 +867,7 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "Family Safety",
     category: "Family Location and Safety",
     description:
-      "A transparent family safety product with parent and child roles, clear location controls and privacy-first platform behavior.",
+      "A family safety product concept with parent and child roles, clear location controls and privacy-first platform behavior.",
     capabilities: ["Parent and child roles", "Live location", "Safe and restricted zones", "Alerts and SOS", "Device health and privacy controls"],
     status: "In development - Android and iOS",
   },
@@ -894,9 +875,9 @@ export const portfolioProjects: PortfolioProject[] = [
     name: "UnderStack Product Ecosystem",
     category: "Shared Platform Strategy",
     description:
-      "An ongoing product foundation for identity, permission boundaries and audited cross-product workflows across web, mobile and desktop software.",
+      "An early foundation concept for identity, permission boundaries and audited cross-product workflows across web, mobile and desktop software.",
     capabilities: ["Shared identity", "Capability manifests", "Permission boundaries", "Action routing", "Audited cross-product workflows"],
-    status: "Ongoing system",
+    status: "Concept",
   },
 ];
 
@@ -907,21 +888,21 @@ export const portfolioPages: SeoPage[] = [
     kind: "portfolio",
     title: "Portfolio | UnderStack softwaresystemer og SaaS-produkter",
     description:
-      "Udvalgt UnderStack-arbejde på tværs af SaaS-udvikling, custom software, AI-løsninger, restaurant software og platformmodernisering.",
+      "Fire projekter fra UnderStack med kode, en URL eller en navngiven kunde bag: GastroApp, Life, UnderStack Pocket AI og platformmodernisering for Peritar (ASEPCO).",
     h1: "Udvalgt arbejde",
     eyebrow: "Portfolio",
     intro:
-      "Fra SaaS-produkter til forretningskritisk platformmodernisering designer og bygger vi software, der løser konkrete operationelle problemer.",
+      "Et lille, bevidst afgrænset udvalg af projekter — ikke en fuld liste over alt, der er i gang. Andre produkter under udvikling ligger på en separat side.",
     sections: [
       {
         title: "Software bygget til reel drift.",
         body:
-          "UnderStack designer, udvikler og moderniserer hele softwaresystemer: SaaS-produkter, custom business platforms, AI-løsninger, restaurant operations software og interne management tools.",
+          "GastroApp og Peritar (ASEPCO) er i aktiv brug hos rigtige brugere. Life og UnderStack Pocket AI er færdige produkter i Google Play-review. Flere tidlige koncepter er samlet på en separat side i stedet for at blande dem ind her.",
       },
     ],
     related: [
+      { label: "Andre projekter under udvikling", href: "/dk/andre-projekter" },
       { label: "Softwareudvikling", href: "/dk/softwareudvikling" },
-      { label: "Restaurant software", href: "/dk/restaurant-software" },
       { label: "Kontakt", href: "mailto:dev.team@understack.dk" },
     ],
     cta: "Diskuter dit projekt",
@@ -933,25 +914,70 @@ export const portfolioPages: SeoPage[] = [
     kind: "portfolio",
     title: "Portfolio | UnderStack software systems and SaaS products",
     description:
-      "Selected UnderStack work across SaaS development, custom software, AI solutions, restaurant software and business platform modernization in Denmark and beyond.",
+      "Four UnderStack projects backed by code, a live URL or a named client: GastroApp, Life, UnderStack Pocket AI and platform modernization for Peritar (ASEPCO).",
     h1: "Selected Work",
     eyebrow: "Portfolio",
     intro:
-      "From SaaS products to business-critical platform modernization, we design and build software focused on solving real operational problems.",
+      "A small, deliberately limited set of projects — not a full list of everything in progress. Other products in development live on a separate page.",
     sections: [
       {
         title: "Software built for real-world operations.",
         body:
-          "UnderStack designs, develops and modernizes full software systems: SaaS products, custom business platforms, AI solutions, restaurant operations software and internal management tools.",
+          "GastroApp and Peritar (ASEPCO) are in active use by real users. Life and UnderStack Pocket AI are completed products in Google Play review. Earlier-stage concepts are kept on a separate page instead of mixed in here.",
       },
     ],
     related: [
+      { label: "Other projects in development", href: "/en/other-projects" },
       { label: "Software development", href: "/en/software-development" },
-      { label: "Restaurant software", href: "/en/restaurant-software" },
       { label: "Contact", href: "mailto:dev.team@understack.dk" },
     ],
     cta: "Discuss your project",
     keywords: ["software development Denmark", "software development Aarhus", "SaaS development", "custom software development", "AI solutions", "restaurant software", "business software"],
+  },
+];
+
+export const archivePages: SeoPage[] = [
+  {
+    lang: "dk",
+    slug: "andre-projekter",
+    kind: "archive",
+    title: "Andre projekter under udvikling | UnderStack",
+    description: "Tidlige koncepter og produkter under udvikling fra UnderStack, uden endnu offentlig evidens i form af kode, URL eller kunde.",
+    h1: "Andre projekter under udvikling.",
+    eyebrow: "Under udvikling",
+    intro:
+      "Disse er tidlige koncepter og produkter, jeg arbejder på ved siden af de projekter, der er samlet i Portfolio. De har endnu ikke en offentlig URL, et repo eller en kunde bag sig, så de er holdt adskilt fra de dokumenterede cases.",
+    sections: [
+      { title: "Hvorfor en separat side", body: "Portfolio-siden er bevidst afgrænset til projekter, der kan verificeres. Det, der står her, er retninger og koncepter under udvikling — ikke færdige leverancer." },
+    ],
+    related: [
+      { label: "Portfolio", href: "/dk/portfolio" },
+      { label: "Cases", href: "/dk/cases/" },
+      { label: "Kontakt", href: "mailto:dev.team@understack.dk" },
+    ],
+    cta: "Diskuter en idé",
+    keywords: ["UnderStack produkter under udvikling", "software koncepter"],
+  },
+  {
+    lang: "en",
+    slug: "other-projects",
+    kind: "archive",
+    title: "Other projects in development | UnderStack",
+    description: "Early-stage concepts and products in development from UnderStack, without public evidence yet such as code, a URL or a client.",
+    h1: "Other projects in development.",
+    eyebrow: "In development",
+    intro:
+      "These are early-stage concepts and products I'm working on alongside the projects collected in Portfolio. They do not yet have a public URL, a repo or a client behind them, so they're kept separate from the documented cases.",
+    sections: [
+      { title: "Why a separate page", body: "The Portfolio page is deliberately limited to projects that can be verified. What's listed here are directions and concepts in development, not finished deliverables." },
+    ],
+    related: [
+      { label: "Portfolio", href: "/en/portfolio" },
+      { label: "Cases", href: "/en/cases/" },
+      { label: "Contact", href: "mailto:dev.team@understack.dk" },
+    ],
+    cta: "Discuss an idea",
+    keywords: ["UnderStack products in development", "software concepts"],
   },
 ];
 
@@ -1037,7 +1063,7 @@ export const insightPages: SeoPage[] = [
     h1: "Insights om software, web, AI og digitale produkter.",
     eyebrow: "Content hub",
     intro: "Praktiske artikler skrevet til virksomheder, der skal træffe bedre beslutninger om digitale produkter og software.",
-    sections: [{ title: "Formål", body: "Content hubben understøtter organisk acquisition og leder læsere videre til relevante services og cases." }],
+    sections: [{ title: "Hvad du finder her", body: "Praktiske artikler om priser, teknologivalg og beslutninger, som virksomheder kan bruge, før de sætter et softwareprojekt i gang." }],
     related: [],
     cta: "Læs guides",
     keywords: ["software insights Danmark", "webudvikling guide", "AI løsninger guide"],
@@ -1051,7 +1077,7 @@ export const insightPages: SeoPage[] = [
     h1: "Insights on software, web, AI and digital products.",
     eyebrow: "Content hub",
     intro: "Practical articles for companies making better decisions about software systems and digital products.",
-    sections: [{ title: "Purpose", body: "The content hub supports organic acquisition and routes readers toward related services and cases." }],
+    sections: [{ title: "What you'll find here", body: "Practical articles about pricing, technology choices and decisions companies can use before starting a software project." }],
     related: [],
     cta: "Read guides",
     keywords: ["software development Denmark guide", "AI automation Europe", "restaurant software guide"],
@@ -1193,7 +1219,7 @@ export const appsPages: SeoPage[] = [
   },
 ];
 
-export const allPages = [...pages, ...servicePages, ...casePages, ...portfolioPages, ...insightPages, ...appsPages, ...forYouPages];
+export const allPages = [...pages, ...servicePages, ...casePages, ...portfolioPages, ...archivePages, ...insightPages, ...appsPages, ...forYouPages];
 
 export function findPage(lang: Language, slug = "") {
   const normalized = slug.replace(/^\/|\/$/g, "");

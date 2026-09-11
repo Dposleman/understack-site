@@ -15,9 +15,12 @@ UnderStack is a software company in Aarhus, Denmark. It builds custom software, 
 ## Products and documented work
 
 - [Portfolio](https://understack.dk/en/portfolio)
+- [Cases](https://understack.dk/en/cases/)
 - [GastroApp](https://understack.dk/en/cases/gastroapp)
-- [ServiceOS](https://understack.dk/en/cases/serviceos)
-- [UnderStack AI Pocket](https://understack.dk/en/cases/understack-ai-pocket)
+- [UnderStack Pocket AI](https://understack.dk/en/cases/understack-ai-pocket)
+- [Life](https://understack.dk/en/cases/life)
+- [Peritar - ASEPCO](https://understack.dk/en/cases/peritar-asepco)
+- [Other projects in development](https://understack.dk/en/other-projects)
 - [Apps](https://understack.dk/en/apps)
 
 ## Research and contact
